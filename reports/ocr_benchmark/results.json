@@ -1,0 +1,288 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-09-17T16:36:34Z",
+    "environment": {
+      "os": "Windows 11 AMD64",
+      "python": "3.12.0",
+      "pytorch": "2.14.0+cpu",
+      "cuda_available": false,
+      "local_gpu": "None (nvidia-smi not detected)",
+      "target_remote_hardware": "NVIDIA RTX A4000 20GB (Remote Server)"
+    },
+    "models_evaluated": {
+      "pypdf": "6.18.0 (Current Production Ingestion)",
+      "pymupdf": "1.28.2 (C-based Layout-Aware Baseline)",
+      "unlimited_ocr": "baidu/Unlimited-OCR (3.3B Vision-Language Model, arXiv:2606.23050)"
+    }
+  },
+  "pages_evaluated": [
+    {
+      "test_id": "TEST_A1",
+      "category": "Known Layout Failure (Timeline)",
+      "document": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf",
+      "page_number": 372,
+      "description": "3-column visual timeline with dates, event titles, descriptions, and 3 figure thumbnails/captions.",
+      "pypdf": {
+        "text": "372\nArtificial Intelligence\nIndex Report 2024Chapter 7 PreviewTable of Contents\nArtificial Intelligence\nIndex Report 2024\nU.S. Senate puts forward Artificial Intelligence and \nBiosecurity Risk Assessment Act \nThe act mandates the assistant secretary for preparedness \nand response to assess and address threats to public health \nand national security from technical advancements in \nartificial intelligence. It emphasizes evaluating the potential \nuse of AI, including open-source models, for developing \nharmful agents. The proposed initiatives include monitoring \nglobal biological risks and integrating risk assessment \nsummaries into the National Health Security Strategy.\nU.S. Senate passes Outbound Investment \nTransparency Act \nThis initiative aims to scrutinize U.S. investments in \ncritical sectors, especially those involving China, with \na focus on evaluating risks in crucial industries and \ntechnologies such as AI that impact national security. \nThe objective is to increase awareness of potential \nvulnerabilities and risks linked to foreign access to \nAmerican technology in these domains.\nPrivate AI labs sign voluntary White House AI \ncommitments \nThe Biden-Harris administration obtains voluntary pledges \nfrom seven major AI firms\u2014Google, Microsoft, Meta, \nAmazon, OpenAI, Anthropic, and Inflection\u2014to promote the \ndevelopment of AI that is safe, secure, and reliable. These \ncommitments involve conducting internal and external \nsecurity assessments of AI systems prior to launch, sharing \ninformation on identified risks, enabling public reporting of \nissues, and disclosing when content is AI-generated.\nSource: Clinical Trials Arena, 2023\nFigure 7.1.6\nSource: AI CIO, 2023\nFigure 7.1.8\nSource: Medium, 2023\nFigure 7.1.7\nJul. 19, \n2023\nJul. 25, \n2023\nJul.21, \n2023\n7 .1 Overview of AI Policy in 2023\nChapter 7: Policy and Governance",
+        "raw_text": "372\nArtificial Intelligence\nIndex Report 2024Chapter 7 PreviewTable of Contents\nArtificial Intelligence\nIndex Report 2024\nU.S. Senate puts forward Artificial Intelligence and \nBiosecurity Risk Assessment Act \nThe act mandates the assistant secretary for preparedness \nand response to assess and address threats to public health \nand national security from technical advancements in \nartificial intelligence. It emphasizes evaluating the potential \nuse of AI, including open-source models, for developing \nharmful agents. The proposed initiatives include monitoring \nglobal biological risks and integrating risk assessment \nsummaries into the National Health Security Strategy.\nU.S. Senate passes Outbound Investment \nTransparency Act \nThis initiative aims to scrutinize U.S. investments in \ncritical sectors, especially those involving China, with \na focus on evaluating risks in crucial industries and \ntechnologies such as AI that impact national security. \nThe objective is to increase awareness of potential \nvulnerabilities and risks linked to foreign access to \nAmerican technology in these domains.\nPrivate AI labs sign voluntary White House AI \ncommitments \nThe Biden-Harris administration obtains voluntary pledges \nfrom seven major AI firms\u2014Google, Microsoft, Meta, \nAmazon, OpenAI, Anthropic, and Inflection\u2014to promote the \ndevelopment of AI that is safe, secure, and reliable. These \ncommitments involve conducting internal and external \nsecurity assessments of AI systems prior to launch, sharing \ninformation on identified risks, enabling public reporting of \nissues, and disclosing when content is AI-generated.\nSource: Clinical Trials Arena, 2023\nFigure 7.1.6\nSource: AI CIO, 2023\nFigure 7.1.8\nSource: Medium, 2023\nFigure 7.1.7\nJul. 19, \n2023\nJul. 25, \n2023\nJul.21, \n2023\n7 .1 Overview of AI Policy in 2023\nChapter 7: Policy and Governance",
+        "char_count": 1855,
+        "word_count": 255,
+        "line_count": 48,
+        "nul_bytes_count": 0,
+        "latency_ms": 404.05
+      },
+      "pymupdf": {
+        "text": "Artificial Intelligence\nIndex Report 2024\n\nArtificial Intelligence\nIndex Report 2024\n\n7.1 Overview of AI Policy in 2023\nChapter 7: Policy and Governance\n\nJul. 19,\n\nU.S. Senate puts forward Artificial Intelligence and \nBiosecurity Risk Assessment Act\n\n2023\n\nThe act mandates the assistant secretary for preparedness\n\nand response to assess and address threats to public health\n\nand national security from technical advancements in\n\nartificial intelligence. It emphasizes evaluating the potential\n\nSource: Clinical Trials Arena, 2023\n\nuse of AI, including open-source models, for developing\n\nFigure 7.1.6\n\nharmful agents. The proposed initiatives include monitoring\n\nglobal biological risks and integrating risk assessment\n\nsummaries into the National Health Security Strategy.\n\nJul.21,\n\nPrivate AI labs sign voluntary White House AI \ncommitments\n\n2023\n\nThe Biden-Harris administration obtains voluntary pledges\n\nfrom seven major AI firms\u2014Google, Microsoft, Meta,\n\nAmazon, OpenAI, Anthropic, and Inflection\u2014to promote the\n\ndevelopment of AI that is safe, secure, and reliable. These\n\ncommitments involve conducting internal and external\n\nsecurity assessments of AI systems prior to launch, sharing\n\nSource: Medium, 2023\n\nFigure 7.1.7\n\ninformation on identified risks, enabling public reporting of\n\nissues, and disclosing when content is AI-generated.\n\nJul. 25,\n\nU.S. Senate passes Outbound Investment \nTransparency Act\n\n2023\n\nThis initiative aims to scrutinize U.S. investments in\n\ncritical sectors, especially those involving China, with\n\na focus on evaluating risks in crucial industries and\n\ntechnologies such as AI that impact national security.\n\nThe objective is to increase awareness of potential\n\nvulnerabilities and risks linked to foreign access to\n\nSource: AI CIO, 2023\n\nAmerican technology in these domains.\n\nFigure 7.1.8\n\n372\n\nChapter 7 Preview\nTable of Contents",
+        "char_count": 1872,
+        "word_count": 256,
+        "line_count": 92,
+        "block_count": 43,
+        "table_count": 0,
+        "tables_markdown": [],
+        "latency_ms": 84.55
+      },
+      "image": {
+        "width": 2550,
+        "height": 3300,
+        "file_size_bytes": 706096,
+        "render_latency_ms": 242.44
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_372_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_372_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_372.png"
+      }
+    },
+    {
+      "test_id": "TEST_A2",
+      "category": "Chart/Figure & Clustered Captions",
+      "document": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf",
+      "page_number": 51,
+      "description": "Infographic page with 8 embedded image objects and 3 clustered figure captions.",
+      "pypdf": {
+        "text": "51\nArtificial Intelligence\nIndex Report 2024Chapter 1 PreviewTable of Contents\nFigure 1.3.7 highlights the training compute of notable \nmachine learning models since 2012. For example, \nAlexNet, one of the papers that popularized the now \nstandard practice of using GPUs to improve AI models, \nrequired an estimated 470 petaFLOPs for training. \nThe original Transformer, released in 2017, required \naround 7,400 petaFLOPs. Google\u2019s Gemini Ultra, one \nof the current state-of-the-art foundation models, \nrequired 50 billion petaFLOPs.\n1.3 Frontier AI Research\nChapter 1: Research and DevelopmentArtificial Intelligence\nIndex Report 2024\nLlama 2-70B\nPaLM (540B)\nMegatron-Turing NLG 530B\nGPT-3 175B (davinci)\nRoBERTa Large\nBERT-Large\nTransformer\nAlexNet\nGemini Ultra\nClaude 2\nGPT-4\n2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023\n1000\n10K\n100K\n1M\n10M\n100M\n1B\n10B\n100B\n Language Vision Multimodal\nPublication date\nTraining compute (petaFLOP - log scale)\nTraining compute of notable machine learning models by domain, 2012\u201323\nSource: Epoch, 2023 | Chart: 2024 AI Index report\nFigure 1.3.7",
+        "raw_text": "51\nArtificial Intelligence\nIndex Report 2024Chapter 1 PreviewTable of Contents\nFigure 1.3.7 highlights the training compute of notable \nmachine learning models since 2012. For example, \nAlexNet, one of the papers that popularized the now \nstandard practice of using GPUs to improve AI models, \nrequired an estimated 470 petaFLOPs for training. \nThe original Transformer, released in 2017, required \naround 7,400 petaFLOPs. Google\u2019s Gemini Ultra, one \nof the current state-of-the-art foundation models, \nrequired 50 billion petaFLOPs.\n1.3 Frontier AI Research\nChapter 1: Research and DevelopmentArtificial Intelligence\nIndex Report 2024\nLlama 2-70B\nPaLM (540B)\nMegatron-Turing NLG 530B\nGPT-3 175B (davinci)\nRoBERTa Large\nBERT-Large\nTransformer\nAlexNet\nGemini Ultra\nClaude 2\nGPT-4\n2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023\n1000\n10K\n100K\n1M\n10M\n100M\n1B\n10B\n100B\n Language Vision Multimodal\nPublication date\nTraining compute (petaFLOP - log scale)\nTraining compute of notable machine learning models by domain, 2012\u201323\nSource: Epoch, 2023 | Chart: 2024 AI Index report\nFigure 1.3.7",
+        "char_count": 1095,
+        "word_count": 160,
+        "line_count": 42,
+        "nul_bytes_count": 0,
+        "latency_ms": 465.9
+      },
+      "pymupdf": {
+        "text": "Artificial Intelligence\nIndex Report 2024\n\n1.3 Frontier AI Research\nChapter 1: Research and Development\nArtificial Intelligence\nIndex Report 2024\n\nFigure 1.3.7 highlights the training compute of notable\n\nThe original Transformer, released in 2017, required\n\nmachine learning models since 2012. For example,\n\naround 7,400 petaFLOPs. Google\u2019s Gemini Ultra, one\n\nAlexNet, one of the papers that popularized the now\n\nof the current state-of-the-art foundation models,\n\nstandard practice of using GPUs to improve AI models,\n\nrequired 50 billion petaFLOPs.\n\nrequired an estimated 470 petaFLOPs for training.\n\nTraining compute of notable machine learning models by domain, 2012\u201323\nSource: Epoch, 2023 | Chart: 2024 AI Index report\n\nGemini Ultra\n\n100B\nLanguage\nVision\nMultimodal\n\nGPT-4\n\n10B\n\nClaude 2\n\nPaLM (540B)\n\nLlama 2-70B\n\nMegatron-Turing NLG 530B\n\n1B\n\nGPT-3 175B (davinci)\n\n100M\n\n10M\n\nRoBERTa Large\n\n1M\n\nBERT-Large\n\n100K\n\nTraining compute (petaFLOP - log scale)\n\nTransformer\n\n10K\n\n1000\n\nAlexNet\n\n2012\n2013\n2014\n2015\n2016\n2017\n2018\n2019\n2020\n2021\n2022\n2023\n\nPublication date\n\nFigure 1.3.7\n\n51\n\nChapter 1 Preview\nTable of Contents\n\n[EXTRACTED TABLES]:\n|Col1|Col2|Col3|Col4|Col5|Col6|Col7|Col8|Col9|Col10|Col11|Col12|Col13|Gemini|Ultra|\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|||~~Language~~|~~Visi~~|~~on~~<br>~~M~~|~~ultimodal~~|||||||GPT-|~~emn~~<br> <br>4|~~ ra~~|\n||||||||||||||||\n||||||||||~~Megatro~~|~~n-Turing NL~~|PaL<br>~~ G 530B~~|<br>M (540B)|Llama 2-70<br>~~Claude 2~~|B|\n|||||||||GPT-3|<br> 175B (davi|<br>  nci)|||||\n||||||||||||||||\n|||||||||~~Ro~~|~~BERTa Lar~~|~~ ge~~|||||\n|||||||||BERT-La|rge||||||\n|||||||T|ransformer||||||||\n|||~~l~~|||||||||||||\n|||~~AexNe~~|~~t~~||||||||||||\n\n",
+        "char_count": 1720,
+        "word_count": 190,
+        "line_count": 110,
+        "block_count": 38,
+        "table_count": 1,
+        "tables_markdown": [
+          "|Col1|Col2|Col3|Col4|Col5|Col6|Col7|Col8|Col9|Col10|Col11|Col12|Col13|Gemini|Ultra|\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|||~~Language~~|~~Visi~~|~~on~~<br>~~M~~|~~ultimodal~~|||||||GPT-|~~emn~~<br> <br>4|~~ ra~~|\n||||||||||||||||\n||||||||||~~Megatro~~|~~n-Turing NL~~|PaL<br>~~ G 530B~~|<br>M (540B)|Llama 2-70<br>~~Claude 2~~|B|\n|||||||||GPT-3|<br> 175B (davi|<br>  nci)|||||\n||||||||||||||||\n|||||||||~~Ro~~|~~BERTa Lar~~|~~ ge~~|||||\n|||||||||BERT-La|rge||||||\n|||||||T|ransformer||||||||\n|||~~l~~|||||||||||||\n|||~~AexNe~~|~~t~~||||||||||||\n\n"
+        ],
+        "latency_ms": 133.69
+      },
+      "image": {
+        "width": 2550,
+        "height": 3300,
+        "file_size_bytes": 366678,
+        "render_latency_ms": 183.06
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_51_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_51_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_51.png"
+      }
+    },
+    {
+      "test_id": "TEST_B1",
+      "category": "Complex Textbook Layout & Raw NUL Bytes",
+      "document": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf",
+      "page_number": 97,
+      "description": "Phonetics/syntax textbook page containing 22 raw NUL bytes (0x00) and multi-column IPA notation.",
+      "pypdf": {
+        "text": "4.12 \u2022 AVOIDING HARMS IN CLASSIFICATION 89\n1 2 3 4 5 6 7 8 9 10 A% B% \u03b4 ()\nx AB A\u0013\u0013B AB AB A\u0013\u0013B AB A\u0013\u0013B AB A\u0013\u0013B A\u0013\u0013B .70 .50 .20\nx(1) A\u0013\u0013B AB A\u0013\u0013B AB AB A\u0013\u0013B AB AB A\u0013\u0013B AB .60 .60 .00\nx(2) A\u0013\u0013B AB A\u0013\u0013B AB AB AB AB A\u0013\u0013B AB AB .60 .70 -.10\n...\nx(b)\nFigure 4.11 The paired bootstrap test: Examples of b pseudo test sets x(i) being created\nfrom an initial true test set x. Each pseudo test set is created by sampling n = 10 times with\nreplacement; thus an individual sample is a single cell, a document with its gold label and\nthe correct or incorrect performance of classi\ufb01ers A and B. Of course real test sets don\u2019t have\nonly 10 examples, and b needs to be large as well.\nvalue by \u03b4 (x) or more:\np-value(x) = 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2212 \u03b4 (x)\u2265 0\n)\n(We use the notation 1 (x) to mean \u201c1 if x is true, and 0 otherwise\u201d.) However,\nalthough it\u2019s generally true that the expected value of \u03b4 (X) over many test sets,\n(again assuming A isn\u2019t better than B) is 0, this isn\u2019t true for the bootstrapped test\nsets we created. That\u2019s because we didn\u2019t draw these samples from a distribution\nwith 0 mean; we happened to create them from the original test set x, which happens\nto be biased (by .20) in favor of A. So to measure how surprising is our observed\n\u03b4 (x), we actually compute the p-value by counting over many test sets how often\n\u03b4 (x(i)) exceeds the expected value of \u03b4 (x) by \u03b4 (x) or more:\np-value(x) = 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2212 \u03b4 (x)\u2265 \u03b4 (x)\n)\n= 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2265 2\u03b4 (x)\n)\n(4.48)\nSo if for example we have 10,000 test sets x(i) and a threshold of .01, and in only 47\nof the test sets do we \ufb01nd that A is accidentally better \u03b4 (x(i))\u2265 2\u03b4 (x), the resulting\np-value of .0047 is smaller than .01, indicating that the delta we found, \u03b4 (x) is indeed\nsuf\ufb01ciently surprising and unlikely to have happened by accident, and we can reject\nthe null hypothesis and conclude A is better than B.\nThe full algorithm for the bootstrap is shown in Fig. 4.12. It is given a test set\nx, a number of samples b, and counts the percentage of the b bootstrap test sets in\nwhich \u03b4 (x(i)) > 2\u03b4 (x). This percentage then acts as a one-sided empirical p-value.\n4.12 Avoiding Harms in Classi\ufb01cation\nIt is important to avoid harms that may result from classi\ufb01ers. One class of harms\nis representational harms (Crawford 2017 , Blodgett et al. 2020 ), harms causedrepresentational\nharms\nby a system that demeans a social group, for example by perpetuating negative\nstereotypes about them. For example Kiritchenko and Mohammad (2018) exam-\nined the performance of 200 sentiment analysis systems on pairs of sentences that",
+        "raw_text": "4.12 \u2022 AVOIDING HARMS IN CLASSIFICATION 89\n1 2 3 4 5 6 7 8 9 10 A% B% \u03b4 ()\nx AB A\u0013\u0013B AB \u0000\u0000AB A\u0013\u0013B \u0000\u0000AB A\u0013\u0013B AB \u0000\u0000A\u0013\u0013B A\u0013\u0013B .70 .50 .20\nx(1) A\u0013\u0013B AB A\u0013\u0013B \u0000\u0000AB \u0000\u0000AB A\u0013\u0013B \u0000\u0000AB AB \u0000\u0000A\u0013\u0013B AB .60 .60 .00\nx(2) A\u0013\u0013B AB \u0000\u0000A\u0013\u0013B \u0000\u0000AB \u0000\u0000AB AB \u0000\u0000AB A\u0013\u0013B AB AB .60 .70 -.10\n...\nx(b)\nFigure 4.11 The paired bootstrap test: Examples of b pseudo test sets x(i) being created\nfrom an initial true test set x. Each pseudo test set is created by sampling n = 10 times with\nreplacement; thus an individual sample is a single cell, a document with its gold label and\nthe correct or incorrect performance of classi\ufb01ers A and B. Of course real test sets don\u2019t have\nonly 10 examples, and b needs to be large as well.\nvalue by \u03b4 (x) or more:\np-value(x) = 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2212 \u03b4 (x)\u2265 0\n)\n(We use the notation 1 (x) to mean \u201c1 if x is true, and 0 otherwise\u201d.) However,\nalthough it\u2019s generally true that the expected value of \u03b4 (X) over many test sets,\n(again assuming A isn\u2019t better than B) is 0, this isn\u2019t true for the bootstrapped test\nsets we created. That\u2019s because we didn\u2019t draw these samples from a distribution\nwith 0 mean; we happened to create them from the original test set x, which happens\nto be biased (by .20) in favor of A. So to measure how surprising is our observed\n\u03b4 (x), we actually compute the p-value by counting over many test sets how often\n\u03b4 (x(i)) exceeds the expected value of \u03b4 (x) by \u03b4 (x) or more:\np-value(x) = 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2212 \u03b4 (x)\u2265 \u03b4 (x)\n)\n= 1\nb\nb\u2211\ni=1\n1\n(\n\u03b4 (x(i))\u2265 2\u03b4 (x)\n)\n(4.48)\nSo if for example we have 10,000 test sets x(i) and a threshold of .01, and in only 47\nof the test sets do we \ufb01nd that A is accidentally better \u03b4 (x(i))\u2265 2\u03b4 (x), the resulting\np-value of .0047 is smaller than .01, indicating that the delta we found, \u03b4 (x) is indeed\nsuf\ufb01ciently surprising and unlikely to have happened by accident, and we can reject\nthe null hypothesis and conclude A is better than B.\nThe full algorithm for the bootstrap is shown in Fig. 4.12. It is given a test set\nx, a number of samples b, and counts the percentage of the b bootstrap test sets in\nwhich \u03b4 (x(i)) > 2\u03b4 (x). This percentage then acts as a one-sided empirical p-value.\n4.12 Avoiding Harms in Classi\ufb01cation\nIt is important to avoid harms that may result from classi\ufb01ers. One class of harms\nis representational harms (Crawford 2017 , Blodgett et al. 2020 ), harms causedrepresentational\nharms\nby a system that demeans a social group, for example by perpetuating negative\nstereotypes about them. For example Kiritchenko and Mohammad (2018) exam-\nined the performance of 200 sentiment analysis systems on pairs of sentences that",
+        "char_count": 2590,
+        "word_count": 511,
+        "line_count": 61,
+        "nul_bytes_count": 22,
+        "latency_ms": 208.28
+      },
+      "pymupdf": {
+        "text": "4.12\n\u2022\nAVOIDING HARMS IN CLASSIFICATION\n89\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10 A% B% \u03b4()\nx\nAB A\u0013B AB \u0000AB A\u0013B \u0000AB A\u0013B AB \u0000A\u0013B A\u0013B .70\n.50\n.20\nx(1)\nA\u0013B AB A\u0013B \u0000AB \u0000AB A\u0013B \u0000AB AB \u0000A\u0013B AB .60\n.60\n.00\nx(2)\nA\u0013B AB \u0000A\u0013B \u0000AB \u0000AB AB \u0000AB A\u0013B AB AB .60\n.70 -.10\n...\nx(b)\n\nFigure 4.11\nThe paired bootstrap test: Examples of b pseudo test sets x(i) being created\nfrom an initial true test set x. Each pseudo test set is created by sampling n = 10 times with\nreplacement; thus an individual sample is a single cell, a document with its gold label and\nthe correct or incorrect performance of classi\ufb01ers A and B. Of course real test sets don\u2019t have\nonly 10 examples, and b needs to be large as well.\n\nvalue by \u03b4(x) or more:\n\np-value(x) = 1\n\nb\n\n\u03b4(x(i))\u2212\u03b4(x) \u22650\n\ni=1\n\n1\n\u0010\n\n\u0011\n\nb\nX\n\n(We use the notation 1(x) to mean \u201c1 if x is true, and 0 otherwise\u201d.) However,\nalthough it\u2019s generally true that the expected value of \u03b4(X) over many test sets,\n(again assuming A isn\u2019t better than B) is 0, this isn\u2019t true for the bootstrapped test\nsets we created. That\u2019s because we didn\u2019t draw these samples from a distribution\nwith 0 mean; we happened to create them from the original test set x, which happens\nto be biased (by .20) in favor of A. So to measure how surprising is our observed\n\u03b4(x), we actually compute the p-value by counting over many test sets how often\n\u03b4(x(i)) exceeds the expected value of \u03b4(x) by \u03b4(x) or more:\n\np-value(x) = 1\n\nb\n\n\u03b4(x(i))\u2212\u03b4(x) \u2265\u03b4(x)\n\ni=1\n\n\u0011\n\n1\n\u0010\n\nb\nX\n\n(4.48)\n\n= 1\n\nb\n\n\u03b4(x(i)) \u22652\u03b4(x)\n\ni=1\n\n1\n\u0010\n\n\u0011\n\nb\nX\n\nSo if for example we have 10,000 test sets x(i) and a threshold of .01, and in only 47\nof the test sets do we \ufb01nd that A is accidentally better \u03b4(x(i)) \u22652\u03b4(x), the resulting\np-value of .0047 is smaller than .01, indicating that the delta we found, \u03b4(x) is indeed\nsuf\ufb01ciently surprising and unlikely to have happened by accident, and we can reject\nthe null hypothesis and conclude A is better than B.\n\nThe full algorithm for the bootstrap is shown in Fig. 4.12. It is given a test set\nx, a number of samples b, and counts the percentage of the b bootstrap test sets in\nwhich \u03b4(x(i)) > 2\u03b4(x). This percentage then acts as a one-sided empirical p-value.\n\n4.12\nAvoiding Harms in Classi\ufb01cation\n\nIt is important to avoid harms that may result from classi\ufb01ers. One class of harms\nis representational harms (Crawford 2017, Blodgett et al. 2020), harms caused\nrepresentational\n\nharms\n\nby a system that demeans a social group, for example by perpetuating negative\nstereotypes about them. For example Kiritchenko and Mohammad (2018) exam-\nined the performance of 200 sentiment analysis systems on pairs of sentences that\n\n[EXTRACTED TABLES]:\n|Col1|1|Col3|2|3|4|5|6|7|8|9|10|A%|B%|\u03b4()|\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|x<br>|AB|AB|A**\u0013**B|AB|**\u0000**AB|A**\u0013**B|**\u0000**AB|A**\u0013**B|AB|**\u0000**A**\u0013**B|A**\u0013**B|.70|.50|.20|\n|x(1)<br>|A**\u0013**B|A**\u0013**B|AB|A**\u0013**B|**\u0000**AB|**\u0000**AB|A**\u0013**B|**\u0000**AB|AB|**\u0000**A**\u0013**B|AB|.60|.60|.00|\n|x(2)|A**\u0013**B|A**\u0013**B|AB|**\u0000**A**\u0013**B|**\u0000**AB|**\u0000**AB|AB|**\u0000**AB|A**\u0013**B|AB|AB|.60|.70|-.10|\n|...<br>|||||||||||||||\n|x(b)|||||||||||||||\n|Figure 4.11|Figure 4.11|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|\n\n",
+        "char_count": 4088,
+        "word_count": 659,
+        "line_count": 130,
+        "block_count": 33,
+        "table_count": 1,
+        "tables_markdown": [
+          "|Col1|1|Col3|2|3|4|5|6|7|8|9|10|A%|B%|\u03b4()|\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n|x<br>|AB|AB|A**\u0013**B|AB|**\u0000**AB|A**\u0013**B|**\u0000**AB|A**\u0013**B|AB|**\u0000**A**\u0013**B|A**\u0013**B|.70|.50|.20|\n|x(1)<br>|A**\u0013**B|A**\u0013**B|AB|A**\u0013**B|**\u0000**AB|**\u0000**AB|A**\u0013**B|**\u0000**AB|AB|**\u0000**A**\u0013**B|AB|.60|.60|.00|\n|x(2)|A**\u0013**B|A**\u0013**B|AB|**\u0000**A**\u0013**B|**\u0000**AB|**\u0000**AB|AB|**\u0000**AB|A**\u0013**B|AB|AB|.60|.70|-.10|\n|...<br>|||||||||||||||\n|x(b)|||||||||||||||\n|Figure 4.11|Figure 4.11|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|The paired bootstrap test: Examples of b pseudo test sets x(i) being created|\n\n"
+        ],
+        "latency_ms": 298.43
+      },
+      "image": {
+        "width": 2550,
+        "height": 3300,
+        "file_size_bytes": 553304,
+        "render_latency_ms": 191.33
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_97_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_97_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_97.png"
+      }
+    },
+    {
+      "test_id": "TEST_B2",
+      "category": "Complex Textbook Layout & Syntax Trees",
+      "document": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf",
+      "page_number": 25,
+      "description": "Regular expressions and finite-state automata diagrams with 4 image objects.",
+      "pypdf": {
+        "text": "2.5 \u2022 CORPORA 17\nSome of these are related to preprocessing steps. As we mentioned brie\ufb02y above,\nlanguage models usually create their tokens in a pretokenization stage that \ufb01rst seg-pretokenization\nments the input using regular expressions, for example breaking the input at spaces\nand punctuation, stripping off clitics, and breaking numbers into sets of digits. We\u2019ll\nsee how to use regular expressions in Section 2.6.\nIt\u2019s possible to change this pretokenization to allow BPE tokens to span multiple\nwords. For example the SuperBPE (Liu et al. , 2025) and BoundlessBPE (SchmidtSuperBPE\nBoundlessBPE et al., 2025) algorithms \ufb01rst induce regular BPE subword tokens by enforcing preto-\nkenization. They then run a second stage of BPE allowing merges across spaces and\npunctuation. The result is a large set of tokens that can be more ef\ufb01cient (Fig. 2.7).\nFigure 2.7 The SuperBPE algorithm creating larger tokens by allowing a second stage of\nmerging across spaces. Figure from Liu et al. (2025).\nMany of the tokenizers used in practice for large language models are multilin-\ngual, trained on many languages. But because the training data for large language\nmodels is vastly dominated by English text, these multilingual BPE tokenizers tend\nto use most of the tokens for English, leaving fewer of them for other languages. The\nresult is that they do a better job of tokenizing English, and the other languages tend\nto get their words split up into shorter tokens. For example let\u2019s look at a Spanish\nsentence from a recipe for plantains, together with an English translation.\nThe English has 18 tokens; each of the 14 words is a token (none of the words\nare split into multiple tokens):\nBy contrast, the original 16 words in Spanish have been encoded into 33 tokens,\na much larger number. Notice that many basic words have been broken into pieces.\nFor example hondo, \u2018deep\u2019, has been segmented into h and ondo. Similarly for\njugo, \u2018juice\u2019, nuez, \u2018nut\u2019 and jenjibre \u2018ginger\u2019):\nSpanish is not a particularly low-resource language; this oversegmenting can be\neven more serious in lower resource languages, often down to individual characters.\nOversegmenting into these tiny tokens can cause various problems for the down-\nstream processing of the language. As will become more clear once we introduce\ntransformer models in Chapter 8, such fragmentation can lead to poor representa-\ntions of meaning, the need for longer contexts, and higher costs to train models\n(Rust et al., 2021; Ahia et al., 2023).\n2.5 Corpora\nWords don\u2019t appear out of nowhere. Any particular piece of text that we study\nis produced by one or more speci\ufb01c speakers or writers, in a speci\ufb01c dialect of a",
+        "raw_text": "2.5 \u2022 CORPORA 17\nSome of these are related to preprocessing steps. As we mentioned brie\ufb02y above,\nlanguage models usually create their tokens in a pretokenization stage that \ufb01rst seg-pretokenization\nments the input using regular expressions, for example breaking the input at spaces\nand punctuation, stripping off clitics, and breaking numbers into sets of digits. We\u2019ll\nsee how to use regular expressions in Section 2.6.\nIt\u2019s possible to change this pretokenization to allow BPE tokens to span multiple\nwords. For example the SuperBPE (Liu et al. , 2025) and BoundlessBPE (SchmidtSuperBPE\nBoundlessBPE et al., 2025) algorithms \ufb01rst induce regular BPE subword tokens by enforcing preto-\nkenization. They then run a second stage of BPE allowing merges across spaces and\npunctuation. The result is a large set of tokens that can be more ef\ufb01cient (Fig. 2.7).\nFigure 2.7 The SuperBPE algorithm creating larger tokens by allowing a second stage of\nmerging across spaces. Figure from Liu et al. (2025).\nMany of the tokenizers used in practice for large language models are multilin-\ngual, trained on many languages. But because the training data for large language\nmodels is vastly dominated by English text, these multilingual BPE tokenizers tend\nto use most of the tokens for English, leaving fewer of them for other languages. The\nresult is that they do a better job of tokenizing English, and the other languages tend\nto get their words split up into shorter tokens. For example let\u2019s look at a Spanish\nsentence from a recipe for plantains, together with an English translation.\nThe English has 18 tokens; each of the 14 words is a token (none of the words\nare split into multiple tokens):\nBy contrast, the original 16 words in Spanish have been encoded into 33 tokens,\na much larger number. Notice that many basic words have been broken into pieces.\nFor example hondo, \u2018deep\u2019, has been segmented into h and ondo. Similarly for\njugo, \u2018juice\u2019, nuez, \u2018nut\u2019 and jenjibre \u2018ginger\u2019):\nSpanish is not a particularly low-resource language; this oversegmenting can be\neven more serious in lower resource languages, often down to individual characters.\nOversegmenting into these tiny tokens can cause various problems for the down-\nstream processing of the language. As will become more clear once we introduce\ntransformer models in Chapter 8, such fragmentation can lead to poor representa-\ntions of meaning, the need for longer contexts, and higher costs to train models\n(Rust et al., 2021; Ahia et al., 2023).\n2.5 Corpora\nWords don\u2019t appear out of nowhere. Any particular piece of text that we study\nis produced by one or more speci\ufb01c speakers or writers, in a speci\ufb01c dialect of a",
+        "char_count": 2671,
+        "word_count": 439,
+        "line_count": 36,
+        "nul_bytes_count": 0,
+        "latency_ms": 164.8
+      },
+      "pymupdf": {
+        "text": "2.5\n\u2022\nCORPORA\n17\n\nSome of these are related to preprocessing steps. As we mentioned brie\ufb02y above,\nlanguage models usually create their tokens in a pretokenization stage that \ufb01rst seg-\npretokenization\n\nments the input using regular expressions, for example breaking the input at spaces\nand punctuation, stripping off clitics, and breaking numbers into sets of digits. We\u2019ll\nsee how to use regular expressions in Section 2.6.\n\nIt\u2019s possible to change this pretokenization to allow BPE tokens to span multiple\nwords. For example the SuperBPE (Liu et al., 2025) and BoundlessBPE (Schmidt\nSuperBPE\n\nBoundlessBPE\net al., 2025) algorithms \ufb01rst induce regular BPE subword tokens by enforcing preto-\nkenization. They then run a second stage of BPE allowing merges across spaces and\npunctuation. The result is a large set of tokens that can be more ef\ufb01cient (Fig. 2.7).\n\nFigure 2.7\nThe SuperBPE algorithm creating larger tokens by allowing a second stage of\nmerging across spaces. Figure from Liu et al. (2025).\n\nMany of the tokenizers used in practice for large language models are multilin-\ngual, trained on many languages. But because the training data for large language\nmodels is vastly dominated by English text, these multilingual BPE tokenizers tend\nto use most of the tokens for English, leaving fewer of them for other languages. The\nresult is that they do a better job of tokenizing English, and the other languages tend\nto get their words split up into shorter tokens. For example let\u2019s look at a Spanish\nsentence from a recipe for plantains, together with an English translation.\n\nThe English has 18 tokens; each of the 14 words is a token (none of the words\nare split into multiple tokens):\n\nBy contrast, the original 16 words in Spanish have been encoded into 33 tokens,\na much larger number. Notice that many basic words have been broken into pieces.\nFor example hondo, \u2018deep\u2019, has been segmented into h and ondo. Similarly for\njugo, \u2018juice\u2019, nuez, \u2018nut\u2019 and jenjibre \u2018ginger\u2019):\n\nSpanish is not a particularly low-resource language; this oversegmenting can be\neven more serious in lower resource languages, often down to individual characters.\nOversegmenting into these tiny tokens can cause various problems for the down-\nstream processing of the language. As will become more clear once we introduce\ntransformer models in Chapter 8, such fragmentation can lead to poor representa-\ntions of meaning, the need for longer contexts, and higher costs to train models\n(Rust et al., 2021; Ahia et al., 2023).\n\n2.5\nCorpora\n\nWords don\u2019t appear out of nowhere. Any particular piece of text that we study\nis produced by one or more speci\ufb01c speakers or writers, in a speci\ufb01c dialect of a\n\n[EXTRACTED TABLES]:\n|Col1|Col2|\n|---|---|\n|Figure 2.7|The SuperBPE algorithm creating larger tokens by allowing a second stage of|\n\n",
+        "char_count": 2817,
+        "word_count": 457,
+        "line_count": 61,
+        "block_count": 12,
+        "table_count": 1,
+        "tables_markdown": [
+          "|Col1|Col2|\n|---|---|\n|Figure 2.7|The SuperBPE algorithm creating larger tokens by allowing a second stage of|\n\n"
+        ],
+        "latency_ms": 69.23
+      },
+      "image": {
+        "width": 2550,
+        "height": 3300,
+        "file_size_bytes": 702200,
+        "render_latency_ms": 187.42
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_25_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_25_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_25.png"
+      }
+    },
+    {
+      "test_id": "TEST_C1",
+      "category": "Structured Comparison Table & Architecture",
+      "document": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf",
+      "page_number": 47,
+      "description": "Comparative model benchmark table and transformer architecture diagram.",
+      "pypdf": {
+        "text": "30 2 Pre-trained Language Models\n2.1.4 Visualizing Attentions and Embeddings \nAccording to Bengio et al. [ 14], a good representation of language should capture  \nthe implicit linguistic rules and common sense know ledge contained in text data, \nsuch as lexical meanings, syntactic relations, sema ntic roles, and the pragmatics of \nlanguage use. The contextual word embeddings of BER T can be seen as a big step \nin this direction. They may be used to disambiguate  different meanings of the same \nword. \nThe self-attention mechanism of BERT computes a lar ge number of \u201cassocia-\ntions\u201d between tokens and merges embeddings accordi ng to the strengths of these \nassociations. If .x1, . . . , xT are the embeddings of the input tokens .v1, . . . , v T , the  \nassociations .q\u22ba\nr kt are determined between the query .q\u22ba\nr = x\u22ba\nr W (q) and the key \n.k\u22ba\nt = x\u22ba\nt W (k) vectors ( 2.1). Then a sum of value vectors .v\u22ba\nt = x\u22ba\nt W (v) weighted \nwith the normalized associations is formed yielding  the new embeddings ( 2.3). \nThis is repeated with different matrices .W (q)\nl,m, W (k)\nl,m, W (v)\nl,m in m self-attention \nheads and l layers. Each layer and head the new embeddings thus  captures different \naspects of the relations between the embeddings of each layer. For BERT .BASE we \nhave .l = 12 layers and .m = 12 bidirectional self-attention heads in each layer \nyielding 144 different \u201cassociations\u201d or self-atten tions. For the input sentence \u201cThe \ngirl and the boy went home. She entered the door.\u201d Figure 2.6 shows on the left side \nthe strength of associations for one of the 144 sel f-attention heads. Between every \npair of tokens of the sentence an attention value i s calculated and its strength is \nsymbolized by lines of different widths. We see tha t the pronoun \u201cshe\u201d is strongly \nassociated with \u201cthe girl\u201d . In the subsequent calculations (c.f. Fig. 2.2) the  word  \n\u201cshe\u201d is disambiguated by merging its embedding with the embeddings of \u201cthe\u201d and \n\u201cgirl\u201d generating a new contextual embedding of \u201cshe\u201d, which includes its relation \nto \u201cgirl\u201d. On the right side of the \ufb01gure the input \u201cThe girl and the boy went home. \nHe entered the door.\u201d is processed. Then the model creates an association  of \u201cboy\u201d \nwith \u201che\u201d. \nFig. 2.6 Visualization of a speci\ufb01c self-attention in the \ufb01fth layer of a BERT model with BERTviz \n[142]. If the next sentence contains the pronoun \u201cshe\u201d this is associated with \u201cthe girl\u201d . If this  \npronoun is changed to \u201che\u201d it is related to \u201cthe boy\u201d . Image created with BERTviz [ 142], with \nkind permission of the author",
+        "raw_text": "30 2 Pre-trained Language Models\n2.1.4 Visualizing Attentions and Embeddings \nAccording to Bengio et al. [ 14], a good representation of language should capture  \nthe implicit linguistic rules and common sense know ledge contained in text data, \nsuch as lexical meanings, syntactic relations, sema ntic roles, and the pragmatics of \nlanguage use. The contextual word embeddings of BER T can be seen as a big step \nin this direction. They may be used to disambiguate  different meanings of the same \nword. \nThe self-attention mechanism of BERT computes a lar ge number of \u201cassocia-\ntions\u201d between tokens and merges embeddings accordi ng to the strengths of these \nassociations. If .x1, . . . , xT are the embeddings of the input tokens .v1, . . . , v T , the  \nassociations .q\u22ba\nr kt are determined between the query .q\u22ba\nr = x\u22ba\nr W (q) and the key \n.k\u22ba\nt = x\u22ba\nt W (k) vectors ( 2.1). Then a sum of value vectors .v\u22ba\nt = x\u22ba\nt W (v) weighted \nwith the normalized associations is formed yielding  the new embeddings ( 2.3). \nThis is repeated with different matrices .W (q)\nl,m, W (k)\nl,m, W (v)\nl,m in m self-attention \nheads and l layers. Each layer and head the new embeddings thus  captures different \naspects of the relations between the embeddings of each layer. For BERT .BASE we \nhave .l = 12 layers and .m = 12 bidirectional self-attention heads in each layer \nyielding 144 different \u201cassociations\u201d or self-atten tions. For the input sentence \u201cThe \ngirl and the boy went home. She entered the door.\u201d Figure 2.6 shows on the left side \nthe strength of associations for one of the 144 sel f-attention heads. Between every \npair of tokens of the sentence an attention value i s calculated and its strength is \nsymbolized by lines of different widths. We see tha t the pronoun \u201cshe\u201d is strongly \nassociated with \u201cthe girl\u201d . In the subsequent calculations (c.f. Fig. 2.2) the  word  \n\u201cshe\u201d is disambiguated by merging its embedding with the embeddings of \u201cthe\u201d and \n\u201cgirl\u201d generating a new contextual embedding of \u201cshe\u201d, which includes its relation \nto \u201cgirl\u201d. On the right side of the \ufb01gure the input \u201cThe girl and the boy went home. \nHe entered the door.\u201d is processed. Then the model creates an association  of \u201cboy\u201d \nwith \u201che\u201d. \nFig. 2.6 Visualization of a speci\ufb01c self-attention in the \ufb01fth layer of a BERT model with BERTviz \n[142]. If the next sentence contains the pronoun \u201cshe\u201d this is associated with \u201cthe girl\u201d . If this  \npronoun is changed to \u201che\u201d it is related to \u201cthe boy\u201d . Image created with BERTviz [ 142], with \nkind permission of the author",
+        "char_count": 2559,
+        "word_count": 452,
+        "line_count": 43,
+        "nul_bytes_count": 0,
+        "latency_ms": 208.56
+      },
+      "pymupdf": {
+        "text": "30\n2\nPre-trained Language Models\n\n2.1.4 \nVisualizing Attentions and Embeddings\n\nAccording to Bengio et al. [14], a good representation of language should capture \nthe implicit linguistic rules and common sense knowledge contained in text data, \nsuch as lexical meanings, syntactic relations, semantic roles, and the pragmatics of \nlanguage use. The contextual word embeddings of BERT can be seen as a big step \nin this direction. They may be used to disambiguate different meanings of the same \nword.\n\nThe self-attention mechanism of BERT computes a large number of \u201cassocia-\ntions\u201d between tokens and merges embeddings according to the strengths of these \nassociations. If .x1, . . . , xT are the embeddings of the input tokens .v1, . . . , vT , the \nassociations .q\u22ba\n\nr kt are determined between the query .q\u22ba\n\nr W (q) and the key\n\nr = x\u22ba\n\n.k\u22ba\n\nt W (k) vectors (2.1). Then a sum of value vectors .v\u22ba\n\nt = x\u22ba\n\nt = x\u22ba\n\nt W (v) weighted \nwith the normalized associations is formed yielding the new embeddings (2.3).\n\nThis is repeated with different matrices .W (q)\n\nl,m, W (v)\n\nl,m, W (k)\n\nl,m in m self-attention \nheads and l layers. Each layer and head the new embeddings thus captures different \naspects of the relations between the embeddings of each layer. For BERT.BASE we \nhave .l = 12 layers and .m = 12 bidirectional self-attention heads in each layer \nyielding 144 different \u201cassociations\u201d or self-attentions. For the input sentence \u201cThe \ngirl and the boy went home. She entered the door.\u201d Figure 2.6 shows on the left side \nthe strength of associations for one of the 144 self-attention heads. Between every \npair of tokens of the sentence an attention value is calculated and its strength is \nsymbolized by lines of different widths. We see that the pronoun \u201cshe\u201d is strongly \nassociated with \u201cthe girl\u201d. In the subsequent calculations (c.f. Fig. 2.2) the word \n\u201cshe\u201d is disambiguated by merging its embedding with the embeddings of \u201cthe\u201d and \n\u201cgirl\u201d generating a new contextual embedding of \u201cshe\u201d, which includes its relation \nto \u201cgirl\u201d. On the right side of the \ufb01gure the input \u201cThe girl and the boy went home. \nHe entered the door.\u201d is processed. Then the model creates an association of \u201cboy\u201d \nwith \u201che\u201d.\n\nFig. 2.6 Visualization of a speci\ufb01c self-attention in the \ufb01fth layer of a BERT model with BERTviz \n[142]. If the next sentence contains the pronoun \u201cshe\u201d this is associated with \u201cthe girl\u201d. If this \npronoun is changed to \u201che\u201d it is related to \u201cthe boy\u201d. Image created with BERTviz [142], with \nkind permission of the author",
+        "char_count": 2544,
+        "word_count": 434,
+        "line_count": 62,
+        "block_count": 17,
+        "table_count": 0,
+        "tables_markdown": [],
+        "latency_ms": 52.66
+      },
+      "image": {
+        "width": 1831,
+        "height": 2776,
+        "file_size_bytes": 560496,
+        "render_latency_ms": 142.92
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_47_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_47_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_47.png"
+      }
+    },
+    {
+      "test_id": "TEST_C2",
+      "category": "Mathematical Derivations & LaTeX Equations",
+      "document": "natural-language-processing-jacob-eisenstein-838.pdf",
+      "page_number": 32,
+      "description": "Multi-line mathematical probability formulas, vector algebra, and dense LaTeX notation.",
+      "pypdf": {
+        "text": "14 CHAPTER 2. LINEAR TEXT CLASSIFICATION\nTo predict a label from a bag-of-words, we can assign a score to each word in the vo-\ncabulary, measuring the compatibility with the label. For example, for the label FICTION ,\nwe might assign a positive score to the word whale, and a negative score to the word\nmolybdenum. These scores are called weights, and they are arranged in a column vector\u03b8.\nSuppose that you want a multiclass classi\ufb01er, where K\u225c|Y| > 2. For example, you\nmight want to classify news stories about sports, celebrities, music, and business. The goal\nis to predict a label \u02c6y, given the bag of wordsx, using the weights\u03b8. For each labely\u2208Y ,\nwe compute a score \u03a8(x,y ), which is a scalar measure of the compatibility between the\nbag-of-wordsx and the labely. In a linear bag-of-words classi\ufb01er, this score is the vector\ninner product between the weights\u03b8 and the output of a feature functionf(x,y ),\n\u03a8(x,y ) =\u03b8\u00b7f(x,y ) =\n\u2211\nj\n\u03b8jfj(x,y ). [2.1]\nAs the notation suggests, f is a function of two arguments, the word counts x and the\nlabely, and it returns a vector output. For example, given arguments x andy, elementj\nof this feature vector might be,\nfj(x,y ) =\n{\nxwhale, ify = FICTION\n0, otherwise [2.2]\nThis function returns the count of the wordwhale if the label is FICTION , and it returns zero\notherwise. The indexj depends on the position ofwhale in the vocabulary, and of FICTION\nin the set of possible labels. The corresponding weight \u03b8j then scores the compatibility of\nthe word whale with the label FICTION .1 A positive score means that this word makes the\nlabel more likely.\nThe output of the feature function can be formalized as a vector:\nf(x,y = 1) = [x; 0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n] [2.3]\nf(x,y = 2) = [0; 0;... ; 0| {z }\nV\n;x; 0; 0;... ; 0| {z }\n(K\u22122)\u00d7V\n] [2.4]\nf(x,y =K) = [0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n;x], [2.5]\nwhere [0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n] is a column vector of (K\u2212 1)\u00d7V zeros, and the semicolon indicates\nvertical concatenation. For each of the K possible labels, the feature function returns a\n1In practice, both f and \u03b8 may be implemented as a dictionary rather than vectors, so that it is not\nnecessary to explicitly identifyj. In such an implementation, the tuple (whale, FICTION ) acts as a key in both\ndictionaries; the values inf are feature counts, and the values in\u03b8 are weights.\nJacob Eisenstein. Draft of November 13, 2018.",
+        "raw_text": "14 CHAPTER 2. LINEAR TEXT CLASSIFICATION\nTo predict a label from a bag-of-words, we can assign a score to each word in the vo-\ncabulary, measuring the compatibility with the label. For example, for the label FICTION ,\nwe might assign a positive score to the word whale, and a negative score to the word\nmolybdenum. These scores are called weights, and they are arranged in a column vector\u03b8.\nSuppose that you want a multiclass classi\ufb01er, where K\u225c|Y| > 2. For example, you\nmight want to classify news stories about sports, celebrities, music, and business. The goal\nis to predict a label \u02c6y, given the bag of wordsx, using the weights\u03b8. For each labely\u2208Y ,\nwe compute a score \u03a8(x,y ), which is a scalar measure of the compatibility between the\nbag-of-wordsx and the labely. In a linear bag-of-words classi\ufb01er, this score is the vector\ninner product between the weights\u03b8 and the output of a feature functionf(x,y ),\n\u03a8(x,y ) =\u03b8\u00b7f(x,y ) =\n\u2211\nj\n\u03b8jfj(x,y ). [2.1]\nAs the notation suggests, f is a function of two arguments, the word counts x and the\nlabely, and it returns a vector output. For example, given arguments x andy, elementj\nof this feature vector might be,\nfj(x,y ) =\n{\nxwhale, ify = FICTION\n0, otherwise [2.2]\nThis function returns the count of the wordwhale if the label is FICTION , and it returns zero\notherwise. The indexj depends on the position ofwhale in the vocabulary, and of FICTION\nin the set of possible labels. The corresponding weight \u03b8j then scores the compatibility of\nthe word whale with the label FICTION .1 A positive score means that this word makes the\nlabel more likely.\nThe output of the feature function can be formalized as a vector:\nf(x,y = 1) = [x; 0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n] [2.3]\nf(x,y = 2) = [0; 0;... ; 0| {z }\nV\n;x; 0; 0;... ; 0| {z }\n(K\u22122)\u00d7V\n] [2.4]\nf(x,y =K) = [0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n;x], [2.5]\nwhere [0; 0;... ; 0| {z }\n(K\u22121)\u00d7V\n] is a column vector of (K\u2212 1)\u00d7V zeros, and the semicolon indicates\nvertical concatenation. For each of the K possible labels, the feature function returns a\n1In practice, both f and \u03b8 may be implemented as a dictionary rather than vectors, so that it is not\nnecessary to explicitly identifyj. In such an implementation, the tuple (whale, FICTION ) acts as a key in both\ndictionaries; the values inf are feature counts, and the values in\u03b8 are weights.\nJacob Eisenstein. Draft of November 13, 2018.",
+        "char_count": 2372,
+        "word_count": 436,
+        "line_count": 47,
+        "nul_bytes_count": 0,
+        "latency_ms": 174.94
+      },
+      "pymupdf": {
+        "text": "14\nCHAPTER 2. LINEAR TEXT CLASSIFICATION\n\nTo predict a label from a bag-of-words, we can assign a score to each word in the vo-\ncabulary, measuring the compatibility with the label. For example, for the label FICTION,\nwe might assign a positive score to the word whale, and a negative score to the word\nmolybdenum. These scores are called weights, and they are arranged in a column vector \u03b8.\n\nSuppose that you want a multiclass classi\ufb01er, where K \u225c|Y| > 2. For example, you\nmight want to classify news stories about sports, celebrities, music, and business. The goal\nis to predict a label \u02c6y, given the bag of words x, using the weights \u03b8. For each label y \u2208Y,\nwe compute a score \u03a8(x, y), which is a scalar measure of the compatibility between the\nbag-of-words x and the label y. In a linear bag-of-words classi\ufb01er, this score is the vector\ninner product between the weights \u03b8 and the output of a feature function f(x, y),\n\n\u03b8jfj(x, y).\n[2.1]\n\n\u03a8(x, y) = \u03b8 \u00b7 f(x, y) =\n\nj\n\nX\n\nAs the notation suggests, f is a function of two arguments, the word counts x and the\nlabel y, and it returns a vector output. For example, given arguments x and y, element j\nof this feature vector might be,\n\nfj(x, y) =\n\nxwhale,\nif y = FICTION\n0,\notherwise\n[2.2]\n\n(\n\nThis function returns the count of the word whale if the label is FICTION, and it returns zero\notherwise. The index j depends on the position of whale in the vocabulary, and of FICTION\nin the set of possible labels. The corresponding weight \u03b8j then scores the compatibility of\nthe word whale with the label FICTION.1 A positive score means that this word makes the\nlabel more likely.\n\nThe output of the feature function can be formalized as a vector:\n\n]\n[2.3]\n\n]\n[2.4]\n\nf(x, y = 1) = [x; 0; 0; . . . ; 0\n|\n{z\n}\n(K\u22121)\u00d7V\n\n; x],\n[2.5]\n\nf(x, y = 2) = [0; 0; . . . ; 0\n|\n{z\n}\nV\n\n; x; 0; 0; . . . ; 0\n|\n{z\n}\n(K\u22122)\u00d7V\n\nf(x, y = K) = [0; 0; . . . ; 0\n|\n{z\n}\n(K\u22121)\u00d7V\n\n] is a column vector of (K \u22121) \u00d7 V zeros, and the semicolon indicates\n\nvertical concatenation. For each of the K possible labels, the feature function returns a\n\nwhere [0; 0; . . . ; 0\n|\n{z\n}\n(K\u22121)\u00d7V\n\n1In practice, both f and \u03b8 may be implemented as a dictionary rather than vectors, so that it is not\nnecessary to explicitly identify j. In such an implementation, the tuple (whale, FICTION) acts as a key in both\ndictionaries; the values in f are feature counts, and the values in \u03b8 are weights.\n\nJacob Eisenstein. Draft of November 13, 2018.",
+        "char_count": 2442,
+        "word_count": 482,
+        "line_count": 94,
+        "block_count": 25,
+        "table_count": 0,
+        "tables_markdown": [],
+        "latency_ms": 60.33
+      },
+      "image": {
+        "width": 2550,
+        "height": 3300,
+        "file_size_bytes": 562041,
+        "render_latency_ms": 194.25
+      },
+      "files": {
+        "pypdf_txt": "reports\\ocr_benchmark\\page_32_pypdf.txt",
+        "pymupdf_txt": "reports\\ocr_benchmark\\page_32_pymupdf.txt",
+        "image_png": "reports\\ocr_benchmark\\page_32.png"
+      }
+    }
+  ],
+  "ai_index_372_deep_dive": {
+    "pypdf_jul19_line_distance": 34,
+    "pymupdf_jul19_line_distance": 2,
+    "pypdf_jul25_line_distance": 999,
+    "pymupdf_jul25_line_distance": 999,
+    "pypdf_has_dates_bundled_at_end": true,
+    "pymupdf_has_dates_adjacent_to_events": false
+  },
+  "capability_matrix": {
+    "reading_order": {
+      "pypdf": "UNSUPPORTED (Raw PDF drawing stream order)",
+      "pymupdf": "SUPPORTED (Geometric block sorting by visual coordinates)",
+      "unlimited_ocr": "SUPPORTED (Visual token decoding in reading sequence)"
+    },
+    "multi_column_layouts": {
+      "pypdf": "UNSUPPORTED (Interleaves columns or flushes gutters)",
+      "pymupdf": "SUPPORTED (Detects column gutters via bounding boxes)",
+      "unlimited_ocr": "SUPPORTED (2D visual tile layout recognition)"
+    },
+    "table_extraction": {
+      "pypdf": "UNSUPPORTED (Flattened into space-separated lines)",
+      "pymupdf": "SUPPORTED (find_tables() produces clean Markdown tables)",
+      "unlimited_ocr": "SUPPORTED (Generates HTML/Markdown table syntax)"
+    },
+    "equation_extraction": {
+      "pypdf": "PARTIALLY SUPPORTED (Plain unicode characters, lost superscripts/subscripts)",
+      "pymupdf": "PARTIALLY SUPPORTED (Preserves unicode symbols, no LaTeX AST)",
+      "unlimited_ocr": "SUPPORTED (Transcribes equations into standard LaTeX $...$ / $$...$$)"
+    },
+    "figure_image_understanding": {
+      "pypdf": "NOT DEMONSTRATED (Discovers raw XObject keys, extracts 0 image text)",
+      "pymupdf": "NOT DEMONSTRATED (Extracts raster pixels and bounding boxes, no semantic OCR)",
+      "unlimited_ocr": "PARTIALLY SUPPORTED (Transcribes text embedded in diagrams; does not generate semantic narrative descriptions)"
+    },
+    "page_provenance": {
+      "pypdf": "SUPPORTED (Exact 1:1 page boundary tracking)",
+      "pymupdf": "SUPPORTED (Exact 1:1 page boundary tracking)",
+      "unlimited_ocr": "SUPPORTED (When processed per-page or via page_images list)"
+    }
+  }
+}

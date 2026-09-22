@@ -1,0 +1,65 @@
+# ==============================================================================
+# Enterprise Knowledge Intelligence Platform - Docker Ignore Rules
+# ==============================================================================
+
+# Git
+.git
+.gitignore
+
+# Python virtual environments
+.venv
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Pytest and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Environment files and credentials (CRITICAL)
+.env
+.env.*
+!.env.example
+api_key.text
+*.key
+*.pem
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Antigravity IDE and internal logs
+.gemini/
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Model caches
+.cache/
+hf_cache/
+
+# Local databases and checkpoints
+*.db
+*.sqlite
+*.sqlite3
+
+# Large archived files, raw research books & processed chunks not needed in container
+data/archived_books/
+data/processed/*.json
+data/raw/Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf
+data/raw/speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf
+reports/ocr_benchmark/*.png
+

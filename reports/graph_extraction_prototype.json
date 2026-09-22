@@ -1,0 +1,3331 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-18T11:30:00.799038",
+    "total_chunks_processed": 53,
+    "duration_seconds": 172.3,
+    "model": "gemini-3.5-flash-lite",
+    "total_entities": 265,
+    "total_relationships": 92,
+    "dropped_entities": 2,
+    "dropped_relationships": 0,
+    "errors": 1,
+    "entity_type_distribution": {
+      "PERSON": 75,
+      "CONCEPT": 38,
+      "MODEL": 33,
+      "ORGANIZATION": 23,
+      "TECHNOLOGY": 21,
+      "DATE": 16,
+      "METHOD": 13,
+      "ALGORITHM": 12,
+      "METRIC": 8,
+      "DATASET": 6,
+      "POLICY": 5,
+      "PRODUCT": 5,
+      "REGULATION": 4,
+      "EVENT": 4,
+      "LOCATION": 2
+    },
+    "relationship_type_distribution": {
+      "CREATED_BY": 30,
+      "DEVELOPED_BY": 13,
+      "RELATED_TO": 12,
+      "EVALUATED_ON": 10,
+      "SIGNED": 8,
+      "HAS_COMPONENT": 7,
+      "PART_OF": 3,
+      "PASSED": 2,
+      "OCCURRED_ON": 2,
+      "LOCATED_IN": 2,
+      "USES": 2,
+      "PROPOSED_BY": 1
+    }
+  },
+  "results": [
+    {
+      "document_id": 90,
+      "chunk_id": 41091,
+      "page_number": 1,
+      "entities": [],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [
+        "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+      ],
+      "status": "error",
+      "chunk_snippet": "# Enterprise AI Governance and Deployment Policy\n\n## 1. Purpose and Scope\nThis policy establishes mandatory operational guidelines for developing, deploying, and monitoring Retrieval-Augmented Generation (RAG) applications across all internal and client-facing enterprise platforms. All AI Engineers ",
+      "filename": "ai_governance_policy.md"
+    },
+    {
+      "document_id": 90,
+      "chunk_id": 41092,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Document Ingestion Standards",
+          "canonical_name": "Document Ingestion Standards",
+          "entity_type": "POLICY",
+          "description": "Standards governing the ingestion of documents into enterprise search engines.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Confluence",
+          "canonical_name": "Confluence",
+          "entity_type": "TECHNOLOGY",
+          "description": "Authorized corporate repository.",
+          "confidence": 0.95
+        },
+        {
+          "name": "SharePoint",
+          "canonical_name": "SharePoint",
+          "entity_type": "TECHNOLOGY",
+          "description": "Authorized corporate repository.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "## 2. Document Ingestion Standards\nBefore any document is vectorized or indexed into enterprise search engines, the following controls must be verified:\n- Source verification: Only documents from authorized corporate repositories (Confluence, SharePoint, internal drives) are allowed.\n- Parsing integ",
+      "filename": "ai_governance_policy.md"
+    },
+    {
+      "document_id": 90,
+      "chunk_id": 41093,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Personally Identifiable Information",
+          "canonical_name": "Personally Identifiable Information",
+          "entity_type": "CONCEPT",
+          "description": "PII such as Social Security Numbers, credit card numbers, and health records",
+          "confidence": 0.95
+        },
+        {
+          "name": "Role-Based Access Control",
+          "canonical_name": "Role-Based Access Control",
+          "entity_type": "METHOD",
+          "description": "Access control mechanism for vector stores",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "## 3. Data Privacy and PII Redaction\nCustomer privacy is paramount in enterprise AI workflows.\n- Personally Identifiable Information (PII) such as Social Security Numbers, credit card numbers, and health records must be scrubbed before chunk storage.\n- High-risk documents must undergo automated comp",
+      "filename": "ai_governance_policy.md"
+    },
+    {
+      "document_id": 93,
+      "chunk_id": 44807,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Enterprise AI Platform Architecture",
+          "canonical_name": "Enterprise AI Platform Architecture",
+          "entity_type": "PRODUCT",
+          "description": "Document title and platform architecture",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Enterprise AI Platform Architecture\n\nDocument Version: 1.0 | Classification: Internal Engineering Guide",
+      "filename": "enterprise_platform_architecture.pdf"
+    },
+    {
+      "document_id": 93,
+      "chunk_id": 44808,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Enterprise AI Platform",
+          "canonical_name": "Enterprise AI Platform",
+          "entity_type": "PRODUCT",
+          "description": "Platform engineered to deliver reliable, deterministic, and auditable autonomous workflows for enterprise environments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Forward Deployed AI Engineers",
+          "canonical_name": "Forward Deployed AI Engineers",
+          "entity_type": "PERSON",
+          "description": "Engineers powered by the unified knowledge retrieval layer.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "1. Executive Summary & Mission\n\nThe Enterprise AI Platform is engineered to deliver reliable, deterministic, and auditable autonomous workflows\nfor enterprise environments. The core challenge in enterprise GenAI deployment is not model capacity, but\ncontext precision, hallucination mitigation, and s",
+      "filename": "enterprise_platform_architecture.pdf"
+    },
+    {
+      "document_id": 93,
+      "chunk_id": 44809,
+      "page_number": 1,
+      "entities": [],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "2. Ingestion Guarantees\n\nTo maintain audit compliance across banking, healthcare, and enterprise software customers, the ingestion\npipeline must enforce the following guarantees on every processed document:\n\n• Deterministic Identifiers: Document IDs must be calculated from cryptographic hashes of so",
+      "filename": "enterprise_platform_architecture.pdf"
+    },
+    {
+      "document_id": 93,
+      "chunk_id": 44810,
+      "page_number": 2,
+      "entities": [
+        {
+          "name": "recursive structural chunking",
+          "canonical_name": "recursive structural chunking",
+          "entity_type": "METHOD",
+          "description": "An approach that splits text at structural headers, paragraphs, list items, and sentence boundaries.",
+          "confidence": 0.95
+        },
+        {
+          "name": "dense embedding models",
+          "canonical_name": "dense embedding models",
+          "entity_type": "MODEL",
+          "description": "Models that benefit from controlled overlap maintaining co-occurrence signal.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "3. Chunking Strategy & Retrieval Relevance\n\nTraditional naive chunking slices text into fixed token windows (e.g., 500 characters) regardless of document\nstructure. In production enterprise systems, this causes severe degradation in retrieval precision because\ncritical context—such as table headers,",
+      "filename": "enterprise_platform_architecture.pdf"
+    },
+    {
+      "document_id": 93,
+      "chunk_id": 44811,
+      "page_number": 2,
+      "entities": [
+        {
+          "name": "Role-Based Access Control",
+          "canonical_name": "Role-Based Access Control",
+          "entity_type": "CONCEPT",
+          "description": "Access control mechanism propagated from source document down to individual chunk metadata",
+          "confidence": 0.95
+        },
+        {
+          "name": "AES-256",
+          "canonical_name": "AES-256",
+          "entity_type": "ALGORITHM",
+          "description": "Encryption standard utilized for encryption at rest",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [
+        {
+          "entity": {
+            "name": "RBAC",
+            "canonical_name": "Role-Based Access Control",
+            "entity_type": "CONCEPT",
+            "description": "Acronym for Role-Based Access Control",
+            "confidence": 0.95
+          },
+          "reason": "duplicate_of_Role-Based Access Control"
+        }
+      ],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "4. Security and Isolation Protocols\n\nCustomer documents often contain sensitive Intellectual Property or Personally Identifiable Information (PII).\nThe data plane must adhere to the principle of least privilege:\n\n• Role-Based Access Control (RBAC) must be propagated from the source document down to ",
+      "filename": "enterprise_platform_architecture.pdf"
+    },
+    {
+      "document_id": 97,
+      "chunk_id": 52697,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "RAG pipeline",
+          "canonical_name": "Retrieval-Augmented Generation pipeline",
+          "entity_type": "TECHNOLOGY",
+          "description": "Retrieval-Augmented Generation pipeline that enriches large language model prompts.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Retrieval-Augmented Generation",
+          "canonical_name": "Retrieval-Augmented Generation",
+          "entity_type": "CONCEPT",
+          "description": "Paradigm for enriching large language model prompts with domain-specific enterprise knowledge.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Retrieval-Augmented Generation pipeline",
+          "target": "Retrieval-Augmented Generation",
+          "relationship_type": "RELATED_TO",
+          "evidence": "The Retrieval-Augmented Generation (RAG) pipeline",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "ENTERPRISE AI PLATFORM - KNOWLEDGE BASE FAQ\n\nQ1: What is the primary purpose of the RAG pipeline?\nA1: The Retrieval-Augmented Generation (RAG) pipeline enriches large language model prompts with accurate, domain-specific enterprise knowledge. By retrieving verified passages from corporate documents ",
+      "filename": "support_faq.txt"
+    },
+    {
+      "document_id": 97,
+      "chunk_id": 52698,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "embedding models",
+          "canonical_name": "embedding models",
+          "entity_type": "MODEL",
+          "description": "Models with an effective attention window that can be exceeded by large documents.",
+          "confidence": 0.95
+        },
+        {
+          "name": "LLMs",
+          "canonical_name": "LLMs",
+          "entity_type": "MODEL",
+          "description": "Large language models with effective attention windows.",
+          "confidence": 0.95
+        },
+        {
+          "name": "vector similarity",
+          "canonical_name": "vector similarity",
+          "entity_type": "METRIC",
+          "description": "Metrics used to accurately match specific user questions to exact paragraphs.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Q2: Why does the system split documents into chunks instead of ingesting entire files?\nA2: Large documents frequently exceed the effective attention window of embedding models and LLMs. Chunking decomposes lengthy documents into focused, semantically cohesive passages. This ensures that vector simil",
+      "filename": "support_faq.txt"
+    },
+    {
+      "document_id": 97,
+      "chunk_id": 52699,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "PDF loader",
+          "canonical_name": "PDF loader",
+          "entity_type": "TECHNOLOGY",
+          "description": "Processes files page-by-page using cryptographic hash tracking",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Q4: How does the system handle multi-page PDFs?\nA4: The PDF loader processes files page-by-page using cryptographic hash tracking. Each chunk produced records the exact page number where the text originated. When answers are presented to users, citations link directly to the corresponding page in th",
+      "filename": "support_faq.txt"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 42715,
+      "page_number": 372,
+      "entities": [
+        {
+          "name": "Artificial Intelligence Index Report 2024",
+          "canonical_name": "Artificial Intelligence Index Report 2024",
+          "entity_type": "DATASET",
+          "description": "Report covering AI policy in 2023",
+          "confidence": 0.95
+        },
+        {
+          "name": "July 19, 2023",
+          "canonical_name": "July 19, 2023",
+          "entity_type": "DATE",
+          "description": "Date when U.S. Senate put forward the act",
+          "confidence": 0.99
+        },
+        {
+          "name": "U.S. Senate",
+          "canonical_name": "U.S. Senate",
+          "entity_type": "ORGANIZATION",
+          "description": "Legislative body that put forward the act",
+          "confidence": 0.99
+        },
+        {
+          "name": "Artificial Intelligence and Biosecurity Risk Assessment Act",
+          "canonical_name": "Artificial Intelligence and Biosecurity Risk Assessment Act",
+          "entity_type": "REGULATION",
+          "description": "Act mandating assessment of threats to public health and national security from AI",
+          "confidence": 0.95
+        },
+        {
+          "name": "Clinical Trials Arena",
+          "canonical_name": "Clinical Trials Arena",
+          "entity_type": "ORGANIZATION",
+          "description": "Source of Figure 7.1.6",
+          "confidence": 0.9
+        },
+        {
+          "name": "National Health Security Strategy",
+          "canonical_name": "National Health Security Strategy",
+          "entity_type": "POLICY",
+          "description": "Strategy incorporating risk assessment summaries",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "U.S. Senate",
+          "target": "Artificial Intelligence and Biosecurity Risk Assessment Act",
+          "relationship_type": "PROPOSED_BY",
+          "evidence": "U.S. Senate puts forward Artificial Intelligence and Biosecurity Risk Assessment Act",
+          "confidence": 0.95
+        },
+        {
+          "source": "Artificial Intelligence and Biosecurity Risk Assessment Act",
+          "target": "National Health Security Strategy",
+          "relationship_type": "RELATED_TO",
+          "evidence": "integrating risk assessment summaries into the National Health Security Strategy",
+          "confidence": 0.85
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artificial Intelligence\nIndex Report 2024\n\nArtificial Intelligence\nIndex Report 2024\n\n7.1 Overview of AI Policy in 2023\nChapter 7: Policy and Governance\n\nJuly 19, 2023 (Jul. 19, 2023)\n\nU.S. Senate puts forward Artificial Intelligence and \nBiosecurity Risk Assessment Act\n\nThe act mandates the assista",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 42716,
+      "page_number": 372,
+      "entities": [
+        {
+          "name": "National Health Security Strategy",
+          "canonical_name": "National Health Security Strategy",
+          "entity_type": "POLICY",
+          "description": "Integrates risk assessment summaries regarding global biological risks.",
+          "confidence": 0.9
+        },
+        {
+          "name": "July 21, 2023",
+          "canonical_name": "July 21, 2023",
+          "entity_type": "DATE",
+          "description": "Date of White House AI commitments event.",
+          "confidence": 1.0
+        },
+        {
+          "name": "White House AI commitments",
+          "canonical_name": "White House AI commitments",
+          "entity_type": "POLICY",
+          "description": "Voluntary pledges signed by private AI labs.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Biden-Harris administration",
+          "canonical_name": "Biden-Harris administration",
+          "entity_type": "ORGANIZATION",
+          "description": "Obtained voluntary pledges from AI firms.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Google",
+          "canonical_name": "Google",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Microsoft",
+          "canonical_name": "Microsoft",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Meta",
+          "canonical_name": "Meta",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Amazon",
+          "canonical_name": "Amazon",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "OpenAI",
+          "canonical_name": "OpenAI",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Anthropic",
+          "canonical_name": "Anthropic",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Inflection",
+          "canonical_name": "Inflection",
+          "entity_type": "ORGANIZATION",
+          "description": "Major AI firm signing commitments.",
+          "confidence": 0.95
+        },
+        {
+          "name": "July 25, 2023",
+          "canonical_name": "July 25, 2023",
+          "entity_type": "DATE",
+          "description": "Date U.S. Senate passed Outbound Investment Transparency Act.",
+          "confidence": 1.0
+        },
+        {
+          "name": "U.S. Senate",
+          "canonical_name": "U.S. Senate",
+          "entity_type": "ORGANIZATION",
+          "description": "Passed the Outbound Investment Transparency Act.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Outbound Investment Transparency Act",
+          "canonical_name": "Outbound Investment Transparency Act",
+          "entity_type": "REGULATION",
+          "description": "Passed by the U.S. Senate.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Google",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... seven major AI firms—Google... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "Microsoft",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... Microsoft... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "Meta",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... Meta... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "Amazon",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... Amazon... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "OpenAI",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... OpenAI... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "Anthropic",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... Anthropic... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "Inflection",
+          "target": "White House AI commitments",
+          "relationship_type": "SIGNED",
+          "evidence": "Private AI labs sign voluntary White House AI commitments ... Inflection... sign",
+          "confidence": 0.9
+        },
+        {
+          "source": "U.S. Senate",
+          "target": "Outbound Investment Transparency Act",
+          "relationship_type": "PASSED",
+          "evidence": "U.S. Senate passes Outbound Investment Transparency Act",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "global biological risks and integrating risk assessment\n\nsummaries into the National Health Security Strategy.\n\nJuly 21, 2023 (Jul. 21, 2023)\n\nPrivate AI labs sign voluntary White House AI \ncommitments\n\nThe Biden-Harris administration obtains voluntary pledges\n\nfrom seven major AI firms—Google, Micr",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 42717,
+      "page_number": 372,
+      "entities": [
+        {
+          "name": "July 25, 2023",
+          "canonical_name": "July 25, 2023",
+          "entity_type": "DATE",
+          "description": "Date when the U.S. Senate passed the Outbound Investment Transparency Act.",
+          "confidence": 1.0
+        },
+        {
+          "name": "U.S. Senate",
+          "canonical_name": "U.S. Senate",
+          "entity_type": "ORGANIZATION",
+          "description": "Legislative body that passed the Outbound Investment Transparency Act.",
+          "confidence": 1.0
+        },
+        {
+          "name": "Outbound Investment Transparency Act",
+          "canonical_name": "Outbound Investment Transparency Act",
+          "entity_type": "REGULATION",
+          "description": "Act aimed at scrutinizing U.S. investments in critical sectors.",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "U.S. Senate",
+          "target": "Outbound Investment Transparency Act",
+          "relationship_type": "PASSED",
+          "evidence": "U.S. Senate passes Outbound Investment Transparency Act",
+          "confidence": 1.0
+        },
+        {
+          "source": "Outbound Investment Transparency Act",
+          "target": "July 25, 2023",
+          "relationship_type": "OCCURRED_ON",
+          "evidence": "July 25, 2023 ... U.S. Senate passes Outbound Investment Transparency Act",
+          "confidence": 1.0
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "issues, and disclosing when content is AI-generated.\n\nJuly 25, 2023 (Jul. 25, 2023)\n\nU.S. Senate passes Outbound Investment \nTransparency Act\n\nThis initiative aims to scrutinize U.S. investments in\n\ncritical sectors, especially those involving China, with\n\na focus on evaluating risks in crucial indu",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41185,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "Artificial Intelligence Index Report 2024",
+          "canonical_name": "Artificial Intelligence Index Report 2024",
+          "entity_type": "DATASET",
+          "description": "Report Highlights Chapter 7: Policy and Governance",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artificial Intelligence\nIndex Report 2024\n\nReport Highlights\n\nChapter 7: Policy and Governance",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41186,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "United States",
+          "canonical_name": "United States",
+          "entity_type": "LOCATION",
+          "description": "Country where AI regulations have increased.",
+          "confidence": 1.0
+        },
+        {
+          "name": "2023",
+          "canonical_name": "2023",
+          "entity_type": "DATE",
+          "description": "Year referenced for AI regulations count.",
+          "confidence": 1.0
+        },
+        {
+          "name": "2016",
+          "canonical_name": "2016",
+          "entity_type": "DATE",
+          "description": "Year referenced for baseline AI regulations count.",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "1. The number of AI regulations in the United States sharply increases. The number of AI-related\n\nregulations has risen significantly in the past year and over the last five years. In 2023, there were 25 AI-related\n\nregulations, up from just one in 2016. Last year alone, the total number of AI-relat",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41187,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "United States",
+          "canonical_name": "United States",
+          "entity_type": "LOCATION",
+          "description": "Country advancing AI policy action.",
+          "confidence": 1.0
+        },
+        {
+          "name": "European Union",
+          "canonical_name": "European Union",
+          "entity_type": "ORGANIZATION",
+          "description": "International organization advancing AI policy action.",
+          "confidence": 1.0
+        },
+        {
+          "name": "2023",
+          "canonical_name": "2023",
+          "entity_type": "DATE",
+          "description": "Year when policymakers put forth proposals for AI regulation.",
+          "confidence": 1.0
+        },
+        {
+          "name": "AI Act",
+          "canonical_name": "AI Act",
+          "entity_type": "REGULATION",
+          "description": "Landmark piece of legislation enacted by the European Union in 2024.",
+          "confidence": 1.0
+        },
+        {
+          "name": "2024",
+          "canonical_name": "2024",
+          "entity_type": "DATE",
+          "description": "Year when the AI Act was enacted.",
+          "confidence": 1.0
+        },
+        {
+          "name": "President Biden",
+          "canonical_name": "President Biden",
+          "entity_type": "PERSON",
+          "description": "President of the United States who signed an Executive Order on AI.",
+          "confidence": 1.0
+        },
+        {
+          "name": "Executive Order on AI",
+          "canonical_name": "Executive Order on AI",
+          "entity_type": "POLICY",
+          "description": "Notable AI policy initiative signed by President Biden in the United States.",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "AI Act",
+          "target": "European Union",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "The European Union reached a deal on the terms of the AI Act, a landmark piece of legislation enacted in 2024.",
+          "confidence": 0.9
+        },
+        {
+          "source": "AI Act",
+          "target": "2024",
+          "relationship_type": "OCCURRED_ON",
+          "evidence": "a landmark piece of legislation enacted in 2024.",
+          "confidence": 0.9
+        },
+        {
+          "source": "President Biden",
+          "target": "Executive Order on AI",
+          "relationship_type": "SIGNED",
+          "evidence": "President Biden signed an Executive Order on AI",
+          "confidence": 1.0
+        },
+        {
+          "source": "Executive Order on AI",
+          "target": "United States",
+          "relationship_type": "RELATED_TO",
+          "evidence": "Executive Order on AI, the most notable AI policy initiative in the United States that year.",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "2. The United States and the European Union advance landmark AI policy action. In 2023,\n\npolicymakers on both sides of the Atlantic put forth substantial proposals for advancing AI regulation The\n\nEuropean Union reached a deal on the terms of the AI Act, a landmark piece of legislation enacted in 20",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41188,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "2023",
+          "canonical_name": "2023",
+          "entity_type": "DATE",
+          "description": "The year when AI-related legislation increased.",
+          "confidence": 1.0
+        },
+        {
+          "name": "2022",
+          "canonical_name": "2022",
+          "entity_type": "DATE",
+          "description": "The prior year compared to 2023.",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "3. AI captures U.S. policymaker attention. The year 2023 witnessed a remarkable increase in AI-related\n\nlegislation at the federal level, with 181 bills proposed, more than double the 88 proposed in 2022.",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41189,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "2022",
+          "canonical_name": "2022",
+          "entity_type": "DATE",
+          "description": "Year 2022",
+          "confidence": 1.0
+        },
+        {
+          "name": "2023",
+          "canonical_name": "2023",
+          "entity_type": "DATE",
+          "description": "Year 2023",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "4. Policymakers across the globe cannot stop talking about AI. Mentions of AI in legislative\n\nproceedings across the globe have nearly doubled, rising from 1,247 in 2022 to 2,175 in 2023. AI was mentioned in\n\nthe legislative proceedings of 49 countries in 2023. Moreover, at least one country from ev",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 41190,
+      "page_number": 24,
+      "entities": [
+        {
+          "name": "U.S. regulatory agencies",
+          "canonical_name": "United States regulatory agencies",
+          "entity_type": "ORGANIZATION",
+          "description": "American regulatory bodies issuing AI regulations",
+          "confidence": 0.95
+        },
+        {
+          "name": "2023",
+          "canonical_name": "2023",
+          "entity_type": "DATE",
+          "description": "Year 2023",
+          "confidence": 1.0
+        },
+        {
+          "name": "2022",
+          "canonical_name": "2022",
+          "entity_type": "DATE",
+          "description": "Year 2022",
+          "confidence": 1.0
+        },
+        {
+          "name": "Department of Transportation",
+          "canonical_name": "Department of Transportation",
+          "entity_type": "ORGANIZATION",
+          "description": "U.S. regulatory agency that enacted AI-related regulations in 2023",
+          "confidence": 0.95
+        },
+        {
+          "name": "Department of Energy",
+          "canonical_name": "Department of Energy",
+          "entity_type": "ORGANIZATION",
+          "description": "U.S. regulatory agency that enacted AI-related regulations in 2023",
+          "confidence": 0.95
+        },
+        {
+          "name": "Occupational Safety and Health Administration",
+          "canonical_name": "Occupational Safety and Health Administration",
+          "entity_type": "ORGANIZATION",
+          "description": "U.S. regulatory agency that enacted AI-related regulations in 2023",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "5. More regulatory agencies turn their attention toward AI. The number of U.S. regulatory agencies\n\nissuing AI regulations increased to 21 in 2023 from 17 in 2022, indicating a growing concern over AI regulation\n\namong a broader array of American regulatory bodies. Some of the new regulatory agencie",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 91,
+      "chunk_id": 42703,
+      "page_number": 369,
+      "entities": [
+        {
+          "name": "Artificial Intelligence Index Report 2024",
+          "canonical_name": "Artificial Intelligence Index Report 2024",
+          "entity_type": "DATASET",
+          "description": "Report on artificial intelligence index",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artificial Intelligence\nIndex Report 2024\n\nCHAPTER 7:\nPolicy and \nGovernance\n\nChapter Highlights",
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 50306,
+      "page_number": 206,
+      "entities": [
+        {
+          "name": "Transformers",
+          "canonical_name": "Transformer",
+          "entity_type": "MODEL",
+          "description": "Non-recurrent networks based on multi-head attention",
+          "confidence": 0.95
+        },
+        {
+          "name": "multi-head attention",
+          "canonical_name": "Multi-Head Attention",
+          "entity_type": "CONCEPT",
+          "description": "A kind of self-attention used in transformers",
+          "confidence": 0.95
+        },
+        {
+          "name": "self-attention",
+          "canonical_name": "Self-Attention",
+          "entity_type": "CONCEPT",
+          "description": "Attention mechanism underlying multi-head attention",
+          "confidence": 0.95
+        },
+        {
+          "name": "transformer block",
+          "canonical_name": "Transformer Block",
+          "entity_type": "TECHNOLOGY",
+          "description": "Consists of a residual stream and components like a multi-head attention layer",
+          "confidence": 0.95
+        },
+        {
+          "name": "multi-head attention layer",
+          "canonical_name": "Multi-Head Attention Layer",
+          "entity_type": "TECHNOLOGY",
+          "description": "Component of a transformer block",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Transformer",
+          "target": "Multi-Head Attention",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "Transformers are non-recurrent networks based on multi-head attention",
+          "confidence": 0.95
+        },
+        {
+          "source": "Multi-Head Attention",
+          "target": "Self-Attention",
+          "relationship_type": "RELATED_TO",
+          "evidence": "multi-head attention, a kind of self-attention",
+          "confidence": 0.95
+        },
+        {
+          "source": "Transformer Block",
+          "target": "Multi-Head Attention Layer",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "These components include a multi-head attention layer",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "198\nCHAPTER 8\n•\nTRANSFORMERS\n\n8.10\nSummary\n\nThis chapter has introduced the transformer and its components for the language\nmodeling task introduced in the previous chapter. Here’s a summary of the main\npoints that we covered:\n\n• Transformers are non-recurrent networks based on multi-head attention,",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 50678,
+      "page_number": 275,
+      "entities": [
+        {
+          "name": "Encoder-Decoder Model",
+          "canonical_name": "Encoder-Decoder Model",
+          "entity_type": "MODEL",
+          "description": "Encoder-decoder transformer architecture for machine translation",
+          "confidence": 0.95
+        },
+        {
+          "name": "encoder-decoder transformer architecture",
+          "canonical_name": "Encoder-Decoder Transformer Architecture",
+          "entity_type": "MODEL",
+          "description": "Architecture for machine translation shown in Figure 12.5",
+          "confidence": 0.95
+        },
+        {
+          "name": "Figure 12.5",
+          "canonical_name": "Figure 12.5",
+          "entity_type": "CONCEPT",
+          "description": "Figure illustrating the encoder-decoder transformer architecture",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Figure 12.5",
+          "target": "Encoder-Decoder Transformer Architecture",
+          "relationship_type": "RELATED_TO",
+          "evidence": "Figure 12.5 | The encoder-decoder transformer architecture for machine translation.",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "12.3\n•\nDETAILS OF THE ENCODER-DECODER MODEL\n267\n\nthat are too similar, suggesting that they were copies rather than translations). Or\npairs can be ranked by their multilingual embedding cosine score and low-scoring\npairs discarded.\n\n12.3\nDetails of the Encoder-Decoder Model\n\n|Decoder<br>llegó la bru",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 51040,
+      "page_number": 348,
+      "entities": [
+        {
+          "name": "Automatic Speech Recognition",
+          "canonical_name": "Automatic Speech Recognition",
+          "entity_type": "CONCEPT",
+          "description": "Speech recognition technology domain",
+          "confidence": 0.95
+        },
+        {
+          "name": "Listen Attend and Spell",
+          "canonical_name": "Listen Attend and Spell",
+          "entity_type": "ALGORITHM",
+          "description": "Baseline attention-based encoder decoder algorithm",
+          "confidence": 0.95
+        },
+        {
+          "name": "Whisper",
+          "canonical_name": "Whisper",
+          "entity_type": "MODEL",
+          "description": "OpenAI's Whisper system",
+          "confidence": 0.95
+        },
+        {
+          "name": "OpenAI",
+          "canonical_name": "OpenAI",
+          "entity_type": "ORGANIZATION",
+          "description": "Developer of Whisper",
+          "confidence": 0.95
+        },
+        {
+          "name": "OWSM",
+          "canonical_name": "OWSM",
+          "entity_type": "MODEL",
+          "description": "Open Whisper-style Speech Model",
+          "confidence": 0.95
+        },
+        {
+          "name": "Wav2Vec2.0",
+          "canonical_name": "Wav2Vec 2.0",
+          "entity_type": "MODEL",
+          "description": "Self-supervised speech model",
+          "confidence": 0.95
+        },
+        {
+          "name": "HuBERT",
+          "canonical_name": "HuBERT",
+          "entity_type": "MODEL",
+          "description": "Self-supervised speech model",
+          "confidence": 0.95
+        },
+        {
+          "name": "self-supervised learning",
+          "canonical_name": "Self-Supervised Learning",
+          "entity_type": "METHOD",
+          "description": "Learning paradigm for speech models",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Whisper",
+          "target": "OpenAI",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "OpenAI’s Whisper system",
+          "confidence": 0.95
+        },
+        {
+          "source": "OWSM",
+          "target": "Whisper",
+          "relationship_type": "RELATED_TO",
+          "evidence": "an open system based on the same architecture, OWSM (the Open Whisper-style Speech Model)",
+          "confidence": 0.9
+        },
+        {
+          "source": "Wav2Vec 2.0",
+          "target": "Self-Supervised Learning",
+          "relationship_type": "RELATED_TO",
+          "evidence": "self-supervised speech models (sometimes called SSL for selfsupervised learning) like Wav2Vec2.0",
+          "confidence": 0.9
+        },
+        {
+          "source": "HuBERT",
+          "target": "Self-Supervised Learning",
+          "relationship_type": "RELATED_TO",
+          "evidence": "self-supervised speech models (sometimes called SSL for selfsupervised learning) like Wav2Vec2.0 or HuBERT",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "340\nCHAPTER 15\n•\nAUTOMATIC SPEECH RECOGNITION\n\nWe’ll then introduce two families of methods for ASR. The ﬁrst is the encoderdecoder paradigm, and we’ll introduce the baseline attention-based encoder decoder\n\nalgorithm, sometimes called Listen Attend and Spell after an early implementation.\n\nWe’ll al",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 51052,
+      "page_number": 350,
+      "entities": [
+        {
+          "name": "African American English",
+          "canonical_name": "African American English",
+          "entity_type": "CONCEPT",
+          "description": "A dialect or variety of English mentioned in the context of automatic speech recognition challenges.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Mandarin natural conversation",
+          "canonical_name": "Mandarin natural conversation",
+          "entity_type": "CONCEPT",
+          "description": "Natural conversational speech in Mandarin.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Mandarin read speech",
+          "canonical_name": "Mandarin read speech",
+          "entity_type": "CONCEPT",
+          "description": "Read speech in Mandarin.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "342\nCHAPTER 15\n•\nAUTOMATIC SPEECH RECOGNITION\n\nlike African American English, and yet again for difﬁcult conversational tasks like\ntranscription of 4-speaker dinner party speech, which can have error rates as high as\n25.5%. Character error rates (CER) are also higher for Mandarin natural conversatio",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 51118,
+      "page_number": 363,
+      "entities": [
+        {
+          "name": "CTC",
+          "canonical_name": "Connectionist Temporal Classification",
+          "entity_type": "ALGORITHM",
+          "description": "Connectionist Temporal Classification",
+          "confidence": 0.85
+        },
+        {
+          "name": "codebook",
+          "canonical_name": "codebook",
+          "entity_type": "CONCEPT",
+          "description": "Has one codeword for each of the k clusters",
+          "confidence": 0.9
+        },
+        {
+          "name": "codeword",
+          "canonical_name": "codeword",
+          "entity_type": "CONCEPT",
+          "description": "Centroid or vector representing a cluster",
+          "confidence": 0.9
+        },
+        {
+          "name": "squared Euclidean distance",
+          "canonical_name": "squared Euclidean distance",
+          "entity_type": "METRIC",
+          "description": "Distance metric used to define nearest cluster",
+          "confidence": 0.95
+        },
+        {
+          "name": "L2 norm",
+          "canonical_name": "L2 norm",
+          "entity_type": "METRIC",
+          "description": "Norm of a vector",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "codebook",
+          "target": "codeword",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "codebook that has one codeword for each of the k clusters.",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "15.5\n•\nCTC\n355\n\ncodebook that has one codeword for each of the k clusters.\ncodebook\n\nThen repeat iteratively until convergence:\n\n1. Assignment: For each vector v(i) in the dataset assign it to one of the k clusters\nby choosing the one with the nearest codeword µ. Most simply we can deﬁne\n‘nearest’ a",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 51149,
+      "page_number": 370,
+      "entities": [
+        {
+          "name": "McNemar’s test",
+          "canonical_name": "McNemar's test",
+          "entity_type": "ALGORITHM",
+          "description": "A statistical test previously used for significance, applicable when errors are independent.",
+          "confidence": 0.95
+        },
+        {
+          "name": "continuous speech recognition",
+          "canonical_name": "Continuous Speech Recognition",
+          "entity_type": "TECHNOLOGY",
+          "description": "Speech recognition domain where errors on a word depend on neighboring words.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "362\nCHAPTER 15\n•\nAUTOMATIC SPEECH RECOGNITION\n\n2 ∗P(Z ≥|w|) ≤0.05 (two-tailed) or P(Z ≥|w|) ≤0.05 (one-tailed), where Z is\nstandard normal and w is the realized value W; these probabilities can be looked up\nin the standard tables of the normal distribution.\n\nEarlier work sometimes used McNemar’s tes",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 51160,
+      "page_number": 372,
+      "entities": [
+        {
+          "name": "RNNs",
+          "canonical_name": "Recurrent Neural Network",
+          "entity_type": "MODEL",
+          "description": "Recurrent neural networks used for automatic speech recognition.",
+          "confidence": 0.95
+        },
+        {
+          "name": "hybrid HMM/MLP architecture",
+          "canonical_name": "hybrid HMM/MLP architecture",
+          "entity_type": "MODEL",
+          "description": "Hybrid architecture combining HMM and MLP where a feedforward neural network is trained as a phonetic classifier.",
+          "confidence": 0.95
+        },
+        {
+          "name": "feedforward neural network",
+          "canonical_name": "feedforward neural network",
+          "entity_type": "MODEL",
+          "description": "Neural network trained as a phonetic classifier in the hybrid architecture.",
+          "confidence": 0.9
+        },
+        {
+          "name": "HMM",
+          "canonical_name": "Hidden Markov Model",
+          "entity_type": "MODEL",
+          "description": "Hidden Markov Model used with probability estimates from a phonetic classifier.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "hybrid HMM/MLP architecture",
+          "target": "feedforward neural network",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "hybrid HMM/MLP architecture in which a feedforward neural network is trained",
+          "confidence": 0.9
+        },
+        {
+          "source": "hybrid HMM/MLP architecture",
+          "target": "Hidden Markov Model",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "hybrid HMM/MLP architecture in which a feedforward neural network is trained as a phonetic classifier whose outputs are used as probability estimates for an HMM-based architecture",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "364\nCHAPTER 15\n•\nAUTOMATIC SPEECH RECOGNITION\n\net al. 1989, Lang et al. 1990), RNNs (Robinson and Fallside, 1991), and the hybrid\nhybrid\n\nHMM/MLP architecture in which a feedforward neural network is trained as a phonetic classiﬁer whose outputs are used as probability estimates for an HMM-based\narc",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 49249,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Speech and Language Processing",
+          "canonical_name": "Speech and Language Processing",
+          "entity_type": "PRODUCT",
+          "description": "Book title",
+          "confidence": 1.0
+        },
+        {
+          "name": "Daniel Jurafsky",
+          "canonical_name": "Daniel Jurafsky",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Stanford University",
+          "canonical_name": "Stanford University",
+          "entity_type": "ORGANIZATION",
+          "description": "University affiliation",
+          "confidence": 1.0
+        },
+        {
+          "name": "James H. Martin",
+          "canonical_name": "James H. Martin",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "University of Colorado at Boulder",
+          "canonical_name": "University of Colorado at Boulder",
+          "entity_type": "ORGANIZATION",
+          "description": "University affiliation",
+          "confidence": 1.0
+        },
+        {
+          "name": "January 6, 2026",
+          "canonical_name": "January 6, 2026",
+          "entity_type": "DATE",
+          "description": "Draft date",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Speech and Language Processing",
+          "target": "Daniel Jurafsky",
+          "relationship_type": "CREATED_BY",
+          "evidence": "Speech and Language Processing ... Daniel Jurafsky",
+          "confidence": 1.0
+        },
+        {
+          "source": "Speech and Language Processing",
+          "target": "James H. Martin",
+          "relationship_type": "CREATED_BY",
+          "evidence": "Speech and Language Processing ... James H. Martin",
+          "confidence": 1.0
+        },
+        {
+          "source": "Daniel Jurafsky",
+          "target": "Stanford University",
+          "relationship_type": "LOCATED_IN",
+          "evidence": "Daniel Jurafsky Stanford University",
+          "confidence": 0.8
+        },
+        {
+          "source": "James H. Martin",
+          "target": "University of Colorado at Boulder",
+          "relationship_type": "LOCATED_IN",
+          "evidence": "James H. Martin University of Colorado at Boulder",
+          "confidence": 0.8
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Speech and Language Processing\n\nAn Introduction to Natural Language Processing,\nComputational Linguistics, and Speech Recognition\n\nwith Language Models\n\nThird Edition draft\n\nDaniel Jurafsky\nStanford University\n\nJames H. Martin\nUniversity of Colorado at Boulder\n\nCopyright ©2026. All rights reserved.\n",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 96,
+      "chunk_id": 49250,
+      "page_number": 2,
+      "entities": [
+        {
+          "name": "Large Language Models",
+          "canonical_name": "Large Language Models",
+          "entity_type": "CONCEPT",
+          "description": "Topic or section covering large language models.",
+          "confidence": 0.95
+        },
+        {
+          "name": "N-gram Language Models",
+          "canonical_name": "N-gram Language Models",
+          "entity_type": "MODEL",
+          "description": "Language models based on N-grams.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Logistic Regression",
+          "canonical_name": "Logistic Regression",
+          "entity_type": "ALGORITHM",
+          "description": "Statistical model/algorithm.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Embeddings",
+          "canonical_name": "Embeddings",
+          "entity_type": "CONCEPT",
+          "description": "Vector representations of words or tokens.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Neural Networks",
+          "canonical_name": "Neural Networks",
+          "entity_type": "TECHNOLOGY",
+          "description": "Artificial neural networks.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Summary of Contents\n\nI\n\nLarge Language Models\n\n1\n\n1\n\nIntroduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n\n3\n\n2\n\nWords and Tokens . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n\n4\n\n3\n\nN-gram Langu",
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 46382,
+      "page_number": 331,
+      "entities": [
+        {
+          "name": "ContextNet + NST",
+          "canonical_name": "ContextNet + NST",
+          "entity_type": "MODEL",
+          "description": "LSTM-based ASR system",
+          "confidence": 0.95
+        },
+        {
+          "name": "Conformer",
+          "canonical_name": "Conformer",
+          "entity_type": "MODEL",
+          "description": "CNN + self-attention in transformer block, LSTM as language model",
+          "confidence": 0.95
+        },
+        {
+          "name": "wav2vec 2.0",
+          "canonical_name": "wav2vec 2.0",
+          "entity_type": "MODEL",
+          "description": "Encodes speech by CNN, discretizes input to transformer, predicts masked input",
+          "confidence": 0.95
+        },
+        {
+          "name": "Combined SSL",
+          "canonical_name": "Combined SSL",
+          "entity_type": "MODEL",
+          "description": "Conformer model + unsupervised wav2vec 2.0, SpecAugment",
+          "confidence": 0.95
+        },
+        {
+          "name": "SpeechStew",
+          "canonical_name": "SpeechStew",
+          "entity_type": "MODEL",
+          "description": "Trained on 7 datasets, fine-tuned for speech recognition",
+          "confidence": 0.95
+        },
+        {
+          "name": "Librispeech",
+          "canonical_name": "Librispeech",
+          "entity_type": "DATASET",
+          "description": "Dataset used for evaluation",
+          "confidence": 0.95
+        },
+        {
+          "name": "WER",
+          "canonical_name": "Word Error Rate",
+          "entity_type": "METRIC",
+          "description": "Word Error Rate",
+          "confidence": 0.95
+        },
+        {
+          "name": "CNN",
+          "canonical_name": "Convolutional Neural Network",
+          "entity_type": "TECHNOLOGY",
+          "description": "Convolutional Neural Network",
+          "confidence": 0.9
+        },
+        {
+          "name": "self-attention",
+          "canonical_name": "Self-Attention",
+          "entity_type": "CONCEPT",
+          "description": "Self-attention mechanism",
+          "confidence": 0.9
+        },
+        {
+          "name": "LSTM",
+          "canonical_name": "Long Short-Term Memory",
+          "entity_type": "TECHNOLOGY",
+          "description": "Long Short-Term Memory",
+          "confidence": 0.9
+        },
+        {
+          "name": "SpecAugment",
+          "canonical_name": "SpecAugment",
+          "entity_type": "METHOD",
+          "description": "Method to generate noisy training data",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "ContextNet + NST",
+          "target": "Librispeech",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "ContextNet + NST Librispeech WER 1.7%",
+          "confidence": 0.9
+        },
+        {
+          "source": "Conformer",
+          "target": "Librispeech",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "Conformer Librispeech WER 1.9%",
+          "confidence": 0.9
+        },
+        {
+          "source": "wav2vec 2.0",
+          "target": "Librispeech",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "wav2vec 2.0 Librispeech WER 1.5%",
+          "confidence": 0.9
+        },
+        {
+          "source": "Combined SSL",
+          "target": "Librispeech",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "Combined SSL Librispeech WER 1.4%",
+          "confidence": 0.9
+        },
+        {
+          "source": "SpeechStew",
+          "target": "Librispeech",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "SpeechStew Librispeech WER 1.7%",
+          "confidence": 0.9
+        },
+        {
+          "source": "Combined SSL",
+          "target": "Conformer",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "Conformer model + unsupervised wav2vec 2.0",
+          "confidence": 0.95
+        },
+        {
+          "source": "Combined SSL",
+          "target": "wav2vec 2.0",
+          "relationship_type": "HAS_COMPONENT",
+          "evidence": "Conformer model + unsupervised wav2vec 2.0",
+          "confidence": 0.95
+        },
+        {
+          "source": "Combined SSL",
+          "target": "SpecAugment",
+          "relationship_type": "USES",
+          "evidence": "SpecAugment to generate noisy training data",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "7.1\nSpeech Recognition and Generation\n317\n\nTable 7.1 Main speech recognition techniques\n\n|Model|Mechanism|Performance|\n|---|---|---|\n|ContextNet +<br>NST|Currently best LSTM-based ASR system|Librispeech WER 1.7%|\n|Conformer|CNN + self-attention in transformer block,<br>LSTM as language model|Librisp",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 46386,
+      "page_number": 332,
+      "entities": [
+        {
+          "name": "Gumbel",
+          "canonical_name": "Gumbel Distribution",
+          "entity_type": "CONCEPT",
+          "description": "Standard Gumbel distribution used for sampling noise.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "318\n7\nFoundation Models for Speech, Images, Videos, and Control\n\nwe can draw a random uniform variable .U ∼uniform(0, 1) and compute . Z =\nonehot(maxi p1 + · · · pi−1 ≤U), where .i = 1, . . . , k is the discrete index, and\n\n.onehot(j) generates a vector of zeros with a one at position j. This sampli",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 45247,
+      "page_number": 100,
+      "entities": [
+        {
+          "name": "BERT",
+          "canonical_name": "BERT",
+          "entity_type": "MODEL",
+          "description": "Autoencoder model similar to BERT with MLM + NSP pre-training objectives.",
+          "confidence": 0.95
+        },
+        {
+          "name": "ELMo",
+          "canonical_name": "ELMo",
+          "entity_type": "MODEL",
+          "description": "Autoencoder model.",
+          "confidence": 0.95
+        },
+        {
+          "name": "RoBERTa",
+          "canonical_name": "RoBERTa",
+          "entity_type": "MODEL",
+          "description": "Autoencoder model with MLM pre-training objective.",
+          "confidence": 0.95
+        },
+        {
+          "name": "SpanBERT",
+          "canonical_name": "SpanBERT",
+          "entity_type": "MODEL",
+          "description": "Autoencoder model with PLM, SBO pre-training objectives.",
+          "confidence": 0.95
+        },
+        {
+          "name": "ELECTRA",
+          "canonical_name": "ELECTRA",
+          "entity_type": "MODEL",
+          "description": "Autoencoder model with RTD pre-training objective.",
+          "confidence": 0.95
+        },
+        {
+          "name": "GLUE",
+          "canonical_name": "GLUE",
+          "entity_type": "DATASET",
+          "description": "Benchmark dataset used for evaluation.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "ELMo",
+          "target": "GLUE",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "ELMo ... GLUE 71.0",
+          "confidence": 0.9
+        },
+        {
+          "source": "BERT",
+          "target": "GLUE",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "BERT ... GLUE 80.5",
+          "confidence": 0.9
+        },
+        {
+          "source": "RoBERTa",
+          "target": "GLUE",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "RoBERTa ... GLUE 88.5",
+          "confidence": 0.9
+        },
+        {
+          "source": "SpanBERT",
+          "target": "GLUE",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "SpanBERT ... GLUE 82.8",
+          "confidence": 0.9
+        },
+        {
+          "source": "ELECTRA",
+          "target": "GLUE",
+          "relationship_type": "EVALUATED_ON",
+          "evidence": "ELECTRA ... GLUE 89.4",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "3.1\nModifying Pre-training Objectives\n83\n\nTable 3.2 Autoencoders similar to BERT. The pre-training and ﬁne-tuning loss functions are \ndeﬁned in Table 3.1. The benchmark ﬁgures are only a hint, as they depend on the number of \nparameters and the computing effort\n\n|Model|Section P|re-training|Fine-tun",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 45478,
+      "page_number": 150,
+      "entities": [
+        {
+          "name": "transformer",
+          "canonical_name": "Transformer",
+          "entity_type": "MODEL",
+          "description": "Neural network architecture with attention heads.",
+          "confidence": 0.95
+        },
+        {
+          "name": "GPUs",
+          "canonical_name": "GPU",
+          "entity_type": "TECHNOLOGY",
+          "description": "Hardware used for parallel computations.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Low-Rank Factorization",
+          "canonical_name": "Low-Rank Factorization",
+          "entity_type": "METHOD",
+          "description": "Technique mentioned in section 3.5.4.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "3.5\nChanging Model Size\n133\n\nwithout compromising performance. It could be shown, for example that some \nattention heads of the transformer may be removed with little impact on the accuracy \n[256]. Other researchers prune the weights of attention layers and linear layers to \nreduce the number of par",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 45739,
+      "page_number": 200,
+      "entities": [
+        {
+          "name": "F. Schmidt",
+          "canonical_name": "F. Schmidt",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "T. Hofmann",
+          "canonical_name": "T. Hofmann",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "BERT as a Teacher: Contextual Embeddings for Sequence- Level Reward",
+          "canonical_name": "BERT as a Teacher: Contextual Embeddings for Sequence-Level Reward",
+          "entity_type": "CONCEPT",
+          "description": "Research paper or article",
+          "confidence": 1.0
+        },
+        {
+          "name": "S. Seo",
+          "canonical_name": "S. Seo",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "S. Arik",
+          "canonical_name": "S. Arik",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "J. Yoon",
+          "canonical_name": "J. Yoon",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "X. Zhang",
+          "canonical_name": "X. Zhang",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "K. Sohn",
+          "canonical_name": "K. Sohn",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "T. Pﬁster",
+          "canonical_name": "T. Pﬁster",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Controlling Neural Networks with Rule Representations",
+          "canonical_name": "Controlling Neural Networks with Rule Representations",
+          "entity_type": "CONCEPT",
+          "description": "Research paper or article",
+          "confidence": 1.0
+        },
+        {
+          "name": "M. Shoeybi",
+          "canonical_name": "M. Shoeybi",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "M. Patwary",
+          "canonical_name": "M. Patwary",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "R. Puri",
+          "canonical_name": "R. Puri",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "P. LeGresley",
+          "canonical_name": "P. LeGresley",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "J. Casper",
+          "canonical_name": "J. Casper",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "B. Catanzaro",
+          "canonical_name": "B. Catanzaro",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Megatron- Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "canonical_name": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "entity_type": "MODEL",
+          "description": "Language model training framework or paper",
+          "confidence": 1.0
+        },
+        {
+          "name": "K. Sinha",
+          "canonical_name": "K. Sinha",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "R. Jia",
+          "canonical_name": "R. Jia",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "D. Hupkes",
+          "canonical_name": "D. Hupkes",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "J. Pineau",
+          "canonical_name": "J. Pineau",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "A. Williams",
+          "canonical_name": "A. Williams",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "D. Kiela",
+          "canonical_name": "D. Kiela",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "canonical_name": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "entity_type": "CONCEPT",
+          "description": "Research paper or article",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "BERT as a Teacher: Contextual Embeddings for Sequence-Level Reward",
+          "target": "F. Schmidt",
+          "relationship_type": "CREATED_BY",
+          "evidence": "F. Schmidt and T. Hofmann. “BERT as a Teacher: Contextual Embeddings for Sequence- Level Reward”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "BERT as a Teacher: Contextual Embeddings for Sequence-Level Reward",
+          "target": "T. Hofmann",
+          "relationship_type": "CREATED_BY",
+          "evidence": "F. Schmidt and T. Hofmann. “BERT as a Teacher: Contextual Embeddings for Sequence- Level Reward”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "S. Seo",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "S. Arik",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "J. Yoon",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "X. Zhang",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "K. Sohn",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Controlling Neural Networks with Rule Representations",
+          "target": "T. Pﬁster",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with Rule Representations”.",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "M. Shoeybi",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "M. Patwary",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "R. Puri",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "P. LeGresley",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "J. Casper",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Megatron-Lm: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+          "target": "B. Catanzaro",
+          "relationship_type": "CREATED_BY",
+          "evidence": "M. Shoeybi, M. Patwary, R. Puri, P. LeGresley, J. Casper, and B. Catanzaro. “Megatron-Lm...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "K. Sinha",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "R. Jia",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "D. Hupkes",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "J. Pineau",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "A. Williams",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        },
+        {
+          "source": "Masked Language Modeling and the Distributional Hypothesis: Order Word Matters Pre-training for Little",
+          "target": "D. Kiela",
+          "relationship_type": "CREATED_BY",
+          "evidence": "K. Sinha, R. Jia, D. Hupkes, J. Pineau, A. Williams, and D. Kiela. “Masked Language Modeling...",
+          "confidence": 1.0
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "184\n4\nKnowledge Acquired by Foundation Models\n\n56. F. Schmidt and T. Hofmann. “BERT as a Teacher: Contextual Embeddings for Sequence- Level\n\nReward”. 2020. arXiv: 2003.02738.\n\n57. S. Seo, S. Arik, J. Yoon, X. Zhang, K. Sohn, and T. Pﬁster. “Controlling Neural Networks with\n\nRule Representations”. In",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 44812,
+      "page_number": 1,
+      "entities": [
+        {
+          "name": "Artificial Intelligence: Foundations, Theory, and Algorithms",
+          "canonical_name": "Artificial Intelligence: Foundations, Theory, and Algorithms",
+          "entity_type": "CONCEPT",
+          "description": "Book series or overarching field subject",
+          "confidence": 0.9
+        },
+        {
+          "name": "Gerhard Paaß",
+          "canonical_name": "Gerhard Paaß",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Sven Giesselbach",
+          "canonical_name": "Sven Giesselbach",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 1.0
+        },
+        {
+          "name": "Foundation Models for Natural Language Processing",
+          "canonical_name": "Foundation Models for Natural Language Processing",
+          "entity_type": "MODEL",
+          "description": "Book title focusing on foundation models for NLP",
+          "confidence": 0.95
+        },
+        {
+          "name": "Pre-trained Language Models",
+          "canonical_name": "Pre-trained Language Models",
+          "entity_type": "MODEL",
+          "description": "Topic within natural language processing",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Foundation Models for Natural Language Processing",
+          "target": "Gerhard Paaß",
+          "relationship_type": "CREATED_BY",
+          "evidence": "Gerhard Paaß Sven Giesselbach Foundation Models for Natural Language Processing",
+          "confidence": 0.9
+        },
+        {
+          "source": "Foundation Models for Natural Language Processing",
+          "target": "Sven Giesselbach",
+          "relationship_type": "CREATED_BY",
+          "evidence": "Gerhard Paaß Sven Giesselbach Foundation Models for Natural Language Processing",
+          "confidence": 0.9
+        },
+        {
+          "source": "Foundation Models for Natural Language Processing",
+          "target": "Artificial Intelligence: Foundations, Theory, and Algorithms",
+          "relationship_type": "PART_OF",
+          "evidence": "Artiﬁcial Intelligence: Foundations, Theory, and Algorithms ... Foundation Models for Natural Language Processing",
+          "confidence": 0.8
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artiﬁcial Intelligence: Foundations, Theory, and Algorithms\n\nGerhard Paaß\nSven Giesselbach\n\nFoundation \nModels for \nNatural Language \nProcessing\n\nPre-trained Language Models  \nIntegrating Media",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 44813,
+      "page_number": 2,
+      "entities": [
+        {
+          "name": "Artificial Intelligence: Foundations, Theory, and Algorithms",
+          "canonical_name": "Artificial Intelligence: Foundations, Theory, and Algorithms",
+          "entity_type": "CONCEPT",
+          "description": "Series title",
+          "confidence": 0.95
+        },
+        {
+          "name": "Barry O’Sullivan",
+          "canonical_name": "Barry O'Sullivan",
+          "entity_type": "PERSON",
+          "description": "Series Editor",
+          "confidence": 1.0
+        },
+        {
+          "name": "University College Cork",
+          "canonical_name": "University College Cork",
+          "entity_type": "ORGANIZATION",
+          "description": "Academic institution in Cork, Ireland",
+          "confidence": 1.0
+        },
+        {
+          "name": "Michael Wooldridge",
+          "canonical_name": "Michael Wooldridge",
+          "entity_type": "PERSON",
+          "description": "Series Editor",
+          "confidence": 1.0
+        },
+        {
+          "name": "University of Oxford",
+          "canonical_name": "University of Oxford",
+          "entity_type": "ORGANIZATION",
+          "description": "Academic institution in Oxford, UK",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Barry O'Sullivan",
+          "target": "University College Cork",
+          "relationship_type": "RELATED_TO",
+          "evidence": "Barry O’Sullivan, Dep. of Computer Science, University College Cork",
+          "confidence": 0.9
+        },
+        {
+          "source": "Michael Wooldridge",
+          "target": "University of Oxford",
+          "relationship_type": "RELATED_TO",
+          "evidence": "Michael Wooldridge, Department of Computer Science, University of Oxford",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artiﬁcial Intelligence: Foundations, Theory, \nand Algorithms\n\nSeries Editors\n\nBarry O’Sullivan, Dep. of Computer Science, University College Cork, Cork, \nIreland\n\nMichael Wooldridge, Department of Computer Science, University of Oxford, \nOxford, UK",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 44814,
+      "page_number": 3,
+      "entities": [
+        {
+          "name": "Artificial Intelligence: Foundations, Theory and Algorithms",
+          "canonical_name": "Artificial Intelligence: Foundations, Theory and Algorithms",
+          "entity_type": "PRODUCT",
+          "description": "A series that fosters the dissemination of knowledge, technologies and methodologies in artificial intelligence.",
+          "confidence": 0.95
+        },
+        {
+          "name": "artificial intelligence",
+          "canonical_name": "Artificial Intelligence",
+          "entity_type": "CONCEPT",
+          "description": "A multidisciplinary topic with broad applications, theories, and algorithms.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Artificial Intelligence: Foundations, Theory and Algorithms",
+          "target": "Artificial Intelligence",
+          "relationship_type": "RELATED_TO",
+          "evidence": "Artificial Intelligence: Foundations, Theory and Algorithms fosters the dissemination of knowledge, technologies and methodologies that advance developments in artificial intelligence (AI)",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "Artiﬁcial Intelligence: Foundations, Theory and Algorithms fosters the dissemination of knowledge, technologies and methodologies that advance developments in \nartiﬁcial intelligence (AI) and its broad applications. It brings together the latest \ndevelopments in all areas of this multidisciplinary t",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 94,
+      "chunk_id": 44815,
+      "page_number": 3,
+      "entities": [
+        {
+          "name": "Knowledge representation",
+          "canonical_name": "Knowledge representation",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Automated reasoning and inference",
+          "canonical_name": "Automated reasoning and inference",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Reasoning under uncertainty",
+          "canonical_name": "Reasoning under uncertainty",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Planning, scheduling, and problem solving",
+          "canonical_name": "Planning, scheduling, and problem solving",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Cognition and AI",
+          "canonical_name": "Cognition and AI",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Search",
+          "canonical_name": "Search",
+          "entity_type": "ALGORITHM",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Diagnosis",
+          "canonical_name": "Diagnosis",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Constraint processing",
+          "canonical_name": "Constraint processing",
+          "entity_type": "ALGORITHM",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Multi-agent systems",
+          "canonical_name": "Multi-agent systems",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Game theory in AI",
+          "canonical_name": "Game theory in AI",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Machine learning",
+          "canonical_name": "Machine learning",
+          "entity_type": "METHOD",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Deep learning",
+          "canonical_name": "Deep learning",
+          "entity_type": "METHOD",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Reinforcement learning",
+          "canonical_name": "Reinforcement learning",
+          "entity_type": "METHOD",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Data mining",
+          "canonical_name": "Data mining",
+          "entity_type": "METHOD",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Natural language processing",
+          "canonical_name": "Natural language processing",
+          "entity_type": "TECHNOLOGY",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Computer vision",
+          "canonical_name": "Computer vision",
+          "entity_type": "TECHNOLOGY",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Human interfaces",
+          "canonical_name": "Human interfaces",
+          "entity_type": "TECHNOLOGY",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Intelligent robotics",
+          "canonical_name": "Intelligent robotics",
+          "entity_type": "TECHNOLOGY",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Explanation generation",
+          "canonical_name": "Explanation generation",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Ethics in AI",
+          "canonical_name": "Ethics in AI",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        },
+        {
+          "name": "Fairness, accountability, and transparency in AI",
+          "canonical_name": "Fairness, accountability, and transparency in AI",
+          "entity_type": "CONCEPT",
+          "description": "An AI topic included in the publication platform",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "This series provides a publication and communication platform for all AI topics, \nincluding but not limited to:\n\n•\nKnowledge representation\n•\nAutomated reasoning and inference\n•\nReasoning under uncertainty\n•\nPlanning, scheduling, and problem solving\n•\nCognition and AI\n•\nSearch\n•\nDiagnosis\n•\nConstrai",
+      "filename": "foundation-models-for-natural-language-processing-gerhard-paa-and-sven-giesselbach-839.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43568,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "CNNs",
+          "canonical_name": "Convolutional Neural Networks",
+          "entity_type": "MODEL",
+          "description": "Convolutional Neural Networks that are by nature overparameterized",
+          "confidence": 0.95
+        },
+        {
+          "name": "FPGAs",
+          "canonical_name": "Field Programmable Gate Arrays",
+          "entity_type": "TECHNOLOGY",
+          "description": "Hardware platforms offering custom data types, local data streams, and dedicated processors",
+          "confidence": 0.95
+        },
+        {
+          "name": "weight pruning",
+          "canonical_name": "weight pruning",
+          "entity_type": "METHOD",
+          "description": "Approximate computing technique supported by CNNs",
+          "confidence": 0.95
+        },
+        {
+          "name": "fixed-point computation",
+          "canonical_name": "fixed-point computation",
+          "entity_type": "METHOD",
+          "description": "Approximate computing technique supported by CNNs",
+          "confidence": 0.95
+        },
+        {
+          "name": "approximate computing",
+          "canonical_name": "approximate computing",
+          "entity_type": "CONCEPT",
+          "description": "Techniques such as weight pruning and fixed-point computation",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Convolutional Neural Networks",
+          "target": "approximate computing",
+          "relationship_type": "USES",
+          "evidence": "CNNs are by nature overparameterized and support particularly well approximate computing techniques",
+          "confidence": 0.9
+        },
+        {
+          "source": "weight pruning",
+          "target": "approximate computing",
+          "relationship_type": "PART_OF",
+          "evidence": "approximate computing techniques such as weight pruning and fxed-point computation",
+          "confidence": 0.9
+        },
+        {
+          "source": "fixed-point computation",
+          "target": "approximate computing",
+          "relationship_type": "PART_OF",
+          "evidence": "approximate computing techniques such as weight pruning and fxed-point computation",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "33 \nAccelerating the CNN Inference on FPGAs\n\nthe neuron level, the optimizations of convolutional and fully connected layers have \nbeen detailed and compared. All the different degrees of freedom offered by FPGAs \n(custom data types, local data streams, dedicated processors, etc.) are exploited by \n",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43569,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "Y. LeCun",
+          "canonical_name": "Yann LeCun",
+          "entity_type": "PERSON",
+          "description": "Author of Deep learning",
+          "confidence": 1.0
+        },
+        {
+          "name": "Y. Bengio",
+          "canonical_name": "Yoshua Bengio",
+          "entity_type": "PERSON",
+          "description": "Author of Deep learning",
+          "confidence": 1.0
+        },
+        {
+          "name": "G. Hinton",
+          "canonical_name": "Geoffrey Hinton",
+          "entity_type": "PERSON",
+          "description": "Author of Deep learning",
+          "confidence": 1.0
+        },
+        {
+          "name": "O. Russakovsky",
+          "canonical_name": "O. Russakovsky",
+          "entity_type": "PERSON",
+          "description": "Author of ImageNet large scale visual recognition challenge",
+          "confidence": 1.0
+        },
+        {
+          "name": "R. Girshick",
+          "canonical_name": "Ross Girshick",
+          "entity_type": "PERSON",
+          "description": "Author of Fast R-CNN",
+          "confidence": 1.0
+        },
+        {
+          "name": "Fast R-CNN",
+          "canonical_name": "Fast R-CNN",
+          "entity_type": "MODEL",
+          "description": "Computer vision model",
+          "confidence": 1.0
+        },
+        {
+          "name": "ImageNet",
+          "canonical_name": "ImageNet",
+          "entity_type": "DATASET",
+          "description": "Dataset for visual recognition challenge",
+          "confidence": 1.0
+        },
+        {
+          "name": "J. Long",
+          "canonical_name": "J. Long",
+          "entity_type": "PERSON",
+          "description": "Author of Fully convolutional networks for semantic segmentation",
+          "confidence": 1.0
+        },
+        {
+          "name": "E. Shelhamer",
+          "canonical_name": "E. Shelhamer",
+          "entity_type": "PERSON",
+          "description": "Author of Fully convolutional networks for semantic segmentation",
+          "confidence": 1.0
+        },
+        {
+          "name": "T. Darrell",
+          "canonical_name": "T. Darrell",
+          "entity_type": "PERSON",
+          "description": "Author of Fully convolutional networks for semantic segmentation",
+          "confidence": 1.0
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Ross Girshick",
+          "target": "Fast R-CNN",
+          "relationship_type": "CREATED_BY",
+          "evidence": "R. Girshick, “Fast R-CNN,”",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "BIBLIOGRAPHY\n\n1. Y. LeCun, Y. Bengio, and G. Hinton, “Deep learning,” Nature, vol. 521, no. 7553, pp.\n\n436–444, 2015.\n\n2. O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy,\n\nA. Khosla, M. Bernstein, A. C. Berg, and L. Fei-Fei, “ImageNet large scale visual\n\nrecognit",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43570,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "IEEE Conference on Computer Vision and Pattern Recognition",
+          "canonical_name": "IEEE Conference on Computer Vision and Pattern Recognition",
+          "entity_type": "EVENT",
+          "description": "Conference where CVPR '15 proceedings appeared",
+          "confidence": 0.95
+        },
+        {
+          "name": "CVPR '15",
+          "canonical_name": "CVPR '15",
+          "entity_type": "EVENT",
+          "description": "IEEE Conference on Computer Vision and Pattern Recognition 2015",
+          "confidence": 0.95
+        },
+        {
+          "name": "Y. Zhang",
+          "canonical_name": "Y. Zhang",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "M. Pezeshki",
+          "canonical_name": "M. Pezeshki",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "P. Brakel",
+          "canonical_name": "P. Brakel",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "S. Zhang",
+          "canonical_name": "S. Zhang",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "C. L. Y. Bengio",
+          "canonical_name": "C. L. Y. Bengio",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "A. Courville",
+          "canonical_name": "A. Courville",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "K. Simonyan",
+          "canonical_name": "K. Simonyan",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "A. Zisserman",
+          "canonical_name": "A. Zisserman",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "E. Nurvitadhi",
+          "canonical_name": "E. Nurvitadhi",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "S. Subhaschandra",
+          "canonical_name": "S. Subhaschandra",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "G. Boudoukh",
+          "canonical_name": "G. Boudoukh",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "G. Venkatesh",
+          "canonical_name": "G. Venkatesh",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "J. Sim",
+          "canonical_name": "J. Sim",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "D. Marr",
+          "canonical_name": "D. Marr",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "R. Huang",
+          "canonical_name": "R. Huang",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "J. OngGeeHock",
+          "canonical_name": "J. OngGeeHock",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "Y. T. Liew",
+          "canonical_name": "Y. T. Liew",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "K. Srivatsan",
+          "canonical_name": "K. Srivatsan",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "D. Moss",
+          "canonical_name": "D. Moss",
+          "entity_type": "PERSON",
+          "description": "Author of research paper",
+          "confidence": 0.95
+        },
+        {
+          "name": "FPGAs",
+          "canonical_name": "FPGAs",
+          "entity_type": "TECHNOLOGY",
+          "description": "Field Programmable Gate Arrays",
+          "confidence": 0.95
+        },
+        {
+          "name": "GPUs",
+          "canonical_name": "GPUs",
+          "entity_type": "TECHNOLOGY",
+          "description": "Graphics Processing Units",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "mentation,” in Proceedings of the IEEE Conference on Computer Vision and Pattern\n\nRecognition - CVPR ’15, 2015, pp. 3431–3440.\n\n5. Y. Zhang, M. Pezeshki, P. Brakel, S. Zhang, C. L. Y. Bengio, and A. Courville,\n\n“Towards end-to-end speech recognition with deep convolutional neural networks,”\n\narXiv p",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43571,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "Intel FPGA",
+          "canonical_name": "Intel FPGA",
+          "entity_type": "ORGANIZATION",
+          "description": "Manufacturer or publisher of FPGA documentation",
+          "confidence": 0.95
+        },
+        {
+          "name": "Intel Stratix 10 variable precision DSP blocks user guide",
+          "canonical_name": "Intel Stratix 10 variable precision DSP blocks user guide",
+          "entity_type": "PRODUCT",
+          "description": "User guide document by Intel FPGA",
+          "confidence": 0.95
+        },
+        {
+          "name": "G. Lacey",
+          "canonical_name": "G. Lacey",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "G. Taylor",
+          "canonical_name": "G. Taylor",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "S. Areibi",
+          "canonical_name": "S. Areibi",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "Deep learning on FPGAs: Past, present, and future",
+          "canonical_name": "Deep learning on FPGAs: Past, present, and future",
+          "entity_type": "TECHNOLOGY",
+          "description": "arXiv e-print paper/article",
+          "confidence": 0.9
+        },
+        {
+          "name": "S. I. Venieris",
+          "canonical_name": "S. I. Venieris",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "A. Kouris",
+          "canonical_name": "A. Kouris",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "C.-S. Bouganis",
+          "canonical_name": "C.-S. Bouganis",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "Toolfows for mapping convolutional neural networks on FPGAs",
+          "canonical_name": "Toolfows for mapping convolutional neural networks on FPGAs",
+          "entity_type": "TECHNOLOGY",
+          "description": "Article in ACM Computing Surveys",
+          "confidence": 0.9
+        },
+        {
+          "name": "Y. LeCun",
+          "canonical_name": "Y. LeCun",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "L. Bottou",
+          "canonical_name": "L. Bottou",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "Y. Bengio",
+          "canonical_name": "Y. Bengio",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "P. Haffner",
+          "canonical_name": "P. Haffner",
+          "entity_type": "PERSON",
+          "description": "Author",
+          "confidence": 0.95
+        },
+        {
+          "name": "Gradient based learning applied to document recognition",
+          "canonical_name": "Gradient based learning applied to document recognition",
+          "entity_type": "TECHNOLOGY",
+          "description": "Paper published in Proceedings of the IEEE",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "Intel Stratix 10 variable precision DSP blocks user guide",
+          "target": "Intel FPGA",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "Intel FPGA, “Intel Stratix 10 variable precision DSP blocks user guide”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Deep learning on FPGAs: Past, present, and future",
+          "target": "G. Lacey",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "G. Lacey, G. Taylor, and S. Areibi, “Deep learning on FPGAs: Past, present, and future”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Deep learning on FPGAs: Past, present, and future",
+          "target": "G. Taylor",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "G. Lacey, G. Taylor, and S. Areibi, “Deep learning on FPGAs: Past, present, and future”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Deep learning on FPGAs: Past, present, and future",
+          "target": "S. Areibi",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "G. Lacey, G. Taylor, and S. Areibi, “Deep learning on FPGAs: Past, present, and future”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Toolfows for mapping convolutional neural networks on FPGAs",
+          "target": "S. I. Venieris",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "S. I. Venieris, A. Kouris, and C.-S. Bouganis, “Toolfows for mapping convolutional neural networks on FPGAs”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Toolfows for mapping convolutional neural networks on FPGAs",
+          "target": "A. Kouris",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "S. I. Venieris, A. Kouris, and C.-S. Bouganis, “Toolfows for mapping convolutional neural networks on FPGAs”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Toolfows for mapping convolutional neural networks on FPGAs",
+          "target": "C.-S. Bouganis",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "S. I. Venieris, A. Kouris, and C.-S. Bouganis, “Toolfows for mapping convolutional neural networks on FPGAs”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Gradient based learning applied to document recognition",
+          "target": "Y. LeCun",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient based learning applied to document recognition”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Gradient based learning applied to document recognition",
+          "target": "L. Bottou",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient based learning applied to document recognition”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Gradient based learning applied to document recognition",
+          "target": "Y. Bengio",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient based learning applied to document recognition”",
+          "confidence": 0.95
+        },
+        {
+          "source": "Gradient based learning applied to document recognition",
+          "target": "P. Haffner",
+          "relationship_type": "DEVELOPED_BY",
+          "evidence": "Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, “Gradient based learning applied to document recognition”",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "in accelerating next-generation deep neural networks?” in Proceedings of the ACM/\n\nSIGDA International Symposium on Field-Programmable Gate Arrays - FPGA ’17,\n\n2017, pp. 5–14.\n\n8. Intel FPGA, “Intel Stratix 10 variable precision DSP blocks user guide,” pp. 4–5, 2017.\n\n9. G. Lacey, G. Taylor, and S. ",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43572,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "A. Krizhevsky",
+          "canonical_name": "Alex Krizhevsky",
+          "entity_type": "PERSON",
+          "description": "Author of ImageNet classification with deep convolutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "name": "I. Sutskever",
+          "canonical_name": "Ilya Sutskever",
+          "entity_type": "PERSON",
+          "description": "Author of ImageNet classification with deep convolutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "name": "G. E. Hinton",
+          "canonical_name": "Geoffrey E. Hinton",
+          "entity_type": "PERSON",
+          "description": "Author of ImageNet classification with deep convolutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "name": "ImageNet classifcation with deep con­volutional neural networks",
+          "canonical_name": "ImageNet classification with deep convolutional neural networks",
+          "entity_type": "CONCEPT",
+          "description": "Research paper by Krizhevsky et al.",
+          "confidence": 0.9
+        },
+        {
+          "name": "NIPS’12",
+          "canonical_name": "Neural Information Processing Systems 2012",
+          "entity_type": "EVENT",
+          "description": "Advances in Neural Information Processing Systems conference 2012",
+          "confidence": 0.9
+        },
+        {
+          "name": "D. H. Hubel",
+          "canonical_name": "David H. Hubel",
+          "entity_type": "PERSON",
+          "description": "Author of study on receptive fields",
+          "confidence": 0.95
+        },
+        {
+          "name": "T. N. Wiesel",
+          "canonical_name": "Torsten N. Wiesel",
+          "entity_type": "PERSON",
+          "description": "Author of study on receptive fields",
+          "confidence": 0.95
+        },
+        {
+          "name": "S. Ioffe",
+          "canonical_name": "Sergey Ioffe",
+          "entity_type": "PERSON",
+          "description": "Co-author of Batch normalization",
+          "confidence": 0.95
+        },
+        {
+          "name": "C. Szegedy",
+          "canonical_name": "Christian Szegedy",
+          "entity_type": "PERSON",
+          "description": "Co-author of Batch normalization",
+          "confidence": 0.95
+        },
+        {
+          "name": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+          "canonical_name": "Batch Normalization",
+          "entity_type": "METHOD",
+          "description": "Technique for accelerating deep network training",
+          "confidence": 0.95
+        },
+        {
+          "name": "International Conference on Machine Learning - ICML ’15",
+          "canonical_name": "ICML 2015",
+          "entity_type": "EVENT",
+          "description": "International Conference on Machine Learning 2015",
+          "confidence": 0.9
+        },
+        {
+          "name": "F. Bach",
+          "canonical_name": "Francis Bach",
+          "entity_type": "PERSON",
+          "description": "Editor of ICML 15 proceedings volume",
+          "confidence": 0.9
+        },
+        {
+          "name": "D. Blei",
+          "canonical_name": "David Blei",
+          "entity_type": "PERSON",
+          "description": "Editor of ICML 15 proceedings volume",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [
+        {
+          "source": "ImageNet classification with deep convolutional neural networks",
+          "target": "Alex Krizhevsky",
+          "relationship_type": "CREATED_BY",
+          "evidence": "A. Krizhevsky, I. Sutskever, and G. E. Hinton, “ImageNet classifcation with deep con­volutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "source": "ImageNet classification with deep convolutional neural networks",
+          "target": "Ilya Sutskever",
+          "relationship_type": "CREATED_BY",
+          "evidence": "A. Krizhevsky, I. Sutskever, and G. E. Hinton, “ImageNet classifcation with deep con­volutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "source": "ImageNet classification with deep convolutional neural networks",
+          "target": "Geoffrey E. Hinton",
+          "relationship_type": "CREATED_BY",
+          "evidence": "A. Krizhevsky, I. Sutskever, and G. E. Hinton, “ImageNet classifcation with deep con­volutional neural networks",
+          "confidence": 0.95
+        },
+        {
+          "source": "Batch Normalization",
+          "target": "Sergey Ioffe",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Ioffe and C. Szegedy, “Batch normalization",
+          "confidence": 0.95
+        },
+        {
+          "source": "Batch Normalization",
+          "target": "Christian Szegedy",
+          "relationship_type": "CREATED_BY",
+          "evidence": "S. Ioffe and C. Szegedy, “Batch normalization",
+          "confidence": 0.95
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "document recognition,” in Proceedings of the IEEE, vol. 86, no. 11, pp. 2278–2324, 1998.\n\n12. A. Krizhevsky, I. Sutskever, and G. E. Hinton, “ImageNet classifcation with deep con­\n\nvolutional neural networks,” in Advances in Neural Information Processing Systems -\n\nNIPS’12, 2012, p. 19.\n\n13. D. H. H",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43789,
+      "page_number": 100,
+      "entities": [
+        {
+          "name": "SqueezeNet",
+          "canonical_name": "SqueezeNet",
+          "entity_type": "MODEL",
+          "description": "The model used in the system for fire detection.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "83 \nEffcient CNNs for Fire Detection\n\nFIGURE 3.16 Sample outputs from the overall system [45].\n\nby the SqueezeNet model; and the fnal column shows the alert that should be sent to \nemergency services, such as the fre brigade.",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 92,
+      "chunk_id": 43790,
+      "page_number": 100,
+      "entities": [
+        {
+          "name": "convolutional neural networks",
+          "canonical_name": "Convolutional Neural Networks",
+          "entity_type": "MODEL",
+          "description": "Deep learning models used in surveillance applications.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [
+        {
+          "entity": {
+            "name": "CNNs",
+            "canonical_name": "Convolutional Neural Networks",
+            "entity_type": "MODEL",
+            "description": "Abbreviation for convolutional neural networks.",
+            "confidence": 0.95
+          },
+          "reason": "duplicate_of_Convolutional Neural Networks"
+        }
+      ],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "3.5 CONCLUSIONS\n\nRecently, convolutional neural networks (CNNs) have shown substantial progress in \nsurveillance applications; however, their key roles in early fre detection, localiza­\ntion, and fre scene analysis have not been investigated. With this motivation, CNNs \nwere investigated for address",
+      "filename": "deep-learning-in-computer-vision-principles-and-applications-mahmoud-hassaballah-and-ali-ismail-awad-841.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47151,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "perceptron",
+          "canonical_name": "Perceptron",
+          "entity_type": "ALGORITHM",
+          "description": "Classification algorithm referenced for comparison",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "32\nCHAPTER 2. LINEAR TEXT CLASSIFICATION\n\nfollowing classiﬁcation rule:\n\nˆy = argmax\n\nθ · f(x(i), y) + c(y(i), y)\n[2.47]\n\ny∈Y\n\nθ(t) ←(1 −λ)θ(t−1) + f(x(i), y(i)) −f(x(i), ˆy)\n[2.48]\n\nThis update is similar in form to the perceptron, with two key differences.",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47152,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "perceptron",
+          "canonical_name": "perceptron",
+          "entity_type": "ALGORITHM",
+          "description": "Classification model update algorithm mentioned as similar in form.",
+          "confidence": 0.95
+        },
+        {
+          "name": "cost-augmented decoding",
+          "canonical_name": "cost-augmented decoding",
+          "entity_type": "METHOD",
+          "description": "Maximization that searches for labels that are strong and wrong to favor high-cost labels.",
+          "confidence": 0.98
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "y∈Y\n\nθ(t) ←(1 −λ)θ(t−1) + f(x(i), y(i)) −f(x(i), ˆy)\n[2.48]\n\nThis update is similar in form to the perceptron, with two key differences.\n\n• Rather than selecting the label ˆy that maximizes the score of the current classiﬁ-\ncation model, the argmax searches for labels that are both strong, as measur",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47153,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "support vector machine",
+          "canonical_name": "support vector machine",
+          "entity_type": "ALGORITHM",
+          "description": "Classification model where weight decay term arises from margin minimization",
+          "confidence": 0.95
+        },
+        {
+          "name": "regularization",
+          "canonical_name": "regularization",
+          "entity_type": "CONCEPT",
+          "description": "Technique to help prevent overfitting",
+          "confidence": 0.95
+        },
+        {
+          "name": "overfitting",
+          "canonical_name": "overfitting",
+          "entity_type": "CONCEPT",
+          "description": "Model generalization issue prevented by regularization",
+          "confidence": 0.95
+        },
+        {
+          "name": "Na¨ıve Bayes",
+          "canonical_name": "Naive Bayes",
+          "entity_type": "ALGORITHM",
+          "description": "Probabilistic classifier utilizing smoothing",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [
+        {
+          "source": "regularization",
+          "target": "overfitting",
+          "relationship_type": "RELATED_TO",
+          "evidence": "a form of regularization, which can help to prevent overfitting",
+          "confidence": 0.9
+        }
+      ],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "• The previous weights θ(t−1) are scaled by (1 −λ), with λ ∈(0, 1). The effect of this\nterm is to cause the weights to “decay” back towards zero. In the support vector\nmachine, this term arises from the minimization of a speciﬁc form of the margin, as\ndescribed below. However, it can also be viewed ",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47154,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "online support vector machine",
+          "canonical_name": "online support vector machine",
+          "entity_type": "ALGORITHM",
+          "description": "An online version of the support vector machine algorithm.",
+          "confidence": 0.95
+        },
+        {
+          "name": "Definition 1",
+          "canonical_name": "Definition 1",
+          "entity_type": "CONCEPT",
+          "description": "Definition of linear separability.",
+          "confidence": 0.9
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "2.4.2\n*Derivation of the online support vector machine\n\nThe derivation of the online support vector machine is somewhat involved, but gives\nfurther intuition about why the method works. Begin by returning the idea of linear separability (Deﬁnition 1): if a dataset is linearly separable, then there i",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47155,
+      "page_number": 50,
+      "entities": [
+        {
+          "name": "Jacob Eisenstein",
+          "canonical_name": "Jacob Eisenstein",
+          "entity_type": "PERSON",
+          "description": "Author of the draft text",
+          "confidence": 0.95
+        },
+        {
+          "name": "November 13, 2018",
+          "canonical_name": "November 13, 2018",
+          "entity_type": "DATE",
+          "description": "Draft date",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "j θ2\n\n||θ||2\n, where the denominator is the norm of the weights, ||θ||2 =\nqP\n\nthe functional margin γ(θ; x(i), y(i)). Both are shown in Figure 2.3. The geometric margin\nis a good measure of the robustness of the separator: if the functional margin is large, but\nthe norm ||θ||2 is also large, then a ",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47353,
+      "page_number": 100,
+      "entities": [
+        {
+          "name": "RECALL",
+          "canonical_name": "Recall",
+          "entity_type": "METRIC",
+          "description": "Evaluation metric defined as TP / (TP + FN)",
+          "confidence": 0.95
+        },
+        {
+          "name": "PRECISION",
+          "canonical_name": "Precision",
+          "entity_type": "METRIC",
+          "description": "Evaluation metric defined as TP / (TP + FP)",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "82\nCHAPTER 4. LINGUISTIC APPLICATIONS OF CLASSIFICATION\n\nClassiﬁers that make a lot of false positives have low precision: they predict the label\neven when it isn’t there. Classiﬁers that make a lot of false negatives have low recall: they\nfail to predict the label, even when it is there. These metr",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    },
+    {
+      "document_id": 95,
+      "chunk_id": 47354,
+      "page_number": 100,
+      "entities": [
+        {
+          "name": "RECALL(y, ˆy, k)",
+          "canonical_name": "Recall",
+          "entity_type": "METRIC",
+          "description": "Conditional likelihood of a correct prediction conditioned on k being the correct label.",
+          "confidence": 0.95
+        },
+        {
+          "name": "PRECISION(y, ˆy, k)",
+          "canonical_name": "Precision",
+          "entity_type": "METRIC",
+          "description": "Conditional likelihood of a correct prediction conditioned on k being the prediction.",
+          "confidence": 0.95
+        }
+      ],
+      "relationships": [],
+      "dropped_entities": [],
+      "dropped_relationships": [],
+      "validation_errors": [],
+      "status": "success",
+      "chunk_snippet": "RECALL(y, ˆy, k) =\nTP\nTP + FN\n[4.5]\n\nPRECISION(y, ˆy, k) =\nTP\nTP + FP.\n[4.6]\n\nRecall and precision are both conditional likelihoods of a correct prediction, which is why\ntheir numerators are the same. Recall is conditioned on k being the correct label, y(i) = k,\nso the denominator sums over true pos",
+      "filename": "natural-language-processing-jacob-eisenstein-838.pdf"
+    }
+  ]
+}

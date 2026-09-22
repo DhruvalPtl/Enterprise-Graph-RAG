@@ -1,0 +1,47 @@
+14 CHAPTER 2. LINEAR TEXT CLASSIFICATION
+To predict a label from a bag-of-words, we can assign a score to each word in the vo-
+cabulary, measuring the compatibility with the label. For example, for the label FICTION ,
+we might assign a positive score to the word whale, and a negative score to the word
+molybdenum. These scores are called weights, and they are arranged in a column vectorθ.
+Suppose that you want a multiclass classiﬁer, where K≜|Y| > 2. For example, you
+might want to classify news stories about sports, celebrities, music, and business. The goal
+is to predict a label ˆy, given the bag of wordsx, using the weightsθ. For each labely∈Y ,
+we compute a score Ψ(x,y ), which is a scalar measure of the compatibility between the
+bag-of-wordsx and the labely. In a linear bag-of-words classiﬁer, this score is the vector
+inner product between the weightsθ and the output of a feature functionf(x,y ),
+Ψ(x,y ) =θ·f(x,y ) =
+∑
+j
+θjfj(x,y ). [2.1]
+As the notation suggests, f is a function of two arguments, the word counts x and the
+labely, and it returns a vector output. For example, given arguments x andy, elementj
+of this feature vector might be,
+fj(x,y ) =
+{
+xwhale, ify = FICTION
+0, otherwise [2.2]
+This function returns the count of the wordwhale if the label is FICTION , and it returns zero
+otherwise. The indexj depends on the position ofwhale in the vocabulary, and of FICTION
+in the set of possible labels. The corresponding weight θj then scores the compatibility of
+the word whale with the label FICTION .1 A positive score means that this word makes the
+label more likely.
+The output of the feature function can be formalized as a vector:
+f(x,y = 1) = [x; 0; 0;... ; 0| {z }
+(K−1)×V
+] [2.3]
+f(x,y = 2) = [0; 0;... ; 0| {z }
+V
+;x; 0; 0;... ; 0| {z }
+(K−2)×V
+] [2.4]
+f(x,y =K) = [0; 0;... ; 0| {z }
+(K−1)×V
+;x], [2.5]
+where [0; 0;... ; 0| {z }
+(K−1)×V
+] is a column vector of (K− 1)×V zeros, and the semicolon indicates
+vertical concatenation. For each of the K possible labels, the feature function returns a
+1In practice, both f and θ may be implemented as a dictionary rather than vectors, so that it is not
+necessary to explicitly identifyj. In such an implementation, the tuple (whale, FICTION ) acts as a key in both
+dictionaries; the values inf are feature counts, and the values inθ are weights.
+Jacob Eisenstein. Draft of November 13, 2018.

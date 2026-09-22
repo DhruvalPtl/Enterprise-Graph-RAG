@@ -1,0 +1,25 @@
+# Step 1 Ingestion and Chunking dependencies
+pymupdf>=1.24.0
+pypdf>=4.0.0
+reportlab>=4.0.0
+pytest>=8.0.0
+
+# Step 2 Text Embedding dependencies
+sentence-transformers>=3.0.0
+google-genai>=1.0.0
+
+# Step 3 PostgreSQL and pgvector dependencies
+psycopg[binary]>=3.1.0
+pgvector>=0.3.0
+
+# Step 4 BM25 and Hybrid Retrieval dependencies
+rank-bm25>=0.2.2
+
+# Step 7 FastAPI REST API dependencies
+fastapi>=0.110.0
+uvicorn>=0.30.0
+httpx>=0.27.0
+
+# Phase G7 Streamlit UI dependencies
+streamlit>=1.35.0
+

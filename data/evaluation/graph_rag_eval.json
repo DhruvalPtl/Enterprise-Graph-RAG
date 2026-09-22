@@ -1,0 +1,328 @@
+{
+  "dataset_version": "1.0",
+  "description": "Gold standard evaluation dataset for Graph RAG Phase G5 benchmarking (Vector-Only vs Hybrid Graph + Vector)",
+  "corpus_documents": [
+    {
+      "id": 91,
+      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf"
+    },
+    {
+      "id": 96,
+      "filename": "speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "question": "Who authored the textbook Speech and Language Processing?",
+      "category": "direct_factual",
+      "expected_answer": "The textbook Speech and Language Processing was authored by Daniel Jurafsky (Stanford University) and James H. Martin (University of Colorado at Boulder).",
+      "expected_entities": ["Daniel Jurafsky", "James H. Martin"],
+      "expected_relationships": [
+        {"source": "Daniel Jurafsky", "type": "LOCATED_IN", "target": "Stanford University"}
+      ],
+      "expected_source_chunks": [49249],
+      "expected_pages": [{"document_id": 96, "page_number": 1}],
+      "notes": "Direct factual question on textbook title page."
+    },
+    {
+      "id": "q002",
+      "question": "What academic institution is author Daniel Jurafsky affiliated with?",
+      "category": "direct_factual",
+      "expected_answer": "Daniel Jurafsky is affiliated with Stanford University.",
+      "expected_entities": ["Daniel Jurafsky", "Stanford University"],
+      "expected_relationships": [
+        {"source": "Daniel Jurafsky", "type": "LOCATED_IN", "target": "Stanford University"}
+      ],
+      "expected_source_chunks": [49249],
+      "expected_pages": [{"document_id": 96, "page_number": 1}],
+      "notes": "Single entity affiliation check."
+    },
+    {
+      "id": "q003",
+      "question": "Who were the primary steering committee leads or research directors who created the Artificial Intelligence Index Report 2024?",
+      "category": "direct_factual",
+      "expected_answer": "The Artificial Intelligence Index Report 2024 was created by steering committee leads including Nestor Maslej, Vanessa Parli, and Ray Perrault.",
+      "expected_entities": ["Nestor Maslej", "Vanessa Parli", "Ray Perrault", "Artificial Intelligence Index Report 2024"],
+      "expected_relationships": [
+        {"source": "Nestor Maslej", "type": "CREATED_BY", "target": "Artificial Intelligence Index Report 2024"}
+      ],
+      "expected_source_chunks": [41122],
+      "expected_pages": [{"document_id": 91, "page_number": 10}],
+      "notes": "Report front-matter factual lookup."
+    },
+    {
+      "id": "q004",
+      "question": "What company developed the GPT-4 model according to the AI Index report?",
+      "category": "entity_relationship",
+      "expected_answer": "OpenAI developed the GPT-4 model.",
+      "expected_entities": ["OpenAI", "GPT-4"],
+      "expected_relationships": [
+        {"source": "GPT-4", "type": "DEVELOPED_BY", "target": "OpenAI"}
+      ],
+      "expected_source_chunks": [41107, 41135, 41909],
+      "expected_pages": [{"document_id": 91, "page_number": 5}],
+      "notes": "Standard developer attribution relation."
+    },
+    {
+      "id": "q005",
+      "question": "Which organization developed the Claude Opus language model?",
+      "category": "entity_relationship",
+      "expected_answer": "Anthropic developed the Claude Opus language model.",
+      "expected_entities": ["Anthropic", "Claude Opus4"],
+      "expected_relationships": [
+        {"source": "Claude Opus4", "type": "DEVELOPED_BY", "target": "Anthropic"}
+      ],
+      "expected_source_chunks": [50080, 50081],
+      "expected_pages": [{"document_id": 96, "page_number": 162}],
+      "notes": "Model developer relation from Jurafsky textbook."
+    },
+    {
+      "id": "q006",
+      "question": "Which legislative body passed the Outbound Investment Transparency Act?",
+      "category": "entity_relationship",
+      "expected_answer": "The United States Senate passed the Outbound Investment Transparency Act.",
+      "expected_entities": ["United States Senate", "Outbound Investment Transparency Act"],
+      "expected_relationships": [
+        {"source": "United States Senate", "type": "PASSED", "target": "Outbound Investment Transparency Act"}
+      ],
+      "expected_source_chunks": [42716, 42717],
+      "expected_pages": [{"document_id": 91, "page_number": 372}],
+      "notes": "Explicit PASSED relationship on July 25, 2023."
+    },
+    {
+      "id": "q007",
+      "question": "What tool or agent for Minecraft uses GPT-4 according to the AI Index report?",
+      "category": "entity_relationship",
+      "expected_answer": "Voyager is an AI agent for Minecraft that uses GPT-4.",
+      "expected_entities": ["Voyager", "GPT-4"],
+      "expected_relationships": [
+        {"source": "Voyager", "type": "USES", "target": "GPT-4"}
+      ],
+      "expected_source_chunks": [41671],
+      "expected_pages": [{"document_id": 91, "page_number": 133}],
+      "notes": "USES relationship between autonomous agent and foundational LLM."
+    },
+    {
+      "id": "q008",
+      "question": "What organization developed Gemini Ultra and what benchmark was it evaluated on?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Gemini Ultra was developed by Google and evaluated on the Massive Multitask Language Understanding (MMLU) benchmark.",
+      "expected_entities": ["Google", "Gemini Ultra", "Massive Multitask Language Understanding (MMLU)"],
+      "expected_relationships": [
+        {"source": "Gemini Ultra", "type": "DEVELOPED_BY", "target": "Google"},
+        {"source": "Gemini Ultra", "type": "EVALUATED_ON", "target": "Massive Multitask Language Understanding (MMLU)"}
+      ],
+      "expected_source_chunks": [41101, 41107, 41135, 41416, 41417],
+      "expected_pages": [{"document_id": 91, "page_number": 3}, {"document_id": 91, "page_number": 87}],
+      "notes": "Canonical multi-hop relationship connecting model, developer, and benchmark."
+    },
+    {
+      "id": "q009",
+      "question": "What academic subject exams are included as sub-parts of the MMLU benchmark?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Sub-parts of the MMLU benchmark include College Computer Science, College Physics, and International Law.",
+      "expected_entities": ["MMLU", "College Computer Science", "College Physics", "International Law"],
+      "expected_relationships": [
+        {"source": "College Computer Science", "type": "PART_OF", "target": "MMLU"},
+        {"source": "College Physics", "type": "PART_OF", "target": "MMLU"}
+      ],
+      "expected_source_chunks": [50600],
+      "expected_pages": [{"document_id": 96, "page_number": 261}],
+      "notes": "PART_OF hierarchical multi-hop decomposition."
+    },
+    {
+      "id": "q010",
+      "question": "What act addressing biological risks occurred on July 19, 2023, and what voluntary agreement was signed by private AI labs shortly afterward on July 21, 2023?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "On July 19, 2023, the Artificial Intelligence and Biosecurity Risk Assessment Act was introduced, and on July 21, 2023, private AI labs signed voluntary White House AI commitments.",
+      "expected_entities": ["Artificial Intelligence and Biosecurity Risk Assessment Act", "White House AI commitments", "July 19, 2023", "July 21, 2023"],
+      "expected_relationships": [
+        {"source": "Artificial Intelligence and Biosecurity Risk Assessment Act", "type": "OCCURRED_ON", "target": "July 19, 2023"}
+      ],
+      "expected_source_chunks": [42715, 42716],
+      "expected_pages": [{"document_id": 91, "page_number": 372}],
+      "notes": "Chronological timeline multi-hop connection across legislation and policy."
+    },
+    {
+      "id": "q011",
+      "question": "Which legal technology tool built on GPT-4 is mentioned in the AI Index report for legal assistance?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "CoCounsel is a legal assistance platform built on GPT-4 mentioned in the report.",
+      "expected_entities": ["CoCounsel", "GPT-4"],
+      "expected_relationships": [
+        {"source": "CoCounsel", "type": "USES", "target": "GPT-4"}
+      ],
+      "expected_source_chunks": [42018],
+      "expected_pages": [{"document_id": 91, "page_number": 220}],
+      "notes": "Application multi-hop connection from foundation model to legal software."
+    },
+    {
+      "id": "q012",
+      "question": "How do OpenAI's GPT-4 and Google's Gemini compare in benchmark evaluations on MMLU in the 2024 AI Index?",
+      "category": "comparison",
+      "expected_answer": "Both OpenAI's GPT-4 and Google's Gemini Ultra were evaluated on the MMLU benchmark, with Gemini Ultra achieving state-of-the-art results outperforming prior models including GPT-4.",
+      "expected_entities": ["GPT-4", "Gemini Ultra", "MMLU", "OpenAI", "Google"],
+      "expected_relationships": [
+        {"source": "Gemini Ultra", "type": "EVALUATED_ON", "target": "MMLU"},
+        {"source": "GPT-4", "type": "EVALUATED_ON", "target": "MMLU"}
+      ],
+      "expected_source_chunks": [41101, 41416, 41417],
+      "expected_pages": [{"document_id": 91, "page_number": 3}, {"document_id": 91, "page_number": 87}],
+      "notes": "Direct comparison across two competing frontier LLMs on the same benchmark."
+    },
+    {
+      "id": "q013",
+      "question": "How do GPT4o and Claude Opus compare in their developer organizations?",
+      "category": "comparison",
+      "expected_answer": "GPT4o was developed by OpenAI, whereas Claude Opus was developed by Anthropic.",
+      "expected_entities": ["GPT4o", "OpenAI", "Claude Opus4", "Anthropic"],
+      "expected_relationships": [
+        {"source": "GPT4o", "type": "DEVELOPED_BY", "target": "OpenAI"},
+        {"source": "Claude Opus4", "type": "DEVELOPED_BY", "target": "Anthropic"}
+      ],
+      "expected_source_chunks": [49364, 50080],
+      "expected_pages": [{"document_id": 96, "page_number": 24}, {"document_id": 96, "page_number": 162}],
+      "notes": "Cross-chapter developer comparison in Jurafsky text."
+    },
+    {
+      "id": "q014",
+      "question": "What are the distinct focus areas of Chapter 2 (Technical Performance) and Chapter 3 (Responsible AI) in the AI Index Report 2024?",
+      "category": "comparison",
+      "expected_answer": "Chapter 2 focuses on Technical Performance benchmarks and frontier model capabilities, while Chapter 3 examines Responsible AI, safety, risks, and alignment.",
+      "expected_entities": ["Chapter 2: Technical Performance", "Chapter 3: Responsible AI", "Artificial Intelligence Index Report 2024"],
+      "expected_relationships": [
+        {"source": "Chapter 2: Technical Performance", "type": "PART_OF", "target": "Artificial Intelligence Index Report 2024"},
+        {"source": "Chapter 3: Responsible AI", "type": "PART_OF", "target": "Artificial Intelligence Index Report 2024"}
+      ],
+      "expected_source_chunks": [41140, 41147, 41150],
+      "expected_pages": [{"document_id": 91, "page_number": 15}, {"document_id": 91, "page_number": 17}],
+      "notes": "Structural comparison of report thematic sections."
+    },
+    {
+      "id": "q015",
+      "question": "Synthesize the sequence of legislative and policy events in July 2023 documented on page 372 of the AI Index report.",
+      "category": "multiple_source_chunks",
+      "expected_answer": "In July 2023, the Artificial Intelligence and Biosecurity Risk Assessment Act occurred on July 19, followed by private AI labs signing voluntary White House commitments on July 21, and the U.S. Senate passing the Outbound Investment Transparency Act on July 25.",
+      "expected_entities": ["Artificial Intelligence and Biosecurity Risk Assessment Act", "White House AI commitments", "Outbound Investment Transparency Act", "United States Senate"],
+      "expected_relationships": [
+        {"source": "United States Senate", "type": "PASSED", "target": "Outbound Investment Transparency Act"}
+      ],
+      "expected_source_chunks": [42715, 42716, 42717],
+      "expected_pages": [{"document_id": 91, "page_number": 372}],
+      "notes": "Requires synthesizing across 3 consecutive chunk boundaries on the same page."
+    },
+    {
+      "id": "q016",
+      "question": "What organizations and authors connect the Stanford AI Index 2024 report with natural language processing education?",
+      "category": "multiple_source_chunks",
+      "expected_answer": "Stanford University connects both documents: it published the AI Index 2024 report through HAI and is the home institution of textbook author Daniel Jurafsky.",
+      "expected_entities": ["Stanford University", "Artificial Intelligence Index Report 2024", "Daniel Jurafsky"],
+      "expected_relationships": [
+        {"source": "Daniel Jurafsky", "type": "LOCATED_IN", "target": "Stanford University"}
+      ],
+      "expected_source_chunks": [41122, 49249],
+      "expected_pages": [{"document_id": 91, "page_number": 10}, {"document_id": 96, "page_number": 1}],
+      "notes": "Cross-document synthesis bridging documents 91 and 96."
+    },
+    {
+      "id": "q017",
+      "question": "What are the training cost trends and computational demands of frontier models like GPT-4 discussed in the AI Index?",
+      "category": "multiple_source_chunks",
+      "expected_answer": "Frontier models have experienced surging training costs reaching unprecedented levels, with GPT-4 requiring an estimated tens of millions in computational expenditure.",
+      "expected_entities": ["OpenAI", "GPT-4", "Artificial Intelligence Index Report 2024"],
+      "expected_relationships": [
+        {"source": "GPT-4", "type": "DEVELOPED_BY", "target": "OpenAI"}
+      ],
+      "expected_source_chunks": [41107, 41135],
+      "expected_pages": [{"document_id": 91, "page_number": 5}, {"document_id": 91, "page_number": 14}],
+      "notes": "Synthesis of cost trends across executive summary and chapter 1."
+    },
+    {
+      "id": "q018",
+      "question": "What is the definition and role of Bidirectional Transformer Encoders in language modeling?",
+      "category": "vector_favored",
+      "expected_answer": "Bidirectional Transformer Encoders process input representations by attending to both left and right context simultaneously using self-attention mechanisms.",
+      "expected_entities": ["Bidirectional Transformer Encoders", "Transformer"],
+      "expected_relationships": [
+        {"source": "Bidirectional Transformer Encoders", "type": "RELATED_TO", "target": "Transformer"}
+      ],
+      "expected_source_chunks": [49265],
+      "expected_pages": [{"document_id": 96, "page_number": 4}],
+      "notes": "High lexical density and semantic uniqueness where dense vector search excels."
+    },
+    {
+      "id": "q019",
+      "question": "What is the Natural Questions benchmark developed by Google?",
+      "category": "vector_favored",
+      "expected_answer": "Natural Questions is a question-answering benchmark developed by Google comprising real queries submitted to Google search paired with Wikipedia evidence.",
+      "expected_entities": ["Natural Questions", "Google"],
+      "expected_relationships": [
+        {"source": "Natural Questions", "type": "RELATED_TO", "target": "Google"}
+      ],
+      "expected_source_chunks": [50596],
+      "expected_pages": [{"document_id": 96, "page_number": 260}],
+      "notes": "Distinctive terminology easily matched by BM25 and vector search."
+    },
+    {
+      "id": "q020",
+      "question": "How does the AI Index define its mission of monitoring the AI ecosystem?",
+      "category": "vector_favored",
+      "expected_answer": "The AI Index serves as an independent resource to comprehensively track and monitor the AI ecosystem, advancing understanding of its transformative technological impact while managing risks.",
+      "expected_entities": ["Artificial Intelligence Index Report 2024"],
+      "expected_relationships": [],
+      "expected_source_chunks": [41101],
+      "expected_pages": [{"document_id": 91, "page_number": 3}],
+      "notes": "Standard topical query where vector search matches mission statements."
+    },
+    {
+      "id": "q021",
+      "question": "Which specific AI models were evaluated using the DecodingTrust and Do-Not-Answer trustworthiness benchmarks?",
+      "category": "graph_favored",
+      "expected_answer": "GPT-4 was evaluated using both the DecodingTrust and Do-Not-Answer benchmarks to measure safety, toxicity, and refusal capabilities.",
+      "expected_entities": ["DecodingTrust", "Do-Not-Answer", "GPT-4"],
+      "expected_relationships": [
+        {"source": "DecodingTrust", "type": "EVALUATED_ON", "target": "GPT-4"},
+        {"source": "Do-Not-Answer", "type": "EVALUATED_ON", "target": "GPT-4"}
+      ],
+      "expected_source_chunks": [41808, 41908],
+      "expected_pages": [{"document_id": 91, "page_number": 168}, {"document_id": 91, "page_number": 191}],
+      "notes": "Structural relation linking obscure evaluation benchmarks directly to the target model."
+    },
+    {
+      "id": "q022",
+      "question": "What planning benchmark was evaluated on GPT-4 to measure multi-step computational reasoning?",
+      "category": "graph_favored",
+      "expected_answer": "PlanBench was evaluated on GPT-4 to test multi-step planning and automated reasoning capabilities.",
+      "expected_entities": ["PlanBench", "GPT-4"],
+      "expected_relationships": [
+        {"source": "PlanBench", "type": "EVALUATED_ON", "target": "GPT-4"}
+      ],
+      "expected_source_chunks": [41557],
+      "expected_pages": [{"document_id": 91, "page_number": 120}],
+      "notes": "Exact EVALUATED_ON relation connecting benchmark to model."
+    },
+    {
+      "id": "q023",
+      "question": "What is the capital city of Mars and which rover discovered its supreme council palace?",
+      "category": "no_evidence",
+      "expected_answer": "The available documents do not provide sufficient information to answer this question.",
+      "expected_entities": [],
+      "expected_relationships": [],
+      "expected_source_chunks": [],
+      "expected_pages": [],
+      "notes": "Negative control: out-of-corpus query testing refusal behavior."
+    },
+    {
+      "id": "q024",
+      "question": "Which deep learning neural network framework was written by William Shakespeare in 1599?",
+      "category": "no_evidence",
+      "expected_answer": "The available documents do not provide sufficient information to answer this question.",
+      "expected_entities": [],
+      "expected_relationships": [],
+      "expected_source_chunks": [],
+      "expected_pages": [],
+      "notes": "Negative control: historical hallucination trap requiring refusal."
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-22T13:55:18.409207",
+    "total_corpus_chunks": 5736,
+    "completed_chunks": 5736,
+    "failed_chunks": 0,
+    "skipped_empty_chunks": 0,
+    "pending_chunks": 0,
+    "total_attempts": 101,
+    "total_input_tokens": 8363197,
+    "total_output_tokens": 2100111,
+    "total_tokens": 10463308,
+    "elapsed_seconds": 325.58,
+    "average_seconds_per_chunk": 0.057,
+    "unique_entities_in_db": 13960,
+    "total_relationships_in_db": 10612,
+    "model_distribution": {
+      "gemini-3.1-flash-lite": 3971,
+      "gemini-3.5-flash-lite": 1765
+    },
+    "entity_type_distribution": {
+      "PERSON": 4615,
+      "CONCEPT": 3484,
+      "MODEL": 1144,
+      "ORGANIZATION": 742,
+      "DATASET": 659,
+      "TECHNOLOGY": 651,
+      "ALGORITHM": 650,
+      "METHOD": 623,
+      "METRIC": 310,
+      "LOCATION": 303,
+      "DATE": 256,
+      "EVENT": 228,
+      "PRODUCT": 224,
+      "REGULATION": 40,
+      "POLICY": 31
+    },
+    "relationship_type_distribution": {
+      "RELATED_TO": 2600,
+      "USES": 1581,
+      "CREATED_BY": 1325,
+      "EVALUATED_ON": 1104,
+      "PART_OF": 980,
+      "DEVELOPED_BY": 730,
+      "HAS_COMPONENT": 557,
+      "OCCURRED_ON": 546,
+      "PROPOSED_BY": 453,
+      "SUPPORTS": 187,
+      "COMPARES_WITH": 150,
+      "LOCATED_IN": 98,
+      "ACHIEVES": 80,
+      "IMPLEMENTED_BY": 72,
+      "IMPROVES": 64,
+      "APPLIES_TO": 58,
+      "SIGNED": 11,
+      "PASSED": 8,
+      "GOVERNED_BY": 8
+    },
+    "top_connected_entities": [
+      {
+        "name": "2023",
+        "type": "DATE",
+        "degree": 234
+      },
+      {
+        "name": "Artificial Intelligence Index Report 2024",
+        "type": "PRODUCT",
+        "degree": 205
+      },
+      {
+        "name": "Artificial Intelligence Index Report 2024",
+        "type": "EVENT",
+        "degree": 191
+      },
+      {
+        "name": "2024",
+        "type": "DATE",
+        "degree": 177
+      },
+      {
+        "name": "2024 AI Index report",
+        "type": "EVENT",
+        "degree": 161
+      },
+      {
+        "name": "GPT-4",
+        "type": "MODEL",
+        "degree": 159
+      },
+      {
+        "name": "Tübingen cause-effect pairs dataset",
+        "type": "DATASET",
+        "degree": 159
+      },
+      {
+        "name": "AI Index",
+        "type": "ORGANIZATION",
+        "degree": 135
+      },
+      {
+        "name": "2024 AI Index report",
+        "type": "PRODUCT",
+        "degree": 125
+      },
+      {
+        "name": "MultiMedQA",
+        "type": "DATASET",
+        "degree": 88
+      },
+      {
+        "name": "Artificial Intelligence Index Report 2024",
+        "type": "DATASET",
+        "degree": 88
+      },
+      {
+        "name": "Accuracy (%",
+        "type": "METRIC",
+        "degree": 75
+      },
+      {
+        "name": "2022",
+        "type": "DATE",
+        "degree": 65
+      },
+      {
+        "name": "United States",
+        "type": "LOCATION",
+        "degree": 63
+      },
+      {
+        "name": "AI",
+        "type": "TECHNOLOGY",
+        "degree": 59
+      },
+      {
+        "name": "transformer",
+        "type": "MODEL",
+        "degree": 58
+      },
+      {
+        "name": "BERT",
+        "type": "MODEL",
+        "degree": 56
+      },
+      {
+        "name": "Tübingen cause-eǄect pairs dataset",
+        "type": "DATASET",
+        "degree": 55
+      },
+      {
+        "name": "softmax",
+        "type": "ALGORITHM",
+        "degree": 54
+      },
+      {
+        "name": "2021",
+        "type": "DATE",
+        "degree": 50
+      }
+    ]
+  }
+}

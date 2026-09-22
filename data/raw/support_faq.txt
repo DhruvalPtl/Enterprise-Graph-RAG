@@ -1,0 +1,13 @@
+ENTERPRISE AI PLATFORM - KNOWLEDGE BASE FAQ
+
+Q1: What is the primary purpose of the RAG pipeline?
+A1: The Retrieval-Augmented Generation (RAG) pipeline enriches large language model prompts with accurate, domain-specific enterprise knowledge. By retrieving verified passages from corporate documents before generation, the system drastically reduces hallucinations and guarantees auditable answers with source citations.
+
+Q2: Why does the system split documents into chunks instead of ingesting entire files?
+A2: Large documents frequently exceed the effective attention window of embedding models and LLMs. Chunking decomposes lengthy documents into focused, semantically cohesive passages. This ensures that vector similarity metrics accurately match specific user questions to the exact paragraphs containing relevant answers.
+
+Q3: What metadata is preserved during the chunking phase?
+A3: Each chunk retains its parent document ID, file name, file type, source page number, detected section heading, sequential chunk index, and character count. This rich metadata enables downstream hybrid search, metadata filtering (such as filtering by department or doc type), and clickable citations in the end-user interface.
+
+Q4: How does the system handle multi-page PDFs?
+A4: The PDF loader processes files page-by-page using cryptographic hash tracking. Each chunk produced records the exact page number where the text originated. When answers are presented to users, citations link directly to the corresponding page in the source document for instant human verification.

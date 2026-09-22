@@ -1,0 +1,173 @@
+{
+  "overall_verdicts": {
+    "hybrid_won": 2,
+    "vector_won": 0,
+    "tie": 22
+  },
+  "retrieval": {
+    "vector_only": {
+      "recall@1": 0.2722,
+      "recall@3": 0.4542,
+      "recall@5": 0.4542,
+      "hit_rate@3": 0.5417,
+      "mrr": 0.4722
+    },
+    "hybrid": {
+      "recall@1": 0.2722,
+      "recall@3": 0.4542,
+      "recall@5": 0.4542,
+      "hit_rate@3": 0.5417,
+      "mrr": 0.4722
+    }
+  },
+  "graph_specific": {
+    "seed_hit_rate": 0.7083,
+    "relationship_retrieval_rate": 0.0,
+    "graph_provenance_coverage": 0.3125,
+    "graph_vector_overlap_rate": 0.0424,
+    "total_unique_relevant_chunks_added": 3
+  },
+  "generation": {
+    "vector_only": {
+      "citation_correctness": 0.0833,
+      "citation_completeness": 0.0833,
+      "answer_correctness": 0.275,
+      "groundedness": 0.9167
+    },
+    "hybrid": {
+      "citation_correctness": 0.0833,
+      "citation_completeness": 0.0833,
+      "answer_correctness": 0.275,
+      "groundedness": 0.9167
+    }
+  },
+  "latency": {
+    "vector_retrieval_avg_ms": 559.6667,
+    "vector_total_avg_ms": 559.6667,
+    "hybrid_retrieval_avg_ms": 763.375,
+    "hybrid_total_avg_ms": 763.375,
+    "retrieval_overhead_avg_ms": 211.8333
+  },
+  "category_breakdown": {
+    "comparison": {
+      "count": 3,
+      "vector_recall@3": 0.2222,
+      "hybrid_recall@3": 0.2222,
+      "vector_hit@3": 0.3333,
+      "hybrid_hit@3": 0.3333,
+      "vector_mrr": 0.3333,
+      "hybrid_mrr": 0.3333,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 3
+      }
+    },
+    "direct_factual": {
+      "count": 3,
+      "vector_recall@3": 0.6667,
+      "hybrid_recall@3": 0.6667,
+      "vector_hit@3": 0.6667,
+      "hybrid_hit@3": 0.6667,
+      "vector_mrr": 0.6667,
+      "hybrid_mrr": 0.6667,
+      "unique_relevant_graph_chunks": 1,
+      "verdicts": {
+        "hybrid_won": 1,
+        "vector_won": 0,
+        "tie": 2
+      }
+    },
+    "entity_relationship": {
+      "count": 4,
+      "vector_recall@3": 0.8333,
+      "hybrid_recall@3": 0.8333,
+      "vector_hit@3": 1.0,
+      "hybrid_hit@3": 1.0,
+      "vector_mrr": 0.8333,
+      "hybrid_mrr": 0.8333,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 4
+      }
+    },
+    "graph_favored": {
+      "count": 2,
+      "vector_recall@3": 0.25,
+      "hybrid_recall@3": 0.25,
+      "vector_hit@3": 0.5,
+      "hybrid_hit@3": 0.5,
+      "vector_mrr": 0.5,
+      "hybrid_mrr": 0.5,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 2
+      }
+    },
+    "multi_hop_relationship": {
+      "count": 4,
+      "vector_recall@3": 0.35,
+      "hybrid_recall@3": 0.35,
+      "vector_hit@3": 0.5,
+      "hybrid_hit@3": 0.5,
+      "vector_mrr": 0.5,
+      "hybrid_mrr": 0.5,
+      "unique_relevant_graph_chunks": 2,
+      "verdicts": {
+        "hybrid_won": 1,
+        "vector_won": 0,
+        "tie": 3
+      }
+    },
+    "multiple_source_chunks": {
+      "count": 3,
+      "vector_recall@3": 0.3333,
+      "hybrid_recall@3": 0.3333,
+      "vector_hit@3": 0.3333,
+      "hybrid_hit@3": 0.3333,
+      "vector_mrr": 0.1667,
+      "hybrid_mrr": 0.1667,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 3
+      }
+    },
+    "no_evidence": {
+      "count": 2,
+      "vector_recall@3": 0.0,
+      "hybrid_recall@3": 0.0,
+      "vector_hit@3": 0.0,
+      "hybrid_hit@3": 0.0,
+      "vector_mrr": 0.0,
+      "hybrid_mrr": 0.0,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 2
+      }
+    },
+    "vector_favored": {
+      "count": 3,
+      "vector_recall@3": 0.6667,
+      "hybrid_recall@3": 0.6667,
+      "vector_hit@3": 0.6667,
+      "hybrid_hit@3": 0.6667,
+      "vector_mrr": 0.5,
+      "hybrid_mrr": 0.5,
+      "unique_relevant_graph_chunks": 0,
+      "verdicts": {
+        "hybrid_won": 0,
+        "vector_won": 0,
+        "tie": 3
+      }
+    }
+  }
+}

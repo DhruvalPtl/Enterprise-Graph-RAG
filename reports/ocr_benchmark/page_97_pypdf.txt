@@ -1,0 +1,61 @@
+4.12 • AVOIDING HARMS IN CLASSIFICATION 89
+1 2 3 4 5 6 7 8 9 10 A% B% δ ()
+x AB AB AB AB AB AB AB AB AB AB .70 .50 .20
+x(1) AB AB AB AB AB AB AB AB AB AB .60 .60 .00
+x(2) AB AB AB AB AB AB AB AB AB AB .60 .70 -.10
+...
+x(b)
+Figure 4.11 The paired bootstrap test: Examples of b pseudo test sets x(i) being created
+from an initial true test set x. Each pseudo test set is created by sampling n = 10 times with
+replacement; thus an individual sample is a single cell, a document with its gold label and
+the correct or incorrect performance of classiﬁers A and B. Of course real test sets don’t have
+only 10 examples, and b needs to be large as well.
+value by δ (x) or more:
+p-value(x) = 1
+b
+b∑
+i=1
+1
+(
+δ (x(i))− δ (x)≥ 0
+)
+(We use the notation 1 (x) to mean “1 if x is true, and 0 otherwise”.) However,
+although it’s generally true that the expected value of δ (X) over many test sets,
+(again assuming A isn’t better than B) is 0, this isn’t true for the bootstrapped test
+sets we created. That’s because we didn’t draw these samples from a distribution
+with 0 mean; we happened to create them from the original test set x, which happens
+to be biased (by .20) in favor of A. So to measure how surprising is our observed
+δ (x), we actually compute the p-value by counting over many test sets how often
+δ (x(i)) exceeds the expected value of δ (x) by δ (x) or more:
+p-value(x) = 1
+b
+b∑
+i=1
+1
+(
+δ (x(i))− δ (x)≥ δ (x)
+)
+= 1
+b
+b∑
+i=1
+1
+(
+δ (x(i))≥ 2δ (x)
+)
+(4.48)
+So if for example we have 10,000 test sets x(i) and a threshold of .01, and in only 47
+of the test sets do we ﬁnd that A is accidentally better δ (x(i))≥ 2δ (x), the resulting
+p-value of .0047 is smaller than .01, indicating that the delta we found, δ (x) is indeed
+sufﬁciently surprising and unlikely to have happened by accident, and we can reject
+the null hypothesis and conclude A is better than B.
+The full algorithm for the bootstrap is shown in Fig. 4.12. It is given a test set
+x, a number of samples b, and counts the percentage of the b bootstrap test sets in
+which δ (x(i)) > 2δ (x). This percentage then acts as a one-sided empirical p-value.
+4.12 Avoiding Harms in Classiﬁcation
+It is important to avoid harms that may result from classiﬁers. One class of harms
+is representational harms (Crawford 2017 , Blodgett et al. 2020 ), harms causedrepresentational
+harms
+by a system that demeans a social group, for example by perpetuating negative
+stereotypes about them. For example Kiritchenko and Mohammad (2018) exam-
+ined the performance of 200 sentiment analysis systems on pairs of sentences that

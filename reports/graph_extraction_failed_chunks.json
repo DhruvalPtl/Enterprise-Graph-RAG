@@ -1,0 +1,610 @@
+[
+  {
+    "chunk_id": 41402,
+    "document_id": 91,
+    "page_number": 84,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:17:54"
+  },
+  {
+    "chunk_id": 41428,
+    "document_id": 91,
+    "page_number": 91,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:18:56"
+  },
+  {
+    "chunk_id": 41438,
+    "document_id": 91,
+    "page_number": 95,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:18:52"
+  },
+  {
+    "chunk_id": 41494,
+    "document_id": 91,
+    "page_number": 105,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'PROJECT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='PROJECT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:21:13"
+  },
+  {
+    "chunk_id": 41592,
+    "document_id": 91,
+    "page_number": 125,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.6.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:24:26"
+  },
+  {
+    "chunk_id": 41637,
+    "document_id": 91,
+    "page_number": 126,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.2.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:26:15"
+  },
+  {
+    "chunk_id": 41730,
+    "document_id": 91,
+    "page_number": 149,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:29:09"
+  },
+  {
+    "chunk_id": 41771,
+    "document_id": 91,
+    "page_number": 161,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.3.entity_type\n  Value error, Invalid entity_type 'PROJECT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='PROJECT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:29:58"
+  },
+  {
+    "chunk_id": 41805,
+    "document_id": 91,
+    "page_number": 167,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:32:51"
+  },
+  {
+    "chunk_id": 41823,
+    "document_id": 91,
+    "page_number": 172,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:33:35"
+  },
+  {
+    "chunk_id": 41830,
+    "document_id": 91,
+    "page_number": 174,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:33:40"
+  },
+  {
+    "chunk_id": 41842,
+    "document_id": 91,
+    "page_number": 176,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:33:33"
+  },
+  {
+    "chunk_id": 41852,
+    "document_id": 91,
+    "page_number": 179,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:35:13"
+  },
+  {
+    "chunk_id": 41866,
+    "document_id": 91,
+    "page_number": 182,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:34:44"
+  },
+  {
+    "chunk_id": 41878,
+    "document_id": 91,
+    "page_number": 183,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.9.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:36:13"
+  },
+  {
+    "chunk_id": 41889,
+    "document_id": 91,
+    "page_number": 187,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:37:18"
+  },
+  {
+    "chunk_id": 41892,
+    "document_id": 91,
+    "page_number": 188,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:37:13"
+  },
+  {
+    "chunk_id": 41898,
+    "document_id": 91,
+    "page_number": 189,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:37:12"
+  },
+  {
+    "chunk_id": 41922,
+    "document_id": 91,
+    "page_number": 196,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:38:16"
+  },
+  {
+    "chunk_id": 41955,
+    "document_id": 91,
+    "page_number": 204,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:39:43"
+  },
+  {
+    "chunk_id": 41962,
+    "document_id": 91,
+    "page_number": 206,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:39:50"
+  },
+  {
+    "chunk_id": 42015,
+    "document_id": 91,
+    "page_number": 219,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:41:48"
+  },
+  {
+    "chunk_id": 42051,
+    "document_id": 91,
+    "page_number": 230,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:43:25"
+  },
+  {
+    "chunk_id": 42085,
+    "document_id": 91,
+    "page_number": 234,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:44:10"
+  },
+  {
+    "chunk_id": 42087,
+    "document_id": 91,
+    "page_number": 235,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:44:07"
+  },
+  {
+    "chunk_id": 42091,
+    "document_id": 91,
+    "page_number": 236,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:44:03"
+  },
+  {
+    "chunk_id": 42151,
+    "document_id": 91,
+    "page_number": 247,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:46:00"
+  },
+  {
+    "chunk_id": 42156,
+    "document_id": 91,
+    "page_number": 249,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:45:57"
+  },
+  {
+    "chunk_id": 42177,
+    "document_id": 91,
+    "page_number": 255,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:46:23"
+  },
+  {
+    "chunk_id": 42300,
+    "document_id": 91,
+    "page_number": 259,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:49:19"
+  },
+  {
+    "chunk_id": 42371,
+    "document_id": 91,
+    "page_number": 275,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.2.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:51:59"
+  },
+  {
+    "chunk_id": 42378,
+    "document_id": 91,
+    "page_number": 277,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:52:49"
+  },
+  {
+    "chunk_id": 42475,
+    "document_id": 91,
+    "page_number": 305,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'PROJECT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='PROJECT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:56:16"
+  },
+  {
+    "chunk_id": 42488,
+    "document_id": 91,
+    "page_number": 307,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:56:17"
+  },
+  {
+    "chunk_id": 42489,
+    "document_id": 91,
+    "page_number": 307,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'TOOL'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='TOOL', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:56:19"
+  },
+  {
+    "chunk_id": 42491,
+    "document_id": 91,
+    "page_number": 308,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:56:14"
+  },
+  {
+    "chunk_id": 42536,
+    "document_id": 91,
+    "page_number": 320,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:58:10"
+  },
+  {
+    "chunk_id": 42575,
+    "document_id": 91,
+    "page_number": 332,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:59:54"
+  },
+  {
+    "chunk_id": 42580,
+    "document_id": 91,
+    "page_number": 334,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:59:44"
+  },
+  {
+    "chunk_id": 42581,
+    "document_id": 91,
+    "page_number": 335,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 17:59:48"
+  },
+  {
+    "chunk_id": 42600,
+    "document_id": 91,
+    "page_number": 338,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:01:01"
+  },
+  {
+    "chunk_id": 42604,
+    "document_id": 91,
+    "page_number": 339,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:01:02"
+  },
+  {
+    "chunk_id": 42611,
+    "document_id": 91,
+    "page_number": 341,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:01:58"
+  },
+  {
+    "chunk_id": 42615,
+    "document_id": 91,
+    "page_number": 342,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:01:56"
+  },
+  {
+    "chunk_id": 42629,
+    "document_id": 91,
+    "page_number": 345,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:01:53"
+  },
+  {
+    "chunk_id": 42642,
+    "document_id": 91,
+    "page_number": 349,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:02:55"
+  },
+  {
+    "chunk_id": 42645,
+    "document_id": 91,
+    "page_number": 350,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:03:01"
+  },
+  {
+    "chunk_id": 42664,
+    "document_id": 91,
+    "page_number": 356,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:04:11"
+  },
+  {
+    "chunk_id": 42666,
+    "document_id": 91,
+    "page_number": 357,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:04:04"
+  },
+  {
+    "chunk_id": 42670,
+    "document_id": 91,
+    "page_number": 358,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:04:02"
+  },
+  {
+    "chunk_id": 42689,
+    "document_id": 91,
+    "page_number": 363,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:05:01"
+  },
+  {
+    "chunk_id": 42695,
+    "document_id": 91,
+    "page_number": 365,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:05:57"
+  },
+  {
+    "chunk_id": 42779,
+    "document_id": 91,
+    "page_number": 390,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.1.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:08:05"
+  },
+  {
+    "chunk_id": 42801,
+    "document_id": 91,
+    "page_number": 396,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:08:49"
+  },
+  {
+    "chunk_id": 42923,
+    "document_id": 91,
+    "page_number": 408,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:12:42"
+  },
+  {
+    "chunk_id": 42947,
+    "document_id": 91,
+    "page_number": 417,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:13:45"
+  },
+  {
+    "chunk_id": 42949,
+    "document_id": 91,
+    "page_number": 418,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:13:46"
+  },
+  {
+    "chunk_id": 42953,
+    "document_id": 91,
+    "page_number": 420,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:13:46"
+  },
+  {
+    "chunk_id": 42957,
+    "document_id": 91,
+    "page_number": 422,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:14:56"
+  },
+  {
+    "chunk_id": 42959,
+    "document_id": 91,
+    "page_number": 423,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:14:56"
+  },
+  {
+    "chunk_id": 42961,
+    "document_id": 91,
+    "page_number": 424,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:14:52"
+  },
+  {
+    "chunk_id": 42968,
+    "document_id": 91,
+    "page_number": 426,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:14:59"
+  },
+  {
+    "chunk_id": 42978,
+    "document_id": 91,
+    "page_number": 428,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:15:48"
+  },
+  {
+    "chunk_id": 42995,
+    "document_id": 91,
+    "page_number": 433,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:16:47"
+  },
+  {
+    "chunk_id": 42999,
+    "document_id": 91,
+    "page_number": 434,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:16:45"
+  },
+  {
+    "chunk_id": 43070,
+    "document_id": 91,
+    "page_number": 444,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:19:19"
+  },
+  {
+    "chunk_id": 43089,
+    "document_id": 91,
+    "page_number": 449,
+    "attempts": 3,
+    "error_message": "401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'The bound service account is deleted or disabled. The service account bound to the API key must be active.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCOUNT_STATE_INVALID', 'metadata': {'service': 'generativelanguage.googleapis.com', 'method': 'google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent'}}]}}",
+    "updated_at": "2026-09-18 18:19:59"
+  },
+  {
+    "chunk_id": 43096,
+    "document_id": 91,
+    "page_number": 450,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.0.entity_type\n  Value error, Invalid entity_type 'REPORT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='REPORT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-18 18:20:04"
+  },
+  {
+    "chunk_id": 43116,
+    "document_id": 91,
+    "page_number": 452,
+    "attempts": 3,
+    "error_message": "401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'The bound service account is deleted or disabled. The service account bound to the API key must be active.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCOUNT_STATE_INVALID', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent', 'service': 'generativelanguage.googleapis.com'}}]}}",
+    "updated_at": "2026-09-18 18:20:48"
+  },
+  {
+    "chunk_id": 43156,
+    "document_id": 91,
+    "page_number": 461,
+    "attempts": 3,
+    "error_message": "401 UNAUTHENTICATED. {'error': {'code': 401, 'message': 'The bound service account is deleted or disabled. The service account bound to the API key must be active.', 'status': 'UNAUTHENTICATED', 'details': [{'@type': 'type.googleapis.com/google.rpc.ErrorInfo', 'reason': 'ACCOUNT_STATE_INVALID', 'metadata': {'method': 'google.ai.generativelanguage.v1beta.GenerativeService.GenerateContent', 'service': 'generativelanguage.googleapis.com'}}]}}",
+    "updated_at": "2026-09-18 18:22:14"
+  },
+  {
+    "chunk_id": 43158,
+    "document_id": 91,
+    "page_number": 461,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nrelationships.0.relationship_type\n  Value error, Invalid relationship_type 'DESCRIBED_BY'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='DESCRIBED_BY', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nrelationships.1.relationship_type\n  Value error, Invalid relationship_type 'DESCRIBED_BY'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='DESCRIBED_BY', input_type=str]\n    For furth",
+    "updated_at": "2026-09-18 18:22:29"
+  },
+  {
+    "chunk_id": 49350,
+    "document_id": 96,
+    "page_number": 21,
+    "attempts": 3,
+    "error_message": "2 validation errors for RawExtractionOutput\nrelationships.1.relationship_type\n  Value error, Invalid relationship_type 'USED_BY'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='USED_BY', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nrelationships.2.relationship_type\n  Value error, Invalid relationship_type 'USED_BY'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='USED_BY', input_type=str]\n    For further information visit",
+    "updated_at": "2026-09-18 19:02:28"
+  },
+  {
+    "chunk_id": 49953,
+    "document_id": 96,
+    "page_number": 135,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nrelationships.0.relationship_type\n  Value error, Invalid relationship_type 'COMPUTES'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='COMPUTES', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-21 16:14:12"
+  },
+  {
+    "chunk_id": 49964,
+    "document_id": 96,
+    "page_number": 138,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nrelationships.0.relationship_type\n  Value error, Invalid relationship_type 'REPLACES'. Must be one of: ['ACHIEVES', 'APPLIES_TO', 'COMPARES_WITH', 'CREATED_BY', 'DEVELOPED_BY', 'EVALUATED_ON', 'GOVERNED_BY', 'HAS_COMPONENT', 'IMPLEMENTED_BY', 'IMPROVES', 'LOCATED_IN', 'OCCURRED_ON', 'PART_OF', 'PASSED', 'PROPOSED_BY', 'RELATED_TO', 'SIGNED', 'SUPPORTS', 'USES'] [type=value_error, input_value='REPLACES', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-21 16:14:25"
+  },
+  {
+    "chunk_id": 51224,
+    "document_id": 96,
+    "page_number": 385,
+    "attempts": 3,
+    "error_message": "3 validation errors for RawExtractionOutput\nentities.5.entity_type\n  Value error, Invalid entity_type 'HAS_COMPONENT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='HAS_COMPONENT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.6.entity_type\n  Value error, Invalid entity_type 'HAS_COMPONENT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='HAS_COMPONENT', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error\nentities.7.entity_type\n  Value error, Invalid entity_type 'HAS_COMPONENT'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'L",
+    "updated_at": "2026-09-21 19:17:16"
+  },
+  {
+    "chunk_id": 51650,
+    "document_id": 96,
+    "page_number": 467,
+    "attempts": 3,
+    "error_message": "1 validation error for RawExtractionOutput\nentities.1.entity_type\n  Value error, Invalid entity_type 'POSITION'. Must be one of: ['ALGORITHM', 'CONCEPT', 'DATASET', 'DATE', 'EVENT', 'LOCATION', 'METHOD', 'METRIC', 'MODEL', 'ORGANIZATION', 'PERSON', 'POLICY', 'PRODUCT', 'REGULATION', 'TECHNOLOGY'] [type=value_error, input_value='POSITION', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+    "updated_at": "2026-09-22 05:57:08"
+  }
+]

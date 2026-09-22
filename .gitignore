@@ -1,0 +1,82 @@
+# ==============================================================================
+# Enterprise Knowledge Intelligence Platform - Git Ignore Rules
+# ==============================================================================
+
+# 1. Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# 2. Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 3. Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# 4. Secrets & Credentials (CRITICAL - NEVER COMMIT)
+.env
+.env.*
+!.env.example
+api_key.text
+*.key
+*.pem
+
+# 5. IDEs, Editors & OS Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+.gemini/
+*.log
+
+# 6. Local Model Caches & HuggingFace Storage
+.cache/
+hf_cache/
+model_cache/
+
+# 7. SQLite Checkpoints & Local Database Files
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# 8. Large Generated Artifacts, Corpora & Downloaded Research Books (>10 MB)
+data/archived_books/
+data/processed/*.json
+data/raw/Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf
+data/raw/speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf
+
+# 9. Intermediate Diagnostic Media
+reports/ocr_benchmark/*.png
+

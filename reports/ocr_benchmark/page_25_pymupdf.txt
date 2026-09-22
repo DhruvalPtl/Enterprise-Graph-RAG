@@ -1,0 +1,61 @@
+2.5
+•
+CORPORA
+17
+
+Some of these are related to preprocessing steps. As we mentioned brieﬂy above,
+language models usually create their tokens in a pretokenization stage that ﬁrst seg-
+pretokenization
+
+ments the input using regular expressions, for example breaking the input at spaces
+and punctuation, stripping off clitics, and breaking numbers into sets of digits. We’ll
+see how to use regular expressions in Section 2.6.
+
+It’s possible to change this pretokenization to allow BPE tokens to span multiple
+words. For example the SuperBPE (Liu et al., 2025) and BoundlessBPE (Schmidt
+SuperBPE
+
+BoundlessBPE
+et al., 2025) algorithms ﬁrst induce regular BPE subword tokens by enforcing preto-
+kenization. They then run a second stage of BPE allowing merges across spaces and
+punctuation. The result is a large set of tokens that can be more efﬁcient (Fig. 2.7).
+
+Figure 2.7
+The SuperBPE algorithm creating larger tokens by allowing a second stage of
+merging across spaces. Figure from Liu et al. (2025).
+
+Many of the tokenizers used in practice for large language models are multilin-
+gual, trained on many languages. But because the training data for large language
+models is vastly dominated by English text, these multilingual BPE tokenizers tend
+to use most of the tokens for English, leaving fewer of them for other languages. The
+result is that they do a better job of tokenizing English, and the other languages tend
+to get their words split up into shorter tokens. For example let’s look at a Spanish
+sentence from a recipe for plantains, together with an English translation.
+
+The English has 18 tokens; each of the 14 words is a token (none of the words
+are split into multiple tokens):
+
+By contrast, the original 16 words in Spanish have been encoded into 33 tokens,
+a much larger number. Notice that many basic words have been broken into pieces.
+For example hondo, ‘deep’, has been segmented into h and ondo. Similarly for
+jugo, ‘juice’, nuez, ‘nut’ and jenjibre ‘ginger’):
+
+Spanish is not a particularly low-resource language; this oversegmenting can be
+even more serious in lower resource languages, often down to individual characters.
+Oversegmenting into these tiny tokens can cause various problems for the down-
+stream processing of the language. As will become more clear once we introduce
+transformer models in Chapter 8, such fragmentation can lead to poor representa-
+tions of meaning, the need for longer contexts, and higher costs to train models
+(Rust et al., 2021; Ahia et al., 2023).
+
+2.5
+Corpora
+
+Words don’t appear out of nowhere. Any particular piece of text that we study
+is produced by one or more speciﬁc speakers or writers, in a speciﬁc dialect of a
+
+[EXTRACTED TABLES]:
+|Col1|Col2|
+|---|---|
+|Figure 2.7|The SuperBPE algorithm creating larger tokens by allowing a second stage of|
+

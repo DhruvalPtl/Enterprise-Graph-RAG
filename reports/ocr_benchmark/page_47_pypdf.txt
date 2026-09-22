@@ -1,0 +1,43 @@
+30 2 Pre-trained Language Models
+2.1.4 Visualizing Attentions and Embeddings 
+According to Bengio et al. [ 14], a good representation of language should capture  
+the implicit linguistic rules and common sense know ledge contained in text data, 
+such as lexical meanings, syntactic relations, sema ntic roles, and the pragmatics of 
+language use. The contextual word embeddings of BER T can be seen as a big step 
+in this direction. They may be used to disambiguate  different meanings of the same 
+word. 
+The self-attention mechanism of BERT computes a lar ge number of “associa-
+tions” between tokens and merges embeddings accordi ng to the strengths of these 
+associations. If .x1, . . . , xT are the embeddings of the input tokens .v1, . . . , v T , the  
+associations .q⊺
+r kt are determined between the query .q⊺
+r = x⊺
+r W (q) and the key 
+.k⊺
+t = x⊺
+t W (k) vectors ( 2.1). Then a sum of value vectors .v⊺
+t = x⊺
+t W (v) weighted 
+with the normalized associations is formed yielding  the new embeddings ( 2.3). 
+This is repeated with different matrices .W (q)
+l,m, W (k)
+l,m, W (v)
+l,m in m self-attention 
+heads and l layers. Each layer and head the new embeddings thus  captures different 
+aspects of the relations between the embeddings of each layer. For BERT .BASE we 
+have .l = 12 layers and .m = 12 bidirectional self-attention heads in each layer 
+yielding 144 different “associations” or self-atten tions. For the input sentence “The 
+girl and the boy went home. She entered the door.” Figure 2.6 shows on the left side 
+the strength of associations for one of the 144 sel f-attention heads. Between every 
+pair of tokens of the sentence an attention value i s calculated and its strength is 
+symbolized by lines of different widths. We see tha t the pronoun “she” is strongly 
+associated with “the girl” . In the subsequent calculations (c.f. Fig. 2.2) the  word  
+“she” is disambiguated by merging its embedding with the embeddings of “the” and 
+“girl” generating a new contextual embedding of “she”, which includes its relation 
+to “girl”. On the right side of the ﬁgure the input “The girl and the boy went home. 
+He entered the door.” is processed. Then the model creates an association  of “boy” 
+with “he”. 
+Fig. 2.6 Visualization of a speciﬁc self-attention in the ﬁfth layer of a BERT model with BERTviz 
+[142]. If the next sentence contains the pronoun “she” this is associated with “the girl” . If this  
+pronoun is changed to “he” it is related to “the boy” . Image created with BERTviz [ 142], with 
+kind permission of the author

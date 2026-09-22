@@ -1,0 +1,48 @@
+372
+Artificial Intelligence
+Index Report 2024Chapter 7 PreviewTable of Contents
+Artificial Intelligence
+Index Report 2024
+U.S. Senate puts forward Artificial Intelligence and 
+Biosecurity Risk Assessment Act 
+The act mandates the assistant secretary for preparedness 
+and response to assess and address threats to public health 
+and national security from technical advancements in 
+artificial intelligence. It emphasizes evaluating the potential 
+use of AI, including open-source models, for developing 
+harmful agents. The proposed initiatives include monitoring 
+global biological risks and integrating risk assessment 
+summaries into the National Health Security Strategy.
+U.S. Senate passes Outbound Investment 
+Transparency Act 
+This initiative aims to scrutinize U.S. investments in 
+critical sectors, especially those involving China, with 
+a focus on evaluating risks in crucial industries and 
+technologies such as AI that impact national security. 
+The objective is to increase awareness of potential 
+vulnerabilities and risks linked to foreign access to 
+American technology in these domains.
+Private AI labs sign voluntary White House AI 
+commitments 
+The Biden-Harris administration obtains voluntary pledges 
+from seven major AI firms—Google, Microsoft, Meta, 
+Amazon, OpenAI, Anthropic, and Inflection—to promote the 
+development of AI that is safe, secure, and reliable. These 
+commitments involve conducting internal and external 
+security assessments of AI systems prior to launch, sharing 
+information on identified risks, enabling public reporting of 
+issues, and disclosing when content is AI-generated.
+Source: Clinical Trials Arena, 2023
+Figure 7.1.6
+Source: AI CIO, 2023
+Figure 7.1.8
+Source: Medium, 2023
+Figure 7.1.7
+Jul. 19, 
+2023
+Jul. 25, 
+2023
+Jul.21, 
+2023
+7 .1 Overview of AI Policy in 2023
+Chapter 7: Policy and Governance
