@@ -17,12 +17,9 @@ if str(PROJECT_ROOT) not in sys.path:
 import streamlit as st
 from ui import api_client
 from ui.components.header import render_header
-from ui.components.file_explorer import render_document_management
-from ui.components.query_input import render_query_input
-from ui.components.answer_view import render_answer
-from ui.components.citations_view import render_citations
-from ui.components.graph_evidence_view import render_graph_evidence
-from ui.components.diagnostics_view import render_diagnostics
+from ui.views.chat_view import render_chat_view
+from ui.views.files_view import render_files_view
+from ui.views.ingest_view import render_ingest_view
 
 # Page configuration
 st.set_page_config(
@@ -40,10 +37,23 @@ if css_file.exists():
 
 
 # ---------------------------------------------------------------------------
-# Sidebar Configuration
+# Sidebar Navigation & Configuration
 # ---------------------------------------------------------------------------
 st.sidebar.markdown(
-    '<div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Control Panel</div>',
+    '<div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Navigation</div>',
+    unsafe_allow_html=True,
+)
+
+current_page = st.sidebar.radio(
+    "Select View",
+    options=["💬 Chat Assistant", "📁 Knowledge Base Files", "📤 Upload & Ingest"],
+    index=0,
+    label_visibility="collapsed",
+)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown(
+    '<div style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin-bottom: 0.4rem;">System Configuration</div>',
     unsafe_allow_html=True,
 )
 
@@ -54,7 +64,6 @@ api_url = st.sidebar.text_input(
     help="Target FastAPI endpoint hosting POST /query and GET /health.",
 )
 
-# Optional Gemini API Key configuration
 api_key_val = st.sidebar.text_input(
     "Gemini API Key",
     type="password",
@@ -64,9 +73,10 @@ api_key_val = st.sidebar.text_input(
 if api_key_val and api_key_val != os.getenv("GEMINI_API_KEY"):
     os.environ["GEMINI_API_KEY"] = api_key_val
 
-# Immediate health check
+# Immediate backend health check
 health_info = api_client.check_health(api_url)
 
+# Retrieval Engine Settings
 st.sidebar.markdown("---")
 st.sidebar.markdown("### Retrieval Engine")
 
@@ -97,6 +107,7 @@ candidate_k = st.sidebar.slider(
     help="Stage 1 retrieval pool limit before cross-encoder reranking.",
 )
 
+# RBAC Settings
 st.sidebar.markdown("---")
 st.sidebar.markdown("### Access Control & RBAC")
 
@@ -126,6 +137,13 @@ access_context = {
     "include_archived": include_archived,
 }
 
+# Quick actions in sidebar
+if current_page == "💬 Chat Assistant":
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🧹 Clear Chat History", use_container_width=True):
+        st.session_state["chat_messages"] = []
+        st.rerun()
+
 st.sidebar.markdown("---")
 with st.sidebar.expander("System Architecture", expanded=False):
     st.markdown(
@@ -142,77 +160,32 @@ with st.sidebar.expander("System Architecture", expanded=False):
 
 
 # ---------------------------------------------------------------------------
-# Main Layout
+# Main Layout & Page Routing
 # ---------------------------------------------------------------------------
 
-# 1. Header with live status
+# Top Header with live status
 render_header(health_info, api_url)
 
 if not health_info.get("ok", False):
     st.warning(
         f"**Backend Service Unreachable:** Unable to communicate with FastAPI at `{api_url}`. "
-        "Please start the backend server:\n\n"
+        "Please verify your backend server is running:\n\n"
         "```powershell\nuvicorn app.api.main:app --host 0.0.0.0 --port 8000\n```"
     )
 
-# 2. Top-Level Knowledge Base File Explorer & Ingestion
-render_document_management()
-st.markdown("<div style='margin-bottom: 1.25rem;'></div>", unsafe_allow_html=True)
+st.markdown("<div style='margin-bottom: 1rem;'></div>", unsafe_allow_html=True)
 
-# 3. Query Input & Example Chips
-query_text, submit_clicked = render_query_input()
-
-# 3. Execution Handling
-if submit_clicked:
-    if not query_text.strip():
-        st.error("Please enter a question or query before submitting.")
-    elif not health_info.get("ok", False):
-        st.error(
-            f"Cannot execute query because the backend at `{api_url}` is offline. "
-            "Start the FastAPI server first."
-        )
-    else:
-        with st.spinner("Executing Dual-Engine Retrieval & Grounded Generation..."):
-            res = api_client.submit_query(
-                api_url=api_url,
-                query=query_text,
-                top_k=top_k,
-                candidate_k=candidate_k,
-                retrieval_mode=retrieval_mode,
-                access_context=access_context,
-            )
-
-        if not res.get("ok", False):
-            err_type = res.get("error_type", "Error")
-            detail = res.get("detail", "An unexpected error occurred.")
-            st.error(f"**Query Failed ({err_type}):** {detail}")
-        else:
-            st.session_state["last_response"] = res["data"]
-            st.session_state["last_query_text"] = query_text
-
-# 4. Results Rendering
-if "last_response" in st.session_state:
-    data = st.session_state["last_response"]
-    citations = data.get("citations", [])
-    diagnostics = data.get("diagnostics", {})
-
-    st.markdown("---")
-
-    # Tabs for organized, clean inspection
-    tab_answer, tab_graph, tab_telemetry = st.tabs(
-        [
-            f"Grounded Answer & Citations ({len(citations)})",
-            f"Knowledge Graph Evidence ({len(diagnostics.get('graph_relationships', []))})",
-            "Pipeline Telemetry & Diagnostics",
-        ]
+# Page Routing
+if current_page == "💬 Chat Assistant":
+    render_chat_view(
+        api_url=api_url,
+        health_info=health_info,
+        retrieval_mode=retrieval_mode,
+        top_k=top_k,
+        candidate_k=candidate_k,
+        access_context=access_context,
     )
-
-    with tab_answer:
-        render_answer(data)
-        render_citations(citations)
-
-    with tab_graph:
-        render_graph_evidence(diagnostics)
-
-    with tab_telemetry:
-        render_diagnostics(diagnostics)
+elif current_page == "📁 Knowledge Base Files":
+    render_files_view()
+elif current_page == "📤 Upload & Ingest":
+    render_ingest_view()

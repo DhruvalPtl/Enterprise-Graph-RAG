@@ -144,29 +144,3 @@ def ingest_document_file(
         "graph_stats": graph_stats,
     }
 
-
-def preload_sample_documents(extract_graph: bool = False) -> List[Dict[str, Any]]:
-    """
-    Ingests the bundled sample documents from data/raw/ into PostgreSQL.
-    """
-    sample_configs = [
-        ("support_faq.txt", "public", "public"),
-        ("enterprise_platform_architecture.pdf", "engineering", "employee"),
-        ("ai_governance_policy.md", "engineering", "manager"),
-    ]
-    results = []
-    for filename, dept, clearance in sample_configs:
-        file_path = RAW_DATA_DIR / filename
-        if file_path.exists():
-            with open(file_path, "rb") as f:
-                bytes_data = f.read()
-            res = ingest_document_file(
-                file_bytes=bytes_data,
-                filename=filename,
-                department=dept,
-                access_level=clearance,
-                extract_graph=extract_graph,
-            )
-            results.append(res)
-    return results
-
