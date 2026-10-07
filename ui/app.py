@@ -14,6 +14,14 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+import logging
+try:
+    from streamlit.logger import get_logger as st_get_logger
+    st_get_logger("streamlit.watcher.local_sources_watcher").setLevel(logging.ERROR)
+except Exception:
+    pass
+logging.getLogger("streamlit.watcher.local_sources_watcher").setLevel(logging.ERROR)
+
 import streamlit as st
 from ui import api_client
 from ui.components.header import render_header

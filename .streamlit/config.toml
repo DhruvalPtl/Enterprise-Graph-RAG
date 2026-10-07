@@ -1,0 +1,13 @@
+# Streamlit Configuration for Enterprise Graph RAG
+
+[server]
+headless = true
+fileWatcherType = "auto"
+folderWatchBlacklist = [".venv", "venv", ".git"]
+
+[logger]
+level = "error"
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = false
