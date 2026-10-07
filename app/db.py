@@ -622,3 +622,91 @@ def insert_chunk_graph_transaction(
     return len(result.entities), rels_inserted
 
 
+# ==============================================================================
+# Document Management & Inspection Helpers
+# ==============================================================================
+
+def get_loaded_documents(conn: Optional[psycopg.Connection] = None) -> List[Dict[str, Any]]:
+    """
+    Retrieves all documents currently stored in PostgreSQL with aggregated chunk counts.
+    """
+    should_close = False
+    if conn is None:
+        conn = get_connection(autocommit=True)
+        should_close = True
+
+    sql = """
+    SELECT 
+        d.id,
+        d.filename,
+        d.document_type,
+        d.department,
+        d.access_level,
+        d.status,
+        d.created_at,
+        COUNT(c.id) AS chunk_count
+    FROM documents d
+    LEFT JOIN chunks c ON d.id = c.document_id
+    GROUP BY d.id, d.filename, d.document_type, d.department, d.access_level, d.status, d.created_at
+    ORDER BY d.id DESC;
+    """
+    try:
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute(sql)
+            return cur.fetchall()
+    finally:
+        if should_close:
+            conn.close()
+
+
+def delete_document(document_id: int, conn: Optional[psycopg.Connection] = None) -> bool:
+    """
+    Deletes a document by ID. Cascades automatically to chunks and relationships.
+    """
+    should_close = False
+    if conn is None:
+        conn = get_connection(autocommit=False)
+        should_close = True
+
+    sql = "DELETE FROM documents WHERE id = %s RETURNING id;"
+    try:
+        with conn.cursor() as cur:
+            cur.execute(sql, (document_id,))
+            deleted = cur.fetchone() is not None
+        if not conn.autocommit:
+            conn.commit()
+        return deleted
+    except Exception:
+        if not conn.autocommit:
+            conn.rollback()
+        raise
+    finally:
+        if should_close:
+            conn.close()
+
+
+def get_document_chunks(document_id: int, conn: Optional[psycopg.Connection] = None) -> List[Dict[str, Any]]:
+    """
+    Retrieves all text chunks belonging to a document ordered by chunk_index.
+    """
+    should_close = False
+    if conn is None:
+        conn = get_connection(autocommit=True)
+        should_close = True
+
+    sql = """
+    SELECT id, chunk_index, page_number, section, content
+    FROM chunks
+    WHERE document_id = %s
+    ORDER BY chunk_index ASC;
+    """
+    try:
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute(sql, (document_id,))
+            return cur.fetchall()
+    finally:
+        if should_close:
+            conn.close()
+
+
+

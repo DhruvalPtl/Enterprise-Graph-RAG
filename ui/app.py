@@ -17,6 +17,7 @@ if str(PROJECT_ROOT) not in sys.path:
 import streamlit as st
 from ui import api_client
 from ui.components.header import render_header
+from ui.components.file_explorer import render_document_management
 from ui.components.query_input import render_query_input
 from ui.components.answer_view import render_answer
 from ui.components.citations_view import render_citations
@@ -52,6 +53,16 @@ api_url = st.sidebar.text_input(
     value=default_api_url,
     help="Target FastAPI endpoint hosting POST /query and GET /health.",
 )
+
+# Optional Gemini API Key configuration
+api_key_val = st.sidebar.text_input(
+    "Gemini API Key",
+    type="password",
+    value=os.getenv("GEMINI_API_KEY", ""),
+    help="Google Gemini API key for answer synthesis and graph extraction.",
+)
+if api_key_val and api_key_val != os.getenv("GEMINI_API_KEY"):
+    os.environ["GEMINI_API_KEY"] = api_key_val
 
 # Immediate health check
 health_info = api_client.check_health(api_url)
@@ -116,44 +127,6 @@ access_context = {
 }
 
 st.sidebar.markdown("---")
-with st.sidebar.expander("📄 Document Ingestion", expanded=False):
-    st.markdown(
-        "<div style='font-size: 0.82rem; color: #334155; font-weight: 500; margin-bottom: 0.5rem;'>Upload a document (PDF, Markdown, TXT) to chunk, embed, and store into PostgreSQL:</div>",
-        unsafe_allow_html=True,
-    )
-    uploaded_file = st.file_uploader(
-        "Upload File",
-        type=["pdf", "md", "txt"],
-        help="Supported formats: PDF (.pdf), Markdown (.md), Plain Text (.txt)",
-        key="doc_uploader",
-    )
-    up_dept = st.selectbox("Document Department", ["public", "engineering", "finance", "hr"], index=0, key="up_dept")
-    up_clearance = st.selectbox("Document Clearance", ["public", "employee", "manager", "admin"], index=0, key="up_clearance")
-    extract_kg = st.checkbox("Extract Knowledge Graph (LLM)", value=False, help="Extract entities and relationships into PostgreSQL graph via Gemini.")
-
-    if uploaded_file is not None:
-        if st.button("Process & Index Document", type="primary", use_container_width=True):
-            with st.spinner("Processing document chunks & generating 384-d vectors..."):
-                try:
-                    from ui.ingestion_helper import ingest_document_file
-                    ingest_res = ingest_document_file(
-                        file_bytes=uploaded_file.getvalue(),
-                        filename=uploaded_file.name,
-                        department=up_dept,
-                        access_level=up_clearance,
-                        extract_graph=extract_kg,
-                    )
-                    st.success(
-                        f"**Ingested '{ingest_res['filename']}'!**\n\n"
-                        f"- Document ID: `{ingest_res['document_id']}`\n"
-                        f"- Chunks Stored: `{ingest_res['chunks_stored']}`\n"
-                        f"- Vector Dimension: `{ingest_res['vector_dimension']}` (MiniLM)\n"
-                        + (f"- Graph Triples: `{ingest_res['graph_stats'].get('relationships_inserted', 0)}` relationships\n" if extract_kg else "")
-                    )
-                except Exception as ex:
-                    st.error(f"Ingestion failed: {ex}")
-
-st.sidebar.markdown("---")
 with st.sidebar.expander("System Architecture", expanded=False):
     st.markdown(
         """
@@ -182,7 +155,11 @@ if not health_info.get("ok", False):
         "```powershell\nuvicorn app.api.main:app --host 0.0.0.0 --port 8000\n```"
     )
 
-# 2. Query Input & Example Chips
+# 2. Top-Level Knowledge Base File Explorer & Ingestion
+render_document_management()
+st.markdown("<div style='margin-bottom: 1.25rem;'></div>", unsafe_allow_html=True)
+
+# 3. Query Input & Example Chips
 query_text, submit_clicked = render_query_input()
 
 # 3. Execution Handling

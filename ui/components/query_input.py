@@ -9,24 +9,24 @@ import streamlit as st
 
 SAMPLE_QUERIES = [
     {
-        "label": "Multi-Hop Graph",
-        "query": "What organization developed Gemini Ultra and what benchmark was it evaluated on?",
-        "desc": "Google DeepMind / Gemini -> MMLU benchmark evaluation",
+        "label": "AI Governance",
+        "query": "What controls are required before a document can be vectorized according to the AI governance policy?",
+        "desc": "Tests parsing integrity, metadata attachment, and PII redaction standards",
     },
     {
-        "label": "Policy Timeline",
-        "query": "What happened on July 25, 2023?",
-        "desc": "Senate hearing on AI oversight / Outbound Investment Act",
+        "label": "Architecture",
+        "query": "What are the core architectural layers and data ingestion stages of the enterprise platform?",
+        "desc": "Tests multi-page PDF architectural extraction and citation attribution",
     },
     {
-        "label": "Semantic RAG",
-        "query": "What is the Transformer architecture, and what are its main components?",
-        "desc": "Self-attention, Multi-Head Attention, Encoder-Decoder",
+        "label": "Support FAQ",
+        "query": "What is the standard support policy and resolution procedure for platform access issues?",
+        "desc": "Tests plain text FAQ extraction and grounded synthesis",
     },
     {
-        "label": "Entity Commitments",
-        "query": "What voluntary commitments did private AI labs sign in July 2023?",
-        "desc": "White House voluntary commitments for safe AI",
+        "label": "RBAC & Security",
+        "query": "What security controls and access levels gate underlying vector stores?",
+        "desc": "Tests department and clearance level security verification",
     },
     {
         "label": "Negative Control",
