@@ -22,6 +22,7 @@ Architecture:
                 ──► Final Top-K Results (e.g. 5 results)
 """
 from typing import List, Dict, Any, Optional, Union
+import os
 import psycopg
 from sentence_transformers import CrossEncoder
 
@@ -29,9 +30,83 @@ from app.config import (
     RERANKER_MODEL,
     RERANKER_CANDIDATE_K,
     RERANKER_TOP_K,
+    RERANKING_MODE,
 )
 from app.models import SearchResult, AccessContext
 from app.hybrid import HybridRetriever
+
+
+def format_graph_context(candidate: SearchResult) -> str:
+    """
+    Extracts directly verified graph relationships for a candidate chunk
+    and formats them as a compact graph context block.
+
+    Follows Phase G10.5-B requirements:
+    - Only includes direct relationship/path responsible for retrieving candidate
+    - Avoids dumping neighborhoods, full documents, or large JSON
+    """
+    metadata = candidate.metadata or {}
+    graph_rels = metadata.get("graph_relationships") or candidate.sources.get("graph", {}).get("relationships")
+    if not graph_rels:
+        return ""
+
+    lines = []
+    seen = set()
+    for gr in graph_rels:
+        s_name = gr.get("source")
+        r_type = gr.get("relationship_type")
+        t_name = gr.get("target")
+        if s_name and r_type and t_name:
+            rel_str = f"{s_name} --[{r_type}]--> {t_name}"
+            if rel_str not in seen:
+                seen.add(rel_str)
+                lines.append(rel_str)
+
+    if not lines:
+        return ""
+
+    return "[GRAPH PATH]\n" + "\n".join(lines)
+
+
+def build_reranker_candidate_text(candidate: SearchResult, reranking_mode: str) -> str:
+    """
+    Constructs the candidate text representation evaluated by the cross-encoder.
+
+    In 'baseline' mode:
+        Returns raw candidate.content unchanged: (query, candidate.content).
+
+    In 'graph_aware' mode:
+        For vector/BM25 candidates with no graph provenance:
+            Returns raw candidate.content unchanged: (query, candidate.content).
+        For graph-derived candidates:
+            Exposes verified graph relationship paths:
+            [GRAPH PATH]
+            {source} --[{relationship_type}]--> {target}
+
+            [DOCUMENT CONTENT]
+            {candidate.content}
+    """
+    raw_content = candidate.content or ""
+    if reranking_mode != "graph_aware":
+        return raw_content
+
+    # Determine whether candidate has verified graph provenance
+    retrieved_by = candidate.sources.get("retrieved_by", [])
+    has_graph_provenance = (
+        "graph" in retrieved_by
+        or candidate.source == "graph"
+        or "graph" in candidate.sources
+        or bool(candidate.metadata.get("graph_relationships"))
+    )
+
+    if not has_graph_provenance:
+        return raw_content
+
+    graph_header = format_graph_context(candidate)
+    if not graph_header:
+        return raw_content
+
+    return f"{graph_header}\n\n[DOCUMENT CONTENT]\n{raw_content}"
 
 
 class CrossEncoderReranker:
@@ -49,6 +124,7 @@ class CrossEncoderReranker:
         model_name: Optional[str] = None,
         model: Optional[Any] = None,
         batch_size: int = 32,
+        reranking_mode: Optional[str] = None,
     ):
         """
         Initialize the CrossEncoder reranker.
@@ -57,20 +133,23 @@ class CrossEncoderReranker:
             model_name: HuggingFace model identifier (default: cross-encoder/ms-marco-MiniLM-L-6-v2).
             model: Optional pre-initialized model instance or mock (useful for testing).
             batch_size: Batch size for model inference.
+            reranking_mode: Reranking mode ('baseline' or 'graph_aware').
         """
         self.model_name = model_name or RERANKER_MODEL
         self.batch_size = batch_size
+        self.reranking_mode = (reranking_mode or RERANKING_MODE or "baseline").strip().lower()
 
         if model is not None:
             self.model = model
         else:
-            self.model = CrossEncoder(self.model_name)
+            self.model = CrossEncoder(self.model_name, max_length=512)
 
     def rerank(
         self,
         query_text: str,
         candidates: List[Union[SearchResult, Dict[str, Any]]],
         top_k: int = RERANKER_TOP_K,
+        reranking_mode: Optional[str] = None,
     ) -> List[SearchResult]:
         """
         Scores candidate chunks against the query and returns the top_k reranked results.
@@ -79,6 +158,7 @@ class CrossEncoderReranker:
             query_text: User question or search query.
             candidates: Candidate chunks from Stage 1 retrieval (SearchResult or dicts).
             top_k: Number of reranked results to return.
+            reranking_mode: Optional runtime override ('baseline' or 'graph_aware').
 
         Returns:
             List of SearchResult objects sorted by descending reranker_score.
@@ -88,6 +168,8 @@ class CrossEncoderReranker:
 
         if not candidates or top_k <= 0:
             return []
+
+        effective_mode = (reranking_mode or self.reranking_mode or os.getenv("RERANKING_MODE", "baseline")).strip().lower()
 
         # Standardize candidates into SearchResult objects
         normalized_candidates: List[SearchResult] = []
@@ -127,8 +209,14 @@ class CrossEncoderReranker:
             else:
                 raise TypeError(f"Unsupported candidate type: {type(cand)}")
 
+        # Construct candidate representations respecting reranking_mode
+        cand_texts = [
+            build_reranker_candidate_text(cand, effective_mode)
+            for cand in normalized_candidates
+        ]
+
         # Construct pairs for cross-encoder inference: [[query, text_1], [query, text_2], ...]
-        pairs = [[query_text, cand.content or ""] for cand in normalized_candidates]
+        pairs = [[query_text, text] for text in cand_texts]
 
         # Predict relevance logits/scores
         raw_scores = self.model.predict(pairs, batch_size=self.batch_size)
@@ -139,9 +227,14 @@ class CrossEncoderReranker:
             cand.reranker_score = score_val
             cand.score = score_val
             cand.source = "reranked"
-            # Record reranker rank and score in sources provenance dictionary
+            cand_text = cand_texts[idx]
+            # Record reranker rank, score, and telemetry in sources provenance dictionary
             cand.sources["reranker"] = {
                 "score": score_val,
+                "reranking_mode": effective_mode,
+                "input_char_length": len(cand_text),
+                "base_char_length": len(cand.content or ""),
+                "graph_augmented": (cand_text != (cand.content or "")),
             }
 
         # Sort candidates strictly by descending reranker score
@@ -187,6 +280,7 @@ class RerankedRetrievalPipeline:
         candidate_k: Optional[int] = None,
         top_k: Optional[int] = None,
         access_context: Optional[AccessContext] = None,
+        reranking_mode: Optional[str] = None,
         conn: Optional[psycopg.Connection] = None,
     ) -> List[SearchResult]:
         """
@@ -198,6 +292,7 @@ class RerankedRetrievalPipeline:
             candidate_k: Number of hybrid candidates to retrieve for reranking (default: 20).
             top_k: Final number of reranked results to return (default: 5).
             access_context: Optional caller authorization context.
+            reranking_mode: Optional runtime override ('baseline' or 'graph_aware').
             conn: Optional PostgreSQL connection.
 
         Returns:
@@ -219,6 +314,7 @@ class RerankedRetrievalPipeline:
             query_text=query_text,
             candidates=candidates,
             top_k=t_k,
+            reranking_mode=reranking_mode,
         )
 
     def retrieve_with_diagnostics(

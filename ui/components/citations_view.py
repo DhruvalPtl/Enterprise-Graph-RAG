@@ -6,6 +6,7 @@ and dual-engine retrieval provenance (Vector / Graph / Both).
 """
 from typing import List, Dict, Any
 import html
+import textwrap
 import streamlit as st
 
 
@@ -38,7 +39,7 @@ def render_citations(citations: List[Dict[str, Any]]) -> None:
         return
 
     st.markdown(
-        f"<div style='font-size: 1.1rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.75rem;'>Authoritative Citations ({len(citations)})</div>",
+        f"<div style='font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-top: 1rem; margin-bottom: 0.75rem;'>Authoritative Citations ({len(citations)})</div>",
         unsafe_allow_html=True,
     )
 
@@ -63,12 +64,12 @@ def render_citations(citations: List[Dict[str, Any]]) -> None:
             score_parts.append(f"RRF: <b>{rrf_score:.4f}</b>")
         score_str = " | ".join(score_parts)
 
-        card_html = f"""
+        card_html = textwrap.dedent(f"""
         <div class="citation-card">
             <div class="citation-header">
                 <div style="display: flex; align-items: center; gap: 0.6rem;">
                     <span class="source-tag">SOURCE {source_id}</span>
-                    <span style="font-weight: 600; color: #f8fafc; font-size: 0.92rem;">{html.escape(filename)}</span>
+                    <span style="font-weight: 700; color: #0f172a; font-size: 0.95rem;">{html.escape(filename)}</span>
                 </div>
                 <div>
                     {badge_html}
@@ -76,10 +77,10 @@ def render_citations(citations: List[Dict[str, Any]]) -> None:
             </div>
             <div class="citation-meta">
                 <span>{page_str}{section_str}</span>
-                <span style="float: right; color: #94a3b8; font-size: 0.8rem;">{score_str}</span>
+                <span style="float: right; color: #334155; font-size: 0.82rem; font-weight: 600;">{score_str}</span>
             </div>
         </div>
-        """
+        """).strip()
         st.markdown(card_html, unsafe_allow_html=True)
 
         # Expandable passage text for full evidence transparency

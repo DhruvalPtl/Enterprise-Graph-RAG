@@ -5,6 +5,7 @@ Displays pipeline telemetry, candidate pooling, latency breakdown across stages,
 token usage, and raw diagnostic metadata.
 """
 from typing import Dict, Any
+import textwrap
 import streamlit as st
 
 
@@ -20,7 +21,7 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
         return
 
     st.markdown(
-        "<div style='font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;'>Pipeline Telemetry & Diagnostics</div>",
+        "<div style='font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;'>Pipeline Telemetry & Diagnostics</div>",
         unsafe_allow_html=True,
     )
 
@@ -31,48 +32,48 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
     reranked = diagnostics.get("reranked_count", 0)
 
     st.markdown(
-        "<div style='font-size: 0.85rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.4rem;'>CANDIDATE POOLING & DEDUPLICATION:</div>",
+        "<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.4rem;'>CANDIDATE POOLING & DEDUPLICATION:</div>",
         unsafe_allow_html=True,
     )
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.markdown(
-            f"""
+            textwrap.dedent(f"""
             <div class="metric-tile">
-                <div class="metric-val" style="color: #38bdf8;">{v_cands}</div>
+                <div class="metric-val" style="color: #0284c7;">{v_cands}</div>
                 <div class="metric-lbl">Vector / BM25</div>
             </div>
-            """,
+            """).strip(),
             unsafe_allow_html=True,
         )
     with col2:
         st.markdown(
-            f"""
+            textwrap.dedent(f"""
             <div class="metric-tile">
-                <div class="metric-val" style="color: #c084fc;">{g_cands}</div>
+                <div class="metric-val" style="color: #7c3aed;">{g_cands}</div>
                 <div class="metric-lbl">Graph Traversal</div>
             </div>
-            """,
+            """).strip(),
             unsafe_allow_html=True,
         )
     with col3:
         st.markdown(
-            f"""
+            textwrap.dedent(f"""
             <div class="metric-tile">
-                <div class="metric-val" style="color: #34d399;">{comb_cands}</div>
+                <div class="metric-val" style="color: #059669;">{comb_cands}</div>
                 <div class="metric-lbl">Unique Combined</div>
             </div>
-            """,
+            """).strip(),
             unsafe_allow_html=True,
         )
     with col4:
         st.markdown(
-            f"""
+            textwrap.dedent(f"""
             <div class="metric-tile">
-                <div class="metric-val" style="color: #818cf8;">{reranked}</div>
+                <div class="metric-val" style="color: #2563eb;">{reranked}</div>
                 <div class="metric-lbl">Reranked Output</div>
             </div>
-            """,
+            """).strip(),
             unsafe_allow_html=True,
         )
 
@@ -87,7 +88,7 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
     gen_lat = gen_time_s * 1000.0 if gen_time_s is not None else None
 
     st.markdown(
-        "<div style='font-size: 0.85rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.4rem;'>EXECUTION LATENCY BREAKDOWN (MS):</div>",
+        "<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.4rem;'>EXECUTION LATENCY BREAKDOWN (MS):</div>",
         unsafe_allow_html=True,
     )
     l_col1, l_col2, l_col3, l_col4, l_col5 = st.columns(5)
@@ -111,7 +112,7 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
 
     if p_tok is not None or budget_used is not None:
         st.markdown(
-            "<div style='font-size: 0.85rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.4rem;'>CONTEXT & TOKEN ALLOCATION:</div>",
+            "<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.4rem;'>CONTEXT & TOKEN ALLOCATION:</div>",
             unsafe_allow_html=True,
         )
         t_col1, t_col2, t_col3 = st.columns(3)

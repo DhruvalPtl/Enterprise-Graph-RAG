@@ -413,9 +413,9 @@ def test_live_access_control_filtering_unaffected(live_conn):
     # Fetch an actual embedding from an internal document if available in current corpus
     with live_conn.cursor() as cur:
         cur.execute("""
-            SELECT c.embedding, d.filename FROM chunks c
+            SELECT c.embedding, d.filename, d.department, d.access_level FROM chunks c
             JOIN documents d ON c.document_id = d.id
-            WHERE d.access_level != 'public' AND c.embedding IS NOT NULL
+            WHERE d.status = 'active' AND d.access_level != 'public' AND c.embedding IS NOT NULL
             LIMIT 1;
         """)
         row = cur.fetchone()
@@ -439,6 +439,8 @@ def test_live_access_control_filtering_unaffected(live_conn):
 
         target_embedding = row[0].to_numpy().tolist() if hasattr(row[0], "to_numpy") else list(row[0])
         doc_name = row[1]
+        doc_dept = row[2]
+        doc_level = row[3]
 
     # 1. Unauthorized public user (marketing, public) must NOT see internal document even with exact vector match
     unauth_ctx = AccessContext(department="marketing", access_level="public")
@@ -451,8 +453,8 @@ def test_live_access_control_filtering_unaffected(live_conn):
     for r in unauth_results:
         assert r["metadata"]["document_name"] != doc_name
 
-    # 2. Authorized engineering employee (engineering, employee) MUST see internal document as top match
-    auth_ctx = AccessContext(department="engineering", access_level="employee")
+    # 2. Authorized user matching document's department and clearance MUST see internal document as top match
+    auth_ctx = AccessContext(department=doc_dept, access_level=doc_level)
     auth_results = search_similar_chunks(
         query_embedding=target_embedding,
         top_k=5,

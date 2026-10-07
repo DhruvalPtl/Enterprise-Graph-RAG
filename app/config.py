@@ -81,6 +81,10 @@ BM25_B = float(os.getenv("BM25_B", 0.75))
 RERANKER_MODEL = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 RERANKER_CANDIDATE_K = int(os.getenv("RERANKER_CANDIDATE_K", 20))
 RERANKER_TOP_K = int(os.getenv("RERANKER_TOP_K", 5))
+RERANKING_MODE = os.getenv("RERANKING_MODE", "baseline").strip().lower()
+
+# Graph Traversal Configuration (Step G10.5-C)
+GRAPH_TRAVERSAL_MODE = os.getenv("GRAPH_TRAVERSAL_MODE", "depth_1").strip().lower()
 
 # Generation & Context Builder Configuration (Step 6)
 GEMINI_LLM_MODEL = os.getenv("GEMINI_LLM_MODEL", "gemini-3.5-flash-lite")

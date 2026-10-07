@@ -48,7 +48,7 @@ def render_query_input() -> Tuple[str, bool]:
 
     # Sample query chips
     st.markdown(
-        "<div style='font-size: 0.82rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.35rem;'>EXAMPLE CORPUS QUERIES:</div>",
+        "<div style='font-size: 0.82rem; color: #334155; font-weight: 700; margin-bottom: 0.35rem;'>EXAMPLE CORPUS QUERIES:</div>",
         unsafe_allow_html=True,
     )
     cols = st.columns(len(SAMPLE_QUERIES))
@@ -83,7 +83,7 @@ def render_query_input() -> Tuple[str, bool]:
         )
     with col_info:
         st.markdown(
-            "<div style='font-size: 0.8rem; color: #64748b; padding-top: 0.5rem;'>Press to invoke dense vector, lexical BM25, and PostgreSQL graph traversal pipelines.</div>",
+            "<div style='font-size: 0.8rem; color: #475569; font-weight: 500; padding-top: 0.5rem;'>Press to invoke dense vector, lexical BM25, and PostgreSQL graph traversal pipelines.</div>",
             unsafe_allow_html=True,
         )
 

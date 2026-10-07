@@ -1,310 +1,230 @@
-# Enterprise Knowledge Intelligence Platform (Hybrid RAG + Graph RAG)
+# Enterprise Graph RAG
 
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16%20%2B%20pgvector-blue.svg)](https://github.com/pgvector/pgvector)
 [![FastAPI](https://img.shields.io/badge/FastAPI-1.0.0-green.svg)](https://fastapi.tiangolo.com/)
 [![Streamlit UI](https://img.shields.io/badge/Streamlit-UI-red.svg)](ui/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](docker-compose.yml)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-232%20Passed-brightgreen.svg)](tests/)
 
-A production-grade, modular Enterprise Retrieval-Augmented Generation (RAG) platform combining **Dense Vector Search**, **BM25 Lexical Search**, **Reciprocal Rank Fusion (RRF)**, **Cross-Encoder Reranking**, and an in-database **PostgreSQL Knowledge Graph** with full provenance attribution and multi-tenant access control.
+A production-grade, dual-engine **Enterprise Hybrid Graph RAG** platform engineered natively inside PostgreSQL. Combines **Dense Vector Search (`pgvector`)**, **Okapi BM25 Lexical Search**, **Reciprocal Rank Fusion (RRF)**, **Path-Aware Cross-Encoder Reranking**, and an in-database **Knowledge Graph** with verifiable citation provenance and multi-tenant Role-Based Access Control (RBAC).
 
-Built from first principles in pure Python without black-box agentic wrappers or framework abstractions, ensuring every layer is auditable, measurable, and debuggable.
+Built from first principles in pure Python without external graph database lock-in (no Neo4j required) or black-box agentic wrappers.
 
 ---
 
-## 1. Architectural Overview
+## Architecture Overview
 
 ```mermaid
 flowchart TD
-    subgraph UserInterface ["1. Ingress"]
-        Q["User Query + AccessContext (dept, level)"]
+    subgraph Ingress ["1. Ingress & Access Control"]
+        Q["User Query + AccessContext (Department, Clearance)"]
     end
 
-    subgraph DualPathRetrieval ["2. Dual-Path Retrieval"]
-        Q --> VPath["Path A: Semantic & Lexical"]
-        Q --> GPath["Path B: Knowledge Graph"]
+    subgraph DualEngineRetrieval ["2. Dual-Engine Retrieval"]
+        Q --> PathA["Dense & Lexical Engine"]
+        Q --> PathB["PostgreSQL Knowledge Graph"]
 
-        subgraph PathA ["Path A: Vector + BM25"]
-            V1["MiniLM Embedder (384-d)"]
-            V2["pgvector HNSW Cosine Search"]
-            B1["Okapi BM25 Lexical Tokenizer"]
-            B2["BM25 Index Search"]
-            VPath --> V1 --> V2
-            VPath --> B1 --> B2
-            V2 & B2 --> RRF["Reciprocal Rank Fusion (k=60)"]
+        subgraph PathA_Engine ["Vector + BM25"]
+            V1["all-MiniLM-L6-v2 Embeddings (384-d)"]
+            V2["pgvector HNSW Cosine Search (SQL RBAC WHERE)"]
+            B1["BM25 Lexical Search"]
+            V1 --> V2
+            V2 & B1 --> RRF["Reciprocal Rank Fusion (k=60)"]
             RRF --> CandA["Candidate Pool A"]
         end
 
-        subgraph PathB ["Path B: GraphRetriever"]
-            G1["Entity Surface & Canonical Matcher"]
+        subgraph PathB_Engine ["Entity & Relational Graph"]
+            G1["Structured Entity Linker"]
             G2["PostgreSQL Seed Discovery"]
-            G3["Bounded 1-to-2 Hop Traversal"]
-            G4["Provenance Linkage (chunk, doc, page)"]
-            GPath --> G1 --> G2 --> G3 --> G4
+            G3["Bounded 2-Hop BFS Traversal"]
+            G4["Provenance Linkage (chunk_id, doc_id, page_no)"]
+            G1 --> G2 --> G3 --> G4
             G4 --> CandB["Candidate Pool B"]
         end
     end
 
-    subgraph EvidenceFusion ["3. Evidence Fusion & Attribution"]
-        CandA & CandB --> Merge["Deduplication by chunk_id"]
-        Merge --> Attr["Provenance Tagging (vector, graph, vector+graph)"]
-        Attr --> ACL["Pre-Rerank Access Control Verification"]
+    subgraph FusionLayer ["3. Evidence Fusion & RBAC Verification"]
+        CandA & CandB --> Merge["Deduplication by Chunk ID"]
+        Merge --> Attr["Provenance Tagging (Vector, Graph, Hybrid)"]
+        Attr --> ACL["SQL Clearance Enforcement"]
     end
 
-    subgraph RerankingLayer ["4. Neural Reranking"]
-        ACL --> CE["Cross-Encoder Reranker (ms-marco-MiniLM-L-6-v2)"]
-        CE --> TopK["Top-K Scored Passages"]
+    subgraph NeuralReranking ["4. Path-Aware Neural Reranking"]
+        ACL --> GContext["Format Graph Path Context: [GRAPH PATH]"]
+        GContext --> CE["Cross-Encoder (ms-marco-MiniLM-L-6-v2)"]
+        CE --> TopK["Final Top-K Scored Evidence"]
     end
 
     subgraph GenerationLayer ["5. Grounded Synthesis"]
-        TopK --> CB["Context Builder ([GRAPH RELATIONSHIP] Injections)"]
-        CB --> LLM["Google Gemini 3.5 Flash Lite (Temp=0.0)"]
-        LLM --> Out["Grounded Answer + Auditable Citations"]
+        TopK --> CB["Context Builder & Citation Formatter"]
+        CB --> LLM["Google Gemini Flash (Temp = 0.0)"]
+        LLM --> Out["Grounded Answer + Auditable [SOURCE X] Citations"]
     end
+
+    PathA --> PathA_Engine
+    PathB --> PathB_Engine
 ```
 
 ---
 
-## 2. Core Engineering Capabilities
+## Core Engineering Features
 
-### 1. Structure-Aware Document Ingestion & Chunking
-- **Format Parsers**: Native PDF parsing via PyMuPDF (`fitz`) and PyPDF, preserving 1-indexed source page numbers, table boundaries, and section headers.
-- **Recursive Structural Chunking**: Cuts along natural grammatical and semantic boundaries (headings, code blocks, lists, paragraphs) rather than blind character offsets.
-- **Deterministic Hashing**: Chunks and documents receive idempotent SHA-256 identifiers to guarantee reproducible indexing.
+### 1. Dual-Engine Retrieval (Vector + BM25 + Graph)
+* **Dense Semantic Search:** 384-dimensional dense vectors generated via `all-MiniLM-L6-v2` and indexed using PostgreSQL `pgvector` HNSW index with cosine distance (`vector_cosine_ops`).
+* **Lexical BM25:** Inverted index with tunable term frequency saturation ($k_1=1.5$) and document length normalization ($b=0.75$).
+* **Reciprocal Rank Fusion (RRF):** Merges dense and sparse rankings using $RRF(d) = \sum \frac{1}{k + \text{rank}(d)}$.
+* **PostgreSQL Knowledge Graph:** Entity-relationship triples stored directly in PostgreSQL (`entities`, `relationships`) with recursive CTE / BFS traversal to resolve multi-hop connections that vector similarity misses.
 
-### 2. Dual-Provider Vector Indexing & pgvector HNSW
-- **Dense Vector Embeddings**: Primary 384-dimensional offline embeddings via `sentence-transformers/all-MiniLM-L6-v2`. Secondary support for Google Gemini `text-embedding-004` (768-d).
-- **Dimension Safety**: Strict database column constraints (`VECTOR(384)`) and Python ingestion gates prevent accidental vector space mixing.
-- **HNSW Acceleration**: PostgreSQL `hnsw (embedding vector_cosine_ops)` index delivers sub-millisecond approximate nearest neighbor search over thousands of chunks.
+### 2. Path-Aware Cross-Encoder Reranking
+* Standard neural rerankers score raw text snippets, frequently penalizing graph-derived evidence due to surface vocabulary differences.
+* Our reranker dynamically injects verified knowledge graph relationship paths into the cross-attention prompt:
+  ```
+  [GRAPH PATH]
+  Atlas --[USES]--> Payment Service
+  Payment Service --[DEVELOPED_BY]--> Platform Engineering
 
-### 3. Hybrid Retrieval & Reciprocal Rank Fusion (RRF)
-- Combines high-recall dense semantic search with Okapi BM25 keyword matching.
-- Merges disparate score distributions uniformly using Reciprocal Rank Fusion ($RRF\_Score = \sum \frac{1}{k + rank}$).
+  [DOCUMENT CONTENT]
+  The platform engineering squad maintains the payment service microservice...
+  ```
+* Rescores candidate pools using `cross-encoder/ms-marco-MiniLM-L-6-v2` to deliver the most authoritative passages into generation context.
 
-### 4. Cross-Encoder Neural Reranking
-- Reranks top-$k$ candidate passages against the query using `cross-encoder/ms-marco-MiniLM-L-6-v2`.
-- Computes true token-level cross-attention between query and passage, eliminating false positives from bi-encoder retrieval.
+### 3. Multi-Tenant Role-Based Access Control (RBAC)
+* Documents are tagged by **Department** (`public`, `engineering`, `finance`, `hr`), **Clearance Level** (`public`, `employee`, `manager`, `admin`), and lifecycle **Status** (`active` vs `archived`).
+* **SQL-Level Enforcement:** Predicates are enforced directly in PostgreSQL queries (`WHERE department = :dept AND access_level <= :clearance AND status = 'active'`).
+* **Zero Leakage:** Unauthorized chunks are mathematically filtered at the database level and never reach the reranker or LLM context.
 
-### 5. PostgreSQL-Native Knowledge Graph & Bounded Traversal
-- **Relational Graph Schema**: Explicit `entities` and `relationships` tables with full referential integrity and foreign keys.
-- **Source Provenance**: Every directed relationship edge retains foreign key links to `document_id`, `chunk_id`, and `page_number`.
-- **Bounded Traversal**: Parameterized graph walk ($depth \in \{1, 2\}$, $max\_seeds=10$, $max\_results=20$) prevents combinatorial graph explosion.
-- **Dual-Model Interleaved Extraction**: Quota-optimized extraction engine alternating between `gemini-3.5-flash-lite` and `gemini-3.1-flash-lite` at up to 28.5 RPM.
-
-### 6. Multi-Tenant Role-Based Access Control (RBAC)
-- Multi-tier security filtering enforcing both **department** (`engineering`, `marketing`, `finance`, `public`) and **access level** (`public`, `employee`, `manager`, `admin`).
-- Security boundaries are applied pre-retrieval in SQL WHERE clauses and verified during graph traversal and evidence fusion.
-
-### 7. Grounded Generation & Hallucination Suppression
-- Injected system prompts force strict grounding: the model may only assert facts backed by retrieved passages.
-- Negative controls: Questions lacking evidence trigger a standard refusal rather than speculative generation.
+### 4. Grounded Synthesis & Auditable Citations
+* Strict zero-hallucination guardrails: If evidence is absent or insufficient, the LLM deterministically refuses rather than inventing facts.
+* In-text citations link directly to verified source documents, chunk IDs, and page numbers.
 
 ---
 
-## 3. Technology Stack
+## Technology Stack
 
-| Component | Technology | Selection Rationale |
+| Layer | Technology | Description |
 | :--- | :--- | :--- |
-| **Language** | Python 3.12 | Modern type hinting, performance, and library compatibility. |
-| **Vector Database** | PostgreSQL 16 + pgvector | Unified transactional store for relational data, vectors, and graph edges. |
-| **Dense Embeddings** | `all-MiniLM-L6-v2` | Fast, lightweight (384-d), runs 100% offline without API costs. |
-| **Lexical Search** | Okapi BM25 | Native sparse lexical retrieval with customizable $k_1$ and $b$ tuning. |
-| **Reranker** | `ms-marco-MiniLM-L-6-v2` | High cross-attention scoring accuracy with minimal CPU latency. |
-| **LLM Synthesis** | Gemini 3.5 Flash Lite | Low-latency, grounded generation via official `google-genai` SDK. |
-| **Web Framework** | FastAPI + Uvicorn | Async REST API with Pydantic v2 schemas and auto-generated OpenAPI docs. |
-| **Containerization** | Docker & Docker Compose | Isolated multi-container environment with non-root security (`appuser`). |
+| **Language** | Python 3.11+ | Modern type annotations, async handlers, Pydantic v2 schemas |
+| **Database** | PostgreSQL 16 + `pgvector` | Unified relational, vector (HNSW), and graph store |
+| **Dense Embeddings** | `sentence-transformers/all-MiniLM-L6-v2` | Lightweight 384-d vectors, 100% offline |
+| **Lexical Search** | Okapi BM25 | Pure Python sparse lexical retrieval engine |
+| **Reranker** | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Deep cross-attention relevance scoring |
+| **LLM Generation** | Google Gemini Flash | Low-latency grounded generation (temperature 0.0) |
+| **REST API** | FastAPI + Uvicorn | Production REST API with OpenAPI Swagger UI |
+| **Web UI** | Streamlit | Real-time interactive UI with provenance badges |
+| **Containerization** | Docker & Docker Compose | Multi-container production deployment |
 
 ---
 
-## 4. Repository Structure
-
-```
-.
-├── app/                              # Core Application Logic
-│   ├── api/                          # FastAPI REST Application
-│   │   ├── main.py                   # API routes, lifespan, and exception handlers
-│   │   ├── schemas.py                # Pydantic request/response schemas
-│   │   └── dependencies.py           # Dependency injection & pipeline caching
-│   ├── evaluation/                   # G5 Benchmark & Evaluation Suite
-│   │   ├── dataset.py                # Schema & loader for gold-standard dataset
-│   │   ├── metrics.py                # Deterministic retrieval & graph metrics
-│   │   ├── runner.py                 # Dual-system execution harness
-│   │   └── reporting.py              # Markdown & JSON report formatters
-│   ├── bm25.py                       # Okapi BM25 implementation
-│   ├── chunker.py                    # Recursive structural chunking engine
-│   ├── config.py                     # Centralized environment configuration
-│   ├── context_builder.py            # Evidence formatting & graph provenance tags
-│   ├── db.py                         # PostgreSQL connection pool & queries
-│   ├── embeddings.py                 # SentenceTransformers & Gemini embedder facade
-│   ├── graph_checkpoint.py           # Durable SQLite extraction tracker
-│   ├── graph_extractor.py            # Dual-model interleaved extraction service
-│   ├── graph_ontology.py             # 15 entity & 19 relationship ontology definitions
-│   ├── graph_retriever.py            # Seed matching & bounded graph traversal
-│   ├── hybrid.py                     # Vector + BM25 + RRF coordinator
-│   ├── hybrid_retriever.py           # Graph + Vector hybrid retrieval & fusion
-│   ├── key_pool.py                   # Multi-account API key rotation pool
-│   ├── llm.py                        # Grounded Gemini generation provider
-│   ├── loaders.py                    # PyMuPDF, PyPDF, Markdown, & Text loaders
-│   ├── models.py                     # Core dataclasses and domain models
-│   ├── rag.py                        # Top-level RAGPipeline coordinator
-│   ├── reranker.py                   # Cross-Encoder neural reranker
-│   ├── rrf.py                        # Reciprocal Rank Fusion implementation
-│   └── vector_store.py               # pgvector cosine similarity search
-├── data/                             # Corpora and Evaluation Data
-│   ├── raw/                          # Active source documents (PDF, MD, TXT)
-│   ├── processed/                    # Processed chunk and embedding JSONs
-│   └── evaluation/                   # Gold-standard questions and traces
-│       ├── graph_rag_eval.json       # 24 benchmark questions across 8 categories
-│       └── results/                  # Detailed benchmark outputs and summaries
-├── reports/                          # Audit & Empirical Evaluation Reports
-│   ├── graph_rag_evaluation_report.md# G5 Head-to-Head Benchmark Report
-│   ├── graph_extraction_full_report.md# G2.2 Extraction Metrics Report
-│   ├── g6_project_audit.md           # G6 Inventory & Classification Audit
-│   └── g6_verification_report.md     # G6 Verification & GitHub Readiness
-├── scripts/                          # Operational & Verification Scripts
-│   ├── ask_rag.py                    # Interactive CLI query tool
-│   ├── demo_graph_hybrid_rag.py      # Dual-path hybrid walkthrough script
-│   ├── evaluate_graph_rag.py         # Automated G5 evaluation benchmark runner
-│   ├── init_db.py                    # Database schema and index initialization
-│   ├── run_graph_extraction_full.py  # Production corpus graph extraction runner
-│   ├── test_rag_regressions.py       # Live pipeline regression test suite
-│   └── verify_api.py                 # FastAPI testclient verification script
-├── tests/                            # Comprehensive Test Suite (228 tests)
-├── .dockerignore                     # Docker build exclusion rules
-├── .env.example                      # Template environment variable configuration
-├── .gitignore                        # Git exclusion rules
-├── docker-compose.yml                # Multi-container Docker Compose definition
-├── Dockerfile                        # Production-hardened container build
-└── requirements.txt                  # Pinned Python dependencies
-```
-
----
-
-## 5. Getting Started
+## Quickstart
 
 ### Prerequisites
-- Python 3.12+
-- PostgreSQL 16 with `pgvector` extension (or Docker)
-- Google Gemini API key (optional for local vector search, required for LLM generation)
+* Python 3.11+
+* Docker Desktop (for PostgreSQL + pgvector)
+* Google Gemini API Key
 
-### Option A: Local Development Setup
+### 1. Clone & Set Up Environment
 
-1. **Clone the repository and create a virtual environment**:
-   ```bash
-   git clone https://github.com/your-username/enterprise-rag.git
-   cd enterprise-rag
-   python -m venv .venv
-   .\.venv\Scripts\activate        # Windows
-   # source .venv/bin/activate     # Linux / macOS
-   ```
+```powershell
+# Clone repository
+git clone https://github.com/DhruvalPtl/Enterprise-Graph-RAG.git
+cd Enterprise-Graph-RAG
 
-2. **Install dependencies**:
-   ```bash
-   pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\Activate.ps1    # On Windows PowerShell
+# source .venv/bin/activate   # On Linux/macOS
 
-3. **Configure environment variables**:
-   ```bash
-   cp .env.example .env            # Linux/macOS
-   Copy-Item .env.example .env     # Windows PowerShell
-   ```
-   Edit `.env` to configure your `DATABASE_PASSWORD` and `GEMINI_API_KEY`.
-
-4. **Initialize database schema**:
-   ```bash
-   python scripts/init_db.py
-   ```
-
-5. **Start the FastAPI server**:
-   ```bash
-   uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
-   ```
-
-6. **Start the Interactive Streamlit UI**:
-   ```bash
-   streamlit run ui/app.py --server.port 8501
-   ```
-   Access the web application at [http://localhost:8501](http://localhost:8501) with live dual-engine toggles, provenance badges, and graph traversal visualization.
-
-### Option B: Docker Compose Deployment
-
-Launch both PostgreSQL (with pgvector) and the FastAPI backend with a single command:
-```bash
-docker compose up -d --build
-```
-Verify container health:
-```bash
-docker compose ps
-curl http://localhost:8000/health
+# Install dependencies
+pip install -r requirements.txt
 ```
 
-Interactive OpenAPI Swagger UI is accessible at: `http://localhost:8000/docs`
+### 2. Configure Environment Variables
+
+Copy the example configuration:
+```powershell
+Copy-Item .env.example .env    # Windows PowerShell
+# cp .env.example .env         # Linux/macOS
+```
+
+Ensure `.env` contains:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=rag_db
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+```
+
+### 3. Launch PostgreSQL (Docker)
+
+```powershell
+docker compose up -d postgres
+```
+
+Initialize database tables and HNSW vector indexes:
+```powershell
+python scripts/init_db.py
+```
+
+### 4. Start the Application
+
+In terminal 1 (FastAPI Backend):
+```powershell
+uvicorn app.api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+* Interactive Swagger API Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
+* Health endpoint: [http://localhost:8000/health](http://localhost:8000/health)
+
+In terminal 2 (Streamlit UI):
+```powershell
+streamlit run ui/app.py --server.port 8501
+```
+* Open your browser at [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 6. Verification & Test Suite
+## Document Ingestion & Management
 
-The repository features 232 automated unit, integration, and regression tests.
+### Option A: Ingest via Streamlit Web UI
+1. Open the UI at [http://localhost:8501](http://localhost:8501).
+2. Expand **📄 Document Ingestion** in the sidebar.
+3. Upload any `.pdf`, `.md`, or `.txt` file.
+4. Set the document's Department and Clearance Level.
+5. Click **Process & Index Document** to automatically chunk, embed, and index it into PostgreSQL.
 
-```bash
-# Run the complete test suite
-python -m pytest -v
+### Option B: Batch CLI Ingestion
+1. Place your `.pdf`, `.md`, or `.txt` files in `data/raw/`.
+2. Run the ingestion commands:
+```powershell
+# 1. Structure-aware chunking
+python run_pipeline.py
 
-# Run targeted RAG pipeline regressions
-python scripts/test_rag_regressions.py
+# 2. Compute 384-d MiniLM embeddings
+python scripts/embed_chunks.py
 
-# Run Graph + Vector hybrid retrieval demonstration
-python scripts/demo_graph_hybrid_rag.py
+# 3. Store in PostgreSQL + pgvector
+python scripts/store_chunks_in_db.py
 
-# Verify FastAPI REST endpoints
-python scripts/verify_api.py
+# 4. (Optional) Extract Knowledge Graph Triples
+python scripts/run_graph_extraction_full.py
+```
+
+### Resetting to a Blank Slate
+To wipe all documents, chunks, and graph tables to start completely fresh:
+```powershell
+python scripts/reset_db.py --yes --include-files
 ```
 
 ---
 
-## 7. Empirical Evaluation & Benchmarking (Phase G5)
+## REST API Reference
 
-To measure the real-world utility of Graph RAG versus Vector RAG without manufactured assumptions, the pipeline was evaluated on **24 gold-standard questions** across 8 distinct archetypes using the production corpus (Stanford AI Index 2024 & Jurafsky & Martin NLP).
-
-```bash
-python scripts/evaluate_graph_rag.py --candidate-k 10 --top-k 3
+### Health Check
+```http
+GET /health
 ```
-
-### Head-to-Head Results
-
-| Metric | Vector-Only Baseline | Hybrid Graph + Vector | Delta / Graph Impact |
-| :--- | :--- | :--- | :--- |
-| **Recall@1** | 0.2722 | 0.2722 | +0.0000 |
-| **Recall@3** | 0.4542 | 0.4542 | +0.0000 |
-| **Recall@5** | 0.4542 | 0.4542 | +0.0000 |
-| **HitRate@3** | 0.5417 | 0.5417 | +0.0000 |
-| **MRR (Mean Reciprocal Rank)** | 0.4722 | 0.4722 | +0.0000 |
-| **Citation Correctness** | 0.0833 | 0.0833 | +0.0000 |
-| **Citation Completeness** | 0.0833 | 0.0833 | +0.0000 |
-| **Answer Correctness** | 0.2750 | 0.2750 | +0.0000 |
-| **Groundedness Score** | 0.9167 | 0.9167 | +0.0000 |
-| **Avg Retrieval Latency** | **559.7 ms** | **763.4 ms** | **+211.8 ms overhead** |
-| **Overall Verdicts** | **Hybrid Won: 2** | **Vector Won: 0** | **Tie: 22** |
-
-### Knowledge Graph Telemetry
-- **Seed Entity Hit Rate**: **70.8%** (17 of 24 queries successfully matched knowledge graph seed entities).
-- **Graph Provenance Coverage**: **31.2%** of gold-standard chunks were directly covered by traversed relationship edge provenance.
-- **Candidate Overlap (Jaccard)**: **4.2%** — Graph retrieval retrieves candidates that are 95.8% distinct from Vector/BM25, proving it functions as an orthogonal evidence channel.
-- **Unique Relevant Chunks Added**: **3 chunks** were retrieved **only** by Graph and missed by Vector/BM25.
-
-### Empirical Conclusions: Where Graph RAG Helps vs Where It Doesn't
-1. **Multi-Hop Relational Queries**: When queries connect disparate concepts (e.g. *Query q008: "What organization developed Gemini Ultra and what benchmark was it evaluated on?"*), knowledge graph edges bridged the vocabulary gap to pull in chunks `41107` and `41135` that vector search missed.
-2. **Dense Topical Queries**: For single-topic queries with rich vocabulary, dense vector search and BM25 already retrieve the exact chunk at Rank #1. Graph retrieval adds minimal lift.
-3. **Latency Cost**: Graph retrieval adds an average overhead of **+211.8 ms**, dominated by SQL joins and graph candidate deduplication.
-
----
-
-## 8. API Specification
-
-### `GET /health`
-Returns system liveness and database connection status.
 ```json
 {
   "status": "ok",
@@ -314,53 +234,39 @@ Returns system liveness and database connection status.
 }
 ```
 
-### `POST /query`
-Performs end-to-end question answering with metadata-aware retrieval and citation synthesis.
-
-**Request**:
+### Query Endpoint
+```http
+POST /query
+Content-Type: application/json
+```
 ```json
 {
-  "query": "What organization developed Gemini Ultra and what benchmark was it evaluated on?",
+  "query": "What are the document ingestion standards under the AI governance policy?",
+  "top_k": 5,
   "candidate_k": 20,
-  "top_k": 3,
-  "temperature": 0.0,
   "access_context": {
-    "department": "public",
-    "access_level": "public"
+    "department": "engineering",
+    "access_level": "employee",
+    "include_archived": false
   }
 }
 ```
 
-**Response**:
-```json
-{
-  "query": "What organization developed Gemini Ultra and what benchmark was it evaluated on?",
-  "answer": "Gemini Ultra was developed by Google [SOURCE 3]. It was evaluated on the Massive Multitask Language Understanding (MMLU) benchmark [SOURCE 1, SOURCE 3].",
-  "citations": [
-    {
-      "source_id": 1,
-      "chunk_id": 41417,
-      "document_id": "91",
-      "filename": "Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf",
-      "page_number": 87,
-      "reranker_score": 5.0039,
-      "formatted": "[SOURCE 1] Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf (Page 87)"
-    }
-  ],
-  "model_name": "gemini-3.5-flash-lite",
-  "diagnostics": {
-    "retrieval_mode": "hybrid_graph_vector",
-    "candidate_count": 28,
-    "vector_candidate_count": 20,
-    "graph_candidate_count": 12,
-    "graph_seed_count": 3,
-    "graph_relationship_count": 20
-  }
-}
-```
+Response includes the grounded answer, source citations with exact page numbers, retrieval provenance badges (`HYBRID VERIFIED`, `GRAPH TRAVERSAL`, `DENSE / BM25`), and latency diagnostics.
 
 ---
 
-## 9. License
+## Testing
+
+Run the automated test suite:
+```powershell
+pytest tests/
+```
+
+Tests validate end-to-end functionality including PDF loaders, structural chunking, vector indexing, BM25 scoring, graph traversal, Cross-Encoder reranking, SQL-level RBAC enforcement, and API schemas.
+
+---
+
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

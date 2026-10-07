@@ -11,12 +11,14 @@ Orchestrates dual-path enterprise retrieval:
    and verified at the fusion boundary.
 """
 from typing import List, Dict, Any, Optional, Set, Union
+import os
 import time
 import psycopg
 
 from app.config import (
     RERANKER_CANDIDATE_K,
     RERANKER_TOP_K,
+    GRAPH_TRAVERSAL_MODE,
 )
 from app.models import (
     AccessContext,
@@ -44,6 +46,8 @@ class GraphVectorHybridRetriever:
         graph_depth: int = 1,
         max_graph_results: int = 20,
         max_graph_seeds: int = 10,
+        reranking_mode: Optional[str] = None,
+        traversal_mode: Optional[str] = None,
     ):
         self.reranked_pipeline = reranked_pipeline or RerankedRetrievalPipeline(
             candidate_k=candidate_k,
@@ -53,14 +57,31 @@ class GraphVectorHybridRetriever:
             default_depth=graph_depth,
             default_max_results=max_graph_results,
             default_max_seeds=max_graph_seeds,
+            traversal_mode=traversal_mode,
         )
         # Reuse existing cross-encoder reranker instance to avoid redundant model loading
         self.reranker = reranker or self.reranked_pipeline.reranker
         self.candidate_k = candidate_k
         self.top_k = top_k
-        self.graph_depth = graph_depth
-        self.max_graph_results = max_graph_results
+
+        gm = getattr(self.graph_retriever, "traversal_mode", None)
+        gm_mode = gm if isinstance(gm, str) else None
+        env_mode = os.getenv("GRAPH_TRAVERSAL_MODE", "depth_1")
+        raw_mode = traversal_mode or gm_mode or env_mode
+        t_mode = raw_mode.strip().lower() if isinstance(raw_mode, str) else "depth_1"
+        if t_mode not in ("depth_1", "depth_2"):
+            raise ValueError(f"traversal_mode must be 'depth_1' or 'depth_2', got '{t_mode}'.")
+        self.traversal_mode = t_mode
+
+        if t_mode == "depth_2" and graph_depth == 1:
+            self.graph_depth = 2
+            self.max_graph_results = 50 if max_graph_results == 20 else max_graph_results
+        else:
+            self.graph_depth = graph_depth
+            self.max_graph_results = max_graph_results
+
         self.max_graph_seeds = max_graph_seeds
+        self.reranking_mode = reranking_mode
 
     def retrieve_fused(
         self,
@@ -70,6 +91,8 @@ class GraphVectorHybridRetriever:
         access_context: Optional[AccessContext] = None,
         graph_depth: Optional[int] = None,
         max_graph_results: Optional[int] = None,
+        reranking_mode: Optional[str] = None,
+        traversal_mode: Optional[str] = None,
         conn: Optional[psycopg.Connection] = None,
     ) -> HybridRetrievalResult:
         """
@@ -82,6 +105,8 @@ class GraphVectorHybridRetriever:
             access_context: Caller authorization context.
             graph_depth: Traversal depth for Graph branch (1 or 2).
             max_graph_results: Max relationships for Graph branch.
+            reranking_mode: Reranking mode ('baseline' or 'graph_aware').
+            traversal_mode: Traversal mode ('depth_1' or 'depth_2').
             conn: Optional PostgreSQL connection.
 
         Returns:
@@ -92,8 +117,17 @@ class GraphVectorHybridRetriever:
         ctx = access_context or AccessContext()
         c_k = candidate_k or self.candidate_k
         t_k = top_k or self.top_k
-        g_depth = graph_depth or self.graph_depth
-        max_g_results = max_graph_results or self.max_graph_results
+
+        t_mode = (traversal_mode or self.traversal_mode).strip().lower()
+        if graph_depth is not None:
+            g_depth = graph_depth
+        else:
+            g_depth = 2 if t_mode == "depth_2" else self.graph_depth
+
+        if max_graph_results is not None:
+            max_g_results = max_graph_results
+        else:
+            max_g_results = 50 if (t_mode == "depth_2" and self.max_graph_results == 20) else self.max_graph_results
 
         # ----------------------------------------------------------------------
         # Empty query handling
@@ -165,7 +199,7 @@ class GraphVectorHybridRetriever:
             vector_candidates.append(sr)
 
         # ----------------------------------------------------------------------
-        # Branch B: Graph Knowledge Retrieval (Phase G3)
+        # Branch B: Graph Knowledge Retrieval (Phase G3, G10.5-C)
         # ----------------------------------------------------------------------
         t1 = time.perf_counter()
         try:
@@ -176,6 +210,7 @@ class GraphVectorHybridRetriever:
                 max_results=max_g_results,
                 max_seed_entities=self.max_graph_seeds,
                 include_chunk_content=True,
+                traversal_mode=t_mode,
                 conn=conn,
             )
         except Exception as exc:
@@ -189,6 +224,17 @@ class GraphVectorHybridRetriever:
             chunk_rel_map: Dict[int, List[Dict[str, Any]]] = {}
             for rel in graph_result.relationships:
                 if rel.chunk_id is not None:
+                    # If this is a 2-hop relationship, prepend its hop1 leading edge
+                    # so the reranker receives the full path from the seed entity
+                    hop1 = rel.metadata.get("hop1_edge")
+                    if hop1 and hop1.get("source") and hop1.get("target"):
+                        chunk_rel_map.setdefault(rel.chunk_id, []).append({
+                            "source": hop1["source"],
+                            "relationship_type": hop1.get("relationship_type", "RELATED_TO"),
+                            "target": hop1["target"],
+                            "confidence": 1.0,
+                            "evidence": None,
+                        })
                     chunk_rel_map.setdefault(rel.chunk_id, []).append({
                         "source": rel.metadata.get("source_name", f"Entity_{rel.source_entity_id}"),
                         "relationship_type": rel.relationship_type,
@@ -282,14 +328,16 @@ class GraphVectorHybridRetriever:
         }
 
         # ----------------------------------------------------------------------
-        # Phase E: Unified Cross-Encoder Reranking (G4.6)
+        # Phase E: Unified Cross-Encoder Reranking (G4.6, G10.5-B)
         # ----------------------------------------------------------------------
         t3 = time.perf_counter()
+        active_reranking_mode = reranking_mode or self.reranking_mode
         if authorized_fused:
             reranked_results = self.reranker.rerank(
                 query_text=clean_query,
                 candidates=authorized_fused,
                 top_k=t_k,
+                reranking_mode=active_reranking_mode,
             )
         else:
             reranked_results = []
@@ -303,10 +351,12 @@ class GraphVectorHybridRetriever:
             "candidate_k": c_k,
             "top_k": t_k,
             "graph_depth": g_depth,
+            "traversal_mode": t_mode,
             "graph_seed_count": len(graph_result.matched_entities) if graph_result else 0,
             "graph_relationship_count": len(graph_result.relationships) if graph_result else 0,
             "graph_connected_count": len(graph_result.connected_entities) if graph_result else 0,
             "reranked_count": len(reranked_results),
+            "reranking_mode": active_reranking_mode or getattr(self.reranker, "reranking_mode", "baseline"),
             "status": "success" if reranked_results else "no_evidence",
         }
 

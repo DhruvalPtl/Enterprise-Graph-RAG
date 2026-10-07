@@ -6,6 +6,7 @@ chunk/document provenance from the PostgreSQL knowledge graph.
 """
 from typing import Dict, Any, List
 import html
+import textwrap
 import streamlit as st
 
 
@@ -21,13 +22,13 @@ def render_graph_evidence(diagnostics: Dict[str, Any]) -> None:
     graph_count = diagnostics.get("graph_candidates_count", 0)
 
     st.markdown(
-        "<div style='font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;'>Knowledge Graph Traversal</div>",
+        "<div style='font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;'>Knowledge Graph Traversal</div>",
         unsafe_allow_html=True,
     )
 
     # 1. Seed Entities Section
     if seed_entities:
-        st.markdown("<div style='font-size: 0.85rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.4rem;'>RECOGNIZED QUERY SEED ENTITIES:</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.4rem;'>RECOGNIZED QUERY SEED ENTITIES:</div>", unsafe_allow_html=True)
         seeds_html = " ".join(
             f'<span class="graph-entity-source" style="margin-right: 0.4rem; display: inline-block; margin-bottom: 0.35rem;">{html.escape(s)}</span>'
             for s in seed_entities
@@ -35,14 +36,14 @@ def render_graph_evidence(diagnostics: Dict[str, Any]) -> None:
         st.markdown(f"<div style='margin-bottom: 1.25rem;'>{seeds_html}</div>", unsafe_allow_html=True)
     else:
         st.markdown(
-            "<div style='color: #94a3b8; font-size: 0.88rem; margin-bottom: 1rem;'>No specific entity seeds identified in query text.</div>",
+            "<div style='color: #475569; font-size: 0.88rem; font-weight: 500; margin-bottom: 1rem;'>No specific entity seeds identified in query text.</div>",
             unsafe_allow_html=True,
         )
 
     # 2. Relationship Triples Section
     if relationships:
         st.markdown(
-            f"<div style='font-size: 0.85rem; color: #94a3b8; font-weight: 600; margin-bottom: 0.5rem;'>TRAVERSED GRAPH EDGES ({len(relationships)}):</div>",
+            f"<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.5rem;'>TRAVERSED GRAPH EDGES ({len(relationships)}):</div>",
             unsafe_allow_html=True,
         )
 
@@ -56,7 +57,7 @@ def render_graph_evidence(diagnostics: Dict[str, Any]) -> None:
 
             page_display = f"Page {page_num}" if page_num else "Page N/A"
 
-            card_html = f"""
+            card_html = textwrap.dedent(f"""
             <div class="graph-rel-card">
                 <div class="graph-triple">
                     <span class="graph-entity-source">{html.escape(src)}</span>
@@ -68,16 +69,14 @@ def render_graph_evidence(diagnostics: Dict[str, Any]) -> None:
                     <span>Doc ID: <code>{html.escape(str(doc_id))}</code></span>
                 </div>
             </div>
-            """
+            """).strip()
             st.markdown(card_html, unsafe_allow_html=True)
     elif graph_count > 0:
         st.info(f"Retrieved {graph_count} chunk candidates via entity graph mapping.")
     else:
-        st.markdown(
-            """
-            <div style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.15); border-radius: 6px; padding: 1rem; color: #94a3b8; font-size: 0.88rem;">
-                No knowledge graph traversal edges were active for this query. Results were fulfilled exclusively via Dense Vector and BM25 lexical channels.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        empty_html = textwrap.dedent("""
+        <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 1rem; color: #334155; font-size: 0.9rem; font-weight: 500;">
+            No knowledge graph traversal edges were active for this query. Results were fulfilled exclusively via Dense Vector and BM25 lexical channels.
+        </div>
+        """).strip()
+        st.markdown(empty_html, unsafe_allow_html=True)

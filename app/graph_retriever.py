@@ -11,6 +11,7 @@ Provides production-oriented, bounded graph retrieval over PostgreSQL knowledge 
    to prevent context explosion.
 """
 from typing import Any, Dict, List, Optional, Set, Tuple
+import os
 import re
 import time
 import psycopg
@@ -62,18 +63,50 @@ class GraphRetriever:
         default_depth: int = 1,
         default_max_results: int = 50,
         default_max_seeds: int = 10,
+        entity_linking_mode: Optional[str] = None,
+        entity_linker: Optional[Any] = None,
+        traversal_mode: Optional[str] = None,
+        max_neighbors_per_entity: int = 5,
     ):
         """
         Args:
             default_depth: Default traversal depth (1 or 2).
             default_max_results: Default maximum relationships to return.
             default_max_seeds: Default maximum seed entities to match from query.
+            entity_linking_mode: Mode for entity linking ('baseline' or 'improved').
+            entity_linker: Optional pre-initialized EntityLinker instance.
+            traversal_mode: Mode for graph traversal ('depth_1' or 'depth_2').
+            max_neighbors_per_entity: Max Hop 2 relationships allowed per 1-hop neighbor.
         """
-        if default_depth not in (1, 2):
-            raise ValueError(f"Traversal depth must be 1 or 2, got {default_depth}.")
-        self.default_depth = default_depth
+        t_mode = (traversal_mode or os.getenv("GRAPH_TRAVERSAL_MODE", "depth_1")).strip().lower()
+        if t_mode not in ("depth_1", "depth_2"):
+            raise ValueError(f"traversal_mode must be 'depth_1' or 'depth_2', got '{t_mode}'.")
+        self.traversal_mode = t_mode
+
+        # If traversal_mode is explicitly depth_2 and default_depth was not overridden, use depth 2
+        if t_mode == "depth_2" and default_depth == 1:
+            self.default_depth = 2
+        else:
+            self.default_depth = default_depth
+
+        if self.default_depth not in (1, 2):
+            raise ValueError(f"Traversal depth must be 1 or 2, got {self.default_depth}.")
         self.default_max_results = default_max_results
         self.default_max_seeds = default_max_seeds
+        self.max_neighbors_per_entity = max_neighbors_per_entity
+
+        mode = entity_linking_mode or os.getenv("ENTITY_LINKING_MODE", "baseline")
+        if mode not in ("baseline", "improved"):
+            raise ValueError(f"entity_linking_mode must be 'baseline' or 'improved', got '{mode}'.")
+        self.entity_linking_mode = mode
+        self._entity_linker = entity_linker
+
+    def get_entity_linker(self) -> Any:
+        """Lazily initializes and returns the improved EntityLinker instance."""
+        if self._entity_linker is None:
+            from app.entity_linker import EntityLinker
+            self._entity_linker = EntityLinker()
+        return self._entity_linker
 
     def extract_keywords(self, query: str) -> List[str]:
         """
@@ -262,10 +295,11 @@ class GraphRetriever:
         access_context: AccessContext,
         depth: int = 1,
         max_results: int = 50,
+        max_neighbors_per_entity: Optional[int] = None,
     ) -> Tuple[List[Relationship], List[Entity]]:
         """
         Traverses PostgreSQL graph outward from seed entities up to specified depth (1 or 2).
-        Enforces access control and caps results at max_results.
+        Enforces access control and caps results at max_results with deterministic safety limits.
 
         Returns:
             Tuple of (traversed_relationships, connected_entities).
@@ -292,7 +326,8 @@ class GraphRetriever:
             exclude_rel_ids=seen_rel_ids,
         )
 
-        hop1_neighbor_ids: Set[int] = set()
+        # Map neighbor_id -> { "entity": Entity, "parent_seed_id": int, "parent_seed_name": str, "parent_edge": Relationship }
+        hop1_neighbor_map: Dict[int, Dict[str, Any]] = {}
 
         for row in hop1_rows:
             rid = row["id"]
@@ -300,10 +335,14 @@ class GraphRetriever:
                 continue
             seen_rel_ids.add(rid)
 
-            # Build Relationship model
+            # Build Relationship model with provenance
             meta = dict(row.get("rel_metadata") or {})
-            meta["source_name"] = row["source_canonical_name"]
-            meta["target_name"] = row["target_canonical_name"]
+            s_name = row["source_canonical_name"]
+            t_name = row["target_canonical_name"]
+            meta["source_name"] = s_name
+            meta["target_name"] = t_name
+            meta["hop_depth"] = 1
+            meta["path"] = f"{s_name} --[{row['relationship_type']}]--> {t_name}"
 
             rel = Relationship(
                 id=rid,
@@ -324,7 +363,6 @@ class GraphRetriever:
             t_id = row["target_entity_id"]
 
             if s_id not in seed_ids:
-                hop1_neighbor_ids.add(s_id)
                 if s_id not in connected_entities_map:
                     connected_entities_map[s_id] = Entity(
                         id=s_id,
@@ -333,9 +371,15 @@ class GraphRetriever:
                         display_name=row["source_display_name"],
                         metadata=row.get("source_metadata") or {},
                     )
+                if s_id not in hop1_neighbor_map:
+                    hop1_neighbor_map[s_id] = {
+                        "entity": connected_entities_map[s_id],
+                        "parent_seed_id": t_id,
+                        "parent_seed_name": t_name,
+                        "parent_edge": rel,
+                    }
 
             if t_id not in seed_ids:
-                hop1_neighbor_ids.add(t_id)
                 if t_id not in connected_entities_map:
                     connected_entities_map[t_id] = Entity(
                         id=t_id,
@@ -344,34 +388,107 @@ class GraphRetriever:
                         display_name=row["target_display_name"],
                         metadata=row.get("target_metadata") or {},
                     )
+                if t_id not in hop1_neighbor_map:
+                    hop1_neighbor_map[t_id] = {
+                        "entity": connected_entities_map[t_id],
+                        "parent_seed_id": s_id,
+                        "parent_seed_name": s_name,
+                        "parent_edge": rel,
+                    }
 
         # ----------------------------------------------------------------------
-        # Hop 2: Traversal from 1-hop neighbors (if depth == 2 and budget remains)
+        # Hop 2: Traversal from 1-hop neighbors with deterministic safety limits
         # ----------------------------------------------------------------------
         remaining_budget = max_results - len(traversed_relationships)
-        if depth == 2 and remaining_budget > 0 and hop1_neighbor_ids:
+        if depth == 2 and remaining_budget > 0 and hop1_neighbor_map:
+            max_per_entity = max_neighbors_per_entity or self.max_neighbors_per_entity
+            hop1_neighbor_ids = list(hop1_neighbor_map.keys())
+
+            # Query candidate relationships incident to hop1 neighbors
+            query_batch_limit = min(max(remaining_budget * 2, 50), 100)
             hop2_rows = self._query_authorized_relationships(
                 conn=conn,
-                entity_ids=list(hop1_neighbor_ids),
+                entity_ids=hop1_neighbor_ids,
                 access_context=access_context,
-                limit=remaining_budget,
+                limit=query_batch_limit,
                 exclude_rel_ids=seen_rel_ids,
             )
 
+            neighbor_edge_counts: Dict[int, int] = {}
+
             for row in hop2_rows:
+                if len(traversed_relationships) >= max_results:
+                    break
+
                 rid = row["id"]
                 if rid in seen_rel_ids:
                     continue
+
+                s_id = row["source_entity_id"]
+                t_id = row["target_entity_id"]
+
+                # Determine which endpoint is the 1-hop neighbor anchor
+                if s_id in hop1_neighbor_map:
+                    anchor_id = s_id
+                    other_id = t_id
+                    other_name = row["target_canonical_name"]
+                    other_type = row["target_entity_type"]
+                    other_display = row["target_display_name"]
+                    other_meta = row.get("target_metadata") or {}
+                elif t_id in hop1_neighbor_map:
+                    anchor_id = t_id
+                    other_id = s_id
+                    other_name = row["source_canonical_name"]
+                    other_type = row["source_entity_type"]
+                    other_display = row["source_display_name"]
+                    other_meta = row.get("source_metadata") or {}
+                else:
+                    continue
+
+                parent_info = hop1_neighbor_map[anchor_id]
+                parent_seed_id = parent_info["parent_seed_id"]
+                parent_seed_name = parent_info["parent_seed_name"]
+                parent_edge = parent_info["parent_edge"]
+
+                # Safety Limit 1: Exclude returning immediately to previous entity or any seed (cycle elimination)
+                if other_id == parent_seed_id or other_id in seed_ids:
+                    continue
+
+                # Safety Limit 2: Maximum neighbors per entity (prevent hub explosion)
+                cur_count = neighbor_edge_counts.get(anchor_id, 0)
+                if cur_count >= max_per_entity:
+                    continue
+
+                neighbor_edge_counts[anchor_id] = cur_count + 1
                 seen_rel_ids.add(rid)
 
+                # Path-aware provenance
                 meta = dict(row.get("rel_metadata") or {})
-                meta["source_name"] = row["source_canonical_name"]
-                meta["target_name"] = row["target_canonical_name"]
+                s_name = row["source_canonical_name"]
+                t_name = row["target_canonical_name"]
+                meta["source_name"] = s_name
+                meta["target_name"] = t_name
+                meta["hop_depth"] = 2
+                meta["parent_edge_id"] = parent_edge.id
+                meta["parent_seed_id"] = parent_seed_id
+                meta["seed_name"] = parent_seed_name
+                meta["hop1_edge"] = {
+                    "source": parent_edge.metadata.get("source_name", ""),
+                    "relationship_type": parent_edge.relationship_type,
+                    "target": parent_edge.metadata.get("target_name", ""),
+                }
+                meta["hop2_edge"] = {
+                    "source": s_name,
+                    "relationship_type": row["relationship_type"],
+                    "target": t_name,
+                }
+                e1_path = parent_edge.metadata.get("path", "")
+                meta["path"] = f"{e1_path} -> {row['relationship_type']} -> {other_name}"
 
                 rel = Relationship(
                     id=rid,
-                    source_entity_id=row["source_entity_id"],
-                    target_entity_id=row["target_entity_id"],
+                    source_entity_id=s_id,
+                    target_entity_id=t_id,
                     relationship_type=row["relationship_type"],
                     document_id=row["document_id"],
                     chunk_id=row["chunk_id"],
@@ -382,25 +499,13 @@ class GraphRetriever:
                 )
                 traversed_relationships.append(rel)
 
-                s_id = row["source_entity_id"]
-                t_id = row["target_entity_id"]
-
-                if s_id not in seed_ids and s_id not in connected_entities_map:
-                    connected_entities_map[s_id] = Entity(
-                        id=s_id,
-                        canonical_name=row["source_canonical_name"],
-                        entity_type=row["source_entity_type"],
-                        display_name=row["source_display_name"],
-                        metadata=row.get("source_metadata") or {},
-                    )
-
-                if t_id not in seed_ids and t_id not in connected_entities_map:
-                    connected_entities_map[t_id] = Entity(
-                        id=t_id,
-                        canonical_name=row["target_canonical_name"],
-                        entity_type=row["target_entity_type"],
-                        display_name=row["target_display_name"],
-                        metadata=row.get("target_metadata") or {},
+                if other_id not in seed_ids and other_id not in connected_entities_map:
+                    connected_entities_map[other_id] = Entity(
+                        id=other_id,
+                        canonical_name=other_name,
+                        entity_type=other_type,
+                        display_name=other_display,
+                        metadata=other_meta,
                     )
 
         # Sort connected entities for deterministic output
@@ -463,6 +568,8 @@ class GraphRetriever:
         max_seed_entities: Optional[int] = None,
         include_chunk_content: bool = False,
         conn: Optional[psycopg.Connection] = None,
+        entity_linking_mode: Optional[str] = None,
+        traversal_mode: Optional[str] = None,
     ) -> GraphRetrievalResult:
         """
         Executes bounded, access-controlled graph retrieval for a query.
@@ -470,11 +577,13 @@ class GraphRetriever:
         Args:
             query: User search query or question.
             access_context: Caller authorization context (default: public access).
-            depth: Traversal depth (1 or 2). Defaults to self.default_depth.
+            depth: Traversal depth (1 or 2). Defaults to self.default_depth or based on traversal_mode.
             max_results: Max relationships to return. Defaults to self.default_max_results.
             max_seed_entities: Max seed entities to discover. Defaults to self.default_max_seeds.
             include_chunk_content: If True, fetches chunk text content for provenance chunks.
             conn: Optional PostgreSQL connection.
+            entity_linking_mode: Mode for entity linking ('baseline' or 'improved').
+            traversal_mode: Mode for graph traversal ('depth_1' or 'depth_2').
 
         Returns:
             Structured GraphRetrievalResult containing matched seeds, relationships,
@@ -485,7 +594,13 @@ class GraphRetriever:
         # Parameter normalization & validation
         clean_query = query.strip() if query else ""
         ctx = access_context or AccessContext()
-        traversal_depth = depth if depth is not None else self.default_depth
+
+        t_mode = (traversal_mode or self.traversal_mode).strip().lower()
+        if depth is not None:
+            traversal_depth = depth
+        else:
+            traversal_depth = 2 if t_mode == "depth_2" else self.default_depth
+
         limit = max_results if max_results is not None else self.default_max_results
         seed_limit = max_seed_entities if max_seed_entities is not None else self.default_max_seeds
 
@@ -496,6 +611,8 @@ class GraphRetriever:
             )
         if limit <= 0:
             raise ValueError(f"max_results must be positive, got {limit}.")
+
+        mode = entity_linking_mode or self.entity_linking_mode
 
         # Handle empty query gracefully
         if not clean_query:
@@ -512,6 +629,10 @@ class GraphRetriever:
                     "execution_time_ms": 0.0,
                     "access_context": ctx.to_dict(),
                     "status": "empty_query",
+                    "entity_linking_mode": mode,
+                    "entity_linking_method": "none",
+                    "candidate_entities": [],
+                    "linking_execution_time_ms": 0.0,
                 }
             )
 
@@ -521,12 +642,29 @@ class GraphRetriever:
             should_close = True
 
         try:
-            # 1. Match seed entities from query keywords
-            seed_entities = self.find_seed_entities(
-                conn=conn,
-                query=clean_query,
-                limit=seed_limit,
-            )
+            # 1. Match seed entities based on configured entity linking mode
+            linking_meta: Dict[str, Any] = {}
+            if mode == "improved":
+                linker = self.get_entity_linker()
+                seed_entities, linking_meta = linker.link_entities(
+                    conn=conn,
+                    query=clean_query,
+                    access_context=ctx,
+                    limit=seed_limit,
+                )
+            else:
+                seed_entities = self.find_seed_entities(
+                    conn=conn,
+                    query=clean_query,
+                    limit=seed_limit,
+                )
+                linking_meta = {
+                    "entity_linking_method": "baseline_keyword",
+                    "candidate_count": len(seed_entities),
+                    "authorized_count": len(seed_entities),
+                    "candidates": [{"name": e.canonical_name, "method": "baseline_keyword"} for e in seed_entities],
+                    "execution_time_ms": 0.0,
+                }
 
             # If no seed entities match, return clean empty result
             if not seed_entities:
@@ -544,6 +682,10 @@ class GraphRetriever:
                         "execution_time_ms": elapsed_ms,
                         "access_context": ctx.to_dict(),
                         "status": "no_seed_entities_found",
+                        "entity_linking_mode": mode,
+                        "entity_linking_method": linking_meta.get("entity_linking_method", "none"),
+                        "candidate_entities": linking_meta.get("candidates", []),
+                        "linking_execution_time_ms": linking_meta.get("execution_time_ms", 0.0),
                     }
                 )
 
@@ -554,6 +696,7 @@ class GraphRetriever:
                 access_context=ctx,
                 depth=traversal_depth,
                 max_results=limit,
+                max_neighbors_per_entity=self.max_neighbors_per_entity,
             )
 
             # 3. Collect and deduplicate provenance IDs from authorized relationships
@@ -587,6 +730,7 @@ class GraphRetriever:
             retrieval_metadata = {
                 "query": clean_query,
                 "depth": traversal_depth,
+                "traversal_mode": "depth_2" if traversal_depth == 2 else "depth_1",
                 "max_results": limit,
                 "seed_count": len(seed_entities),
                 "relationship_count": len(relationships),
@@ -596,6 +740,10 @@ class GraphRetriever:
                 "execution_time_ms": elapsed_ms,
                 "access_context": ctx.to_dict(),
                 "status": "success",
+                "entity_linking_mode": mode,
+                "entity_linking_method": linking_meta.get("entity_linking_method", "unknown"),
+                "candidate_entities": linking_meta.get("candidates", []),
+                "linking_execution_time_ms": linking_meta.get("execution_time_ms", 0.0),
             }
 
             return GraphRetrievalResult(

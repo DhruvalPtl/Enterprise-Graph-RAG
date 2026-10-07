@@ -71,12 +71,15 @@ model_cache/
 *.sqlite
 *.sqlite3
 
-# 8. Large Generated Artifacts, Corpora & Downloaded Research Books (>10 MB)
+# 8. Scratch & Experimental Directories
+scratch/
+learn/
+reports/
+data/evaluation/
+LEARNING.md
+
+# 9. Large Generated Artifacts, Corpora & Local Chunks
 data/archived_books/
 data/processed/*.json
-data/raw/Artificial-Intelligence-Index-Report-2024-Stanford-University.pdf
-data/raw/speech-and-language-processing-daniel-jurafsky-and-james-h-martin-837.pdf
-
-# 9. Intermediate Diagnostic Media
-reports/ocr_benchmark/*.png
+data/raw/*.pdf.bak
 

@@ -7,6 +7,7 @@ and displays generation metadata.
 from typing import Dict, Any, List
 import re
 import html
+import textwrap
 import streamlit as st
 
 REFUSAL_PHRASES = [
@@ -51,37 +52,33 @@ def render_answer(response_data: Dict[str, Any]) -> None:
     is_refusal = _is_refusal(answer, citations)
 
     if is_refusal:
-        st.markdown(
-            f"""
-            <div class="refusal-box">
-                <div class="refusal-title">&bull; GROUNDED REFUSAL &bull; Zero-Hallucination Guardrail Active</div>
-                <div style="font-size: 0.95rem; color: #fef08a; line-height: 1.5;">
-                    {html.escape(answer)}
-                </div>
-                <div style="font-size: 0.78rem; color: #fbbf24; margin-top: 0.5rem;">
-                    The system verified available vector and knowledge graph indices and found insufficient grounded evidence.
-                </div>
+        refusal_html = textwrap.dedent(f"""
+        <div class="refusal-box">
+            <div class="refusal-title">&bull; GROUNDED REFUSAL &bull; Zero-Hallucination Guardrail Active</div>
+            <div style="font-size: 1rem; color: #0f172a; font-weight: 500; line-height: 1.6;">
+                {html.escape(answer)}
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
+            <div style="font-size: 0.82rem; color: #475569; margin-top: 0.5rem; font-weight: 500;">
+                The system verified available vector and knowledge graph indices and found insufficient grounded evidence.
+            </div>
+        </div>
+        """).strip()
+        st.markdown(refusal_html, unsafe_allow_html=True)
     else:
         # Format [SOURCE X] citations nicely
         escaped_answer = html.escape(answer)
         formatted_answer = _format_source_tags(escaped_answer)
 
-        st.markdown(
-            f"""
-            <div class="answer-box">
-                <div class="answer-header">
-                    <span class="answer-header-title">Grounded Synthesis</span>
-                    <span class="model-badge">Engine: {html.escape(model_name or "LLM")}</span>
-                </div>
-                <div style="color: #f1f5f9; white-space: pre-wrap;">{formatted_answer}</div>
+        ans_html = textwrap.dedent(f"""
+        <div class="answer-box">
+            <div class="answer-header">
+                <span class="answer-header-title">Grounded Synthesis</span>
+                <span class="model-badge">Engine: {html.escape(model_name or "LLM")}</span>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
+            <div style="color: #0f172a; white-space: pre-wrap; font-size: 1.05rem; line-height: 1.65;">{formatted_answer}</div>
+        </div>
+        """).strip()
+        st.markdown(ans_html, unsafe_allow_html=True)
 
     # Optional generation metrics pill
     gen_time = diagnostics.get("generation_time_sec")

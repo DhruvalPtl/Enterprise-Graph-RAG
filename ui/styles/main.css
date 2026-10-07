@@ -1,43 +1,48 @@
-/* Enterprise RAG UI Design System */
+/* Enterprise RAG UI Design System - High Contrast Theme */
 
 :root {
-    --primary-color: #3b82f6;
-    --primary-hover: #2563eb;
-    --bg-card: rgba(255, 255, 255, 0.05);
-    --border-card: rgba(255, 255, 255, 0.12);
-    --badge-vector-bg: rgba(14, 165, 233, 0.15);
-    --badge-vector-border: rgba(14, 165, 233, 0.4);
-    --badge-vector-text: #38bdf8;
-    --badge-graph-bg: rgba(168, 85, 247, 0.15);
-    --badge-graph-border: rgba(168, 85, 247, 0.4);
-    --badge-graph-text: #c084fc;
-    --badge-both-bg: rgba(16, 185, 129, 0.15);
-    --badge-both-border: rgba(16, 185, 129, 0.4);
-    --badge-both-text: #34d399;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --text-main: #0f172a;       /* Slate 900 - high contrast deep charcoal/black */
+    --text-muted: #334155;      /* Slate 700 - readable dark gray */
+    --text-subtle: #475569;     /* Slate 600 - clear secondary gray */
+    --bg-card: #f8fafc;         /* Slate 50 - clean off-white card background */
+    --border-card: #cbd5e1;     /* Slate 300 - crisp border */
+    
+    --badge-vector-bg: #e0f2fe;
+    --badge-vector-border: #7dd3fc;
+    --badge-vector-text: #0369a1; /* Sky 700 */
+
+    --badge-graph-bg: #f3e8ff;
+    --badge-graph-border: #d8b4fe;
+    --badge-graph-text: #6b21a8;  /* Purple 800 */
+
+    --badge-both-bg: #d1fae5;
+    --badge-both-border: #6ee7b7;
+    --badge-both-text: #047857;   /* Emerald 700 */
 }
 
 /* Header styling */
 .header-container {
     padding: 1.25rem 0.5rem 0.75rem 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid #e2e8f0;
     margin-bottom: 1.5rem;
 }
 
 .header-title {
     font-size: 2.1rem;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.02em;
     margin: 0;
-    background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0f172a; /* Solid crisp high-contrast dark slate */
 }
 
 .header-subtitle {
     font-size: 0.95rem;
-    color: #94a3b8;
+    color: #334155; /* Slate 700 - high contrast */
     margin-top: 0.35rem;
     margin-bottom: 0;
+    font-weight: 500;
 }
 
 /* System status indicator */
@@ -45,24 +50,24 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    padding: 0.25rem 0.75rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 9999px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .status-online {
-    background-color: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.35);
-    color: #34d399;
+    background-color: #d1fae5;
+    border: 1px solid #34d399;
+    color: #065f46; /* Emerald 800 */
 }
 
 .status-offline {
-    background-color: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.35);
-    color: #f87171;
+    background-color: #fee2e2;
+    border: 1px solid #f87171;
+    color: #991b1b; /* Red 800 */
 }
 
 .status-dot {
@@ -73,26 +78,28 @@
 }
 
 .dot-online {
-    background-color: #10b981;
-    box-shadow: 0 0 8px #10b981;
+    background-color: #059669;
+    box-shadow: 0 0 6px rgba(5, 150, 105, 0.6);
 }
 
 .dot-offline {
-    background-color: #ef4444;
-    box-shadow: 0 0 8px #ef4444;
+    background-color: #dc2626;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
 }
 
 /* Grounded Answer Card */
 .answer-box {
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-left: 4px solid #6366f1;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #3b82f6;
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.65;
     font-size: 1.05rem;
+    color: #0f172a; /* Black/Dark charcoal */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .answer-header {
@@ -101,57 +108,63 @@
     align-items: center;
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .answer-header-title {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
-    color: #818cf8;
+    color: #1e40af; /* Blue 800 */
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .model-badge {
     font-size: 0.75rem;
-    padding: 0.15rem 0.5rem;
-    background: rgba(255, 255, 255, 0.08);
+    padding: 0.2rem 0.55rem;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 4px;
-    color: #94a3b8;
+    color: #334155;
     font-family: monospace;
+    font-weight: 600;
 }
 
-/* Refusal Notice */
+/* Refusal Notice - High Visibility Amber/Brown on light cream */
 .refusal-box {
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.35);
-    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+    border: 1px solid #f59e0b;
+    border-left: 5px solid #d97706;
     border-radius: 8px;
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.4rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(217, 119, 6, 0.1);
 }
 
 .refusal-title {
-    font-weight: 600;
-    color: #fbbf24;
+    font-weight: 800;
+    color: #92400e; /* Dark Amber 800 */
     font-size: 0.95rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 /* Source Citation Card */
 .citation-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 1rem 1.25rem;
     margin-bottom: 1rem;
     transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .citation-card:hover {
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .citation-header {
@@ -165,9 +178,9 @@
 
 .source-tag {
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     padding: 0.2rem 0.6rem;
-    background: #4f46e5;
+    background: #2563eb;
     color: #ffffff;
     border-radius: 4px;
     letter-spacing: 0.03em;
@@ -180,7 +193,7 @@
     padding: 0.2rem 0.55rem;
     border-radius: 4px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.03em;
 }
 
@@ -204,32 +217,35 @@
 
 .citation-meta {
     font-size: 0.85rem;
-    color: #94a3b8;
+    color: #334155;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .citation-passage {
-    font-size: 0.9rem;
-    color: #e2e8f0;
-    line-height: 1.5;
-    background: rgba(0, 0, 0, 0.25);
-    padding: 0.75rem;
+    font-size: 0.92rem;
+    color: #0f172a; /* Crisp dark charcoal */
+    line-height: 1.55;
+    background: #f8fafc;
+    padding: 0.85rem;
     border-radius: 6px;
-    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
     margin-top: 0.5rem;
-    font-style: italic;
+    font-style: normal;
 }
 
 /* Knowledge Graph Relationship Cards */
 .graph-rel-card {
-    background: rgba(30, 27, 75, 0.4);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 0.9rem 1.1rem;
     margin-bottom: 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .graph-triple {
@@ -241,60 +257,63 @@
 }
 
 .graph-entity-source {
-    font-weight: 600;
-    color: #93c5fd;
-    background: rgba(59, 130, 246, 0.15);
-    padding: 0.2rem 0.5rem;
+    font-weight: 700;
+    color: #1e40af;
+    background: #dbeafe;
+    padding: 0.2rem 0.55rem;
     border-radius: 4px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid #93c5fd;
 }
 
 .graph-predicate {
     font-size: 0.78rem;
     font-family: monospace;
     font-weight: 700;
-    color: #c084fc;
-    background: rgba(168, 85, 247, 0.2);
+    color: #6b21a8;
+    background: #f3e8ff;
     padding: 0.2rem 0.55rem;
     border-radius: 4px;
-    border: 1px dashed rgba(168, 85, 247, 0.4);
+    border: 1px dashed #d8b4fe;
     text-transform: uppercase;
 }
 
 .graph-entity-target {
-    font-weight: 600;
-    color: #f472b6;
-    background: rgba(236, 72, 153, 0.15);
-    padding: 0.2rem 0.5rem;
+    font-weight: 700;
+    color: #9d174d;
+    background: #fce7f3;
+    padding: 0.2rem 0.55rem;
     border-radius: 4px;
-    border: 1px solid rgba(236, 72, 153, 0.3);
+    border: 1px solid #f472b6;
 }
 
 .graph-provenance {
-    font-size: 0.78rem;
-    color: #64748b;
+    font-size: 0.8rem;
+    color: #475569;
     display: flex;
     gap: 0.75rem;
+    font-weight: 500;
 }
 
 /* Metrics & Timing Table */
 .metric-tile {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 0.85rem;
     text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .metric-val {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #f8fafc;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
 }
 
 .metric-lbl {
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: #475569;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     margin-top: 0.25rem;

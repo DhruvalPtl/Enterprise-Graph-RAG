@@ -42,11 +42,7 @@ if css_file.exists():
 # Sidebar Configuration
 # ---------------------------------------------------------------------------
 st.sidebar.markdown(
-    """
-    <div style="font-size: 1.25rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.5rem;">
-        Control Panel
-    </div>
-    """,
+    '<div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Control Panel</div>',
     unsafe_allow_html=True,
 )
 
@@ -118,6 +114,44 @@ access_context = {
     "access_level": access_lvl,
     "include_archived": include_archived,
 }
+
+st.sidebar.markdown("---")
+with st.sidebar.expander("📄 Document Ingestion", expanded=False):
+    st.markdown(
+        "<div style='font-size: 0.82rem; color: #334155; font-weight: 500; margin-bottom: 0.5rem;'>Upload a document (PDF, Markdown, TXT) to chunk, embed, and store into PostgreSQL:</div>",
+        unsafe_allow_html=True,
+    )
+    uploaded_file = st.file_uploader(
+        "Upload File",
+        type=["pdf", "md", "txt"],
+        help="Supported formats: PDF (.pdf), Markdown (.md), Plain Text (.txt)",
+        key="doc_uploader",
+    )
+    up_dept = st.selectbox("Document Department", ["public", "engineering", "finance", "hr"], index=0, key="up_dept")
+    up_clearance = st.selectbox("Document Clearance", ["public", "employee", "manager", "admin"], index=0, key="up_clearance")
+    extract_kg = st.checkbox("Extract Knowledge Graph (LLM)", value=False, help="Extract entities and relationships into PostgreSQL graph via Gemini.")
+
+    if uploaded_file is not None:
+        if st.button("Process & Index Document", type="primary", use_container_width=True):
+            with st.spinner("Processing document chunks & generating 384-d vectors..."):
+                try:
+                    from ui.ingestion_helper import ingest_document_file
+                    ingest_res = ingest_document_file(
+                        file_bytes=uploaded_file.getvalue(),
+                        filename=uploaded_file.name,
+                        department=up_dept,
+                        access_level=up_clearance,
+                        extract_graph=extract_kg,
+                    )
+                    st.success(
+                        f"**Ingested '{ingest_res['filename']}'!**\n\n"
+                        f"- Document ID: `{ingest_res['document_id']}`\n"
+                        f"- Chunks Stored: `{ingest_res['chunks_stored']}`\n"
+                        f"- Vector Dimension: `{ingest_res['vector_dimension']}` (MiniLM)\n"
+                        + (f"- Graph Triples: `{ingest_res['graph_stats'].get('relationships_inserted', 0)}` relationships\n" if extract_kg else "")
+                    )
+                except Exception as ex:
+                    st.error(f"Ingestion failed: {ex}")
 
 st.sidebar.markdown("---")
 with st.sidebar.expander("System Architecture", expanded=False):
