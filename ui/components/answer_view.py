@@ -61,6 +61,9 @@ def render_answer(response_data: Dict[str, Any]) -> None:
             <div style="font-size: 0.82rem; color: #475569; margin-top: 0.5rem; font-weight: 500;">
                 The system verified available vector and knowledge graph indices and found insufficient grounded evidence.
             </div>
+            <div style="font-size: 0.78rem; color: #92400e; margin-top: 0.6rem; border-top: 1px dashed #d97706; padding-top: 0.4rem; font-weight: 600;">
+                💡 <b>RBAC Check:</b> If querying a restricted document, check your active <b>Department</b> and <b>Clearance Level</b> in the sidebar Control Panel to ensure you have permission to view it.
+            </div>
         </div>
         """).strip()
         st.markdown(refusal_html, unsafe_allow_html=True)

@@ -58,15 +58,24 @@ def render_chat_view(
     if "chat_messages" not in st.session_state:
         st.session_state["chat_messages"] = []
 
+    curr_dept = access_context.get("department", "public")
+    curr_lvl = access_context.get("access_level", "public")
+
     # 1. Header Banner
     st.markdown(
-        """
-        <div style="margin-bottom: 1.25rem;">
+        f"""
+        <div style="margin-bottom: 0.85rem;">
             <div style="font-size: 1.8rem; font-weight: 800; color: #0f172a; letter-spacing: -0.02em;">
                 Enterprise Knowledge Assistant
             </div>
-            <div style="font-size: 0.92rem; color: #475569; margin-top: 0.2rem;">
+            <div style="font-size: 0.92rem; color: #475569; margin-top: 0.2rem; margin-bottom: 0.45rem;">
                 Dual-engine conversational retrieval powered by pgvector, BM25, and PostgreSQL Knowledge Graph.
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: 0.6rem; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.2rem 0.65rem; font-size: 0.82rem; color: #334155;">
+                <span>🔒 <b>Active Caller Context:</b></span>
+                <span>Department: <b style="color: #0f172a;">{html.escape(curr_dept)}</b></span>
+                <span>&bull;</span>
+                <span>Clearance: <b style="color: #0f172a;">{html.escape(curr_lvl)}</b></span>
             </div>
         </div>
         """,
