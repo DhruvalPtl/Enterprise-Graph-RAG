@@ -4,6 +4,7 @@ Ingest View Component.
 Full-page document ingestion interface to upload, chunk, embed, and index
 PDF, Markdown, and Plain Text files into PostgreSQL pgvector and Knowledge Graph.
 """
+import os
 from typing import Dict, Any
 import streamlit as st
 
@@ -83,6 +84,20 @@ def render_ingest_view() -> None:
 
         if uploaded_file is not None:
             if st.button("🚀 Process & Index Document", type="primary", use_container_width=True):
+                progress_container = st.container()
+                prog_bar = None
+                prog_label = None
+
+                if extract_graph:
+                    prog_bar = progress_container.progress(0)
+                    prog_label = progress_container.empty()
+
+                def on_progress(curr: int, total: int):
+                    if prog_bar and prog_label:
+                        pct = int((curr / total) * 100)
+                        prog_bar.progress(pct)
+                        prog_label.caption(f"Extracting Knowledge Graph: Chunk {curr} of {total} ({pct}%)")
+
                 with st.spinner(f"Ingesting '{uploaded_file.name}', computing MiniLM embeddings, and persisting to PostgreSQL..."):
                     try:
                         res = ingest_document_file(
@@ -91,7 +106,13 @@ def render_ingest_view() -> None:
                             department=department,
                             access_level=clearance,
                             extract_graph=extract_graph,
+                            progress_callback=on_progress if extract_graph else None,
                         )
+                        if prog_bar:
+                            prog_bar.empty()
+                        if prog_label:
+                            prog_label.empty()
+
                         graph_stats = res.get("graph_stats", {})
                         st.success(
                             f"**Ingestion Complete! Document is now live and queryable.**\n\n"
@@ -105,4 +126,8 @@ def render_ingest_view() -> None:
                         if graph_stats.get("error"):
                             st.warning(f"⚠️ **Knowledge Graph Notice:** {graph_stats['error']}")
                     except Exception as ex:
+                        if prog_bar:
+                            prog_bar.empty()
+                        if prog_label:
+                            prog_label.empty()
                         st.error(f"Ingestion failed: {ex}")

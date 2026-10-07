@@ -25,6 +25,7 @@ from app.db import (
     init_db,
     insert_document,
     insert_chunks,
+    get_document_chunks,
     insert_chunk_graph_transaction,
 )
 
@@ -35,6 +36,7 @@ def ingest_document_file(
     department: str = "public",
     access_level: str = "public",
     extract_graph: bool = False,
+    progress_callback: Optional[Any] = None,
 ) -> Dict[str, Any]:
     """
     Ingests an uploaded document into the Enterprise Graph RAG database.
@@ -45,6 +47,7 @@ def ingest_document_file(
         department: Access department ('public', 'engineering', 'finance', 'hr')
         access_level: Access clearance ('public', 'employee', 'manager', 'admin')
         extract_graph: If True and Gemini API key is available, extracts graph triples
+        progress_callback: Optional callback(current, total) for UI progress updates
 
     Returns:
         Dict with execution summary (doc_id, chunks_count, vector_dim, graph_stats, etc.)
@@ -115,15 +118,26 @@ def ingest_document_file(
                 total_ents = 0
                 total_rels = 0
 
+                # Fetch real database chunks with primary keys (chunks.id)
+                db_chunks = get_document_chunks(doc_id)
+                total_db_chunks = len(db_chunks)
+
                 with get_connection() as conn:
-                    for idx, c_dict in enumerate(chunk_dicts):
+                    for idx, c_info in enumerate(db_chunks):
+                        if progress_callback:
+                            progress_callback(idx + 1, total_db_chunks)
+
+                        real_chunk_id = c_info["id"]
+                        chunk_text = c_info.get("content", "")
+                        page_num = c_info.get("page_number")
+
                         res = extractor.extract_from_chunk(
-                            chunk_id=idx + 1,
+                            chunk_id=real_chunk_id,
                             document_id=doc_id,
-                            chunk_text=c_dict["text"],
-                            page_number=c_dict.get("page_number"),
+                            chunk_text=chunk_text,
+                            page_number=page_num,
                         )
-                        if res and getattr(res, "status", None) != "skipped_empty":
+                        if res and getattr(res, "status", None) not in ("skipped_empty", "error"):
                             ents, rels = insert_chunk_graph_transaction(conn, res)
                             total_ents += ents
                             total_rels += rels
