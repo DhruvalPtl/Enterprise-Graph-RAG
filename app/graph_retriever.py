@@ -131,16 +131,15 @@ class GraphRetriever:
             if len(cleaned) >= 2 and cleaned.lower() not in STOP_WORDS:
                 candidates.add(cleaned)
 
-        # 2. Capitalized / titled / alphanumeric sequences (proper nouns, model names, acronyms)
-        # Matches e.g. "Stanford University", "Llama 2 70B", "GPT-4", "AI Act", "UniAudio"
-        cap_phrases = re.findall(r'[A-Z0-9][a-zA-Z0-9_\-\.]*(?:\s+[A-Z0-9][a-zA-Z0-9_\-\.]*)*', query)
+        # 2. Capitalized / titled / alphanumeric sequences (proper nouns, model names, acronyms like PET/CT)
+        cap_phrases = re.findall(r'[A-Z0-9][a-zA-Z0-9_\-\.\/]*(?:\s+[A-Z0-9][a-zA-Z0-9_\-\.\/]*)*', query)
         for p in cap_phrases:
             cleaned = p.strip(" .-,")
             if len(cleaned) >= 2 and cleaned.lower() not in STOP_WORDS:
                 candidates.add(cleaned)
 
-        # 3. Clean token-based sliding n-grams (1 to 4 words)
-        clean_text = re.sub(r'[^\w\s\-\.]', ' ', query)
+        # 3. Clean token-based sliding n-grams (1 to 4 words, preserving slashes for medical/technical acronyms)
+        clean_text = re.sub(r'[^\w\s\-\.\/]', ' ', query)
         words = clean_text.split()
         n = len(words)
         max_ngram_len = min(4, n)
@@ -170,7 +169,7 @@ class GraphRetriever:
 
         Order of priority:
         1. Exact match on canonical_name or display_name (case-insensitive).
-        2. Substring match (ILIKE) on top candidates.
+        2. Substring match (ILIKE) on meaningful keyword candidates.
         Matches are deduplicated by entity ID and limited to `limit`.
         """
         candidates = self.extract_keywords(query)
@@ -180,8 +179,8 @@ class GraphRetriever:
         matched_entities: List[Entity] = []
         seen_ids: Set[int] = set()
 
-        # Phase 1: Exact match query
-        lower_candidates = [c.lower() for c in candidates[:30]]
+        # Phase 1: Exact match query across all extracted candidates (up to 100)
+        lower_candidates = [c.lower() for c in candidates[:100]]
         sql_exact = """
         SELECT id, canonical_name, entity_type, display_name, metadata, created_at, updated_at
         FROM entities
@@ -197,11 +196,12 @@ class GraphRetriever:
                     seen_ids.add(eid)
                     matched_entities.append(Entity.from_dict(row))
 
-        # Phase 2: If exact matches are fewer than limit, execute substring ILIKE fallback
+        # Phase 2: If exact matches are fewer than limit, execute substring ILIKE fallback on concise terms
         if len(matched_entities) < limit:
             remaining = limit - len(matched_entities)
-            # Pick top candidate keywords (length >= 3)
-            ilike_patterns = [f"%{c}%" for c in candidates[:10] if len(c) >= 3]
+            # Pick concise, meaningful terms (1-3 words, length 3..35) to avoid matching whole 4-word sentences
+            meaningful = [c for c in candidates if 3 <= len(c) <= 35 and len(c.split()) <= 3]
+            ilike_patterns = [f"%{c}%" for c in meaningful[:30]]
             if ilike_patterns:
                 sql_ilike = """
                 SELECT id, canonical_name, entity_type, display_name, metadata, created_at, updated_at

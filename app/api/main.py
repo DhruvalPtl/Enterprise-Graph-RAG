@@ -26,7 +26,7 @@ from app.rag import RAGPipeline
 from app.api.schemas import QueryRequest, QueryResponse, HealthResponse
 from app.api.dependencies import get_rag_pipeline, set_rag_pipeline, reset_rag_pipeline
 
-# Configure server logger
+# Configure server logger with updated graph retriever lifecycle
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("rag_api")
 
