@@ -644,9 +644,11 @@ def get_loaded_documents(conn: Optional[psycopg.Connection] = None) -> List[Dict
         d.access_level,
         d.status,
         d.created_at,
-        COUNT(c.id) AS chunk_count
+        COUNT(DISTINCT c.id) AS chunk_count,
+        COUNT(DISTINCT r.id) AS relationship_count
     FROM documents d
     LEFT JOIN chunks c ON d.id = c.document_id
+    LEFT JOIN relationships r ON d.id = r.document_id
     GROUP BY d.id, d.filename, d.document_type, d.department, d.access_level, d.status, d.created_at
     ORDER BY d.id DESC;
     """
@@ -699,6 +701,40 @@ def get_document_chunks(document_id: int, conn: Optional[psycopg.Connection] = N
     FROM chunks
     WHERE document_id = %s
     ORDER BY chunk_index ASC;
+    """
+    try:
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute(sql, (document_id,))
+            return cur.fetchall()
+    finally:
+        if should_close:
+            conn.close()
+
+
+def get_document_relationships(document_id: int, conn: Optional[psycopg.Connection] = None) -> List[Dict[str, Any]]:
+    """
+    Retrieves all knowledge graph relationships extracted from a specific document.
+    """
+    should_close = False
+    if conn is None:
+        conn = get_connection(autocommit=True)
+        should_close = True
+
+    sql = """
+    SELECT
+        r.id,
+        se.canonical_name AS source_name,
+        se.entity_type AS source_type,
+        r.relationship_type,
+        te.canonical_name AS target_name,
+        te.entity_type AS target_type,
+        r.chunk_id,
+        r.page_number
+    FROM relationships r
+    JOIN entities se ON r.source_entity_id = se.id
+    JOIN entities te ON r.target_entity_id = te.id
+    WHERE r.document_id = %s
+    ORDER BY r.id ASC;
     """
     try:
         with conn.cursor(row_factory=dict_row) as cur:

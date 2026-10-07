@@ -26,10 +26,11 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
     )
 
     # 1. Candidate Counts Metric Tiles
-    v_cands = diagnostics.get("vector_candidates_count", 0)
-    g_cands = diagnostics.get("graph_candidates_count", 0)
-    comb_cands = diagnostics.get("combined_unique_count", 0)
-    reranked = diagnostics.get("reranked_count", 0)
+    v_cands = diagnostics.get("vector_candidate_count", diagnostics.get("vector_candidates_count", 0))
+    g_cands = diagnostics.get("graph_candidate_count", diagnostics.get("graph_candidates_count", 0))
+    dedup = diagnostics.get("deduplication_stats", {})
+    comb_cands = diagnostics.get("candidate_count", dedup.get("fused_count", diagnostics.get("combined_unique_count", 0)))
+    reranked = diagnostics.get("evidence_count", diagnostics.get("reranked_count", 0))
 
     st.markdown(
         "<div style='font-size: 0.85rem; color: #334155; font-weight: 700; margin-bottom: 0.4rem;'>CANDIDATE POOLING & DEDUPLICATION:</div>",
@@ -80,10 +81,11 @@ def render_diagnostics(diagnostics: Dict[str, Any]) -> None:
     st.markdown("<div style='margin-top: 1.25rem;'></div>", unsafe_allow_html=True)
 
     # 2. Latency Breakdown
-    v_lat = diagnostics.get("vector_latency_ms")
-    g_lat = diagnostics.get("graph_latency_ms")
-    r_lat = diagnostics.get("rerank_latency_ms")
-    tot_lat = diagnostics.get("total_latency_ms")
+    timing = diagnostics.get("execution_timing_ms", {})
+    v_lat = timing.get("vector_bm25_ms", diagnostics.get("vector_latency_ms"))
+    g_lat = timing.get("graph_retrieval_ms", diagnostics.get("graph_latency_ms"))
+    r_lat = timing.get("reranker_ms", diagnostics.get("rerank_latency_ms"))
+    tot_lat = timing.get("total_ms", diagnostics.get("total_latency_ms"))
     gen_time_s = diagnostics.get("generation_time_sec")
     gen_lat = gen_time_s * 1000.0 if gen_time_s is not None else None
 

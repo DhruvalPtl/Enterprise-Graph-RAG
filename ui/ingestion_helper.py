@@ -104,34 +104,38 @@ def ingest_document_file(
 
     # 6. Optional Knowledge Graph Extraction
     graph_stats = {"entities_upserted": 0, "relationships_inserted": 0, "extracted": False}
-    if extract_graph and GEMINI_API_KEY:
-        try:
-            from app.graph_extractor import GraphExtractorService
-            extractor = GraphExtractorService()
-            total_ents = 0
-            total_rels = 0
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or GEMINI_API_KEY
+    if extract_graph:
+        if not api_key:
+            graph_stats["error"] = "Gemini API key is required for Knowledge Graph extraction. Please enter your key in the sidebar Control Panel."
+        else:
+            try:
+                from app.graph_extractor import GraphExtractorService
+                extractor = GraphExtractorService(api_key=api_key)
+                total_ents = 0
+                total_rels = 0
 
-            with get_connection() as conn:
-                for idx, c_dict in enumerate(chunk_dicts):
-                    res = extractor.extract(
-                        text=c_dict["text"],
-                        chunk_id=idx + 1,
-                        document_id=doc_id,
-                        page_number=c_dict.get("page_number"),
-                    )
-                    if res:
-                        ents, rels = insert_chunk_graph_transaction(conn, res)
-                        total_ents += ents
-                        total_rels += rels
-                conn.commit()
+                with get_connection() as conn:
+                    for idx, c_dict in enumerate(chunk_dicts):
+                        res = extractor.extract_from_chunk(
+                            chunk_id=idx + 1,
+                            document_id=doc_id,
+                            chunk_text=c_dict["text"],
+                            page_number=c_dict.get("page_number"),
+                        )
+                        if res and getattr(res, "status", None) != "skipped_empty":
+                            ents, rels = insert_chunk_graph_transaction(conn, res)
+                            total_ents += ents
+                            total_rels += rels
+                    conn.commit()
 
-            graph_stats = {
-                "entities_upserted": total_ents,
-                "relationships_inserted": total_rels,
-                "extracted": True,
-            }
-        except Exception as e:
-            graph_stats["error"] = str(e)
+                graph_stats = {
+                    "entities_upserted": total_ents,
+                    "relationships_inserted": total_rels,
+                    "extracted": True,
+                }
+            except Exception as e:
+                graph_stats["error"] = str(e)
 
     return {
         "success": True,

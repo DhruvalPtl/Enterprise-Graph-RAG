@@ -75,6 +75,10 @@ def render_ingest_view() -> None:
             key="page_ingest_kg",
         )
 
+        api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+        if extract_graph and not api_key:
+            st.warning("⚠️ **Gemini API Key Required:** Enter your Gemini API Key in the sidebar Control Panel to enable Knowledge Graph extraction.")
+
         st.markdown("<div style='margin-top: 1rem;'></div>", unsafe_allow_html=True)
 
         if uploaded_file is not None:
@@ -88,6 +92,7 @@ def render_ingest_view() -> None:
                             access_level=clearance,
                             extract_graph=extract_graph,
                         )
+                        graph_stats = res.get("graph_stats", {})
                         st.success(
                             f"**Ingestion Complete! Document is now live and queryable.**\n\n"
                             f"* **Filename:** `{res['filename']}`\n"
@@ -95,7 +100,9 @@ def render_ingest_view() -> None:
                             f"* **Passage Chunks Stored:** `{res['chunks_stored']}`\n"
                             f"* **Vector Dimension:** `{res['vector_dimension']}` (MiniLM pgvector)\n"
                             f"* **Department / Clearance:** `{res['department']}` / `{res['access_level']}`\n"
-                            + (f"* **Graph Triples:** `{res['graph_stats'].get('relationships_inserted', 0)}` relationships\n" if extract_graph else "")
+                            + (f"* **Graph Triples Extracted:** `{graph_stats.get('relationships_inserted', 0)}` relationships (`{graph_stats.get('entities_upserted', 0)}` entities)\n" if extract_graph else "")
                         )
+                        if graph_stats.get("error"):
+                            st.warning(f"⚠️ **Knowledge Graph Notice:** {graph_stats['error']}")
                     except Exception as ex:
                         st.error(f"Ingestion failed: {ex}")
