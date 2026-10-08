@@ -1,0 +1,5150 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-07T17:55:18Z",
+    "total_questions": 12,
+    "candidate_k": 25,
+    "top_k": 8,
+    "enable_llm": false,
+    "temperature": 0.0
+  },
+  "summary": {
+    "overall_verdicts": {
+      "hybrid_won": 1,
+      "vector_won": 0,
+      "tie": 11
+    },
+    "retrieval": {
+      "vector_only": {
+        "recall@1": 0.2917,
+        "recall@3": 0.5139,
+        "recall@5": 0.5139,
+        "hit_rate@3": 0.6667,
+        "mrr": 0.5833
+      },
+      "hybrid": {
+        "recall@1": 0.2917,
+        "recall@3": 0.5139,
+        "recall@5": 0.5139,
+        "hit_rate@3": 0.6667,
+        "mrr": 0.5833
+      }
+    },
+    "graph_specific": {
+      "seed_hit_rate": 0.9167,
+      "relationship_retrieval_rate": 0.625,
+      "graph_provenance_coverage": 0.4722,
+      "graph_vector_overlap_rate": 0.1791,
+      "total_unique_relevant_chunks_added": 1
+    },
+    "generation": {
+      "vector_only": {
+        "citation_correctness": 0.1667,
+        "citation_completeness": 0.1667,
+        "answer_correctness": 0.25,
+        "groundedness": 0.8333
+      },
+      "hybrid": {
+        "citation_correctness": 0.1667,
+        "citation_completeness": 0.1667,
+        "answer_correctness": 0.25,
+        "groundedness": 0.8333
+      }
+    },
+    "latency": {
+      "vector_retrieval_avg_ms": 516.25,
+      "vector_total_avg_ms": 516.25,
+      "hybrid_retrieval_avg_ms": 730.3333,
+      "hybrid_total_avg_ms": 730.3333,
+      "retrieval_overhead_avg_ms": 214.0833
+    },
+    "category_breakdown": {
+      "comparison": {
+        "count": 2,
+        "vector_recall@3": 0.6667,
+        "hybrid_recall@3": 0.6667,
+        "vector_hit@3": 1.0,
+        "hybrid_hit@3": 1.0,
+        "vector_mrr": 0.75,
+        "hybrid_mrr": 0.75,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 2
+        }
+      },
+      "direct_factual": {
+        "count": 2,
+        "vector_recall@3": 1.0,
+        "hybrid_recall@3": 1.0,
+        "vector_hit@3": 1.0,
+        "hybrid_hit@3": 1.0,
+        "vector_mrr": 1.0,
+        "hybrid_mrr": 1.0,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 2
+        }
+      },
+      "entity_relationship": {
+        "count": 3,
+        "vector_recall@3": 0.5,
+        "hybrid_recall@3": 0.5,
+        "vector_hit@3": 0.6667,
+        "hybrid_hit@3": 0.6667,
+        "vector_mrr": 0.5,
+        "hybrid_mrr": 0.5,
+        "unique_relevant_graph_chunks": 1,
+        "verdicts": {
+          "hybrid_won": 1,
+          "vector_won": 0,
+          "tie": 2
+        }
+      },
+      "multi_hop_relationship": {
+        "count": 3,
+        "vector_recall@3": 0.4444,
+        "hybrid_recall@3": 0.4444,
+        "vector_hit@3": 0.6667,
+        "hybrid_hit@3": 0.6667,
+        "vector_mrr": 0.6667,
+        "hybrid_mrr": 0.6667,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 3
+        }
+      },
+      "no_evidence": {
+        "count": 2,
+        "vector_recall@3": 0.0,
+        "hybrid_recall@3": 0.0,
+        "vector_hit@3": 0.0,
+        "hybrid_hit@3": 0.0,
+        "vector_mrr": 0.0,
+        "hybrid_mrr": 0.0,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 2
+        }
+      }
+    }
+  },
+  "traces": [
+    {
+      "question_id": "CP-01",
+      "question": "What dataset combination was used in this study, and how many total CT and PET/CT images were analyzed after preprocessing?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53165
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53165,
+          53163,
+          53164,
+          53191,
+          53178,
+          53148,
+          53161,
+          53204,
+          53202,
+          53192,
+          53193,
+          53175,
+          53149,
+          53170,
+          53144,
+          53211,
+          53210,
+          53270,
+          53257,
+          53184,
+          53176,
+          53138,
+          53197,
+          53258,
+          53199
+        ],
+        "retrieved_chunk_ids": [
+          53165,
+          53163,
+          53164,
+          53138,
+          53191,
+          53149,
+          53148,
+          53178
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 592,
+          "generation_ms": 0,
+          "total_ms": 592
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53165,
+          53163,
+          53164,
+          53191,
+          53178,
+          53148,
+          53161,
+          53204,
+          53202,
+          53192,
+          53193,
+          53175,
+          53149,
+          53170,
+          53144,
+          53211,
+          53210,
+          53270,
+          53257,
+          53184,
+          53176,
+          53138,
+          53197,
+          53258,
+          53199
+        ],
+        "graph_candidate_chunk_ids": [
+          53147,
+          53148,
+          53149,
+          53153,
+          53178,
+          53204
+        ],
+        "fused_candidate_chunk_ids": [
+          53165,
+          53163,
+          53164,
+          53191,
+          53178,
+          53148,
+          53161,
+          53204,
+          53202,
+          53192,
+          53193,
+          53175,
+          53149,
+          53170,
+          53144,
+          53211,
+          53210,
+          53270,
+          53257,
+          53184,
+          53176,
+          53138,
+          53197,
+          53258,
+          53199,
+          53147,
+          53153
+        ],
+        "retrieved_chunk_ids": [
+          53165,
+          53163,
+          53164,
+          53138,
+          53191,
+          53149,
+          53148,
+          53178
+        ],
+        "graph_relationships": [
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "PET/CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "Li, P.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, S.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Li, T.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Lu, J.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "HuangFu, Y.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, D.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.14814814814814814,
+          "graph_overlap_count": 4,
+          "unique_graph_chunks_count": 2,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 24.13,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 632,
+          "generation_ms": 0,
+          "total_ms": 632
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 40
+    },
+    {
+      "question_id": "CP-02",
+      "question": "What are the overall detection accuracies of the three-stage pipeline compared to standalone YOLOv11?",
+      "category": "comparison",
+      "expected_source_chunks": [
+        53138,
+        53139,
+        53173
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.67) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53158,
+          53183,
+          53138,
+          53139,
+          53159,
+          53192,
+          53173,
+          53182,
+          53160,
+          53149,
+          53172,
+          53193,
+          53169,
+          53174,
+          53151,
+          53166,
+          53171,
+          53167,
+          53137,
+          53162,
+          53188,
+          52973,
+          53191,
+          53184,
+          53170
+        ],
+        "retrieved_chunk_ids": [
+          53139,
+          53138,
+          53159,
+          53192,
+          53183,
+          53173,
+          53158,
+          53182
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 475,
+          "generation_ms": 0,
+          "total_ms": 475
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53158,
+          53183,
+          53138,
+          53139,
+          53159,
+          53192,
+          53173,
+          53182,
+          53160,
+          53149,
+          53172,
+          53193,
+          53169,
+          53174,
+          53151,
+          53166,
+          53171,
+          53167,
+          53137,
+          53162,
+          53188,
+          52973,
+          53191,
+          53184,
+          53170
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53148,
+          53149,
+          53151,
+          53152,
+          53159,
+          53160,
+          53170,
+          53172,
+          53173,
+          53174,
+          53181,
+          53182,
+          53183,
+          53185,
+          53186,
+          53187,
+          53188,
+          53191,
+          53196,
+          53201,
+          53203,
+          53204,
+          53205
+        ],
+        "fused_candidate_chunk_ids": [
+          53158,
+          53183,
+          53138,
+          53139,
+          53159,
+          53192,
+          53173,
+          53182,
+          53160,
+          53149,
+          53172,
+          53193,
+          53169,
+          53174,
+          53151,
+          53166,
+          53171,
+          53167,
+          53137,
+          53162,
+          53188,
+          52973,
+          53191,
+          53184,
+          53170,
+          53148,
+          53152,
+          53181,
+          53185,
+          53186,
+          53187,
+          53196,
+          53201,
+          53203,
+          53204,
+          53205
+        ],
+        "retrieved_chunk_ids": [
+          53139,
+          53138,
+          53159,
+          53192,
+          53183,
+          53173,
+          53158,
+          53182
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "SPPF",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "C2PSA",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Spatial Pyramid Pooling Fast",
+            "chunk_id": 53152
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Cross Stage Partial with Spatial Attention",
+            "chunk_id": 53152
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53160
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53173
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53173
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53181
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53182
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "FPs",
+            "chunk_id": 53182
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "precision",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "accuracy",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "recall",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53185
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "AP",
+            "chunk_id": 53186
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "SUPPORTS",
+            "type": "SUPPORTS",
+            "target": "YOLOv11",
+            "chunk_id": 53187
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "SUPPORTS",
+            "type": "SUPPORTS",
+            "target": "YOLOv11",
+            "chunk_id": 53188
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "YOLOv11",
+            "chunk_id": 53191
+          },
+          {
+            "source": "Yolov11",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "M.A.R. Alif",
+            "chunk_id": 53196
+          },
+          {
+            "source": "Ia-ciou: An improved iou bounding box loss function for sar ship target detection methods",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Huang, P.",
+            "chunk_id": 53201
+          },
+          {
+            "source": "R. Khanam",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53203
+          },
+          {
+            "source": "M. Hussain",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53203
+          },
+          {
+            "source": "LaLonde, R.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Khosravan, N.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Bagci, U.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Z. Liu",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "L. Wei",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "T. Song",
+            "chunk_id": 53205
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 0.3333333333333333,
+          "graph_vector_overlap_rate": 0.3611111111111111,
+          "graph_overlap_count": 13,
+          "unique_graph_chunks_count": 11,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 20.44,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 877,
+          "generation_ms": 0,
+          "total_ms": 877
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 402
+    },
+    {
+      "question_id": "CP-03",
+      "question": "Which company developed YOLOv11 and what previous architecture does it improve upon?",
+      "category": "entity_relationship",
+      "expected_source_chunks": [
+        53151,
+        53160
+      ],
+      "verdict": "hybrid_won",
+      "analysis": "Hybrid advantage: Recall@3=0.50 (vs 0.50), Recall@5=0.50 (vs 0.50), MRR=1.00 (vs 1.00), Unique relevant graph chunks=1.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53151,
+          53183,
+          53182,
+          53166,
+          53158,
+          53187,
+          53192,
+          53170,
+          53149,
+          53171,
+          53194,
+          53174,
+          53146,
+          53173,
+          53159,
+          53180,
+          53169,
+          53167,
+          52974,
+          53172,
+          53152,
+          53280,
+          53181,
+          53155,
+          53247
+        ],
+        "retrieved_chunk_ids": [
+          53151,
+          53183,
+          53187,
+          53194,
+          53192,
+          53182,
+          53174,
+          53152
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.5,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.5,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 560,
+          "generation_ms": 0,
+          "total_ms": 560
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53151,
+          53183,
+          53182,
+          53166,
+          53158,
+          53187,
+          53192,
+          53170,
+          53149,
+          53171,
+          53194,
+          53174,
+          53146,
+          53173,
+          53159,
+          53180,
+          53169,
+          53167,
+          52974,
+          53172,
+          53152,
+          53280,
+          53181,
+          53155,
+          53247
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53148,
+          53149,
+          53151,
+          53152,
+          53159,
+          53160,
+          53170,
+          53172,
+          53173,
+          53174,
+          53181,
+          53182,
+          53183,
+          53185,
+          53186,
+          53187,
+          53188,
+          53191,
+          53196,
+          53201,
+          53203,
+          53205
+        ],
+        "fused_candidate_chunk_ids": [
+          53151,
+          53183,
+          53182,
+          53166,
+          53158,
+          53187,
+          53192,
+          53170,
+          53149,
+          53171,
+          53194,
+          53174,
+          53146,
+          53173,
+          53159,
+          53180,
+          53169,
+          53167,
+          52974,
+          53172,
+          53152,
+          53280,
+          53181,
+          53155,
+          53247,
+          53137,
+          53148,
+          53160,
+          53185,
+          53186,
+          53188,
+          53191,
+          53196,
+          53201,
+          53203,
+          53205
+        ],
+        "retrieved_chunk_ids": [
+          53151,
+          53203,
+          53183,
+          53187,
+          53194,
+          53192,
+          53182,
+          53174
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "SPPF",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "C2PSA",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Spatial Pyramid Pooling Fast",
+            "chunk_id": 53152
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Cross Stage Partial with Spatial Attention",
+            "chunk_id": 53152
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53160
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53173
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53173
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53174
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53181
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53182
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "FPs",
+            "chunk_id": 53182
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "precision",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "accuracy",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "recall",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53185
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "AP",
+            "chunk_id": 53186
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "SUPPORTS",
+            "type": "SUPPORTS",
+            "target": "YOLOv11",
+            "chunk_id": 53187
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "SUPPORTS",
+            "type": "SUPPORTS",
+            "target": "YOLOv11",
+            "chunk_id": 53188
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "YOLOv11",
+            "chunk_id": 53191
+          },
+          {
+            "source": "Yolov11",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "M.A.R. Alif",
+            "chunk_id": 53196
+          },
+          {
+            "source": "Ia-ciou: An improved iou bounding box loss function for sar ship target detection methods",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Huang, P.",
+            "chunk_id": 53201
+          },
+          {
+            "source": "R. Khanam",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53203
+          },
+          {
+            "source": "M. Hussain",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53203
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Z. Liu",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "L. Wei",
+            "chunk_id": 53205
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.5,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.5,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.3333333333333333,
+          "graph_overlap_count": 12,
+          "unique_graph_chunks_count": 11,
+          "unique_relevant_graph_chunks_count": 1,
+          "unique_relevant_chunk_ids": [
+            53160
+          ]
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 23.95,
+          "fusion_ms": 0.07,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 925,
+          "generation_ms": 0,
+          "total_ms": 925
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 365
+    },
+    {
+      "question_id": "CP-04",
+      "question": "Who originally addressed the loss of spatial hierarchies in pooling operations by introducing CapsNet?",
+      "category": "entity_relationship",
+      "expected_source_chunks": [
+        53146,
+        53153
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (0.50).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53146,
+          53153,
+          53152,
+          53155,
+          53137,
+          53154,
+          53151,
+          53194,
+          53268,
+          53169,
+          53148,
+          53178,
+          53255,
+          53185,
+          53166,
+          53145,
+          53177,
+          53139,
+          53149,
+          53179,
+          53147,
+          53165,
+          53187,
+          53279,
+          53236
+        ],
+        "retrieved_chunk_ids": [
+          53152,
+          53146,
+          53153,
+          53137,
+          53139,
+          53155,
+          53194,
+          53179
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 440,
+          "generation_ms": 0,
+          "total_ms": 440
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53146,
+          53153,
+          53152,
+          53155,
+          53137,
+          53154,
+          53151,
+          53194,
+          53268,
+          53169,
+          53148,
+          53178,
+          53255,
+          53185,
+          53166,
+          53145,
+          53177,
+          53139,
+          53149,
+          53179,
+          53147,
+          53165,
+          53187,
+          53279,
+          53236
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53138,
+          53146,
+          53147,
+          53148,
+          53149,
+          53150,
+          53151,
+          53152,
+          53153,
+          53154,
+          53155,
+          53159,
+          53165,
+          53167,
+          53178,
+          53179,
+          53180,
+          53181,
+          53183,
+          53185,
+          53189,
+          53191,
+          53193
+        ],
+        "fused_candidate_chunk_ids": [
+          53146,
+          53153,
+          53152,
+          53155,
+          53137,
+          53154,
+          53151,
+          53194,
+          53268,
+          53169,
+          53148,
+          53178,
+          53255,
+          53185,
+          53166,
+          53145,
+          53177,
+          53139,
+          53149,
+          53179,
+          53147,
+          53165,
+          53187,
+          53279,
+          53236,
+          53138,
+          53150,
+          53159,
+          53167,
+          53180,
+          53181,
+          53183,
+          53189,
+          53191,
+          53193
+        ],
+        "retrieved_chunk_ids": [
+          53152,
+          53146,
+          53153,
+          53137,
+          53193,
+          53139,
+          53155,
+          53194
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Capsule Network",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53146
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53152
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "convolution layer",
+            "chunk_id": 53154
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "PrimaryCaps",
+            "chunk_id": 53154
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53154
+          },
+          {
+            "source": "PrimaryCaps",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53155
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "CapsNet",
+            "chunk_id": 53159
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "Lung-PET-CT-Dx dataset",
+            "chunk_id": 53165
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "PET/CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53178
+          },
+          {
+            "source": "YOLO",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53179
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "ROI",
+            "chunk_id": 53180
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53181
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53185
+          },
+          {
+            "source": "patch-based inputs",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "CapsNet",
+            "chunk_id": 53189
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CapsNet",
+            "chunk_id": 53191
+          },
+          {
+            "source": "NVIDIA GeForce RTX 3070 GPU",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CapsNet",
+            "chunk_id": 53193
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "You Only Look Once",
+            "chunk_id": 53137
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Cropped Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "YOLO",
+            "relationship_type": "OCCURRED_ON",
+            "type": "OCCURRED_ON",
+            "target": "2016",
+            "chunk_id": 53150
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neuron",
+            "chunk_id": 53153
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53159
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53167
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.4,
+          "graph_overlap_count": 14,
+          "unique_graph_chunks_count": 10,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 20.39,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 691,
+          "generation_ms": 0,
+          "total_ms": 691
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 251
+    },
+    {
+      "question_id": "CP-05",
+      "question": "Which histological tumor subtype showed the highest percentage increase in its share among False Negatives compared to its original representation in the test dataset, and what specific architectural limitation of the pipeline is hypothesized to cause this discrepancy?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53175,
+        53176,
+        53139
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53175,
+          53176,
+          53139,
+          53185,
+          53165,
+          53180,
+          53161,
+          53164,
+          53186,
+          53188,
+          52974,
+          53147,
+          53163,
+          53170,
+          53140,
+          53271,
+          53206,
+          52973,
+          53144,
+          53138,
+          53208,
+          53238,
+          53143,
+          53158,
+          53198
+        ],
+        "retrieved_chunk_ids": [
+          53139,
+          53175,
+          53176,
+          53138,
+          53180,
+          53186,
+          53164,
+          53170
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 594,
+          "generation_ms": 0,
+          "total_ms": 594
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53175,
+          53176,
+          53139,
+          53185,
+          53165,
+          53180,
+          53161,
+          53164,
+          53186,
+          53188,
+          52974,
+          53147,
+          53163,
+          53170,
+          53140,
+          53271,
+          53206,
+          52973,
+          53144,
+          53138,
+          53208,
+          53238,
+          53143,
+          53158,
+          53198
+        ],
+        "graph_candidate_chunk_ids": [
+          53176
+        ],
+        "fused_candidate_chunk_ids": [
+          53175,
+          53176,
+          53139,
+          53185,
+          53165,
+          53180,
+          53161,
+          53164,
+          53186,
+          53188,
+          52974,
+          53147,
+          53163,
+          53170,
+          53140,
+          53271,
+          53206,
+          52973,
+          53144,
+          53138,
+          53208,
+          53238,
+          53143,
+          53158,
+          53198
+        ],
+        "retrieved_chunk_ids": [
+          53139,
+          53175,
+          53176,
+          53138,
+          53180,
+          53186,
+          53164,
+          53170
+        ],
+        "graph_relationships": [
+          {
+            "source": "proposed model",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "test dataset",
+            "chunk_id": 53176
+          },
+          {
+            "source": "proposed model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "FN",
+            "chunk_id": 53176
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.5,
+          "graph_provenance_coverage": 0.3333333333333333,
+          "graph_vector_overlap_rate": 0.04,
+          "graph_overlap_count": 1,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 21.52,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 618,
+          "generation_ms": 0,
+          "total_ms": 618
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 24
+    },
+    {
+      "question_id": "CP-06",
+      "question": "What imaging modalities does CapsNet utilize and evaluate in the lung cancer classification pipeline?",
+      "category": "entity_relationship",
+      "expected_source_chunks": [
+        53178,
+        53165
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.00) and MRR (0.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53206,
+          53138,
+          53165,
+          53209,
+          53188,
+          53147,
+          53195,
+          53137,
+          53158,
+          53161,
+          53182,
+          53178,
+          53139,
+          53184,
+          52973,
+          53208,
+          53144,
+          53205,
+          53140,
+          53166,
+          53192,
+          53191,
+          53148,
+          53207,
+          53194
+        ],
+        "retrieved_chunk_ids": [
+          53138,
+          53139,
+          53158,
+          53137,
+          53209,
+          53148,
+          53195,
+          53147
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 557,
+          "generation_ms": 0,
+          "total_ms": 557
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53206,
+          53138,
+          53165,
+          53209,
+          53188,
+          53147,
+          53195,
+          53137,
+          53158,
+          53161,
+          53182,
+          53178,
+          53139,
+          53184,
+          52973,
+          53208,
+          53144,
+          53205,
+          53140,
+          53166,
+          53192,
+          53191,
+          53148,
+          53207,
+          53194
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53138,
+          53143,
+          53146,
+          53147,
+          53148,
+          53149,
+          53150,
+          53151,
+          53152,
+          53153,
+          53154,
+          53155,
+          53159,
+          53165,
+          53167,
+          53170,
+          53178,
+          53179,
+          53180,
+          53181,
+          53183,
+          53185,
+          53189,
+          53191,
+          53193,
+          53200,
+          53204,
+          53286
+        ],
+        "fused_candidate_chunk_ids": [
+          53206,
+          53138,
+          53165,
+          53209,
+          53188,
+          53147,
+          53195,
+          53137,
+          53158,
+          53161,
+          53182,
+          53178,
+          53139,
+          53184,
+          52973,
+          53208,
+          53144,
+          53205,
+          53140,
+          53166,
+          53192,
+          53191,
+          53148,
+          53207,
+          53194,
+          53143,
+          53146,
+          53149,
+          53150,
+          53151,
+          53152,
+          53153,
+          53154,
+          53155,
+          53159,
+          53167,
+          53170,
+          53179,
+          53180,
+          53181,
+          53183,
+          53185,
+          53189,
+          53193,
+          53200,
+          53204,
+          53286
+        ],
+        "retrieved_chunk_ids": [
+          53138,
+          53139,
+          53158,
+          53159,
+          53137,
+          53209,
+          53148,
+          53195
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Capsule Network",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Cropped Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "CT scan",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Lung cancer",
+            "chunk_id": 53143
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53146
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53152
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "convolution layer",
+            "chunk_id": 53154
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "PrimaryCaps",
+            "chunk_id": 53154
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53154
+          },
+          {
+            "source": "PrimaryCaps",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53155
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "CapsNet",
+            "chunk_id": 53159
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "Lung-PET-CT-Dx dataset",
+            "chunk_id": 53165
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53170
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "PET/CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53178
+          },
+          {
+            "source": "YOLO",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53179
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "ROI",
+            "chunk_id": 53180
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53181
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "CapsNet",
+            "chunk_id": 53183
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53185
+          },
+          {
+            "source": "patch-based inputs",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "CapsNet",
+            "chunk_id": 53189
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CapsNet",
+            "chunk_id": 53191
+          },
+          {
+            "source": "NVIDIA GeForce RTX 3070 GPU",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CapsNet",
+            "chunk_id": 53193
+          },
+          {
+            "source": "Motor imagery eeg classification using capsule networks",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Ha, K.W.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Motor imagery eeg classification using capsule networks",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Jeong, J.W.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Li, P.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, S.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Li, T.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Lu, J.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "HuangFu, Y.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, D.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "You Only Look Once",
+            "chunk_id": 53137
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "YOLO",
+            "relationship_type": "OCCURRED_ON",
+            "type": "OCCURRED_ON",
+            "target": "2016",
+            "chunk_id": 53150
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neuron",
+            "chunk_id": 53153
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53159
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53167
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.14893617021276595,
+          "graph_overlap_count": 7,
+          "unique_graph_chunks_count": 22,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 26.81,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 1084,
+          "generation_ms": 0,
+          "total_ms": 1084
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 527
+    },
+    {
+      "question_id": "CP-07",
+      "question": "What resolution are the cropped candidate nodules scaled to before being passed to the second-stage CapsNet?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53161
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53160,
+          53161,
+          53189,
+          53184,
+          53159,
+          53188,
+          53162,
+          53195,
+          53191,
+          53166,
+          53149,
+          53170,
+          53178,
+          53182,
+          53192,
+          52973,
+          53169,
+          53150,
+          53167,
+          53186,
+          53138,
+          53193,
+          53185,
+          53155,
+          53156
+        ],
+        "retrieved_chunk_ids": [
+          53161,
+          53160,
+          53189,
+          53159,
+          53162,
+          53138,
+          53192,
+          53191
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 408,
+          "generation_ms": 0,
+          "total_ms": 408
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53160,
+          53161,
+          53189,
+          53184,
+          53159,
+          53188,
+          53162,
+          53195,
+          53191,
+          53166,
+          53149,
+          53170,
+          53178,
+          53182,
+          53192,
+          52973,
+          53169,
+          53150,
+          53167,
+          53186,
+          53138,
+          53193,
+          53185,
+          53155,
+          53156
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53138,
+          53146,
+          53147,
+          53148,
+          53149,
+          53152,
+          53153,
+          53154,
+          53155,
+          53159,
+          53165,
+          53167,
+          53168,
+          53169,
+          53170,
+          53172,
+          53173,
+          53178
+        ],
+        "fused_candidate_chunk_ids": [
+          53160,
+          53161,
+          53189,
+          53184,
+          53159,
+          53188,
+          53162,
+          53195,
+          53191,
+          53166,
+          53149,
+          53170,
+          53178,
+          53182,
+          53192,
+          52973,
+          53169,
+          53150,
+          53167,
+          53186,
+          53138,
+          53193,
+          53185,
+          53155,
+          53156,
+          53137,
+          53146,
+          53147,
+          53148,
+          53152,
+          53153,
+          53154,
+          53165,
+          53168,
+          53172,
+          53173
+        ],
+        "retrieved_chunk_ids": [
+          53161,
+          53160,
+          53189,
+          53159,
+          53162,
+          53138,
+          53192,
+          53191
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Capsule Network",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Full Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Cropped Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53146
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53152
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "convolution layer",
+            "chunk_id": 53154
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "PrimaryCaps",
+            "chunk_id": 53154
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53154
+          },
+          {
+            "source": "PrimaryCaps",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53155
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "CapsNet",
+            "chunk_id": 53159
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "Lung-PET-CT-Dx dataset",
+            "chunk_id": 53165
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53169
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53170
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53170
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53173
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "PET/CT",
+            "chunk_id": 53178
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.2222222222222222,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 11,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 21.33,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 662,
+          "generation_ms": 0,
+          "total_ms": 662
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 254
+    },
+    {
+      "question_id": "CP-08",
+      "question": "Which institutions are the authors affiliated with in this research paper and where are they located?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53136
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53156,
+          53153,
+          53246,
+          53142,
+          53177,
+          53249,
+          52976,
+          53185,
+          53278,
+          53149,
+          53269,
+          53145,
+          53157,
+          53164,
+          52975,
+          53271,
+          52980,
+          53175,
+          52973,
+          53287,
+          53140,
+          53202,
+          53152,
+          53267,
+          53162
+        ],
+        "retrieved_chunk_ids": [
+          53142,
+          53177,
+          53140,
+          53278,
+          53271,
+          53185,
+          53175,
+          53267
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 508,
+          "generation_ms": 0,
+          "total_ms": 508
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53156,
+          53153,
+          53246,
+          53142,
+          53177,
+          53249,
+          52976,
+          53185,
+          53278,
+          53149,
+          53269,
+          53145,
+          53157,
+          53164,
+          52975,
+          53271,
+          52980,
+          53175,
+          52973,
+          53287,
+          53140,
+          53202,
+          53152,
+          53267,
+          53162
+        ],
+        "graph_candidate_chunk_ids": [],
+        "fused_candidate_chunk_ids": [
+          53156,
+          53153,
+          53246,
+          53142,
+          53177,
+          53249,
+          52976,
+          53185,
+          53278,
+          53149,
+          53269,
+          53145,
+          53157,
+          53164,
+          52975,
+          53271,
+          52980,
+          53175,
+          52973,
+          53287,
+          53140,
+          53202,
+          53152,
+          53267,
+          53162
+        ],
+        "retrieved_chunk_ids": [
+          53142,
+          53177,
+          53140,
+          53278,
+          53271,
+          53185,
+          53175,
+          53267
+        ],
+        "graph_relationships": [],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.0,
+          "graph_overlap_count": 0,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 15.3,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 533,
+          "generation_ms": 0,
+          "total_ms": 533
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 25
+    },
+    {
+      "question_id": "CP-09",
+      "question": "How does Cropped Image CapsNet compare with Full Image CapsNet across accuracy and precision metrics?",
+      "category": "comparison",
+      "expected_source_chunks": [
+        53167,
+        53168,
+        53170
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.67) and MRR (0.50).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53169,
+          53168,
+          53167,
+          53172,
+          53138,
+          53178,
+          53181,
+          53187,
+          53182,
+          53170,
+          53166,
+          53149,
+          53192,
+          53184,
+          53183,
+          53161,
+          53171,
+          53186,
+          53191,
+          53185,
+          53173,
+          53154
+        ],
+        "retrieved_chunk_ids": [
+          53169,
+          53167,
+          53168,
+          53178,
+          53172,
+          53138,
+          53181,
+          53182
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.6666666666666666,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 451,
+          "generation_ms": 0,
+          "total_ms": 451
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53169,
+          53168,
+          53167,
+          53172,
+          53138,
+          53178,
+          53181,
+          53187,
+          53182,
+          53170,
+          53166,
+          53149,
+          53192,
+          53184,
+          53183,
+          53161,
+          53171,
+          53186,
+          53191,
+          53185,
+          53173,
+          53154
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53138,
+          53146,
+          53147,
+          53148,
+          53149,
+          53152,
+          53153,
+          53154,
+          53155,
+          53159,
+          53165,
+          53167,
+          53168,
+          53169,
+          53170,
+          53172,
+          53173,
+          53174,
+          53178
+        ],
+        "fused_candidate_chunk_ids": [
+          53169,
+          53168,
+          53167,
+          53172,
+          53138,
+          53178,
+          53181,
+          53187,
+          53182,
+          53170,
+          53166,
+          53149,
+          53192,
+          53184,
+          53183,
+          53161,
+          53171,
+          53186,
+          53191,
+          53185,
+          53173,
+          53154,
+          53137,
+          53146,
+          53147,
+          53148,
+          53152,
+          53153,
+          53155,
+          53159,
+          53165,
+          53174
+        ],
+        "retrieved_chunk_ids": [
+          53169,
+          53167,
+          53168,
+          53178,
+          53172,
+          53138,
+          53181,
+          53182
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Capsule Network",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Full Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Cropped Image CapsNet classifier",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53138
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53146
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53152
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "convolution layer",
+            "chunk_id": 53154
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "PrimaryCaps",
+            "chunk_id": 53154
+          },
+          {
+            "source": "capsule",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53154
+          },
+          {
+            "source": "PrimaryCaps",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "CapsNet",
+            "chunk_id": 53155
+          },
+          {
+            "source": "YOLO-CapsNet Hybrid Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "CapsNet",
+            "chunk_id": 53159
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "EVALUATED_ON",
+            "type": "EVALUATED_ON",
+            "target": "Lung-PET-CT-Dx dataset",
+            "chunk_id": 53165
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53167
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Full Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53168
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Full Image CapsNet",
+            "chunk_id": 53169
+          },
+          {
+            "source": "YOLOv11 + Cropped Image CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53170
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Recall",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "F1-Score",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11+Cropped Image CapsNet",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53172
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Precision",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Cropped Image CapsNet",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "YOLOv11",
+            "chunk_id": 53172
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Cropped Image CapsNet",
+            "chunk_id": 53173
+          },
+          {
+            "source": "Proposed Model",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53173
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "Accuracy",
+            "chunk_id": 53174
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CT",
+            "chunk_id": 53178
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "PET/CT",
+            "chunk_id": 53178
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.6666666666666666,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.3125,
+          "graph_overlap_count": 10,
+          "unique_graph_chunks_count": 10,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 20.53,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 654,
+          "generation_ms": 0,
+          "total_ms": 654
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 203
+    },
+    {
+      "question_id": "CP-10",
+      "question": "What is the three-stage detection pipeline sequence described from initial input to final diagnosis?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53138,
+        53160,
+        53161
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53158,
+          53138,
+          53160,
+          53139,
+          53137,
+          53191,
+          53162,
+          53161,
+          53195,
+          52978,
+          52973,
+          53159,
+          53136,
+          53237,
+          53150,
+          53239,
+          53183,
+          53199,
+          53148,
+          53188,
+          53242,
+          53140,
+          53193,
+          53247,
+          53192
+        ],
+        "retrieved_chunk_ids": [
+          53138,
+          53158,
+          53159,
+          53139,
+          53137,
+          53191,
+          53193,
+          53162
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.3333333333333333,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.3333333333333333,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 485,
+          "generation_ms": 0,
+          "total_ms": 485
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53158,
+          53138,
+          53160,
+          53139,
+          53137,
+          53191,
+          53162,
+          53161,
+          53195,
+          52978,
+          52973,
+          53159,
+          53136,
+          53237,
+          53150,
+          53239,
+          53183,
+          53199,
+          53148,
+          53188,
+          53242,
+          53140,
+          53193,
+          53247,
+          53192
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53144,
+          53146,
+          53147,
+          53148,
+          53149,
+          53151,
+          53152,
+          53153,
+          53154,
+          53184,
+          53191,
+          53201,
+          53204,
+          53205,
+          53211
+        ],
+        "fused_candidate_chunk_ids": [
+          53158,
+          53138,
+          53160,
+          53139,
+          53137,
+          53191,
+          53162,
+          53161,
+          53195,
+          52978,
+          52973,
+          53159,
+          53136,
+          53237,
+          53150,
+          53239,
+          53183,
+          53199,
+          53148,
+          53188,
+          53242,
+          53140,
+          53193,
+          53247,
+          53192,
+          53144,
+          53146,
+          53147,
+          53149,
+          53151,
+          53152,
+          53153,
+          53154,
+          53184,
+          53201,
+          53204,
+          53205,
+          53211
+        ],
+        "retrieved_chunk_ids": [
+          53138,
+          53158,
+          53159,
+          53139,
+          53137,
+          53191,
+          53152,
+          53193
+        ],
+        "graph_relationships": [
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "You Only Look Once",
+            "chunk_id": 53137
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "Capsule Network",
+            "chunk_id": 53137
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "Computer-Aided Diagnosis",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Deep Learning",
+            "chunk_id": 53144
+          },
+          {
+            "source": "DECAPS",
+            "relationship_type": "ACHIEVES",
+            "type": "ACHIEVES",
+            "target": "object detection accuracy",
+            "chunk_id": 53184
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "YOLOv11",
+            "chunk_id": 53191
+          },
+          {
+            "source": "hybrid three-stage model",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "CapsNet",
+            "chunk_id": 53191
+          },
+          {
+            "source": "Ia-ciou: An improved iou bounding box loss function for sar ship target detection methods",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Huang, P.",
+            "chunk_id": 53201
+          },
+          {
+            "source": "LaLonde, R.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Khosravan, N.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Bagci, U.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Deformable capsules for object detection",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Li, P.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, S.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Li, T.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Lu, J.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "HuangFu, Y.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, D.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Z. Liu",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "L. Wei",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Optimized yolov11 model for lung nodule detection",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "T. Song",
+            "chunk_id": 53205
+          },
+          {
+            "source": "Capsule dynamic network-based object detection algorithm",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "2019 IEEE Symposium Series on Computational Intelligence (SSCI",
+            "chunk_id": 53211
+          },
+          {
+            "source": "Convolutional Neural Networks",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Deep Learning",
+            "chunk_id": 53144
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53146
+          },
+          {
+            "source": "DeformCaps",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53147
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Capsule Network",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53152
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "PROPOSED_BY",
+            "type": "PROPOSED_BY",
+            "target": "Sabour et al.",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "capsule layers",
+            "chunk_id": 53153
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "convolution layer",
+            "chunk_id": 53154
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.3333333333333333,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.3333333333333333,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 1.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.07894736842105263,
+          "graph_overlap_count": 3,
+          "unique_graph_chunks_count": 13,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 19.21,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 842,
+          "generation_ms": 0,
+          "total_ms": 842
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 357
+    },
+    {
+      "question_id": "CP-11",
+      "question": "What is the quantum error correction threshold of the superconducting qubit array discussed in this paper?",
+      "category": "no_evidence",
+      "expected_source_chunks": [],
+      "verdict": "tie",
+      "analysis": "Negative control: both systems correctly handled absence of evidence.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53185,
+          53258,
+          53177,
+          52974,
+          53142,
+          52973,
+          53260,
+          53182,
+          53259,
+          53156,
+          53264,
+          53150,
+          53210,
+          53155,
+          53273,
+          53172,
+          53249,
+          53208,
+          53149,
+          53140,
+          53178,
+          53263,
+          53237,
+          53174,
+          53188
+        ],
+        "retrieved_chunk_ids": [
+          53142,
+          53177,
+          53174,
+          53263,
+          53210,
+          53185,
+          53172,
+          53156
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 1.0,
+          "citation_completeness": 1.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 0.0,
+          "groundedness_score": 0.0,
+          "answer_correctness": 0.0
+        },
+        "timing": {
+          "retrieval_ms": 607,
+          "generation_ms": 0,
+          "total_ms": 607
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53185,
+          53258,
+          53177,
+          52974,
+          53142,
+          52973,
+          53260,
+          53182,
+          53259,
+          53156,
+          53264,
+          53150,
+          53210,
+          53155,
+          53273,
+          53172,
+          53249,
+          53208,
+          53149,
+          53140,
+          53178,
+          53263,
+          53237,
+          53174,
+          53188
+        ],
+        "graph_candidate_chunk_ids": [],
+        "fused_candidate_chunk_ids": [
+          53185,
+          53258,
+          53177,
+          52974,
+          53142,
+          52973,
+          53260,
+          53182,
+          53259,
+          53156,
+          53264,
+          53150,
+          53210,
+          53155,
+          53273,
+          53172,
+          53249,
+          53208,
+          53149,
+          53140,
+          53178,
+          53263,
+          53237,
+          53174,
+          53188
+        ],
+        "retrieved_chunk_ids": [
+          53142,
+          53177,
+          53174,
+          53263,
+          53210,
+          53185,
+          53172,
+          53156
+        ],
+        "graph_relationships": [],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 0.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.0,
+          "graph_overlap_count": 0,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 1.0,
+          "citation_completeness": 1.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 0.0,
+          "groundedness_score": 0.0,
+          "answer_correctness": 0.0
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 13.25,
+          "fusion_ms": 0.02,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 647,
+          "generation_ms": 0,
+          "total_ms": 647
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 40
+    },
+    {
+      "question_id": "CP-12",
+      "question": "What was the quarterly revenue growth percentage for Ultralytics in fiscal year 2024?",
+      "category": "no_evidence",
+      "expected_source_chunks": [],
+      "verdict": "tie",
+      "analysis": "Negative control: both systems correctly handled absence of evidence.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53175,
+          53176,
+          53203,
+          53160,
+          53159,
+          52974,
+          53202,
+          53142,
+          53244,
+          53285,
+          53177,
+          53268,
+          53259,
+          53276,
+          53242,
+          53287,
+          53261,
+          52973,
+          53258,
+          53279,
+          52977,
+          53277,
+          53151,
+          53186,
+          53275
+        ],
+        "retrieved_chunk_ids": [
+          53202,
+          53151,
+          53159,
+          53160,
+          53142,
+          53177,
+          53203,
+          53176
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 1.0,
+          "citation_completeness": 1.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 0.0,
+          "groundedness_score": 0.0,
+          "answer_correctness": 0.0
+        },
+        "timing": {
+          "retrieval_ms": 518,
+          "generation_ms": 0,
+          "total_ms": 518
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53175,
+          53176,
+          53203,
+          53160,
+          53159,
+          52974,
+          53202,
+          53142,
+          53244,
+          53285,
+          53177,
+          53268,
+          53259,
+          53276,
+          53242,
+          53287,
+          53261,
+          52973,
+          53258,
+          53279,
+          52977,
+          53277,
+          53151,
+          53186,
+          53275
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53148,
+          53149,
+          53151,
+          53159,
+          53160,
+          53208
+        ],
+        "fused_candidate_chunk_ids": [
+          53175,
+          53176,
+          53203,
+          53160,
+          53159,
+          52974,
+          53202,
+          53142,
+          53244,
+          53285,
+          53177,
+          53268,
+          53259,
+          53276,
+          53242,
+          53287,
+          53261,
+          52973,
+          53258,
+          53279,
+          52977,
+          53277,
+          53151,
+          53186,
+          53275,
+          53137,
+          53148,
+          53149,
+          53208
+        ],
+        "retrieved_chunk_ids": [
+          53202,
+          53151,
+          53159,
+          53160,
+          53142,
+          53177,
+          53203,
+          53208
+        ],
+        "graph_relationships": [
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53159
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53160
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "OCCURRED_ON",
+            "type": "OCCURRED_ON",
+            "target": "2024",
+            "chunk_id": 53208
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "backbone",
+            "chunk_id": 53151
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Su, K.",
+            "chunk_id": 53208
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Cao, L.",
+            "chunk_id": 53208
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Zhao, B.",
+            "chunk_id": 53208
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Li, N.",
+            "chunk_id": 53208
+          },
+          {
+            "source": "N-iou",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Wu, D.",
+            "chunk_id": 53208
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.0,
+          "hit_rate@3": 0.0,
+          "recall@5": 0.0,
+          "hit_rate@5": 0.0,
+          "recall@10": 0.0,
+          "hit_rate@10": 0.0,
+          "mrr": 0.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.10344827586206896,
+          "graph_overlap_count": 3,
+          "unique_graph_chunks_count": 4,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 1.0,
+          "citation_completeness": 1.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 0.0,
+          "groundedness_score": 0.0,
+          "answer_correctness": 0.0
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 16.26,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 599,
+          "generation_ms": 0,
+          "total_ms": 599
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 81
+    }
+  ]
+}

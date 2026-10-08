@@ -687,6 +687,49 @@ def delete_document(document_id: int, conn: Optional[psycopg.Connection] = None)
             conn.close()
 
 
+def update_document_access(
+    document_id: int,
+    department: str,
+    access_level: str,
+    status: str = "active",
+    conn: Optional[psycopg.Connection] = None,
+) -> bool:
+    """
+    Updates a document's department, clearance access_level, and status.
+    Because vector, BM25, and graph retrieval join chunks with documents dynamically,
+    updating this row immediately updates access control across all retrieval channels.
+    """
+    should_close = False
+    if conn is None:
+        conn = get_connection(autocommit=False)
+        should_close = True
+
+    clean_dept = _sanitize_pg_text(department) or "public"
+    clean_lvl = _sanitize_pg_text(access_level) or "public"
+    clean_status = _sanitize_pg_text(status) or "active"
+
+    sql = """
+    UPDATE documents
+    SET department = %s, access_level = %s, status = %s
+    WHERE id = %s
+    RETURNING id;
+    """
+    try:
+        with conn.cursor() as cur:
+            cur.execute(sql, (clean_dept, clean_lvl, clean_status, document_id))
+            updated = cur.fetchone() is not None
+        if not conn.autocommit:
+            conn.commit()
+        return updated
+    except Exception:
+        if not conn.autocommit:
+            conn.rollback()
+        raise
+    finally:
+        if should_close:
+            conn.close()
+
+
 def get_document_chunks(document_id: int, conn: Optional[psycopg.Connection] = None) -> List[Dict[str, Any]]:
     """
     Retrieves all text chunks belonging to a document ordered by chunk_index.

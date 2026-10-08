@@ -83,3 +83,8 @@ data/archived_books/
 data/processed/*.json
 data/raw/*.pdf.bak
 
+# 10. Local Beginners Explainer Guide (Do not upload to GitHub)
+PROJECT_STORY_GUIDE.md
+PROJECT_EXPLAINER.md
+*EXPLAINER*.md
+

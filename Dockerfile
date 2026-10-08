@@ -29,9 +29,11 @@ COPY --chown=appuser:appuser requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r /app/requirements.txt
 
-# Copy application source code, scripts, and processed data
+# Copy application source code, scripts, ui, benchmark, and processed data
 COPY --chown=appuser:appuser app/ /app/app/
+COPY --chown=appuser:appuser ui/ /app/ui/
 COPY --chown=appuser:appuser scripts/ /app/scripts/
+COPY --chown=appuser:appuser benchmark/ /app/benchmark/
 COPY --chown=appuser:appuser data/ /app/data/
 
 # Switch to unprivileged application user

@@ -1,0 +1,2429 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-07T17:55:42Z",
+    "total_questions": 10,
+    "candidate_k": 25,
+    "top_k": 8,
+    "enable_llm": false,
+    "temperature": 0.0
+  },
+  "summary": {
+    "overall_verdicts": {
+      "hybrid_won": 0,
+      "vector_won": 0,
+      "tie": 10
+    },
+    "retrieval": {
+      "vector_only": {
+        "recall@1": 0.55,
+        "recall@3": 0.85,
+        "recall@5": 1.0,
+        "hit_rate@3": 1.0,
+        "mrr": 1.0
+      },
+      "hybrid": {
+        "recall@1": 0.55,
+        "recall@3": 0.85,
+        "recall@5": 1.0,
+        "hit_rate@3": 1.0,
+        "mrr": 1.0
+      }
+    },
+    "graph_specific": {
+      "seed_hit_rate": 1.0,
+      "relationship_retrieval_rate": 0.0,
+      "graph_provenance_coverage": 0.6,
+      "graph_vector_overlap_rate": 0.0591,
+      "total_unique_relevant_chunks_added": 0
+    },
+    "generation": {
+      "vector_only": {
+        "citation_correctness": 0.0,
+        "citation_completeness": 0.0,
+        "answer_correctness": 0.3,
+        "groundedness": 1.0
+      },
+      "hybrid": {
+        "citation_correctness": 0.0,
+        "citation_completeness": 0.0,
+        "answer_correctness": 0.3,
+        "groundedness": 1.0
+      }
+    },
+    "latency": {
+      "vector_retrieval_avg_ms": 511.0,
+      "vector_total_avg_ms": 511.0,
+      "hybrid_retrieval_avg_ms": 527.0,
+      "hybrid_total_avg_ms": 527.0,
+      "retrieval_overhead_avg_ms": 27.3
+    },
+    "category_breakdown": {
+      "multi_hop_relationship": {
+        "count": 10,
+        "vector_recall@3": 0.85,
+        "hybrid_recall@3": 0.85,
+        "vector_hit@3": 1.0,
+        "hybrid_hit@3": 1.0,
+        "vector_mrr": 1.0,
+        "hybrid_mrr": 1.0,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 10
+        }
+      }
+    }
+  },
+  "traces": [
+    {
+      "question_id": "MUSIQUE-01",
+      "question": "Who is the spouse of the Green performer?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53267,
+        53268
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53268,
+          53276,
+          53267,
+          53165,
+          53269,
+          53164,
+          53277,
+          53240,
+          53278,
+          53161,
+          53252,
+          53271,
+          53270,
+          53280,
+          53273,
+          53281,
+          53256,
+          53156,
+          53275,
+          53286,
+          53246,
+          53254,
+          53265,
+          53160,
+          53172
+        ],
+        "retrieved_chunk_ids": [
+          53268,
+          53276,
+          53267,
+          53278,
+          53269,
+          53277,
+          53275,
+          53281
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 545,
+          "generation_ms": 0,
+          "total_ms": 545
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53268,
+          53276,
+          53267,
+          53165,
+          53269,
+          53164,
+          53277,
+          53240,
+          53278,
+          53161,
+          53252,
+          53271,
+          53270,
+          53280,
+          53273,
+          53281,
+          53256,
+          53156,
+          53275,
+          53286,
+          53246,
+          53254,
+          53265,
+          53160,
+          53172
+        ],
+        "graph_candidate_chunk_ids": [
+          53267,
+          53268
+        ],
+        "fused_candidate_chunk_ids": [
+          53268,
+          53276,
+          53267,
+          53165,
+          53269,
+          53164,
+          53277,
+          53240,
+          53278,
+          53161,
+          53252,
+          53271,
+          53270,
+          53280,
+          53273,
+          53281,
+          53256,
+          53156,
+          53275,
+          53286,
+          53246,
+          53254,
+          53265,
+          53160,
+          53172
+        ],
+        "retrieved_chunk_ids": [
+          53268,
+          53276,
+          53267,
+          53278,
+          53269,
+          53277,
+          53275,
+          53281
+        ],
+        "graph_relationships": [
+          {
+            "source": "Green (Steve Hillage album)",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Steve Hillage",
+            "chunk_id": 53268
+          },
+          {
+            "source": "Green (Steve Hillage album)",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Dorking",
+            "chunk_id": 53268
+          },
+          {
+            "source": "Green (Steve Hillage album)",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "London",
+            "chunk_id": 53268
+          },
+          {
+            "source": "Miquette Giraudy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Steve Hillage",
+            "chunk_id": 53267
+          },
+          {
+            "source": "Motivation Radio",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Steve Hillage",
+            "chunk_id": 53268
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.08,
+          "graph_overlap_count": 2,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 10.31,
+          "fusion_ms": 0.02,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 509,
+          "generation_ms": 0,
+          "total_ms": 509
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "MUSIQUE-02",
+      "question": "Who founded the company that distributed the film UHF?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53269,
+        53270
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53270,
+          53269,
+          53273,
+          53280,
+          53267,
+          53154,
+          53252,
+          53276,
+          53164,
+          53279,
+          53142,
+          53203,
+          53177,
+          53165,
+          53272,
+          53145,
+          53178,
+          53268,
+          53192,
+          53180,
+          52980,
+          53241,
+          53286,
+          53188,
+          53140
+        ],
+        "retrieved_chunk_ids": [
+          53270,
+          53269,
+          53177,
+          53142,
+          53279,
+          53276,
+          53268,
+          53280
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 535,
+          "generation_ms": 0,
+          "total_ms": 535
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53270,
+          53269,
+          53273,
+          53280,
+          53267,
+          53154,
+          53252,
+          53276,
+          53164,
+          53279,
+          53142,
+          53203,
+          53177,
+          53165,
+          53272,
+          53145,
+          53178,
+          53268,
+          53192,
+          53180,
+          52980,
+          53241,
+          53286,
+          53188,
+          53140
+        ],
+        "graph_candidate_chunk_ids": [
+          53269,
+          53270
+        ],
+        "fused_candidate_chunk_ids": [
+          53270,
+          53269,
+          53273,
+          53280,
+          53267,
+          53154,
+          53252,
+          53276,
+          53164,
+          53279,
+          53142,
+          53203,
+          53177,
+          53165,
+          53272,
+          53145,
+          53178,
+          53268,
+          53192,
+          53180,
+          52980,
+          53241,
+          53286,
+          53188,
+          53140
+        ],
+        "retrieved_chunk_ids": [
+          53270,
+          53269,
+          53177,
+          53142,
+          53279,
+          53276,
+          53268,
+          53280
+        ],
+        "graph_relationships": [
+          {
+            "source": "UHF",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Yankovic",
+            "chunk_id": 53270
+          },
+          {
+            "source": "UHF",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Levey",
+            "chunk_id": 53270
+          },
+          {
+            "source": "UHF",
+            "relationship_type": "SUPPORTS",
+            "type": "SUPPORTS",
+            "target": "Orion Pictures",
+            "chunk_id": 53270
+          },
+          {
+            "source": "Morris Mike Medavoy",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Orion Pictures",
+            "chunk_id": 53269
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.08,
+          "graph_overlap_count": 2,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 12.69,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 513,
+          "generation_ms": 0,
+          "total_ms": 513
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "MUSIQUE-03",
+      "question": "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53271,
+        53272
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53272,
+          53271,
+          53280,
+          53281,
+          52973,
+          53287,
+          53278,
+          52974,
+          53279,
+          53182,
+          53141,
+          53240,
+          52980,
+          53161,
+          53276,
+          53286,
+          53155,
+          52978,
+          52977,
+          53156,
+          53153,
+          53160,
+          53146,
+          53159,
+          52976
+        ],
+        "retrieved_chunk_ids": [
+          53272,
+          53141,
+          53271,
+          53281,
+          53278,
+          53279,
+          53182,
+          53287
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 435,
+          "generation_ms": 0,
+          "total_ms": 435
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53272,
+          53271,
+          53280,
+          53281,
+          52973,
+          53287,
+          53278,
+          52974,
+          53279,
+          53182,
+          53141,
+          53240,
+          52980,
+          53161,
+          53276,
+          53286,
+          53155,
+          52978,
+          52977,
+          53156,
+          53153,
+          53160,
+          53146,
+          53159,
+          52976
+        ],
+        "graph_candidate_chunk_ids": [
+          53272
+        ],
+        "fused_candidate_chunk_ids": [
+          53272,
+          53271,
+          53280,
+          53281,
+          52973,
+          53287,
+          53278,
+          52974,
+          53279,
+          53182,
+          53141,
+          53240,
+          52980,
+          53161,
+          53276,
+          53286,
+          53155,
+          52978,
+          52977,
+          53156,
+          53153,
+          53160,
+          53146,
+          53159,
+          52976
+        ],
+        "retrieved_chunk_ids": [
+          53272,
+          53141,
+          53271,
+          53281,
+          53278,
+          53279,
+          53182,
+          53287
+        ],
+        "graph_relationships": [
+          {
+            "source": "Ciudad Deportiva",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Nuevo Laredo",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Tecolotes de Nuevo Laredo",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Ciudad Deportiva",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Toros de Nuevo Laredo",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Ciudad Deportiva",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Estadio Nuevo Laredo",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Ciudad Deportiva",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Nuevo Laredo Multidisciplinary Gymnasium",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Ciudad Deportiva",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Nuevo Laredo",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Mexico",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Toros de Nuevo Laredo",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Liga Nacional de Baloncesto Profesional",
+            "chunk_id": 53272
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.5,
+          "graph_vector_overlap_rate": 0.04,
+          "graph_overlap_count": 1,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 17.2,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 387,
+          "generation_ms": 0,
+          "total_ms": 387
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "MUSIQUE-04",
+      "question": "Where is Ulrich Walter's employer headquartered?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53272,
+        53273
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53273,
+          53252,
+          53246,
+          53272,
+          53269,
+          53136,
+          53276,
+          53242,
+          53142,
+          53177,
+          53240,
+          53278,
+          53209,
+          53275,
+          53270,
+          53156,
+          53263,
+          52975,
+          53248,
+          53180,
+          53274,
+          53198,
+          52973,
+          53157,
+          53251
+        ],
+        "retrieved_chunk_ids": [
+          53273,
+          53276,
+          53275,
+          53272,
+          53269,
+          53278,
+          53274,
+          53252
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 619,
+          "generation_ms": 0,
+          "total_ms": 619
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53273,
+          53252,
+          53246,
+          53272,
+          53269,
+          53136,
+          53276,
+          53242,
+          53142,
+          53177,
+          53240,
+          53278,
+          53209,
+          53275,
+          53270,
+          53156,
+          53263,
+          52975,
+          53248,
+          53180,
+          53274,
+          53198,
+          52973,
+          53157,
+          53251
+        ],
+        "graph_candidate_chunk_ids": [],
+        "fused_candidate_chunk_ids": [
+          53273,
+          53252,
+          53246,
+          53272,
+          53269,
+          53136,
+          53276,
+          53242,
+          53142,
+          53177,
+          53240,
+          53278,
+          53209,
+          53275,
+          53270,
+          53156,
+          53263,
+          52975,
+          53248,
+          53180,
+          53274,
+          53198,
+          52973,
+          53157,
+          53251
+        ],
+        "retrieved_chunk_ids": [
+          53273,
+          53276,
+          53275,
+          53272,
+          53269,
+          53278,
+          53274,
+          53252
+        ],
+        "graph_relationships": [],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.0,
+          "graph_overlap_count": 0,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 8.89,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 622,
+          "generation_ms": 0,
+          "total_ms": 622
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 3
+    },
+    {
+      "question_id": "MUSIQUE-05",
+      "question": "Which company owns the manufacturer of Learjet 60?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53273,
+        53274
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53274,
+          53273,
+          53152,
+          53156,
+          53185,
+          53176,
+          53269,
+          53271,
+          53157,
+          53276,
+          53279,
+          53270,
+          53258,
+          53263,
+          53280,
+          53153,
+          53183,
+          53151,
+          53146,
+          53155,
+          53154,
+          53262,
+          53181,
+          53248,
+          53171
+        ],
+        "retrieved_chunk_ids": [
+          53274,
+          53273,
+          53279,
+          53269,
+          53280,
+          53176,
+          53271,
+          53276
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 583,
+          "generation_ms": 0,
+          "total_ms": 583
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53274,
+          53273,
+          53152,
+          53156,
+          53185,
+          53176,
+          53269,
+          53271,
+          53157,
+          53276,
+          53279,
+          53270,
+          53258,
+          53263,
+          53280,
+          53153,
+          53183,
+          53151,
+          53146,
+          53155,
+          53154,
+          53262,
+          53181,
+          53248,
+          53171
+        ],
+        "graph_candidate_chunk_ids": [
+          53273,
+          53274
+        ],
+        "fused_candidate_chunk_ids": [
+          53274,
+          53273,
+          53152,
+          53156,
+          53185,
+          53176,
+          53269,
+          53271,
+          53157,
+          53276,
+          53279,
+          53270,
+          53258,
+          53263,
+          53280,
+          53153,
+          53183,
+          53151,
+          53146,
+          53155,
+          53154,
+          53262,
+          53181,
+          53248,
+          53171
+        ],
+        "retrieved_chunk_ids": [
+          53274,
+          53273,
+          53279,
+          53269,
+          53280,
+          53176,
+          53271,
+          53276
+        ],
+        "graph_relationships": [
+          {
+            "source": "Learjet 60",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Bombardier Aerospace",
+            "chunk_id": 53274
+          },
+          {
+            "source": "Learjet 60",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Pratt & Whitney Canada PW305A engines",
+            "chunk_id": 53274
+          },
+          {
+            "source": "Learjet 60XR",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Learjet 60",
+            "chunk_id": 53274
+          },
+          {
+            "source": "Bombardier Aerospace",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Bombardier Inc.",
+            "chunk_id": 53273
+          },
+          {
+            "source": "CRJ100",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Bombardier Aerospace",
+            "chunk_id": 53273
+          },
+          {
+            "source": "CRJ200",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Bombardier Aerospace",
+            "chunk_id": 53273
+          },
+          {
+            "source": "CRJ700",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Bombardier Aerospace",
+            "chunk_id": 53273
+          },
+          {
+            "source": "CRJ900",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Bombardier Aerospace",
+            "chunk_id": 53273
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.08,
+          "graph_overlap_count": 2,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 12.26,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 680,
+          "generation_ms": 0,
+          "total_ms": 680
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 97
+    },
+    {
+      "question_id": "MUSIQUE-06",
+      "question": "Who is the child of Caroline LeRoy's spouse?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53275,
+        53276
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53276,
+          53272,
+          53278,
+          53270,
+          53275,
+          53267,
+          53165,
+          53269,
+          53164,
+          53209,
+          53277,
+          53160,
+          53273,
+          53198,
+          53177,
+          53145,
+          53142,
+          53207,
+          53141,
+          53136,
+          53199,
+          53274,
+          53201,
+          53281,
+          52979
+        ],
+        "retrieved_chunk_ids": [
+          53276,
+          53141,
+          53278,
+          53275,
+          53277,
+          53272,
+          53269,
+          53274
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 452,
+          "generation_ms": 0,
+          "total_ms": 452
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53276,
+          53272,
+          53278,
+          53270,
+          53275,
+          53267,
+          53165,
+          53269,
+          53164,
+          53209,
+          53277,
+          53160,
+          53273,
+          53198,
+          53177,
+          53145,
+          53142,
+          53207,
+          53141,
+          53136,
+          53199,
+          53274,
+          53201,
+          53281,
+          52979
+        ],
+        "graph_candidate_chunk_ids": [],
+        "fused_candidate_chunk_ids": [
+          53276,
+          53272,
+          53278,
+          53270,
+          53275,
+          53267,
+          53165,
+          53269,
+          53164,
+          53209,
+          53277,
+          53160,
+          53273,
+          53198,
+          53177,
+          53145,
+          53142,
+          53207,
+          53141,
+          53136,
+          53199,
+          53274,
+          53201,
+          53281,
+          52979
+        ],
+        "retrieved_chunk_ids": [
+          53276,
+          53141,
+          53278,
+          53275,
+          53277,
+          53272,
+          53269,
+          53274
+        ],
+        "graph_relationships": [],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.0,
+          "graph_overlap_count": 0,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 10.56,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 478,
+          "generation_ms": 0,
+          "total_ms": 478
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 26
+    },
+    {
+      "question_id": "MUSIQUE-07",
+      "question": "Who is the grandmother of Philippe, Duke of Orléans?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53277,
+        53278
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53277,
+          53276,
+          53280,
+          53281,
+          53278,
+          53165,
+          53267,
+          53164,
+          53269,
+          53240,
+          53275,
+          53161,
+          53141,
+          53271,
+          53177,
+          53286,
+          53142,
+          53287,
+          53279,
+          53156,
+          53254,
+          53232,
+          53159,
+          53234,
+          53160
+        ],
+        "retrieved_chunk_ids": [
+          53277,
+          53278,
+          53141,
+          53276,
+          53240,
+          53254,
+          53161,
+          53275
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 377,
+          "generation_ms": 0,
+          "total_ms": 377
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53277,
+          53276,
+          53280,
+          53281,
+          53278,
+          53165,
+          53267,
+          53164,
+          53269,
+          53240,
+          53275,
+          53161,
+          53141,
+          53271,
+          53177,
+          53286,
+          53142,
+          53287,
+          53279,
+          53156,
+          53254,
+          53232,
+          53159,
+          53234,
+          53160
+        ],
+        "graph_candidate_chunk_ids": [],
+        "fused_candidate_chunk_ids": [
+          53277,
+          53276,
+          53280,
+          53281,
+          53278,
+          53165,
+          53267,
+          53164,
+          53269,
+          53240,
+          53275,
+          53161,
+          53141,
+          53271,
+          53177,
+          53286,
+          53142,
+          53287,
+          53279,
+          53156,
+          53254,
+          53232,
+          53159,
+          53234,
+          53160
+        ],
+        "retrieved_chunk_ids": [
+          53277,
+          53278,
+          53141,
+          53276,
+          53240,
+          53254,
+          53161,
+          53275
+        ],
+        "graph_relationships": [],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.0,
+          "graph_vector_overlap_rate": 0.0,
+          "graph_overlap_count": 0,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 9.37,
+          "fusion_ms": 0.02,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 370,
+          "generation_ms": 0,
+          "total_ms": 370
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "MUSIQUE-08",
+      "question": "What is the goal of the group that European Movement Germany is a member of?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53278
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53278,
+          52973,
+          53272,
+          52974,
+          53273,
+          53145,
+          53269,
+          53136,
+          53142,
+          53154,
+          53177,
+          53182,
+          52976,
+          53155,
+          53232,
+          53267,
+          53178,
+          53276,
+          53280,
+          53279,
+          53240,
+          53141,
+          53188,
+          53282,
+          53236
+        ],
+        "retrieved_chunk_ids": [
+          53278,
+          53141,
+          53272,
+          53142,
+          53276,
+          53273,
+          53182,
+          53177
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 373,
+          "generation_ms": 0,
+          "total_ms": 373
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53278,
+          52973,
+          53272,
+          52974,
+          53273,
+          53145,
+          53269,
+          53136,
+          53142,
+          53154,
+          53177,
+          53182,
+          52976,
+          53155,
+          53232,
+          53267,
+          53178,
+          53276,
+          53280,
+          53279,
+          53240,
+          53141,
+          53188,
+          53282,
+          53236
+        ],
+        "graph_candidate_chunk_ids": [
+          53136,
+          53272,
+          53278
+        ],
+        "fused_candidate_chunk_ids": [
+          53278,
+          52973,
+          53272,
+          52974,
+          53273,
+          53145,
+          53269,
+          53136,
+          53142,
+          53154,
+          53177,
+          53182,
+          52976,
+          53155,
+          53232,
+          53267,
+          53178,
+          53276,
+          53280,
+          53279,
+          53240,
+          53141,
+          53188,
+          53282,
+          53236
+        ],
+        "retrieved_chunk_ids": [
+          53278,
+          53141,
+          53272,
+          53142,
+          53276,
+          53273,
+          53182,
+          53177
+        ],
+        "graph_relationships": [
+          {
+            "source": "Aalen University of Applied Sciences",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Germany",
+            "chunk_id": 53136
+          },
+          {
+            "source": "Klinikum Stuttgart",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Germany",
+            "chunk_id": 53136
+          },
+          {
+            "source": "Cologne",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Germany",
+            "chunk_id": 53272
+          },
+          {
+            "source": "Bernd Hüttemann",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "European Movement International",
+            "chunk_id": 53278
+          },
+          {
+            "source": "Bernd Hüttemann",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "European Movement Germany",
+            "chunk_id": 53278
+          },
+          {
+            "source": "Aalen University of Applied Sciences",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Aalen",
+            "chunk_id": 53136
+          },
+          {
+            "source": "Klinikum Stuttgart",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Stuttgart",
+            "chunk_id": 53136
+          },
+          {
+            "source": "Lander Control Center",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Cologne",
+            "chunk_id": 53272
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 1.0,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.12,
+          "graph_overlap_count": 3,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 20.09,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 404,
+          "generation_ms": 0,
+          "total_ms": 404
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 31
+    },
+    {
+      "question_id": "MUSIQUE-09",
+      "question": "What company succeeded the owner of Empire Sports Network?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53279,
+        53280
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53279,
+          53272,
+          53273,
+          53280,
+          53270,
+          53182,
+          53200,
+          53269,
+          53277,
+          52973,
+          53276,
+          53274,
+          52974,
+          53187,
+          53155,
+          53181,
+          53254,
+          53185,
+          53209,
+          53275,
+          53207,
+          53183,
+          53282,
+          53167,
+          53240
+        ],
+        "retrieved_chunk_ids": [
+          53279,
+          53269,
+          53280,
+          53272,
+          53276,
+          53273,
+          53277,
+          53275
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 524,
+          "generation_ms": 0,
+          "total_ms": 524
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53279,
+          53272,
+          53273,
+          53280,
+          53270,
+          53182,
+          53200,
+          53269,
+          53277,
+          52973,
+          53276,
+          53274,
+          52974,
+          53187,
+          53155,
+          53181,
+          53254,
+          53185,
+          53209,
+          53275,
+          53207,
+          53183,
+          53282,
+          53167,
+          53240
+        ],
+        "graph_candidate_chunk_ids": [
+          53200,
+          53209,
+          53210,
+          53211,
+          53279
+        ],
+        "fused_candidate_chunk_ids": [
+          53279,
+          53272,
+          53273,
+          53280,
+          53270,
+          53182,
+          53200,
+          53269,
+          53277,
+          52973,
+          53276,
+          53274,
+          52974,
+          53187,
+          53155,
+          53181,
+          53254,
+          53185,
+          53209,
+          53275,
+          53207,
+          53183,
+          53282,
+          53167,
+          53240,
+          53210,
+          53211
+        ],
+        "retrieved_chunk_ids": [
+          53279,
+          53269,
+          53280,
+          53272,
+          53276,
+          53273,
+          53277,
+          53275
+        ],
+        "graph_relationships": [
+          {
+            "source": "Motor imagery eeg classification using capsule networks",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Ha, K.W.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Motor imagery eeg classification using capsule networks",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Jeong, J.W.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Capsule network with its limitation, modification, and applications—a survey",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Haq, M.U.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Capsule network with its limitation, modification, and applications—a survey",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sethi, M.A.J.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Capsule network with its limitation, modification, and applications—a survey",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Rehman, A.U.",
+            "chunk_id": 53200
+          },
+          {
+            "source": "Attribute-Enhanced capsule network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Xu, Y.",
+            "chunk_id": 53209
+          },
+          {
+            "source": "Deep convolutional neural network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Yadav, S.S.",
+            "chunk_id": 53209
+          },
+          {
+            "source": "Yu, Y.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Wang, J.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Qiang, H.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Jiang, M.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Tang, E.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Yu, C.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Zhang, Y.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Li, J.",
+            "relationship_type": "CREATED_BY",
+            "type": "CREATED_BY",
+            "target": "Sparse anchoring guided high-resolution capsule network",
+            "chunk_id": 53210
+          },
+          {
+            "source": "Capsule dynamic network-based object detection algorithm",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "2019 IEEE Symposium Series on Computational Intelligence (SSCI",
+            "chunk_id": 53211
+          },
+          {
+            "source": "Empire Sports Network",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Adelphia Communications Corporation",
+            "chunk_id": 53279
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.5,
+          "graph_vector_overlap_rate": 0.1111111111111111,
+          "graph_overlap_count": 3,
+          "unique_graph_chunks_count": 2,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 16.64,
+          "fusion_ms": 0.11,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 638,
+          "generation_ms": 0,
+          "total_ms": 638
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 114
+    },
+    {
+      "question_id": "MUSIQUE-10",
+      "question": "What province shares a border with the province where Lago District is located?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53280,
+        53281
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53281,
+          53280,
+          53271,
+          53287,
+          53157,
+          53272,
+          52973,
+          53152,
+          53242,
+          53182,
+          53153,
+          53277,
+          53180,
+          53155,
+          53156,
+          53283,
+          53246,
+          53170,
+          52974,
+          53240,
+          53262,
+          53138,
+          53255,
+          53252,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53281,
+          53271,
+          53272,
+          53280,
+          53277,
+          53182,
+          53252,
+          53138
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 667,
+          "generation_ms": 0,
+          "total_ms": 667
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53281,
+          53280,
+          53271,
+          53287,
+          53157,
+          53272,
+          52973,
+          53152,
+          53242,
+          53182,
+          53153,
+          53277,
+          53180,
+          53155,
+          53156,
+          53283,
+          53246,
+          53170,
+          52974,
+          53240,
+          53262,
+          53138,
+          53255,
+          53252,
+          53151
+        ],
+        "graph_candidate_chunk_ids": [
+          53280,
+          53281
+        ],
+        "fused_candidate_chunk_ids": [
+          53281,
+          53280,
+          53271,
+          53287,
+          53157,
+          53272,
+          52973,
+          53152,
+          53242,
+          53182,
+          53153,
+          53277,
+          53180,
+          53155,
+          53156,
+          53283,
+          53246,
+          53170,
+          52974,
+          53240,
+          53262,
+          53138,
+          53255,
+          53252,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53281,
+          53271,
+          53272,
+          53280,
+          53277,
+          53182,
+          53252,
+          53138
+        ],
+        "graph_relationships": [
+          {
+            "source": "Niassa Reserve",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Cabo Delgado Province",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Niassa Reserve",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Niassa Province",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Lago District",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Niassa Province",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Niassa Province",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Mozambique",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Metangula",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "Lago District",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Lago District",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Lake Nyasa",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Lago District",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Lichinga",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Lago District",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Sanga District",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Lago District",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Tanzania",
+            "chunk_id": 53281
+          },
+          {
+            "source": "Niassa Reserve",
+            "relationship_type": "LOCATED_IN",
+            "type": "LOCATED_IN",
+            "target": "Mozambique",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Niassa Reserve",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Trans-Frontier Conservation Area",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Niassa Reserve",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Tanzanian Lukwika-Lumesule Game Reserve",
+            "chunk_id": 53280
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.08,
+          "graph_overlap_count": 2,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 19.16,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 669,
+          "generation_ms": 0,
+          "total_ms": 669
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 2
+    }
+  ]
+}

@@ -73,6 +73,33 @@ services:
       retries: 3
       start_period: 30s
 
+  # ============================================================================
+  # Streamlit Interactive Web Application UI
+  # ============================================================================
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag_ui
+    restart: unless-stopped
+    command: ["streamlit", "run", "ui/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+    environment:
+      RAG_API_URL: http://api:8000
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${POSTGRES_DB:-rag_db}
+      DATABASE_USER: ${POSTGRES_USER:-postgres}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      HF_HOME: /app/.cache/huggingface
+    volumes:
+      - hf_cache:/app/.cache/huggingface
+
 # ==============================================================================
 # Persistent Named Volumes
 # ==============================================================================

@@ -39,29 +39,33 @@ class EvaluationRunner:
         enable_llm: bool = True,
         vector_pipeline: Optional[RAGPipeline] = None,
         hybrid_pipeline: Optional[RAGPipeline] = None,
+        access_context: Optional[AccessContext] = None,
     ):
         self.candidate_k = candidate_k
         self.top_k = top_k
         self.temperature = temperature
         self.enable_llm = enable_llm
+        self.access_context = access_context
 
         # Dependency injection of custom/mock pipelines for testing
         self.vector_pipeline = vector_pipeline
         self.hybrid_pipeline = hybrid_pipeline
 
     def _get_pipelines(self) -> tuple[RAGPipeline, RAGPipeline]:
-        """Initializes or returns both RAG pipelines."""
-        vec_pipe = self.vector_pipeline or RAGPipeline(
-            enable_graph=False,
-            candidate_k=self.candidate_k,
-            top_k=self.top_k,
-        )
-        hyb_pipe = self.hybrid_pipeline or RAGPipeline(
-            enable_graph=True,
-            candidate_k=self.candidate_k,
-            top_k=self.top_k,
-        )
-        return vec_pipe, hyb_pipe
+        """Initializes or returns cached RAG pipelines."""
+        if self.vector_pipeline is None:
+            self.vector_pipeline = RAGPipeline(
+                enable_graph=False,
+                candidate_k=self.candidate_k,
+                top_k=self.top_k,
+            )
+        if self.hybrid_pipeline is None:
+            self.hybrid_pipeline = RAGPipeline(
+                enable_graph=True,
+                candidate_k=self.candidate_k,
+                top_k=self.top_k,
+            )
+        return self.vector_pipeline, self.hybrid_pipeline
 
     def evaluate_question(
         self,
@@ -73,7 +77,7 @@ class EvaluationRunner:
         Executes a single evaluation question across both System A (Vector-only)
         and System B (Hybrid Graph + Vector), computing all metrics and recording traces.
         """
-        ctx = access_context or AccessContext()
+        ctx = access_context or self.access_context or AccessContext()
         vec_pipe, hyb_pipe = self._get_pipelines()
         gold_chunks = question.expected_source_chunks
 
@@ -145,6 +149,7 @@ class EvaluationRunner:
             candidate_k=self.candidate_k,
             top_k=self.top_k,
             access_context=ctx,
+            traversal_mode="depth_2",
             conn=conn,
         )
         hyb_retrieval_ms = int((time.time() - retrieval_hyb_t0) * 1000)
@@ -195,6 +200,7 @@ class EvaluationRunner:
             for r in hyb_result.graph_result.relationships:
                 graph_relationships.append({
                     "source": r.metadata.get("source_name", ""),
+                    "relationship_type": r.relationship_type,
                     "type": r.relationship_type,
                     "target": r.metadata.get("target_name", ""),
                     "chunk_id": r.chunk_id,
@@ -214,19 +220,24 @@ class EvaluationRunner:
         # ======================================================================
         vec_r3 = vec_ret_metrics["recall@3"]
         hyb_r3 = hyb_ret_metrics["recall@3"]
+        vec_r5 = vec_ret_metrics["recall@5"]
+        hyb_r5 = hyb_ret_metrics["recall@5"]
+        vec_mrr = vec_ret_metrics["mrr"]
+        hyb_mrr = hyb_ret_metrics["mrr"]
         unique_rel_count = graph_metrics["unique_relevant_graph_chunks_count"]
 
-        if hyb_r3 > vec_r3 or unique_rel_count > 0:
+        if hyb_r3 > vec_r3 or hyb_r5 > vec_r5 or hyb_mrr > vec_mrr or unique_rel_count > 0:
             verdict = "hybrid_won"
             analysis = (
-                f"Graph retrieval added {unique_rel_count} unique relevant evidence chunks "
-                f"(Recall@3: {hyb_r3:.2f} vs {vec_r3:.2f})."
+                f"Hybrid advantage: Recall@3={hyb_r3:.2f} (vs {vec_r3:.2f}), "
+                f"Recall@5={hyb_r5:.2f} (vs {vec_r5:.2f}), MRR={hyb_mrr:.2f} (vs {vec_mrr:.2f}), "
+                f"Unique relevant graph chunks={unique_rel_count}."
             )
-        elif vec_r3 > hyb_r3:
+        elif vec_r3 > hyb_r3 or vec_r5 > hyb_r5 or vec_mrr > hyb_mrr:
             verdict = "vector_won"
             analysis = (
-                f"Vector-only achieved higher top-K recall ({vec_r3:.2f} vs {hyb_r3:.2f}); "
-                f"graph candidates were either down-ranked or less relevant."
+                f"Vector-only achieved higher retrieval metrics (R@3: {vec_r3:.2f} vs {hyb_r3:.2f}, "
+                f"MRR: {vec_mrr:.2f} vs {hyb_mrr:.2f}); graph candidates were either down-ranked or less relevant."
             )
         else:
             verdict = "tie"
@@ -235,7 +246,7 @@ class EvaluationRunner:
             elif graph_metrics["graph_overlap_count"] == len(hyb_graph_candidate_ids):
                 analysis = "Tie: Graph retrieved evidence that completely overlapped with vector candidates."
             else:
-                analysis = f"Tie: Both systems achieved identical Recall@3 ({vec_r3:.2f})."
+                analysis = f"Tie: Both systems achieved identical Recall@3 ({vec_r3:.2f}) and MRR ({vec_mrr:.2f})."
 
         return {
             "question_id": question.id,
@@ -289,6 +300,7 @@ class EvaluationRunner:
         limit: Optional[int] = None,
         category: Optional[str] = None,
         conn: Optional[psycopg.Connection] = None,
+        access_context: Optional[AccessContext] = None,
     ) -> Dict[str, Any]:
         """
         Runs the full evaluation benchmark across all questions in the dataset.
@@ -305,11 +317,12 @@ class EvaluationRunner:
 
         db_conn = conn or get_connection()
         should_close_conn = conn is None
+        ctx = access_context or self.access_context
 
         try:
             for idx, q in enumerate(questions, start=1):
                 logger.info(f"Evaluating [{idx}/{len(questions)}] {q.id} ({q.category}): {q.question[:60]}...")
-                res = self.evaluate_question(q, conn=db_conn)
+                res = self.evaluate_question(q, conn=db_conn, access_context=ctx)
                 results.append(res)
         finally:
             if should_close_conn:

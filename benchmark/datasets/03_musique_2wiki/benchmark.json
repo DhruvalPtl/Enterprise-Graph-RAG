@@ -1,0 +1,234 @@
+{
+  "dataset_version": "1.0",
+  "dataset_name": "Official MuSiQue Multi-Hop Reasoning Benchmark",
+  "description": "Authentic multi-hop questions requiring combining 2 to 4 Wikipedia paragraphs from StonyBrookNLP / HuggingFace.",
+  "corpus_documents": [
+    {
+      "document_id": 339,
+      "filename": "musique_official_corpus.txt",
+      "department": "engineering",
+      "access_level": "employee"
+    }
+  ],
+  "questions": [
+    {
+      "id": "MUSIQUE-01",
+      "original_id": "2hop__460946_294723",
+      "question": "Who is the spouse of the Green performer?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Miquette Giraudy",
+      "expected_entities": [
+        "Miquette Giraudy",
+        "Green (Steve Hillage album)"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53267,
+        53268
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Green >> performer",
+        "#1 >> spouse"
+      ]
+    },
+    {
+      "id": "MUSIQUE-02",
+      "original_id": "2hop__252311_366220",
+      "question": "Who founded the company that distributed the film UHF?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Mike Medavoy",
+      "expected_entities": [
+        "Mike Medavoy",
+        "UHF (film)"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53269,
+        53270
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "UHF >> distributed by",
+        "#1 >> founded by"
+      ]
+    },
+    {
+      "id": "MUSIQUE-03",
+      "original_id": "2hop__701895_752697",
+      "question": "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Tamaulipas",
+      "expected_entities": [
+        "Nuevo Laredo Municipality",
+        "Ciudad Deportiva (Nuevo Laredo)"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53271,
+        53272
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Ciudad Deportiva >> owned by",
+        "#1 >> located in the administrative territorial entity"
+      ]
+    },
+    {
+      "id": "MUSIQUE-04",
+      "original_id": "2hop__259228_793698",
+      "question": "Where is Ulrich Walter's employer headquartered?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Cologne",
+      "expected_entities": [
+        "Philae (spacecraft)",
+        "Ulrich Walter"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53272,
+        53273
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Ulrich Walter >> employer",
+        "#1 >> headquarters location"
+      ]
+    },
+    {
+      "id": "MUSIQUE-05",
+      "original_id": "2hop__481349_302087",
+      "question": "Which company owns the manufacturer of Learjet 60?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Bombardier Inc.",
+      "expected_entities": [
+        "List of Bombardier CRJ operators",
+        "Learjet 60"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53273,
+        53274
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Learjet 60 >> manufacturer",
+        "#1 >> owned by"
+      ]
+    },
+    {
+      "id": "MUSIQUE-06",
+      "original_id": "2hop__697790_864352",
+      "question": "Who is the child of Caroline LeRoy's spouse?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Fletcher Webster",
+      "expected_entities": [
+        "Fletcher Webster",
+        "Caroline LeRoy"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53275,
+        53276
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Caroline LeRoy >> spouse",
+        "#1 >> child"
+      ]
+    },
+    {
+      "id": "MUSIQUE-07",
+      "original_id": "2hop__207476_625987",
+      "question": "Who is the grandmother of Philippe, Duke of Orl\u00e9ans?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Marie de' Medici",
+      "expected_entities": [
+        "Philippe I, Duke of Orl\u00e9ans",
+        "Leonora Dori"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53277,
+        53278
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Philippe, Duke of Orl\u00e9ans >> father",
+        "#1 of France >> mother"
+      ]
+    },
+    {
+      "id": "MUSIQUE-08",
+      "original_id": "2hop__390947_232243",
+      "question": "What is the goal of the group that European Movement Germany is a member of?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "European integration",
+      "expected_entities": [
+        "Bernd H\u00fcttemann",
+        "European Movement International"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53278
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "European Movement Germany >> member of",
+        "#1 >> movement"
+      ]
+    },
+    {
+      "id": "MUSIQUE-09",
+      "original_id": "2hop__354635_174222",
+      "question": "What company succeeded the owner of Empire Sports Network?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Time Warner Cable",
+      "expected_entities": [
+        "Empire Sports Network",
+        "Windjammer Communications"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53279,
+        53280
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Empire Sports Network >> owned by",
+        "#1 >> followed by"
+      ]
+    },
+    {
+      "id": "MUSIQUE-10",
+      "original_id": "2hop__635187_861533",
+      "question": "What province shares a border with the province where Lago District is located?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Cabo Delgado Province",
+      "expected_entities": [
+        "Niassa Reserve",
+        "Lago District"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53280,
+        53281
+      ],
+      "expected_pages": [],
+      "hop_count": 2,
+      "sub_questions": [
+        "Lago District >> located in the administrative territorial entity",
+        "#1 >> shares border with"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "dataset_version": "1.0",
+  "dataset_name": "Official GraphRAG-Bench (ICLR) Benchmark",
+  "description": "Authentic ICLR benchmark dataset evaluating complex multi-hop reasoning over graph-structured medical domain knowledge.",
+  "corpus_documents": [
+    {
+      "document_id": 340,
+      "filename": "graphrag_bench_official.txt",
+      "department": "engineering",
+      "access_level": "employee"
+    }
+  ],
+  "questions": [
+    {
+      "id": "GRAPHRAG-01",
+      "original_id": "Medical-604c9d44",
+      "question": "Why is a patient with fair skin and a history of organ transplant at particularly high risk for developing basal cell carcinoma?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Because both fair skin and immune suppression from organ transplant are independent risk factors for BCC.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Fair skin is an independent risk factor for basal cell carcinoma (BCC).",
+        "Immune suppression from organ transplant is an independent risk factor for basal cell carcinoma (BCC)."
+      ],
+      "evidence_relations": [
+        "Fair skin, light hair, and light eye color increase the risk of BCC",
+        "Immune suppression is a risk factor for BCC",
+        "Basal cell carcinoma risk factors include fair skin and organ transplant"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-02",
+      "original_id": "Medical-df366063",
+      "question": "If a patient presents with a shiny bump on the face and has a history of tanning bed use, what diagnostic steps should be taken to evaluate for basal cell carcinoma?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "A medical and family history, physical and skin exam, and biopsy should be performed.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "A medical and family history should be performed to evaluate for basal cell carcinoma.",
+        "A physical and skin exam should be performed to evaluate for basal cell carcinoma.",
+        "A biopsy should be performed to evaluate for basal cell carcinoma."
+      ],
+      "evidence_relations": [
+        "BCC presents as shiny bumps",
+        "BCC most commonly develops in sun-exposed areas such as the face",
+        "Tanning beds are a risk factor for BCC",
+        "Diagnosis of BCC involves medical and family history, physical exam, skin exam, biopsy"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-03",
+      "original_id": "Medical-0a90f1f2",
+      "question": "How does the management of recurrent basal cell carcinoma differ from initial treatment, and what factors influence this?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Management of recurrence depends on risk and recurrence site, with treatment options tailored accordingly.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53284
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Management of recurrent basal cell carcinoma depends on risk.",
+        "Management of recurrent basal cell carcinoma depends on the recurrence site.",
+        "Treatment options for recurrent basal cell carcinoma are tailored accordingly."
+      ],
+      "evidence_relations": [
+        "Recurrence refers to BCC returning to the original site or spreading to lymph nodes or distant sites",
+        "Management of recurrence involves treatment options based on risk and recurrence",
+        "Surgery is the most common treatment for BCC"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-04",
+      "original_id": "Medical-831bb1e6",
+      "question": "Which combination of risk factors should prompt earlier and more frequent skin exams for BCC?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "A combination of older age, fair skin, and family history of skin cancer should prompt more frequent skin exams.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53285
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Older age is a risk factor for basal cell carcinoma.",
+        "Fair skin is a risk factor for basal cell carcinoma.",
+        "Family history of skin cancer is a risk factor for basal cell carcinoma.",
+        "A combination of these risk factors should prompt more frequent skin exams."
+      ],
+      "evidence_relations": [
+        "Older age is associated with higher risk of BCC",
+        "Fair skin and family history of skin cancer increase risk of BCC",
+        "Follow-up includes full skin exams with a doctor at least once a year"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-05",
+      "original_id": "Medical-01e3a9ea",
+      "question": "Why might a patient with a shiny bump and a history of radiation therapy require both imaging and biopsy for diagnosis?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Because radiation therapy is a risk factor for BCC and shiny bumps are a symptom, so both imaging and biopsy help confirm diagnosis.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53286
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "A shiny bump can be a symptom of basal cell carcinoma.",
+        "A history of radiation therapy is a risk factor for basal cell carcinoma.",
+        "Imaging is needed to help confirm the diagnosis of basal cell carcinoma.",
+        "A biopsy is needed to help confirm the diagnosis of basal cell carcinoma."
+      ],
+      "evidence_relations": [
+        "Radiation therapy is a risk factor for BCC",
+        "BCC presents as shiny bumps",
+        "Diagnosis of BCC involves biopsy and sometimes imaging"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-06",
+      "original_id": "Medical-c69c2732",
+      "question": "What follow-up strategy is recommended for a patient treated for BCC on the neck, and why?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Annual full skin exams are recommended to monitor for recurrence or new lesions.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Annual full skin exams are recommended for patients treated for basal cell carcinoma.",
+        "The purpose of annual full skin exams is to monitor for recurrence.",
+        "The purpose of annual full skin exams is to monitor for new lesions."
+      ],
+      "evidence_relations": [
+        "BCC most commonly develops in sun-exposed areas such as the neck",
+        "Recurrence refers to BCC returning to the original site",
+        "Follow-up includes full skin exams with a doctor at least once a year"
+      ]
+    },
+    {
+      "id": "GRAPHRAG-07",
+      "original_id": "Medical-73586ddc",
+      "question": "What is the most common type of skin cancer?",
+      "category": "direct_factual",
+      "expected_answer": "Basal cell carcinoma (BCC) is the most common type of skin cancer.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Basal cell carcinoma (BCC) is the most common type of skin cancer."
+      ],
+      "evidence_relations": "Basal cell carcinoma (BCC) is the most common type of skin cancer"
+    },
+    {
+      "id": "GRAPHRAG-08",
+      "original_id": "Medical-a8bad1cf",
+      "question": "From which cell type does basal cell carcinoma arise?",
+      "category": "direct_factual",
+      "expected_answer": "Basal cell carcinoma arises from basal cells in the lower part of the epidermis.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "Basal cell carcinoma arises from basal cells.",
+        "Basal cells are located in the lower part of the epidermis."
+      ],
+      "evidence_relations": "BCC arises from basal cells in the lower part of the epidermis"
+    },
+    {
+      "id": "GRAPHRAG-09",
+      "original_id": "Medical-422500d5",
+      "question": "Which anatomical locations are most commonly affected by basal cell carcinoma?",
+      "category": "direct_factual",
+      "expected_answer": "BCC most commonly develops in sun-exposed areas such as the face, head, and neck.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287,
+        53288
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "BCC most commonly develops in sun-exposed areas.",
+        "Common sun-exposed areas for BCC include the face.",
+        "Common sun-exposed areas for BCC include the head.",
+        "Common sun-exposed areas for BCC include the neck."
+      ],
+      "evidence_relations": "BCC most commonly develops in sun-exposed areas such as the face, head, and neck"
+    },
+    {
+      "id": "GRAPHRAG-10",
+      "original_id": "Medical-6d2a190d",
+      "question": "What is the primary risk factor for basal cell carcinoma?",
+      "category": "direct_factual",
+      "expected_answer": "UV radiation exposure is a primary risk factor for BCC.",
+      "expected_entities": [
+        "Medical"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53288
+      ],
+      "expected_pages": [],
+      "evidence": [
+        "UV radiation exposure is a primary risk factor for BCC."
+      ],
+      "evidence_relations": "UV radiation exposure is a primary risk factor for BCC"
+    }
+  ]
+}

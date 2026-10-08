@@ -1,0 +1,49 @@
+# Official GraphRAG-Bench (ICLR) Medical Knowledge Network
+
+## Clinical Diagnoses and Disease Pathologies
+- Fair skin is an independent risk factor for basal cell carcinoma (BCC).
+- Immune suppression from organ transplant is an independent risk factor for basal cell carcinoma (BCC).
+  Relationship: ['Fair skin, light hair, and light eye color increase the risk of BCC', 'Immune suppression is a risk factor for BCC', 'Basal cell carcinoma risk factors include fair skin and organ transplant']
+
+- A medical and family history should be performed to evaluate for basal cell carcinoma.
+- A physical and skin exam should be performed to evaluate for basal cell carcinoma.
+- A biopsy should be performed to evaluate for basal cell carcinoma.
+  Relationship: ['BCC presents as shiny bumps', 'BCC most commonly develops in sun-exposed areas such as the face', 'Tanning beds are a risk factor for BCC', 'Diagnosis of BCC involves medical and family history, physical exam, skin exam, biopsy']
+
+- Management of recurrent basal cell carcinoma depends on risk.
+- Management of recurrent basal cell carcinoma depends on the recurrence site.
+- Treatment options for recurrent basal cell carcinoma are tailored accordingly.
+  Relationship: ['Recurrence refers to BCC returning to the original site or spreading to lymph nodes or distant sites', 'Management of recurrence involves treatment options based on risk and recurrence', 'Surgery is the most common treatment for BCC']
+
+- Older age is a risk factor for basal cell carcinoma.
+- Fair skin is a risk factor for basal cell carcinoma.
+- Family history of skin cancer is a risk factor for basal cell carcinoma.
+- A combination of these risk factors should prompt more frequent skin exams.
+  Relationship: ['Older age is associated with higher risk of BCC', 'Fair skin and family history of skin cancer increase risk of BCC', 'Follow-up includes full skin exams with a doctor at least once a year']
+
+- A shiny bump can be a symptom of basal cell carcinoma.
+- A history of radiation therapy is a risk factor for basal cell carcinoma.
+- Imaging is needed to help confirm the diagnosis of basal cell carcinoma.
+- A biopsy is needed to help confirm the diagnosis of basal cell carcinoma.
+  Relationship: ['Radiation therapy is a risk factor for BCC', 'BCC presents as shiny bumps', 'Diagnosis of BCC involves biopsy and sometimes imaging']
+
+- Annual full skin exams are recommended for patients treated for basal cell carcinoma.
+- The purpose of annual full skin exams is to monitor for recurrence.
+- The purpose of annual full skin exams is to monitor for new lesions.
+  Relationship: ['BCC most commonly develops in sun-exposed areas such as the neck', 'Recurrence refers to BCC returning to the original site', 'Follow-up includes full skin exams with a doctor at least once a year']
+
+- Basal cell carcinoma (BCC) is the most common type of skin cancer.
+  Relationship: Basal cell carcinoma (BCC) is the most common type of skin cancer
+
+- Basal cell carcinoma arises from basal cells.
+- Basal cells are located in the lower part of the epidermis.
+  Relationship: BCC arises from basal cells in the lower part of the epidermis
+
+- BCC most commonly develops in sun-exposed areas.
+- Common sun-exposed areas for BCC include the face.
+- Common sun-exposed areas for BCC include the head.
+- Common sun-exposed areas for BCC include the neck.
+  Relationship: BCC most commonly develops in sun-exposed areas such as the face, head, and neck
+
+- UV radiation exposure is a primary risk factor for BCC.
+  Relationship: UV radiation exposure is a primary risk factor for BCC

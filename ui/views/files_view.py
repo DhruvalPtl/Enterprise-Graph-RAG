@@ -15,6 +15,7 @@ from app.config import RAW_DATA_DIR
 from app.db import (
     get_loaded_documents,
     delete_document,
+    update_document_access,
     get_document_chunks,
     get_document_relationships,
 )
@@ -109,8 +110,24 @@ def render_files_view() -> None:
         )
         return
 
-    # 2. Select document to inspect
-    st.markdown("### Select Document to Inspect")
+    # Documents Overview Table
+    with st.expander("📋 All Indexed Documents & Permissions Overview", expanded=True):
+        doc_table_data = [
+            {
+                "ID": d["id"],
+                "Filename": d["filename"],
+                "Format": (d.get("document_type") or "txt").upper(),
+                "Department": d.get("department", "public"),
+                "Clearance Level": d.get("access_level", "public"),
+                "Chunks": d.get("chunk_count", 0),
+                "Graph Triples": d.get("relationship_count", 0),
+            }
+            for d in docs
+        ]
+        st.dataframe(doc_table_data, use_container_width=True, hide_index=True)
+
+    # 2. Select document to inspect & edit
+    st.markdown("### 🔍 Document Inspector & Access Control")
     doc_options = {
         f"{_get_file_icon(d['document_type'])} {d['filename']} (ID: {d['id']} | {d.get('chunk_count', 0)} chunks | {d.get('relationship_count', 0)} graph triples | Dept: {d['department']})": d
         for d in docs
@@ -145,6 +162,51 @@ def render_files_view() -> None:
             """,
             unsafe_allow_html=True,
         )
+
+        # Direct Edit Department & Clearance Access Control Card
+        st.markdown(
+            """
+            <div style="background: #ffffff; border: 1px solid #3b82f6; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+                <div style="font-size: 1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 0.25rem;">
+                    🔐 Update Department & Clearance (RBAC Permissions)
+                </div>
+                <div style="font-size: 0.85rem; color: #475569;">
+                    Modify the access control permissions for this document. Updates take effect <b>immediately</b> across all vector, BM25, and graph queries with zero re-indexing or re-embedding.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        e_col1, e_col2, e_col3 = st.columns([2, 2, 1.5])
+        with e_col1:
+            dept_options = ["engineering", "finance", "medical", "legal", "hr", "public"]
+            cur_dept_idx = dept_options.index(dept.lower()) if dept.lower() in dept_options else 0
+            new_dept = st.selectbox(
+                "Department",
+                options=dept_options,
+                index=cur_dept_idx,
+                key=f"edit_dept_{doc_id}",
+                help="Assign the department required to access this document.",
+            )
+        with e_col2:
+            level_options = ["public", "employee", "manager", "executive", "admin"]
+            cur_lvl_idx = level_options.index(clearance.lower()) if clearance.lower() in level_options else 0
+            new_level = st.selectbox(
+                "Clearance Level",
+                options=level_options,
+                index=cur_lvl_idx,
+                key=f"edit_level_{doc_id}",
+                help="Minimum security clearance level required to retrieve this document.",
+            )
+        with e_col3:
+            st.markdown("<div style='margin-top: 1.7rem;'></div>", unsafe_allow_html=True)
+            if st.button("💾 Save Access Changes", type="primary", key=f"btn_save_access_{doc_id}", use_container_width=True):
+                try:
+                    update_document_access(document_id=doc_id, department=new_dept, access_level=new_level)
+                    st.success(f"Updated '{filename}': Department='{new_dept}', Clearance='{new_level}'")
+                    st.rerun()
+                except Exception as ex:
+                    st.error(f"Failed to update access control: {ex}")
 
         col_actions, _ = st.columns([2, 4])
         with col_actions:

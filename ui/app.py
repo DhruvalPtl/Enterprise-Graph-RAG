@@ -28,6 +28,8 @@ from ui.components.header import render_header
 from ui.views.chat_view import render_chat_view
 from ui.views.files_view import render_files_view
 from ui.views.ingest_view import render_ingest_view
+from ui.views.graph_view import render_graph_view
+from ui.views.benchmark_view import render_benchmark_view
 
 # Page configuration
 st.set_page_config(
@@ -54,7 +56,13 @@ st.sidebar.markdown(
 
 current_page = st.sidebar.radio(
     "Select View",
-    options=["💬 Chat Assistant", "📁 Knowledge Base Files", "📤 Upload & Ingest"],
+    options=[
+        "💬 Chat Assistant",
+        "🕸️ Knowledge Graph Explorer",
+        "📊 Scientific Benchmarks",
+        "📁 Knowledge Base Files",
+        "📤 Upload & Ingest",
+    ],
     index=0,
     label_visibility="collapsed",
 )
@@ -103,7 +111,7 @@ top_k = st.sidebar.slider(
     "Top K Citations",
     min_value=1,
     max_value=20,
-    value=5,
+    value=8,
     help="Final reranked evidence passages provided to the grounded context.",
 )
 
@@ -111,7 +119,7 @@ candidate_k = st.sidebar.slider(
     "Candidate Pool K",
     min_value=5,
     max_value=50,
-    value=20,
+    value=25,
     help="Stage 1 retrieval pool limit before cross-encoder reranking.",
 )
 
@@ -193,6 +201,10 @@ if current_page == "💬 Chat Assistant":
         candidate_k=candidate_k,
         access_context=access_context,
     )
+elif current_page == "🕸️ Knowledge Graph Explorer":
+    render_graph_view()
+elif current_page == "📊 Scientific Benchmarks":
+    render_benchmark_view()
 elif current_page == "📁 Knowledge Base Files":
     render_files_view()
 elif current_page == "📤 Upload & Ingest":

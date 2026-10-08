@@ -1,0 +1,223 @@
+{
+  "dataset_version": "1.0",
+  "dataset_name": "QASPER Scientific Papers Benchmark",
+  "description": "Information extraction from full scientific paper (Attention Is All You Need, Vaswani et al.)",
+  "corpus_documents": [
+    {
+      "document_id": 338,
+      "filename": "qasper_attention_paper.txt",
+      "department": "engineering",
+      "access_level": "employee"
+    }
+  ],
+  "questions": [
+    {
+      "id": "QASPER-01",
+      "question": "What is the dimensionality d_model of all sub-layers and embedding layers in the Base Transformer?",
+      "category": "direct_factual",
+      "expected_answer": "All sub-layers and embedding layers produce outputs of dimension d_model = 512.",
+      "expected_entities": [
+        "Base Transformer",
+        "d_model",
+        "512"
+      ],
+      "expected_relationships": [
+        {
+          "source": "Transformer",
+          "type": "HAS_COMPONENT",
+          "target": "encoder"
+        }
+      ],
+      "expected_source_chunks": [
+        53240,
+        53249
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-02",
+      "question": "How many parallel attention heads are employed in the Base Transformer, and what are their dimensions d_k and d_v?",
+      "category": "direct_factual",
+      "expected_answer": "The Base Transformer employs h = 8 parallel attention heads, with d_k = d_v = 64.",
+      "expected_entities": [
+        "Base Transformer",
+        "multi-head attention",
+        "d_k",
+        "d_v"
+      ],
+      "expected_relationships": [
+        {
+          "source": "multi-head attention",
+          "type": "HAS_COMPONENT",
+          "target": "heads"
+        }
+      ],
+      "expected_source_chunks": [
+        53246
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-03",
+      "question": "What BLEU score did the big transformer achieve on the WMT 2014 English-German translation task, and how does it compare to the Base Transformer?",
+      "category": "comparison",
+      "expected_answer": "The big transformer achieved a BLEU score of 28.4 on WMT 2014 English-to-German, outperforming the base transformer which scored 27.3 BLEU.",
+      "expected_entities": [
+        "Big Transformer",
+        "Base Transformer",
+        "BLEU",
+        "WMT 2014"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53232,
+        53261,
+        53262,
+        53264
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-04",
+      "question": "How does the decoder prevent positions from attending to subsequent positions during self-attention?",
+      "category": "entity_relationship",
+      "expected_answer": "The self-attention sub-layer in the decoder stack uses masking to prevent positions from attending to subsequent positions.",
+      "expected_entities": [
+        "decoder",
+        "self-attention",
+        "masking"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53241,
+        53248
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-05",
+      "question": "What mathematical formula is used for scaled dot-product attention, and what scaling factor is applied?",
+      "category": "direct_factual",
+      "expected_answer": "Attention(Q, K, V) = softmax((Q * K^T) / sqrt(d_k)) * V with a scaling factor of 1 / sqrt(d_k).",
+      "expected_entities": [
+        "scaled dot-product attention",
+        "softmax"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53243
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-06",
+      "question": "How does the training time and hardware configuration differ between the base transformer and the big transformer?",
+      "category": "comparison",
+      "expected_answer": "Both were trained on 8 NVIDIA P100 GPUs. Base model took 0.4s per step (100,000 steps or 12 hours), while big model took 1.0s per step (300,000 steps or 3.5 days).",
+      "expected_entities": [
+        "Base Transformer",
+        "Big Transformer",
+        "NVIDIA P100 GPU"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53258
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-07",
+      "question": "What functions are used for positional encoding and why are positional encodings required in the Transformer?",
+      "category": "multi_hop_relationship",
+      "expected_answer": "Sine and cosine functions of different frequencies are used; positional encodings are required because the model contains no recurrence and no convolution to capture token order.",
+      "expected_entities": [
+        "positional encoding",
+        "sine",
+        "cosine",
+        "Transformer"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53251,
+        53252
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-08",
+      "question": "What is the inner feed-forward network dimensionality d_ff in the big transformer variant compared to the base transformer?",
+      "category": "comparison",
+      "expected_answer": "In the big transformer d_ff = 4096, whereas in the base transformer d_ff = 2048.",
+      "expected_entities": [
+        "d_ff",
+        "Big Transformer",
+        "Base Transformer"
+      ],
+      "expected_relationships": [],
+      "expected_source_chunks": [
+        53262
+      ],
+      "expected_pages": [
+        {
+          "document_id": 335,
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "QASPER-09",
+      "question": "What was the top-1 accuracy of the Transformer model when evaluated on the ImageNet image classification benchmark?",
+      "category": "no_evidence",
+      "expected_answer": "I do not have sufficient information in the provided documents to answer this question.",
+      "expected_entities": [],
+      "expected_relationships": [],
+      "expected_source_chunks": [],
+      "expected_pages": []
+    },
+    {
+      "id": "QASPER-10",
+      "question": "Which proximal policy optimization algorithm was used for reinforcement learning from human feedback on the Transformer?",
+      "category": "no_evidence",
+      "expected_answer": "I do not have sufficient information in the provided documents to answer this question.",
+      "expected_entities": [],
+      "expected_relationships": [],
+      "expected_source_chunks": [],
+      "expected_pages": []
+    }
+  ]
+}

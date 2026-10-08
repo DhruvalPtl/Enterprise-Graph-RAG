@@ -1,0 +1,3609 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-07T17:55:54Z",
+    "total_questions": 10,
+    "candidate_k": 25,
+    "top_k": 8,
+    "enable_llm": false,
+    "temperature": 0.0
+  },
+  "summary": {
+    "overall_verdicts": {
+      "hybrid_won": 0,
+      "vector_won": 0,
+      "tie": 10
+    },
+    "retrieval": {
+      "vector_only": {
+        "recall@1": 0.325,
+        "recall@3": 0.5333,
+        "recall@5": 0.8083,
+        "hit_rate@3": 1.0,
+        "mrr": 0.95
+      },
+      "hybrid": {
+        "recall@1": 0.325,
+        "recall@3": 0.5333,
+        "recall@5": 0.8083,
+        "hit_rate@3": 1.0,
+        "mrr": 0.95
+      }
+    },
+    "graph_specific": {
+      "seed_hit_rate": 1.0,
+      "relationship_retrieval_rate": 0.0,
+      "graph_provenance_coverage": 0.9333,
+      "graph_vector_overlap_rate": 0.2694,
+      "total_unique_relevant_chunks_added": 0
+    },
+    "generation": {
+      "vector_only": {
+        "citation_correctness": 0.0,
+        "citation_completeness": 0.0,
+        "answer_correctness": 0.3,
+        "groundedness": 1.0
+      },
+      "hybrid": {
+        "citation_correctness": 0.0,
+        "citation_completeness": 0.0,
+        "answer_correctness": 0.3,
+        "groundedness": 1.0
+      }
+    },
+    "latency": {
+      "vector_retrieval_avg_ms": 548.2,
+      "vector_total_avg_ms": 548.2,
+      "hybrid_retrieval_avg_ms": 585.2,
+      "hybrid_total_avg_ms": 585.2,
+      "retrieval_overhead_avg_ms": 44.5
+    },
+    "category_breakdown": {
+      "direct_factual": {
+        "count": 4,
+        "vector_recall@3": 0.375,
+        "hybrid_recall@3": 0.375,
+        "vector_hit@3": 1.0,
+        "hybrid_hit@3": 1.0,
+        "vector_mrr": 0.875,
+        "hybrid_mrr": 0.875,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 4
+        }
+      },
+      "multi_hop_relationship": {
+        "count": 6,
+        "vector_recall@3": 0.6389,
+        "hybrid_recall@3": 0.6389,
+        "vector_hit@3": 1.0,
+        "hybrid_hit@3": 1.0,
+        "vector_mrr": 1.0,
+        "hybrid_mrr": 1.0,
+        "unique_relevant_graph_chunks": 0,
+        "verdicts": {
+          "hybrid_won": 0,
+          "vector_won": 0,
+          "tie": 6
+        }
+      }
+    }
+  },
+  "traces": [
+    {
+      "question_id": "GRAPHRAG-01",
+      "question": "Why is a patient with fair skin and a history of organ transplant at particularly high risk for developing basal cell carcinoma?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53282,
+          53285,
+          53287,
+          53283,
+          53286,
+          53284,
+          53175,
+          53176,
+          53186,
+          53288,
+          53165,
+          53188,
+          53185,
+          53164,
+          53148,
+          53189,
+          53183,
+          53152,
+          53180,
+          53184,
+          53190,
+          53182,
+          53144,
+          53145,
+          53194
+        ],
+        "retrieved_chunk_ids": [
+          53282,
+          53285,
+          53283,
+          53286,
+          53287,
+          53284,
+          53186,
+          53165
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 539,
+          "generation_ms": 0,
+          "total_ms": 539
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53282,
+          53285,
+          53287,
+          53283,
+          53286,
+          53284,
+          53175,
+          53176,
+          53186,
+          53288,
+          53165,
+          53188,
+          53185,
+          53164,
+          53148,
+          53189,
+          53183,
+          53152,
+          53180,
+          53184,
+          53190,
+          53182,
+          53144,
+          53145,
+          53194
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53175,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53282,
+          53285,
+          53287,
+          53283,
+          53286,
+          53284,
+          53175,
+          53176,
+          53186,
+          53288,
+          53165,
+          53188,
+          53185,
+          53164,
+          53148,
+          53189,
+          53183,
+          53152,
+          53180,
+          53184,
+          53190,
+          53182,
+          53144,
+          53145,
+          53194,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53282,
+          53285,
+          53283,
+          53286,
+          53287,
+          53284,
+          53186,
+          53165
+        ],
+        "graph_relationships": [
+          {
+            "source": "large cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "adenocarcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.3076923076923077,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 25.65,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 546,
+          "generation_ms": 0,
+          "total_ms": 546
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 7
+    },
+    {
+      "question_id": "GRAPHRAG-02",
+      "question": "If a patient presents with a shiny bump on the face and has a history of tanning bed use, what diagnostic steps should be taken to evaluate for basal cell carcinoma?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.50) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53283,
+          53286,
+          53285,
+          53287,
+          53284,
+          53282,
+          53175,
+          53176,
+          53186,
+          53165,
+          53288,
+          53185,
+          53164,
+          53143,
+          53148,
+          53189,
+          53166,
+          53265,
+          53140,
+          53145,
+          53180,
+          53258,
+          53202,
+          53182,
+          53188
+        ],
+        "retrieved_chunk_ids": [
+          53283,
+          53286,
+          53287,
+          53285,
+          53282,
+          53165,
+          53189,
+          53284
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 609,
+          "generation_ms": 0,
+          "total_ms": 609
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53283,
+          53286,
+          53285,
+          53287,
+          53284,
+          53282,
+          53175,
+          53176,
+          53186,
+          53165,
+          53288,
+          53185,
+          53164,
+          53143,
+          53148,
+          53189,
+          53166,
+          53265,
+          53140,
+          53145,
+          53180,
+          53258,
+          53202,
+          53182,
+          53188
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53283,
+          53286,
+          53285,
+          53287,
+          53284,
+          53282,
+          53175,
+          53176,
+          53186,
+          53165,
+          53288,
+          53185,
+          53164,
+          53143,
+          53148,
+          53189,
+          53166,
+          53265,
+          53140,
+          53145,
+          53180,
+          53258,
+          53202,
+          53182,
+          53188,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53283,
+          53286,
+          53287,
+          53285,
+          53282,
+          53165,
+          53189,
+          53284
+        ],
+        "graph_relationships": [
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.5,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.2692307692307692,
+          "graph_overlap_count": 7,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 22.44,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 570,
+          "generation_ms": 0,
+          "total_ms": 570
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "GRAPHRAG-03",
+      "question": "How does the management of recurrent basal cell carcinoma differ from initial treatment, and what factors influence this?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53284
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53284,
+          53287,
+          53282,
+          53285,
+          53283,
+          53286,
+          53175,
+          53186,
+          53176,
+          53185,
+          53164,
+          53165,
+          53155,
+          53180,
+          53179,
+          52975,
+          53188,
+          52974,
+          53288,
+          53156,
+          53189,
+          52973,
+          53190,
+          53160,
+          53198
+        ],
+        "retrieved_chunk_ids": [
+          53284,
+          53287,
+          53285,
+          53282,
+          53286,
+          53283,
+          53186,
+          53175
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 501,
+          "generation_ms": 0,
+          "total_ms": 501
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53284,
+          53287,
+          53282,
+          53285,
+          53283,
+          53286,
+          53175,
+          53186,
+          53176,
+          53185,
+          53164,
+          53165,
+          53155,
+          53180,
+          53179,
+          52975,
+          53188,
+          52974,
+          53288,
+          53156,
+          53189,
+          52973,
+          53190,
+          53160,
+          53198
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53175,
+          53238,
+          53253,
+          53280,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53284,
+          53287,
+          53282,
+          53285,
+          53283,
+          53286,
+          53175,
+          53186,
+          53176,
+          53185,
+          53164,
+          53165,
+          53155,
+          53180,
+          53179,
+          52975,
+          53188,
+          52974,
+          53288,
+          53156,
+          53189,
+          52973,
+          53190,
+          53160,
+          53198,
+          53151,
+          53238,
+          53253,
+          53280
+        ],
+        "retrieved_chunk_ids": [
+          53284,
+          53287,
+          53285,
+          53282,
+          53286,
+          53283,
+          53186,
+          53175
+        ],
+        "graph_relationships": [
+          {
+            "source": "large cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Self-Attention",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Recurrent Layers",
+            "chunk_id": 53253
+          },
+          {
+            "source": "MAST Capital Management",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Windjammer Communications",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "adenocarcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Transformer",
+            "relationship_type": "USES",
+            "type": "USES",
+            "target": "Self-Attention",
+            "chunk_id": 53238
+          },
+          {
+            "source": "Self-Attention",
+            "relationship_type": "COMPARES_WITH",
+            "type": "COMPARES_WITH",
+            "target": "Convolutional Layers",
+            "chunk_id": 53253
+          },
+          {
+            "source": "Communications Construction Services",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Windjammer Communications",
+            "chunk_id": 53280
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.27586206896551724,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 4,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 22.89,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 554,
+          "generation_ms": 0,
+          "total_ms": 554
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 53
+    },
+    {
+      "question_id": "GRAPHRAG-04",
+      "question": "Which combination of risk factors should prompt earlier and more frequent skin exams for BCC?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53285
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (1.00) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53285,
+          53283,
+          53288,
+          53282,
+          53287,
+          53286,
+          53284,
+          53162,
+          53175,
+          53148,
+          53164,
+          53170,
+          53176,
+          53190,
+          53140,
+          53183,
+          53136,
+          53236,
+          53194,
+          53156,
+          53185,
+          53163,
+          53181,
+          53186,
+          53161
+        ],
+        "retrieved_chunk_ids": [
+          53285,
+          53282,
+          53283,
+          53288,
+          53287,
+          53286,
+          53284,
+          53163
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 524,
+          "generation_ms": 0,
+          "total_ms": 524
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53285,
+          53283,
+          53288,
+          53282,
+          53287,
+          53286,
+          53284,
+          53162,
+          53175,
+          53148,
+          53164,
+          53170,
+          53176,
+          53190,
+          53140,
+          53183,
+          53136,
+          53236,
+          53194,
+          53156,
+          53185,
+          53163,
+          53181,
+          53186,
+          53161
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53285,
+          53283,
+          53288,
+          53282,
+          53287,
+          53286,
+          53284,
+          53162,
+          53175,
+          53148,
+          53164,
+          53170,
+          53176,
+          53190,
+          53140,
+          53183,
+          53136,
+          53236,
+          53194,
+          53156,
+          53185,
+          53163,
+          53181,
+          53186,
+          53161,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53285,
+          53282,
+          53283,
+          53288,
+          53287,
+          53286,
+          53284,
+          53163
+        ],
+        "graph_relationships": [
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 1.0,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.2692307692307692,
+          "graph_overlap_count": 7,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 22.08,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 648,
+          "generation_ms": 0,
+          "total_ms": 648
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 124
+    },
+    {
+      "question_id": "GRAPHRAG-05",
+      "question": "Why might a patient with a shiny bump and a history of radiation therapy require both imaging and biopsy for diagnosis?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53286
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Graph retrieved evidence that completely overlapped with vector candidates.",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53286,
+          53283,
+          53188,
+          53210,
+          53185,
+          53186,
+          53163,
+          53193,
+          53164,
+          53285,
+          53288,
+          53189,
+          53137,
+          53209,
+          53287,
+          53144,
+          53148,
+          53139,
+          53191,
+          53205,
+          53202,
+          53179,
+          53140,
+          53162,
+          53165
+        ],
+        "retrieved_chunk_ids": [
+          53286,
+          53283,
+          53165,
+          53144,
+          53185,
+          53189,
+          53164,
+          53188
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.6666666666666666,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 574,
+          "generation_ms": 0,
+          "total_ms": 574
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53286,
+          53283,
+          53188,
+          53210,
+          53185,
+          53186,
+          53163,
+          53193,
+          53164,
+          53285,
+          53288,
+          53189,
+          53137,
+          53209,
+          53287,
+          53144,
+          53148,
+          53139,
+          53191,
+          53205,
+          53202,
+          53179,
+          53140,
+          53162,
+          53165
+        ],
+        "graph_candidate_chunk_ids": [
+          53283,
+          53285,
+          53286,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53286,
+          53283,
+          53188,
+          53210,
+          53185,
+          53186,
+          53163,
+          53193,
+          53164,
+          53285,
+          53288,
+          53189,
+          53137,
+          53209,
+          53287,
+          53144,
+          53148,
+          53139,
+          53191,
+          53205,
+          53202,
+          53179,
+          53140,
+          53162,
+          53165
+        ],
+        "retrieved_chunk_ids": [
+          53286,
+          53283,
+          53165,
+          53144,
+          53185,
+          53189,
+          53164,
+          53188
+        ],
+        "graph_relationships": [
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.6666666666666666,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 0.6666666666666666,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.6666666666666666,
+          "graph_vector_overlap_rate": 0.16,
+          "graph_overlap_count": 4,
+          "unique_graph_chunks_count": 0,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 23.69,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 586,
+          "generation_ms": 0,
+          "total_ms": 586
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 12
+    },
+    {
+      "question_id": "GRAPHRAG-06",
+      "question": "What follow-up strategy is recommended for a patient treated for BCC on the neck, and why?",
+      "category": "multi_hop_relationship",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53287,
+          53288,
+          53284,
+          53283,
+          53282,
+          53286,
+          53285,
+          53145,
+          53207,
+          53148,
+          53185,
+          52974,
+          53161,
+          53162,
+          53151,
+          53164,
+          53195,
+          53206,
+          53152,
+          53190,
+          53253,
+          53140,
+          52973,
+          52979,
+          53136
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53284,
+          53285,
+          53288,
+          53283,
+          53282,
+          53286,
+          53152
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 571,
+          "generation_ms": 0,
+          "total_ms": 571
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53287,
+          53288,
+          53284,
+          53283,
+          53282,
+          53286,
+          53285,
+          53145,
+          53207,
+          53148,
+          53185,
+          52974,
+          53161,
+          53162,
+          53151,
+          53164,
+          53195,
+          53206,
+          53152,
+          53190,
+          53253,
+          53140,
+          52973,
+          52979,
+          53136
+        ],
+        "graph_candidate_chunk_ids": [
+          53137,
+          53148,
+          53149,
+          53151,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53287,
+          53288,
+          53284,
+          53283,
+          53282,
+          53286,
+          53285,
+          53145,
+          53207,
+          53148,
+          53185,
+          52974,
+          53161,
+          53162,
+          53151,
+          53164,
+          53195,
+          53206,
+          53152,
+          53190,
+          53253,
+          53140,
+          52973,
+          52979,
+          53136,
+          53137,
+          53149
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53284,
+          53285,
+          53288,
+          53283,
+          53282,
+          53286,
+          53152
+        ],
+        "graph_relationships": [
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "three-stage hybrid model",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "YOLOv11",
+            "chunk_id": 53137
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "CapsNet",
+            "chunk_id": 53148
+          },
+          {
+            "source": "CapsNet",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "YOLOv11",
+            "chunk_id": 53149
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "DEVELOPED_BY",
+            "type": "DEVELOPED_BY",
+            "target": "Ultralytics",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "IMPROVES",
+            "type": "IMPROVES",
+            "target": "YOLOv8",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 0.6666666666666666,
+          "graph_vector_overlap_rate": 0.2962962962962963,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 2,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 23.52,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 638,
+          "generation_ms": 0,
+          "total_ms": 638
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 67
+    },
+    {
+      "question_id": "GRAPHRAG-07",
+      "question": "What is the most common type of skin cancer?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53287,
+          53285,
+          53143,
+          53288,
+          53283,
+          53282,
+          53186,
+          53284,
+          53165,
+          53144,
+          53188,
+          53175,
+          52974,
+          53286,
+          53164,
+          52973,
+          53176,
+          53145,
+          53182,
+          53163,
+          53140,
+          53255,
+          53271,
+          53198,
+          53155
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53143,
+          53285,
+          53283,
+          53288,
+          53175,
+          53282,
+          53186
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 473,
+          "generation_ms": 0,
+          "total_ms": 473
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53287,
+          53285,
+          53143,
+          53288,
+          53283,
+          53282,
+          53186,
+          53284,
+          53165,
+          53144,
+          53188,
+          53175,
+          52974,
+          53286,
+          53164,
+          52973,
+          53176,
+          53145,
+          53182,
+          53163,
+          53140,
+          53255,
+          53271,
+          53198,
+          53155
+        ],
+        "graph_candidate_chunk_ids": [
+          53143,
+          53204,
+          53282,
+          53283,
+          53285,
+          53286,
+          53287
+        ],
+        "fused_candidate_chunk_ids": [
+          53287,
+          53285,
+          53143,
+          53288,
+          53283,
+          53282,
+          53186,
+          53284,
+          53165,
+          53144,
+          53188,
+          53175,
+          52974,
+          53286,
+          53164,
+          52973,
+          53176,
+          53145,
+          53182,
+          53163,
+          53140,
+          53255,
+          53271,
+          53198,
+          53155,
+          53204
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53143,
+          53285,
+          53283,
+          53288,
+          53175,
+          53282,
+          53186
+        ],
+        "graph_relationships": [
+          {
+            "source": "CT scan",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Lung cancer",
+            "chunk_id": 53143
+          },
+          {
+            "source": "Li, P.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, S.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Li, T.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Lu, J.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "HuangFu, Y.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Wang, D.",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "A large-scale ct and pet/ct dataset for lung cancer diagnosis",
+            "chunk_id": 53204
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.23076923076923078,
+          "graph_overlap_count": 6,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 12.04,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 570,
+          "generation_ms": 0,
+          "total_ms": 570
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 97
+    },
+    {
+      "question_id": "GRAPHRAG-08",
+      "question": "From which cell type does basal cell carcinoma arise?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53287,
+          53284,
+          53286,
+          53282,
+          53283,
+          53285,
+          53176,
+          53175,
+          53186,
+          53164,
+          53206,
+          53165,
+          53288,
+          52974,
+          53143,
+          53155,
+          53189,
+          53140,
+          53183,
+          53156,
+          53144,
+          53202,
+          53256,
+          53198,
+          53180
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53285,
+          53284,
+          53283,
+          53282,
+          53286,
+          53175,
+          53176
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 563,
+          "generation_ms": 0,
+          "total_ms": 563
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53287,
+          53284,
+          53286,
+          53282,
+          53283,
+          53285,
+          53176,
+          53175,
+          53186,
+          53164,
+          53206,
+          53165,
+          53288,
+          52974,
+          53143,
+          53155,
+          53189,
+          53140,
+          53183,
+          53156,
+          53144,
+          53202,
+          53256,
+          53198,
+          53180
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53175,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53287,
+          53284,
+          53286,
+          53282,
+          53283,
+          53285,
+          53176,
+          53175,
+          53186,
+          53164,
+          53206,
+          53165,
+          53288,
+          52974,
+          53143,
+          53155,
+          53189,
+          53140,
+          53183,
+          53156,
+          53144,
+          53202,
+          53256,
+          53198,
+          53180,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53285,
+          53284,
+          53283,
+          53282,
+          53286,
+          53175,
+          53176
+        ],
+        "graph_relationships": [
+          {
+            "source": "large cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "adenocarcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.3333333333333333,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 1.0,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.3076923076923077,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 15.12,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 629,
+          "generation_ms": 0,
+          "total_ms": 629
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 66
+    },
+    {
+      "question_id": "GRAPHRAG-09",
+      "question": "Which anatomical locations are most commonly affected by basal cell carcinoma?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53287,
+        53288
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.50) and MRR (1.00).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53287,
+          53283,
+          53286,
+          53284,
+          53285,
+          53282,
+          53175,
+          53288,
+          53176,
+          53186,
+          53164,
+          53165,
+          53143,
+          53255,
+          53189,
+          53275,
+          53140,
+          53155,
+          53202,
+          53243,
+          53163,
+          53266,
+          53198,
+          53271,
+          53185
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53283,
+          53284,
+          53282,
+          53285,
+          53286,
+          53288,
+          53176
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.25,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.75,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 618,
+          "generation_ms": 0,
+          "total_ms": 618
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53287,
+          53283,
+          53286,
+          53284,
+          53285,
+          53282,
+          53175,
+          53288,
+          53176,
+          53186,
+          53164,
+          53165,
+          53143,
+          53255,
+          53189,
+          53275,
+          53140,
+          53155,
+          53202,
+          53243,
+          53163,
+          53266,
+          53198,
+          53271,
+          53185
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53175,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53287,
+          53283,
+          53286,
+          53284,
+          53285,
+          53282,
+          53175,
+          53288,
+          53176,
+          53186,
+          53164,
+          53165,
+          53143,
+          53255,
+          53189,
+          53275,
+          53140,
+          53155,
+          53202,
+          53243,
+          53163,
+          53266,
+          53198,
+          53271,
+          53185,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53287,
+          53283,
+          53284,
+          53282,
+          53285,
+          53286,
+          53288,
+          53176
+        ],
+        "graph_relationships": [
+          {
+            "source": "large cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "adenocarcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "False Negative",
+            "chunk_id": 53175
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.25,
+          "hit_rate@1": 1.0,
+          "recall@3": 0.5,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.75,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 1.0
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.3076923076923077,
+          "graph_overlap_count": 8,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 26.65,
+          "fusion_ms": 0.03,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 582,
+          "generation_ms": 0,
+          "total_ms": 582
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 0
+    },
+    {
+      "question_id": "GRAPHRAG-10",
+      "question": "What is the primary risk factor for basal cell carcinoma?",
+      "category": "direct_factual",
+      "expected_source_chunks": [
+        53282,
+        53283,
+        53288
+      ],
+      "verdict": "tie",
+      "analysis": "Tie: Both systems achieved identical Recall@3 (0.33) and MRR (0.50).",
+      "vector_only": {
+        "candidate_chunk_ids": [
+          53285,
+          53282,
+          53286,
+          53283,
+          53287,
+          53284,
+          53288,
+          53176,
+          53175,
+          53186,
+          53165,
+          52973,
+          53164,
+          53143,
+          53140,
+          53157,
+          53185,
+          52974,
+          53189,
+          53254,
+          53188,
+          53243,
+          53180,
+          53182,
+          53198
+        ],
+        "retrieved_chunk_ids": [
+          53285,
+          53282,
+          53286,
+          53283,
+          53284,
+          53287,
+          53288,
+          53176
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "retrieval_ms": 510,
+          "generation_ms": 0,
+          "total_ms": 510
+        },
+        "answer": "",
+        "citations": []
+      },
+      "hybrid": {
+        "vector_candidate_chunk_ids": [
+          53285,
+          53282,
+          53286,
+          53283,
+          53287,
+          53284,
+          53288,
+          53176,
+          53175,
+          53186,
+          53165,
+          52973,
+          53164,
+          53143,
+          53140,
+          53157,
+          53185,
+          52974,
+          53189,
+          53254,
+          53188,
+          53243,
+          53180,
+          53182,
+          53198
+        ],
+        "graph_candidate_chunk_ids": [
+          53151,
+          53282,
+          53283,
+          53284,
+          53285,
+          53286,
+          53287,
+          53288
+        ],
+        "fused_candidate_chunk_ids": [
+          53285,
+          53282,
+          53286,
+          53283,
+          53287,
+          53284,
+          53288,
+          53176,
+          53175,
+          53186,
+          53165,
+          52973,
+          53164,
+          53143,
+          53140,
+          53157,
+          53185,
+          52974,
+          53189,
+          53254,
+          53188,
+          53243,
+          53180,
+          53182,
+          53198,
+          53151
+        ],
+        "retrieved_chunk_ids": [
+          53285,
+          53282,
+          53286,
+          53283,
+          53284,
+          53287,
+          53288,
+          53176
+        ],
+        "graph_relationships": [
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53282
+          },
+          {
+            "source": "Medical and Family History",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Physical and Skin Exam",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53283
+          },
+          {
+            "source": "Surgery",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "basal cell carcinoma",
+            "chunk_id": 53284
+          },
+          {
+            "source": "Older age",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Fair skin",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Family history of skin cancer",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53285
+          },
+          {
+            "source": "Radiation Therapy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Imaging",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Biopsy",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53286
+          },
+          {
+            "source": "Basal cell carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "basal cells",
+            "chunk_id": 53287
+          },
+          {
+            "source": "annual full skin exams",
+            "relationship_type": "APPLIES_TO",
+            "type": "APPLIES_TO",
+            "target": "Basal cell carcinoma",
+            "chunk_id": 53287
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "face",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "head",
+            "chunk_id": 53288
+          },
+          {
+            "source": "Basal Cell Carcinoma",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "neck",
+            "chunk_id": 53288
+          },
+          {
+            "source": "UV radiation exposure",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Basal Cell Carcinoma",
+            "chunk_id": 53288
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "neck",
+            "chunk_id": 53151
+          },
+          {
+            "source": "YOLOv11",
+            "relationship_type": "HAS_COMPONENT",
+            "type": "HAS_COMPONENT",
+            "target": "head",
+            "chunk_id": 53151
+          },
+          {
+            "source": "Immune suppression",
+            "relationship_type": "RELATED_TO",
+            "type": "RELATED_TO",
+            "target": "Organ transplant",
+            "chunk_id": 53282
+          },
+          {
+            "source": "basal cells",
+            "relationship_type": "PART_OF",
+            "type": "PART_OF",
+            "target": "epidermis",
+            "chunk_id": 53287
+          }
+        ],
+        "retrieval_metrics": {
+          "recall@1": 0.0,
+          "hit_rate@1": 0.0,
+          "recall@3": 0.3333333333333333,
+          "hit_rate@3": 1.0,
+          "recall@5": 0.6666666666666666,
+          "hit_rate@5": 1.0,
+          "recall@10": 1.0,
+          "hit_rate@10": 1.0,
+          "mrr": 0.5
+        },
+        "graph_metrics": {
+          "graph_seed_hit": 1.0,
+          "relationship_retrieval_rate": 0.0,
+          "graph_provenance_coverage": 1.0,
+          "graph_vector_overlap_rate": 0.2692307692307692,
+          "graph_overlap_count": 7,
+          "unique_graph_chunks_count": 1,
+          "unique_relevant_graph_chunks_count": 0,
+          "unique_relevant_chunk_ids": []
+        },
+        "citation_metrics": {
+          "citation_correctness": 0.0,
+          "citation_completeness": 0.0
+        },
+        "generation_metrics": {
+          "entity_coverage": 0.0,
+          "refusal_correctness": 1.0,
+          "groundedness_score": 1.0,
+          "answer_correctness": 0.3
+        },
+        "timing": {
+          "vector_retrieval_ms": 0,
+          "graph_retrieval_ms": 16.89,
+          "fusion_ms": 0.04,
+          "rerank_ms": 0,
+          "retrieval_total_ms": 529,
+          "generation_ms": 0,
+          "total_ms": 529
+        },
+        "answer": "",
+        "citations": []
+      },
+      "retrieval_overhead_ms": 19
+    }
+  ]
+}

@@ -92,7 +92,7 @@ def calculate_graph_metrics(
             for r in retrieved_relationships:
                 s = str(r.get("source_name") or r.get("source", "")).strip().lower()
                 t = str(r.get("target_name") or r.get("target", "")).strip().lower()
-                rtype = str(r.get("relationship_type", "")).strip().upper()
+                rtype = str(r.get("relationship_type") or r.get("type", "")).strip().upper()
                 retrieved_edges.add((s, rtype, t))
                 retrieved_edges.add((t, rtype, s))  # bidirectional matching tolerance
 
