@@ -1,5 +1,5 @@
 """
-Context Builder for Grounded Enterprise RAG Generation (Step 6).
+Context Builder for Grounded Enterprise RAG Generation.
 
 This module prepares retrieved and reranked passages into a structured, bounded
 context block for the LLM prompt, and maps each passage to an authoritative Citation.

@@ -1,5 +1,5 @@
 """
-Command-line entry point to execute the Document Ingestion & Chunking Pipeline (Step 1).
+Command-line entry point to execute the Document Ingestion & Chunking Pipeline.
 
 Usage:
     python run_pipeline.py
@@ -12,7 +12,7 @@ from app.config import RAW_DATA_DIR, PROCESSED_DATA_DIR, DEFAULT_CHUNK_SIZE, DEF
 
 def main():
     print("=" * 70)
-    print("  Enterprise RAG - Document Ingestion & Chunking (Step 1)")
+    print("  Enterprise RAG - Document Ingestion & Chunking")
     print("=" * 70)
     print(f"  Source Directory : {RAW_DATA_DIR}")
     print(f"  Target Directory : {PROCESSED_DATA_DIR}")

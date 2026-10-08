@@ -1,5 +1,5 @@
 """
-FastAPI REST API Application for Enterprise Knowledge Intelligence Platform (Step 7).
+FastAPI REST API Application for Enterprise Knowledge Intelligence Platform.
 
 Endpoints:
 - GET  /health : Liveness check and database readiness status.

@@ -1,5 +1,5 @@
 """
-Unit Tests for Context Builder & Authoritative Citations (Step 6).
+Unit Tests for Context Builder & Authoritative Citations.
 """
 import pytest
 from app.models import SearchResult, Citation

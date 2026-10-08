@@ -1,5 +1,5 @@
 """
-Unit and integration tests for Text Embedding Providers and Service (Step 2A).
+Unit and integration tests for Text Embedding Providers and Service.
 
 Tests cover:
 1. Gemini provider initialization with credentials / missing key error.

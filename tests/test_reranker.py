@@ -1,5 +1,5 @@
 """
-Unit and Integration Tests for Step 5: Cross-Encoder Reranking.
+Unit and Integration Tests for Cross-Encoder Reranking.
 """
 from typing import List, Dict, Any
 from unittest.mock import MagicMock

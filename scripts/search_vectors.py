@@ -1,5 +1,5 @@
 """
-CLI Demonstration Tool for Vector Similarity Search with pgvector (Step 3).
+CLI Demonstration Tool for Vector Similarity Search with pgvector.
 
 Workflow:
 1. Accepts user query text and optional top_k parameter via CLI arguments.
@@ -52,7 +52,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 75)
-    print("  Enterprise RAG - pgvector Cosine Vector Search Demo (Step 3)")
+    print("  Enterprise RAG - pgvector Cosine Vector Search Demo")
     print("=" * 75)
     print(f"  Target Database    : {POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}")
     print(f"  Embedding Model    : {LOCAL_EMBEDDING_MODEL}")

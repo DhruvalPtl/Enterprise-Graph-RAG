@@ -1,5 +1,5 @@
 """
-Unit tests for Docker and Production Packaging Configuration (Step 8).
+Unit tests for Docker and Production Packaging Configuration.
 
 These tests run offline and do not require Docker daemon execution:
 1. Validates Dockerfile structure, base image, non-root user, and entrypoint.

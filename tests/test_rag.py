@@ -1,5 +1,5 @@
 """
-Unit Tests for End-to-End Enterprise RAG Pipeline (Step 6).
+Unit Tests for End-to-End Enterprise RAG Pipeline.
 """
 import os
 from unittest.mock import MagicMock

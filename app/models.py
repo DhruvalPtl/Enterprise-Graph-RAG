@@ -29,7 +29,7 @@ ACCESS_LEVEL_HIERARCHY: Dict[str, int] = {
 @dataclass
 class AccessContext:
     """
-    Caller access authorization context for metadata-filtered retrieval (Step 9).
+    Caller access authorization context for metadata-filtered retrieval.
     Enforces that authorization is checked BEFORE candidates enter vector, BM25, or RRF stages.
     """
     department: str = "public"
@@ -111,7 +111,7 @@ class DocumentPage:
 @dataclass
 class Document:
     """
-    Represents an ingested document before chunking with access metadata (Step 9).
+    Represents an ingested document before chunking with access metadata.
     """
     id: str
     content: str

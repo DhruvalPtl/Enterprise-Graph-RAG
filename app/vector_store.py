@@ -1,5 +1,5 @@
 """
-Vector Store and Similarity Retrieval Layer for Enterprise RAG (Step 3).
+Vector Store and Similarity Retrieval Layer for Enterprise RAG.
 
 This module implements vector similarity search using PostgreSQL with the pgvector extension.
 It handles:
@@ -25,7 +25,7 @@ def search_similar_chunks(
     conn: Optional[psycopg.Connection] = None,
 ) -> List[Dict[str, Any]]:
     """
-    Performs cosine vector similarity search against PostgreSQL chunks table with access-control filtering (Step 9).
+    Performs cosine vector similarity search against PostgreSQL chunks table with access-control filtering.
 
     Args:
         query_embedding: A 384-dimensional float vector.

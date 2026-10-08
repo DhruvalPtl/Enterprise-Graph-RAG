@@ -1,5 +1,5 @@
 """
-Unit and Integration tests for PostgreSQL Database Layer (Step 3A).
+Unit and Integration tests for PostgreSQL Database Layer.
 
 Tests cover:
 - Database configuration parsing

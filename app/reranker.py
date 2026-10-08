@@ -1,5 +1,5 @@
 """
-Cross-Encoder Reranker and Two-Stage Retrieval Pipeline for Enterprise RAG (Step 5).
+Cross-Encoder Reranker and Two-Stage Retrieval Pipeline for Enterprise RAG.
 
 This module implements:
 1. CrossEncoderReranker: Scores joint (query, chunk) candidate pairs using a pretrained

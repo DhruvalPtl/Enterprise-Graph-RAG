@@ -1,5 +1,5 @@
 """
-CLI Demonstration Tool for End-to-End Enterprise RAG (Step 6).
+CLI Demonstration Tool for End-to-End Enterprise RAG.
 
 Demonstrates:
 1. Two-stage retrieval: Dense vector + BM25 -> RRF -> Cross-Encoder reranker.
@@ -72,7 +72,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 80)
-    print("  ENTERPRISE RAG - KNOWLEDGE INTELLIGENCE PLATFORM (Step 6)")
+    print("  ENTERPRISE RAG - KNOWLEDGE INTELLIGENCE PLATFORM")
     print("=" * 80)
     print(f"  Target Database : {POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}")
     print(f"  LLM Model       : {GEMINI_LLM_MODEL}")

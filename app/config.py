@@ -26,7 +26,7 @@ DEFAULT_CHUNK_OVERLAP = int(os.getenv("DEFAULT_CHUNK_OVERLAP", 150))
 # Supported File Extensions
 SUPPORTED_EXTENSIONS = {".pdf", ".md", ".txt"}
 
-# Embedding Configuration (Step 2 & Step 2A)
+# Embedding Configuration
 # Active provider: 'sentence-transformers' (PRIMARY/default) or 'gemini' (secondary/alternative)
 EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", "sentence-transformers").strip().lower()
 
@@ -49,7 +49,7 @@ DEFAULT_EMBEDDING_MODEL = (
 ALL_CHUNKS_FILE = PROCESSED_DATA_DIR / "all_chunks.json"
 EMBEDDED_CHUNKS_FILE = PROCESSED_DATA_DIR / "embedded_chunks.json"
 
-# PostgreSQL Database Configuration (Step 3 & Step 8)
+# PostgreSQL Database Configuration
 POSTGRES_HOST = os.getenv("DATABASE_HOST") or os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = int(os.getenv("DATABASE_PORT") or os.getenv("POSTGRES_PORT", 5432))
 POSTGRES_DB = os.getenv("DATABASE_NAME") or os.getenv("POSTGRES_DB", "rag_db")
@@ -66,10 +66,10 @@ DATABASE_NAME = POSTGRES_DB
 DATABASE_USER = POSTGRES_USER
 DATABASE_PASSWORD = POSTGRES_PASSWORD
 
-# Vector Search Configuration (Step 3)
+# Vector Search Configuration
 VECTOR_DIMENSION = 384
 
-# Hybrid Retrieval & RRF Configuration (Step 4)
+# Hybrid Retrieval & RRF Configuration
 VECTOR_TOP_K = int(os.getenv("VECTOR_TOP_K", 20))
 BM25_TOP_K = int(os.getenv("BM25_TOP_K", 20))
 RRF_TOP_K = int(os.getenv("RRF_TOP_K", 20))
@@ -77,20 +77,20 @@ RRF_K = int(os.getenv("RRF_K", 60))
 BM25_K1 = float(os.getenv("BM25_K1", 1.5))
 BM25_B = float(os.getenv("BM25_B", 0.75))
 
-# Cross-Encoder Reranking Configuration (Step 5)
+# Cross-Encoder Reranking Configuration
 RERANKER_MODEL = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 RERANKER_CANDIDATE_K = int(os.getenv("RERANKER_CANDIDATE_K", 25))
 RERANKER_TOP_K = int(os.getenv("RERANKER_TOP_K", 8))
 RERANKING_MODE = os.getenv("RERANKING_MODE", "baseline").strip().lower()
 
-# Graph Traversal Configuration (Step G10.5-C)
+# Graph Traversal Configuration
 GRAPH_TRAVERSAL_MODE = os.getenv("GRAPH_TRAVERSAL_MODE", "depth_1").strip().lower()
 
-# Generation & Context Builder Configuration (Step 6)
+# Generation & Context Builder Configuration
 GEMINI_LLM_MODEL = os.getenv("GEMINI_LLM_MODEL", "gemini-3.5-flash-lite")
 MAX_CONTEXT_CHARS = int(os.getenv("MAX_CONTEXT_CHARS", 12000))
 
-# FastAPI Server Configuration (Step 7)
+# FastAPI Server Configuration
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
 API_PORT = int(os.getenv("API_PORT", 8000))
 API_DEBUG = os.getenv("API_DEBUG", "false").lower() == "true"

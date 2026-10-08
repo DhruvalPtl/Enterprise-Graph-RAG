@@ -1,3 +1,3 @@
 """
-Enterprise RAG - Document Ingestion & Chunking Module (Step 1)
+Enterprise RAG - Document Ingestion & Chunking Module
 """

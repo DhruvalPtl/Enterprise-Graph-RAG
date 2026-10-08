@@ -1,5 +1,5 @@
 """
-Document Ingestion Pipeline (Step 1).
+Document Ingestion Pipeline.
 
 Orchestrates the entire ingestion workflow:
 1. Discover supported files in the raw data directory.

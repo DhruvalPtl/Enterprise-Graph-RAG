@@ -1,5 +1,5 @@
 """
-Prompt Templates and System Instructions for Grounded Enterprise RAG (Step 6).
+Prompt Templates and System Instructions for Grounded Enterprise RAG.
 
 Defines strict guidelines for hallucination-resistant, citation-grounded generation:
 1. Answers must be derived exclusively from the provided retrieved context.

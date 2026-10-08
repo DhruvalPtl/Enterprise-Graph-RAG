@@ -1,5 +1,5 @@
 """
-Generates embeddings for processed text chunks (Step 2A).
+Generates embeddings for processed text chunks.
 
 Workflow:
 1. Loads raw chunks from data/processed/all_chunks.json.
@@ -47,7 +47,7 @@ def embed_chunks(
     )
 
     print("=" * 70)
-    print("  Enterprise RAG - Text Embedding Generation (Step 2A)")
+    print("  Enterprise RAG - Text Embedding Generation")
     print("=" * 70)
     print(f"  Active Provider    : {active_provider}")
     print(f"  Embedding Model    : {active_model}")

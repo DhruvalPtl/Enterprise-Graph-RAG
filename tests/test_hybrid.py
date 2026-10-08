@@ -1,5 +1,5 @@
 """
-Unit and Integration Tests for Hybrid Retrieval (Step 4).
+Unit and Integration Tests for Hybrid Retrieval.
 """
 import pytest
 from unittest.mock import MagicMock

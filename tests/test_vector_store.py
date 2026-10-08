@@ -1,5 +1,5 @@
 """
-Unit and Integration tests for Vector Store and Cosine Retrieval (Step 3).
+Unit and Integration tests for Vector Store and Cosine Retrieval.
 
 Tests cover:
 - Dimension validation (strict 384-d enforcement, rejecting 768-d Gemini vectors)

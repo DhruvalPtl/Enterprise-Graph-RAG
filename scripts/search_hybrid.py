@@ -1,5 +1,5 @@
 """
-CLI Demonstration Tool for Hybrid Retrieval and Reciprocal Rank Fusion (Step 4).
+CLI Demonstration Tool for Hybrid Retrieval and Reciprocal Rank Fusion.
 
 Demonstrates:
 1. Semantic dense vector retrieval (PostgreSQL + pgvector HNSW).
@@ -82,7 +82,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 80)
-    print("  Enterprise RAG - Hybrid Retrieval & Reciprocal Rank Fusion (Step 4)")
+    print("  Enterprise RAG - Hybrid Retrieval & Reciprocal Rank Fusion")
     print("=" * 80)
     print(f"  Target Database    : {POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}")
     print(f"  Vector Model       : {LOCAL_EMBEDDING_MODEL} ({VECTOR_DIMENSION}-d)")

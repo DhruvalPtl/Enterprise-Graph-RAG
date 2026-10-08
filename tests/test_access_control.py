@@ -1,5 +1,5 @@
 """
-Unit and Integration Tests for Step 9: Metadata Filtering + Access-Aware Retrieval.
+Unit and Integration Tests for Metadata Filtering + Access-Aware Retrieval.
 
 Tests cover:
 1. test_access_context_defaults: verifies default context is public/public/not admin.

@@ -1,5 +1,5 @@
 """
-Hybrid Retrieval Coordinator for Enterprise RAG (Step 4).
+Hybrid Retrieval Coordinator for Enterprise RAG.
 
 This module coordinates:
 1. Semantic dense vector retrieval via PostgreSQL + pgvector (HNSW index, MiniLM 384-d).

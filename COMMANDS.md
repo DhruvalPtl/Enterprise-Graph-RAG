@@ -8,8 +8,8 @@ This document provides a comprehensive list of all operational, CLI, Docker, dat
 
 1. [Quick Start (Docker)](#1-quick-start-docker)
 2. [Local Development Setup](#2-local-development-setup)
-3. [Data Ingestion & Embedding Pipeline (Steps 1–3)](#3-data-ingestion--embedding-pipeline-steps-13)
-4. [Search & Retrieval CLI Tools (Steps 3–6)](#4-search--retrieval-cli-tools-steps-36)
+3. [Data Ingestion & Embedding Pipeline](#3-data-ingestion--embedding-pipeline)
+4. [Search & Retrieval CLI Tools](#4-search--retrieval-cli-tools)
 5. [Running the REST API Server](#5-running-the-rest-api-server)
 6. [Testing the REST API (curl & PowerShell)](#6-testing-the-rest-api-curl--powershell)
 7. [Automated Test Suite (pytest)](#7-automated-test-suite-pytest)
@@ -95,7 +95,7 @@ POSTGRES_PASSWORD=postgres
 
 ---
 
-## 3. Data Ingestion & Embedding Pipeline (Steps 1–3)
+## 3. Data Ingestion & Embedding Pipeline
 
 Run these commands sequentially when populating or updating the enterprise knowledge base.
 
@@ -105,25 +105,25 @@ Generates multi-page architectural PDFs and governance policies:
 python scripts/generate_sample_pdf.py
 ```
 
-### 3.2. Run Document Ingestion & Structure-Aware Chunking (Step 1)
+### 3.2. Run Document Ingestion & Structure-Aware Chunking
 Reads PDF, Markdown, and text files from `data/raw/` and produces deterministic chunks in `data/processed/all_chunks.json`:
 ```bash
 python run_pipeline.py
 ```
 
-### 3.3. Compute Dense Vector Embeddings (Step 2)
+### 3.3. Compute Dense Vector Embeddings
 Generates 384-dimensional dense vector embeddings using local `sentence-transformers/all-MiniLM-L6-v2` and saves to `data/processed/embedded_chunks.json`:
 ```bash
 python scripts/embed_chunks.py
 ```
 
-### 3.4. Initialize PostgreSQL Schema & HNSW Vector Index (Step 3)
+### 3.4. Initialize PostgreSQL Schema & HNSW Vector Index
 Connects to PostgreSQL, enables the `vector` extension, and builds tables (`documents`, `document_chunks`) with HNSW cosine distance indexing:
 ```bash
 python scripts/init_db.py
 ```
 
-### 3.5. Seed Chunks & Embeddings into PostgreSQL (Step 3 & Step 9)
+### 3.5. Seed Chunks & Embeddings into PostgreSQL
 Loads embedded chunks into PostgreSQL with department, access level, and active status metadata:
 ```bash
 python scripts/store_chunks_in_db.py
@@ -131,11 +131,11 @@ python scripts/store_chunks_in_db.py
 
 ---
 
-## 4. Search & Retrieval CLI Tools (Steps 3–6)
+## 4. Search & Retrieval CLI Tools
 
 Use these CLI scripts to test and inspect each layer of the search and reasoning pipeline.
 
-### 4.1. Dense Vector Similarity Search (Step 3)
+### 4.1. Dense Vector Similarity Search
 Retrieves semantically similar chunks using cosine distance vector queries against pgvector:
 ```bash
 # Default query
@@ -145,7 +145,7 @@ python scripts/search_vectors.py
 python scripts/search_vectors.py --query "What is chunking and chunk overlap strategy?" --top-k 5
 ```
 
-### 4.2. Hybrid Retrieval with Reciprocal Rank Fusion (Step 4)
+### 4.2. Hybrid Retrieval with Reciprocal Rank Fusion
 Runs BM25 lexical search and pgvector semantic search in parallel and combines them via RRF ($k=60$):
 ```bash
 # Default hybrid query
@@ -155,7 +155,7 @@ python scripts/search_hybrid.py
 python scripts/search_hybrid.py --query "PostgreSQL vector index HNSW" --top-k 5
 ```
 
-### 4.3. Two-Stage Retrieval with Cross-Encoder Reranking (Step 5)
+### 4.3. Two-Stage Retrieval with Cross-Encoder Reranking
 Retrieves high-recall candidates via Hybrid RRF (Stage 1), then re-scores with `cross-encoder/ms-marco-MiniLM-L-6-v2` (Stage 2):
 ```bash
 # Default two-stage search
@@ -165,7 +165,7 @@ python scripts/search_reranked.py
 python scripts/search_reranked.py --query "What metadata is preserved during chunking?" --candidate-k 10 --top-k 3
 ```
 
-### 4.4. Full End-to-End Grounded RAG Generation (Step 6)
+### 4.4. Full End-to-End Grounded RAG Generation
 Executes the full pipeline: Two-stage retrieval $\rightarrow$ Context builder $\rightarrow$ Grounded Gemini answer with strict citation attribution:
 ```bash
 # General inquiry
@@ -252,7 +252,7 @@ Invoke-RestMethod -Uri "http://localhost:8000/query" -Method Post -ContentType "
 
 ### 6.3. Access-Aware Query with Clearance Filtering (`POST /query`)
 
-Demonstrates Step 9 multi-tenant access control (`access_context`):
+Demonstrates multi-tenant access control (`access_context`):
 
 **Query restricted engineering architecture document (Employee Clearance):**
 ```powershell
@@ -317,15 +317,15 @@ pytest -v
 
 | Stage / Component | Command |
 |---|---|
-| **Step 1: Ingestion & Loaders** | `pytest tests/test_loaders.py tests/test_pipeline.py -v` |
-| **Step 2: SentenceTransformer Embeddings** | `pytest tests/test_embeddings.py -v` |
-| **Step 3: Database & Vector Search** | `pytest tests/test_db.py tests/test_vector_store.py -v` |
-| **Step 4: BM25 Lexical & Hybrid RRF** | `pytest tests/test_bm25.py tests/test_rrf.py tests/test_hybrid.py -v` |
-| **Step 5: Cross-Encoder Reranker** | `pytest tests/test_reranker.py -v` |
-| **Step 6: Grounded LLM & RAG Pipeline** | `pytest tests/test_llm.py tests/test_rag.py -v` |
-| **Step 7: FastAPI REST API & Schemas** | `pytest tests/test_api.py -v` |
-| **Step 8: Docker Packaging & Configuration** | `pytest tests/test_docker_config.py -v` |
-| **Step 9: Metadata Filtering & Access Control** | `pytest tests/test_access_control.py -v` |
+| **Ingestion & Loaders** | `pytest tests/test_loaders.py tests/test_pipeline.py -v` |
+| **SentenceTransformer Embeddings** | `pytest tests/test_embeddings.py -v` |
+| **Database & Vector Search** | `pytest tests/test_db.py tests/test_vector_store.py -v` |
+| **BM25 Lexical & Hybrid RRF** | `pytest tests/test_bm25.py tests/test_rrf.py tests/test_hybrid.py -v` |
+| **Cross-Encoder Reranker** | `pytest tests/test_reranker.py -v` |
+| **Grounded LLM & RAG Pipeline** | `pytest tests/test_llm.py tests/test_rag.py -v` |
+| **FastAPI REST API & Schemas** | `pytest tests/test_api.py -v` |
+| **Docker Packaging & Configuration** | `pytest tests/test_docker_config.py -v` |
+| **Metadata Filtering & Access Control** | `pytest tests/test_access_control.py -v` |
 
 ### 7.3. Run Fast Unit Tests Only (Skipping Live Model / DB Calls)
 ```bash

@@ -264,7 +264,7 @@ class EmbeddingService:
     def embedding_dimension(self) -> int:
         return self.provider.embedding_dimension
 
-    # Backwards compatibility properties for Step 2
+    # Backwards compatibility properties
     @property
     def dimension(self) -> int:
         return self.embedding_dimension

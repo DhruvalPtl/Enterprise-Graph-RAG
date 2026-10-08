@@ -1,5 +1,5 @@
 """
-Pydantic Request and Response Schemas for the Enterprise RAG REST API (Step 7).
+Pydantic Request and Response Schemas for the Enterprise RAG REST API.
 
 Ensures strict input validation (bounds, non-empty, whitespace stripping, forbidden extras)
 and standardizes authoritative response structures.
@@ -12,7 +12,7 @@ from app.models import Citation, RAGResponse
 
 class AccessContextSchema(BaseModel):
     """
-    Caller authorization parameters for access-aware retrieval (Step 9).
+    Caller authorization parameters for access-aware retrieval.
     Default: strictly public access level and public department.
     """
     model_config = ConfigDict(extra="forbid")

@@ -1,5 +1,5 @@
 """
-End-to-End Enterprise RAG Pipeline (Step 6).
+End-to-End Enterprise RAG Pipeline.
 
 Coordinates the complete question-answering workflow:
 1. Two-Stage Retrieval:
@@ -37,8 +37,8 @@ class RAGPipeline:
     """
     Orchestrates end-to-end question-answering across retrieval, reranking,
     context preparation, LLM generation, and authoritative citation assembly,
-    enforcing pre-retrieval access control filtering (Step 9).
-    Supports Graph + Vector Hybrid RAG (Phase G4).
+    enforcing pre-retrieval access control filtering.
+    Supports Graph + Vector Hybrid RAG.
     """
 
     def __init__(

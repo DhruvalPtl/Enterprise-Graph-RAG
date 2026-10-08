@@ -1,5 +1,5 @@
 """
-CLI Demonstration Tool for Cross-Encoder Reranking (Step 5).
+CLI Demonstration Tool for Cross-Encoder Reranking.
 
 Demonstrates:
 1. Stage 1: Fast hybrid candidate retrieval (Dense Vector + Sparse BM25 fused with RRF).
@@ -76,7 +76,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 80)
-    print("  Enterprise RAG - Cross-Encoder Reranking (Step 5)")
+    print("  Enterprise RAG - Cross-Encoder Reranking")
     print("=" * 80)
     print(f"  Target Database      : {POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}")
     print(f"  Bi-Encoder (Stage 1) : {LOCAL_EMBEDDING_MODEL} ({VECTOR_DIMENSION}-d)")

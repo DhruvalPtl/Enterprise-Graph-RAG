@@ -1,5 +1,5 @@
 """
-Unit and Integration Tests for BM25 Lexical Retrieval (Step 4).
+Unit and Integration Tests for BM25 Lexical Retrieval.
 """
 import pytest
 from app.bm25 import BM25Retriever, tokenize, search_bm25

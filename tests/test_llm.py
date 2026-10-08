@@ -1,5 +1,5 @@
 """
-Unit and Integration Tests for Gemini LLM Provider (Step 6).
+Unit and Integration Tests for Gemini LLM Provider.
 """
 import os
 from unittest.mock import MagicMock

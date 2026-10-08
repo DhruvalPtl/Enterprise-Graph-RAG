@@ -1,5 +1,5 @@
 """
-Persists processed document chunks and their embeddings into PostgreSQL (Step 3).
+Persists processed document chunks and their embeddings into PostgreSQL.
 
 Workflow:
 1. Verifies PostgreSQL connectivity.
@@ -24,7 +24,7 @@ from app.db import test_connection, init_db, store_processed_chunks, get_db_conf
 
 def main():
     print("=" * 70)
-    print("  Enterprise RAG - Store Vectors in PostgreSQL + pgvector (Step 3)")
+    print("  Enterprise RAG - Store Vectors in PostgreSQL + pgvector")
     print("=" * 70)
 
     config = get_db_config()

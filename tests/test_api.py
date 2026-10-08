@@ -1,5 +1,5 @@
 """
-Unit Tests for FastAPI REST API (Step 7).
+Unit Tests for FastAPI REST API.
 
 Verifies:
 - GET /health (liveness and database readiness)

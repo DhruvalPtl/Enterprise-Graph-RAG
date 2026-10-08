@@ -1,5 +1,5 @@
 """
-Unit Tests for Reciprocal Rank Fusion (RRF) (Step 4).
+Unit Tests for Reciprocal Rank Fusion (RRF).
 
 Verifies:
 - Standard RRF formula: Score(d) = Σ 1 / (k + rank_m(d))

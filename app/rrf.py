@@ -1,5 +1,5 @@
 """
-Reciprocal Rank Fusion (RRF) Implementation for Enterprise RAG (Step 4).
+Reciprocal Rank Fusion (RRF) Implementation for Enterprise RAG.
 
 RRF is a robust, parameter-insensitive rank fusion algorithm that merges ranked lists
 from multiple independent retrieval systems (such as Dense Vector Search and Sparse BM25).

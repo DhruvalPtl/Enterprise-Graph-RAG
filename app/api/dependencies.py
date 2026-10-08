@@ -1,5 +1,5 @@
 """
-FastAPI Dependency Injection & Shared Lifecycle Management for Enterprise RAG (Step 7).
+FastAPI Dependency Injection & Shared Lifecycle Management for Enterprise RAG.
 
 Manages the singleton lifecycle of the RAGPipeline:
 1. Prevents recreating expensive ML models (MiniLM, Cross-Encoder) per HTTP request.

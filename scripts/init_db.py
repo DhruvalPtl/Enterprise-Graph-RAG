@@ -1,5 +1,5 @@
 """
-Initializes the PostgreSQL database schema for Enterprise RAG (Step 3).
+Initializes the PostgreSQL database schema for Enterprise RAG.
 
 Creates:
 - pgvector extension (CREATE EXTENSION IF NOT EXISTS vector)
@@ -23,7 +23,7 @@ from app.config import VECTOR_DIMENSION
 
 def main():
     print("=" * 70)
-    print("  Enterprise RAG - PostgreSQL + pgvector Initialization (Step 3)")
+    print("  Enterprise RAG - PostgreSQL + pgvector Initialization")
     print("=" * 70)
 
     config = get_db_config()

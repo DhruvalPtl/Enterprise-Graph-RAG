@@ -371,7 +371,7 @@ class EntityLinker:
 
         ctx = access_context or AccessContext()
 
-        # Step 1: Extract entity candidate canonical names
+        # 1. Extract entity candidate canonical names
         matched_canons, candidate_audit = self.extract_candidates(query)
         if not matched_canons:
             elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
@@ -383,7 +383,7 @@ class EntityLinker:
                 "candidates": [],
             }
 
-        # Step 2: Query PostgreSQL to fetch entity records for matched canonical names
+        # 2. Query PostgreSQL to fetch entity records for matched canonical names
         candidate_canons = list(matched_canons.keys())
         sql_fetch = """
         SELECT id, canonical_name, entity_type, display_name, metadata, created_at, updated_at
@@ -396,7 +396,7 @@ class EntityLinker:
             for row in cur.fetchall():
                 candidate_entities.append(Entity.from_dict(row))
 
-        # Step 3: Enforce RBAC Pre-Retrieval Authorization Filter
+        # 3. Enforce RBAC Pre-Retrieval Authorization Filter
         # If caller is not admin, verify that the entity has at least one incident relationship
         # in a document authorized under the caller's access level and department.
         authorized_entities: List[Entity] = []

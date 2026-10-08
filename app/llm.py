@@ -1,5 +1,5 @@
 """
-Google Gemini LLM Generation Provider for Enterprise RAG (Step 6).
+Google Gemini LLM Generation Provider for Enterprise RAG.
 
 Implements grounded generation using the official Google GenAI Python SDK (google-genai).
 Ensures safe handling of API credentials, structured system instructions,

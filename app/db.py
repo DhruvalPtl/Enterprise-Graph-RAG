@@ -1,5 +1,5 @@
 """
-PostgreSQL Database and Vector Storage Layer for Enterprise RAG (Step 3).
+PostgreSQL Database and Vector Storage Layer for Enterprise RAG.
 
 This module manages relational persistence and vector storage for documents and chunks
 using psycopg 3 and pgvector.
@@ -32,12 +32,12 @@ from app.config import (
     VECTOR_DIMENSION,
 )
 
-# Relational and Vector DDL for documents and chunks (extended in Step 9)
+# Relational and Vector DDL for documents and chunks
 SCHEMA_SQL = f"""
 -- 1. Enable the pgvector extension
 CREATE EXTENSION IF NOT EXISTS vector;
 
--- 2. Documents metadata table with access control attributes (Step 9)
+-- 2. Documents metadata table with access control attributes
 CREATE TABLE IF NOT EXISTS documents (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     filename TEXT NOT NULL,
@@ -213,7 +213,7 @@ def insert_document(
     status: str = "active",
 ) -> int:
     """
-    Inserts a new document record with access control metadata (Step 9)
+    Inserts a new document record with access control metadata
     and returns the generated BIGINT primary key ID.
     """
     clean_filename = _sanitize_pg_text(filename) or "unnamed_document"
@@ -339,7 +339,7 @@ def store_processed_chunks(
             doc_type = meta.get("file_type", Path(filename).suffix.lstrip("."))
             content_hash = doc_key.replace("doc_", "")
 
-            # Map demonstration access metadata (Step 9)
+            # Map demonstration access metadata
             demo_access = {
                 "support_faq.txt": {"department": "public", "access_level": "public", "status": "active"},
                 "enterprise_platform_architecture.pdf": {"department": "engineering", "access_level": "employee", "status": "active"},

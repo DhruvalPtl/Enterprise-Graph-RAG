@@ -1,3 +1,3 @@
 """
-Unit and integration tests for Enterprise RAG Step 1.
+Unit and integration tests for Enterprise RAG.
 """

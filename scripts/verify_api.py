@@ -1,5 +1,5 @@
 """
-Verification script for Step 7 FastAPI REST API.
+Verification script for FastAPI REST API.
 """
 import sys
 from pathlib import Path
@@ -10,7 +10,7 @@ from app.api.main import app
 
 def main():
     print("=" * 80)
-    print("  FASTAPI REST API VERIFICATION (Step 7)")
+    print("  FASTAPI REST API VERIFICATION")
     print("=" * 80)
 
     with TestClient(app) as client:

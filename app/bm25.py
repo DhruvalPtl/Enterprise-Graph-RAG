@@ -1,5 +1,5 @@
 """
-BM25 Lexical Retrieval Component for Enterprise RAG (Step 4).
+BM25 Lexical Retrieval Component for Enterprise RAG.
 
 This module implements the Okapi BM25 ranking algorithm for sparse, keyword-based text retrieval.
 Features:
@@ -142,7 +142,7 @@ class BM25Retriever:
     ) -> List[Dict[str, Any]]:
         """
         Searches the indexed corpus for the given query text using BM25,
-        enforcing pre-retrieval access control filtering (Step 9).
+        enforcing pre-retrieval access control filtering.
 
         Args:
             query_text: User search phrase or question.

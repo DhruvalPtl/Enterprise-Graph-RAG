@@ -1,5 +1,5 @@
 # ==============================================================================
-# Enterprise Knowledge Intelligence Platform - Production Dockerfile (Step 8)
+# Enterprise Knowledge Intelligence Platform - Production Dockerfile
 # ==============================================================================
 # Base image: Official Python 3.12 slim Debian (Bookworm)
 FROM python:3.12-slim-bookworm
